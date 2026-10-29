@@ -14,7 +14,7 @@ The organisation's convention
 ([NAMING_CONVENTIONS.md](https://github.com/BikeNetKit/.github/blob/main/NAMING_CONVENTIONS.md))
 is the upstream form:
 
-```
+```text
 <city>-<tool>-<algorithm>-<layer>[-<variant>].geojson      lowercase, single extension
 amsterdam_nl-growbikenet-betweenness-grid-with_bikenw.geojson
 ```
@@ -22,17 +22,17 @@ amsterdam_nl-growbikenet-betweenness-grid-with_bikenw.geojson
 The importer writes the site's own form under `www/data/<tool>/`, dropping the tool infix because
 the directory already carries it:
 
-```
+```text
 <cityid>-<metric>-<type>[-<variant>].geojson
 aachen_de-betweenness-grid-from_bikenw.geojson
 ```
 
-`<cityid>` is `<base>_<cc>` — `amsterdam_nl`, `aachen_de`. Generate it with the organisation's
-`slugify()`, currently in
-[GrowBikeNet/functions.py](https://github.com/BikeNetKit/GrowBikeNet/blob/main/growbikenet/functions.py).
+`<cityid>`, the city's stable key, is `<base>_<cc>`: `amsterdam_nl`, `aachen_de`. Generate it with
+the organisation's `slugify()`, in
+[BikeNetLib `bikenetlib/io.py`](https://github.com/BikeNetKit/BikeNetLib/blob/main/bikenetlib/io.py).
 
-**Layer names drift between drops.** In practice that, rather than the geometry, is what breaks when
-a new export lands, so the importer matches known spellings rather than assuming one. Per-tool
+**Layer names drift between drops.** That, rather than the geometry, is what usually breaks when a
+new export lands, so the importer matches known spellings rather than assuming one. Per-tool
 specifics live in the `mirror…Dir()` functions of [scripts/update-data.mjs](scripts/update-data.mjs).
 
 ## Geometry and units
@@ -65,51 +65,63 @@ strings, and the map then colours nothing.
 ## Baselines
 
 Most tools ship the existing network as its own layer, so the map can draw new work over the
-current state. Where a tool has per-strategy baselines, ship **one per strategy** — a single shared
-baseline cannot carry a per-strategy column, and the map recolours the baseline per strategy.
+current state. Where a tool has per-strategy baselines (LinkBikeNet), ship **one per strategy**: a
+single shared baseline cannot carry a per-strategy column, and the map recolours the baseline per
+strategy.
 
-The importer **throws when fewer than 99% of baseline edges join** their per-strategy column. That
-guard exists because a mismatch is otherwise invisible: the map renders, and simply shows most of
-the network as permanently disconnected.
+For LinkBikeNet, the importer joins each strategy's `lcc_step` (the step at which an edge joins the
+largest connected component, LCC) onto that strategy's baseline as
+`lcc_step_<strategy>`, and **throws when fewer than 99% of baseline edges receive it**. A mismatch
+is otherwise invisible: the map renders, and shows most of the network as permanently
+disconnected. A city and strategy listed in `LCC_STEP_GUARD_EXEMPT` in `update-data.mjs` gets a
+warning instead; an entry there means the data ships knowingly as it is, and is removed once a
+corrected export lands.
 
 ## Metadata
 
 `meta/` ships alongside the tool directories:
 
-| File                  | Delimiter | Carries                                |
-| --------------------- | --------- | -------------------------------------- |
-| `cities.csv`          | `;`       | `cityid`, `country_code`, `population` |
-| `rec_table.csv`       | `,`       | Per-city recommendation flags per tool |
-| `network_metrics.csv` | `,`       | Per-city network statistics            |
-| `versions.csv`        | `,`       | `tool,version,osm_data_date`           |
+| File                  | Delimiter | Carries                                                                                   |
+| --------------------- | --------- | ----------------------------------------------------------------------------------------- |
+| `cities.csv`          | `;`       | `cityid;name_en;country_en;nominatim_query;country_code;population;center_lat;center_lon` |
+| `rec_table.csv`       | `,`       | `cityid,sb,gbn,gbn+,lbn,fbn`: per-city recommendation flags per tool (`1` or `0`)         |
+| `network_metrics.csv` | `,`       | Per-city network statistics                                                               |
+| `versions.csv`        | `,`       | `tool,version,osm_data_date`                                                              |
 
-`versions.csv` is what the tool pages and the hero display — so those surfaces describe the _data_
-and the age of its OpenStreetMap extract, not the website's own version.
+From `cities.csv` the site reads `cityid`, `name_en` (the display name), `country_en`,
+`country_code` and `population`. The `rec_table.csv` columns are superblockify (`sb`), GrowBikeNet
+from scratch (`gbn`) and from the existing network (`gbn+`), LinkBikeNet (`lbn`) and FixBikeNet
+(`fbn`). `versions.csv` is what the tool pages and the hero display, so those surfaces describe the
+_data_ and the age of its OpenStreetMap extract, not the website's own version.
 
 ## Things that fail a run
 
-Deliberately loud, because each was once silent:
+Deliberately loud, because each of these would otherwise ship a quietly wrong or incomplete site.
 
-- A **manifest missing a tool** fails a preflight in `src/hooks.server.ts` that names it,
-  rather than deploying a site short a tool.
-- A **baseline/step mismatch** below 99% throws, as above.
-- An export that would **prune most of `www/data/`** aborts unless `--force` is passed. A partial
-  export otherwise silently deletes cities.
+`pnpm update-data` stops on:
 
-## Adding a tool's data
+- A **tool export much smaller than what is on disk**: fewer than 75% of the files already in that
+  tool's `www/data/` directory (`PRUNE_GUARD_RATIO`). A stale or partial export would otherwise
+  delete the difference. `--force` overrides it.
+- A **LinkBikeNet baseline/step mismatch** below 99%, as above, or a city without a LinkBikeNet
+  baseline.
+- **Data outside the city it is named for**, compared with the export's own `city_boundary` layer.
+  Quarantine the pair in `src/lib/data/excluded-datasets.json` and re-run.
+- A **missing `city_boundary` layer** for a GrowBikeNet, FixBikeNet or LinkBikeNet city, or a
+  missing `cities.csv`.
+- An **invalid `tools.json`**: a missing required field, an unknown category or status, or a
+  duplicate slug.
 
-```sh
-pnpm pull-data                  # rsync the export, then transform
-pnpm update-data --tool <name>  # transform only, from an export already pulled
-pnpm update-data --dry-run      # inspect first; always worth it on a new drop
-pnpm deploy:data                # upload www/data/ to the data host
-```
+`pnpm build` stops, in the preflight in `src/hooks.server.ts`, on:
 
-A filtered run leaves the city catalogue alone and updates only its own entries, while the manifest
-and the boundaries are always rebuilt whole. Commit the regenerated `src/lib/data/*.json`.
+- A **manifest missing a tool**: an active interactive tool with no datasets in
+  `src/lib/data/data-files.json`.
+- A **LinkBikeNet city with no existing-network baseline** in the manifest.
 
----
+## Running the import
 
-_This describes the contract as it stands. The reasoning behind individual rules — why `length`
-must be geodesic, why baselines are per strategy — lives with the project maintainer rather than
-here, since most of it is a record of specific drops rather than a rule anyone needs to apply._
+The refresh itself needs SSH access to the server, and is described in
+[README.md § For maintainers: updating the data](../README.md#for-maintainers-updating-the-data).
+A run limited with `--tool` leaves the city catalogue alone and updates only that tool's entries,
+while the dataset manifest and the city boundaries are always rebuilt from the whole of
+`www/data/`.
