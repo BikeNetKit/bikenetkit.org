@@ -1,0 +1,3 @@
+# Who GitHub asks to review a pull request. This file only requests reviews; the approval a PR into
+# main needs comes from the `main-via-pr` ruleset, and repository admins bypass it for releases.
+* @MoritzStefaner @mszell

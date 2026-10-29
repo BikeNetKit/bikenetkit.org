@@ -287,9 +287,8 @@ Force a rotation (`sudo logrotate -f /etc/logrotate.d/nginx`), add traffic, re-r
 
 ## Retention & privacy
 
-The published notice is [`/legal#privacy`](src/routes/legal/+page.svelte) (review copy:
-[docs/legal/legal-review-draft.md](../docs/legal/legal-review-draft.md)). It states these as facts,
-so the server has to match them:
+The published notice is [`/legal#privacy`](src/routes/legal/+page.svelte). It states these as
+facts, so the server has to match them:
 
 - **Access logs carry truncated IPs only**, because nginx masks at write time. Retention is pinned to
   **14 days** in `/etc/logrotate.d/nginx` (DEPLOY_NGINX.md § 5) — the notice quotes that number.
