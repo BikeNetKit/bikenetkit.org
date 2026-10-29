@@ -11,11 +11,16 @@
 // So: warn on every dev/build/lint, and fail hard wherever a wrong-looking build must not ship.
 //   pnpm fonts:check                      # warn only
 //   REQUIRE_DISPLAY_FONT=1 pnpm fonts:check   # exit 1 if incomplete (set by deploy.mjs)
+//   node scripts/check-fonts.mjs --build      # exit 1 unless build/ carries them (deploy.mjs,
+//                                             # right before the upload)
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { WWW_ROOT } from './server-config.mjs';
 
-const DIR = 'static/fonts/BespokeSans_Complete';
+// --build checks the artifact instead of the source: build/ is what gets uploaded, and
+// `deploy:site -- --skip-build` ships whatever a plain, warn-only `pnpm build` left there.
+const checkBuild = process.argv.includes('--build');
+const DIR = `${checkBuild ? 'build' : 'static'}/fonts/BespokeSans_Complete`;
 
 // Exactly these four, and no more: everything under static/ is served verbatim from the site, so
 // shipping the full package would publish all 12 styles in 5 formats for download — past "your own
@@ -31,13 +36,18 @@ const REQUIRED = [
 const missing = REQUIRED.filter((f) => !existsSync(path.join(WWW_ROOT, f)));
 if (missing.length === 0) process.exit(0);
 
-const strict = process.env.REQUIRE_DISPLAY_FONT === '1';
+const strict = checkBuild || process.env.REQUIRE_DISPLAY_FONT === '1';
 const log = strict ? console.error : console.warn;
 
 log('');
 log(`  Bespoke Sans is missing ${missing.length} of ${REQUIRED.length} files.`);
 for (const f of missing) log(`    - ${f}`);
 log('');
+if (checkBuild) {
+	console.error('  build/ was built without them. Install the font (below), then rebuild:');
+	console.error('  deploy without --skip-build, or run `pnpm build` before it.');
+	console.error('');
+}
 log('  The site will still build, but headings fall back to a generic sans and');
 log('  /design + `pnpm generate:og` fail outright on the missing WOFF.');
 log('');
@@ -52,6 +62,8 @@ log('  files byte-for-byte as Fontshare delivered them.');
 log('');
 
 if (strict) {
-	console.error('  REQUIRE_DISPLAY_FONT=1 — refusing to continue.\n');
+	console.error(
+		`  ${checkBuild ? 'Refusing to deploy this build' : 'REQUIRE_DISPLAY_FONT=1 — refusing to continue'}.\n`
+	);
 	process.exit(1);
 }

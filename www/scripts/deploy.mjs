@@ -174,7 +174,12 @@ ${placeholderRedirect}
 	process.exit(1);
 }
 
-// 4. rsync the build to the server. Exclude macOS / VCS cruft that adapter-static may leave.
+// 4. The display font has to be in what ships, not just in static/. The build step above already
+// fails without it, but --skip-build uploads whatever build/ holds, and a plain `pnpm build` only
+// warns. So check the artifact itself, on every path to the server.
+await run('node', [path.join(WWW_ROOT, 'scripts/check-fonts.mjs'), '--build']);
+
+// 5. rsync the build to the server. Exclude macOS / VCS cruft that adapter-static may leave.
 // No data/ or screenshots/ exclusions any more: those trees moved out of static/ (to www/data/ and
 // www/screenshots/, see vite.config.js), so the build never contains them in the first place rather
 // than copying ~2.4 GB in only for this rsync to drop it again.
