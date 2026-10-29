@@ -44,7 +44,6 @@
 		"build:mapstyle": "node scripts/build-map-style.mjs",
 		"pull-data": "node scripts/pull-data.mjs",
 		"pull-screenshots": "node scripts/pull-screenshots.mjs",
-		"sync-rec-table": "node scripts/sync-rec-table.mjs",
 		"basemap:build": "node scripts/build-basemap.mjs",
 		"deploy:site": "node scripts/deploy.mjs",
 		"deploy:placeholder": "node scripts/deploy.mjs --placeholder",
