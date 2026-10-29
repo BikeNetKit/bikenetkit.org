@@ -50,7 +50,11 @@ pnpm lint     # prettier + eslint
 pnpm check    # svelte-check, and it does type-check .svelte files
 ```
 
-Both must be clean. `pnpm test` currently runs nothing — there is no e2e suite yet, so **verify in
+Both must be clean. CI runs both on every pull request, and `pnpm lint` fails it on any unformatted
+file, so run `pnpm format` first if Prettier complains. If you open the repository root in VS Code
+and install the recommended Prettier extension, files under `www/` are formatted on save with the
+project's config. The repo-root docs are left alone on purpose, because Prettier's markdown parser
+corrupts them. `pnpm test` currently runs nothing — there is no e2e suite yet, so **verify in
 the browser** and say in the PR what you checked. A clean `pnpm check` does not catch a visual or
 CSS regression.
 

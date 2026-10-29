@@ -1,0 +1,51 @@
+# Formatting, lint and type-check, on every pull request and every push to dev.
+#
+# Nothing else enforces Prettier: the pre-commit hook is opt-in and only covers www/ markdown and
+# yaml, and format-on-save depends on the contributor's editor. This is the one check that runs
+# regardless of local setup.
+#
+# Actions are pinned to commit SHAs rather than tags, so the workflow keeps doing what it did the
+# day it was written.
+name: Lint
+
+on:
+  pull_request:
+    branches: [dev, main]
+  push:
+    branches: [dev]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: www
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Reads the exact pnpm version from `packageManager` in www/package.json.
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+        with:
+          package_json_file: www/package.json
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: www/pnpm-lock.yaml
+
+      # --ignore-scripts skips `prepare` (a Chromium download for Playwright) and the native
+      # sharp/fontnik builds. Prettier and ESLint need neither.
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+
+      # The display font is not in the repo, so the font check inside `lint` warns here. It only
+      # fails when REQUIRE_DISPLAY_FONT=1, which deploys set and CI does not.
+      - run: pnpm lint
+
+      # `PUBLIC_*` variables are imported statically, so without a .env svelte-check reports them
+      # as missing exports. The example file holds nothing secret.
+      - run: cp .env.example .env
+      - run: pnpm check
