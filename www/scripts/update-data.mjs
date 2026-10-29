@@ -3,18 +3,18 @@ import { readFile, writeFile, readdir, stat, mkdir, cp, rm, open } from 'node:fs
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getPullRoot } from './server-config.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const WWW_ROOT = path.resolve(__dirname, '..');
 // Off-repo trees, outside static/ so Vite never copies them into build/ (see vite.config.js).
 const DATA_DIR = path.join(WWW_ROOT, 'data');
-// Where `pnpm pull-data` rsyncs the server export to, and what a bare `pnpm update-data` reads.
-// It used to default to the retired `05_dev_data` repo next door, which is still on disk and still
-// holds its last (2026-05) export: a bare run silently regressed www/data/ to that export and
-// deleted ~9000 files. Keep this pointed at the pull root — see PRUNE_GUARD_RATIO for the second
-// line of defence, which catches the same mistake via an explicit --data-root.
-const DEFAULT_DATA_ROOT = path.resolve(WWW_ROOT, '..', '..', '05_dev_data_pull');
+// What a bare `pnpm update-data` reads: the same root `pnpm pull-data` rsyncs the export to
+// (DATA_PULL_ROOT in www/.env, else the sibling `05_dev_data_pull`). Defaulting anywhere else once
+// regressed www/data/ to an old export; PRUNE_GUARD_RATIO is the second line of defence, which
+// catches the same mistake via an explicit --data-root.
+const DEFAULT_DATA_ROOT = getPullRoot();
 
 // `(tool, city)` pairs the export ships with geometry belonging to a different place — see
 // excluded-datasets.json. Every mirror skips these on the way in, so quarantining a pair also
