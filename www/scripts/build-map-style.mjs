@@ -58,8 +58,10 @@ const glyphBase = relativeGlyphs
 const outPath = path.resolve(WWW_ROOT, argVal('--out', 'static/bikenetkit-map-style.json'));
 
 const SOURCE = 'protomaps';
+// The same credit the app's own style uses (src/lib/map-style/style.js): ODbL asks for
+// "© OpenStreetMap contributors", naming the rights holders, not a bare link to the project.
 const ATTRIBUTION =
-	'<a href="https://protomaps.com">Protomaps</a> | <a href="https://openstreetmap.org">OpenStreetMap</a>';
+	'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> | <a href="https://protomaps.com">Protomaps</a>';
 
 const style = {
 	version: 8,

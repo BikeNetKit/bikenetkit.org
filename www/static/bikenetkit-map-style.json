@@ -5,7 +5,7 @@
 		"protomaps": {
 			"type": "vector",
 			"url": "pmtiles://https://tiles.bikenetkit.org/basemap-20260902.pmtiles",
-			"attribution": "<a href=\"https://protomaps.com\">Protomaps</a> | <a href=\"https://openstreetmap.org\">OpenStreetMap</a>"
+			"attribution": "© <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap contributors</a> | <a href=\"https://protomaps.com\">Protomaps</a>"
 		}
 	},
 	"layers": [
