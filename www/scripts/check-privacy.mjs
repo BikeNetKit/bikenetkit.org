@@ -59,13 +59,13 @@ else {
 	findings.push(
 		`the anonymized log format is NOT fully defined (map: ${hasMap ? 'yes' : 'no'}, ` +
 			`log_format: ${hasFormat ? 'yes' : 'no'}). Every request is being logged with a full IP ` +
-			`address, which /legal#privacy states is never stored. See DEPLOY_NGINX.md § access log.`
+			`address, which /legal#privacy states is never stored. See DEPLOY_NGINX.md § Anonymised access log and page-view flag.`
 	);
 }
 
 // 2. Does every server block that logs actually use it? A vhost with a bare `access_log path;`
-//    silently falls back to `combined`, which carries the full address — that is exactly the gap
-//    W3 recorded for data.bikenetkit.org.
+//    silently falls back to `combined`, which carries the full address — that is how
+//    data.bikenetkit.org once logged full addresses.
 const accessLogLines = [...conf.matchAll(/^\s*access_log\s+([^;]+);/gm)].map((m) => m[1].trim());
 const logging = accessLogLines.filter((l) => l !== 'off' && !l.startsWith('off'));
 const unanonymised = logging.filter((l) => !/\banonymized\b/.test(l));

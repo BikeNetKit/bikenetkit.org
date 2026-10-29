@@ -45,7 +45,9 @@ console.log(
 // --inplace rather than rsync's default write-to-temp-then-rename: the tiles now live on a
 // dedicated volume (~50 GB free beside the ~46 GB archive; see DEPLOY_TILES.md "Storage volume"),
 // which still cannot hold two full copies. The trade-off is that the file is briefly inconsistent
-// mid-transfer, so re-uploads want a quiet window. No --delete: older dated archives are pruned
+// mid-transfer. That only matters when re-uploading the archive the site already serves; a new
+// dated archive is not read by anything until PUBLIC_BASEMAP_URL points at it. No --delete: older
+// dated archives are pruned
 // by hand once the new PUBLIC_BASEMAP_URL is live and verified.
 const rsyncArgs = ['-a', '--inplace', '--partial', '--progress', '-e', 'ssh'];
 if (dryRun) rsyncArgs.push('--dry-run');

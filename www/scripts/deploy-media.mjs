@@ -7,7 +7,7 @@
 //
 // The target (DEPLOY_MEDIA_PATH, default ~/bikenetkit/tiles/media/) sits under the tiles dir so it
 // is served at https://tiles.bikenetkit.org/media/ and is NOT wiped by `pnpm deploy:site --delete`.
-// The encoded MP4 lives outside the repo (see www/DEPLOY_TILES.md "Intro video"); only the WebVTT
+// The encoded MP4 lives outside the repo (see www/DEPLOY_TILES.md "Self-hosted media (intro video)"); only the WebVTT
 // caption file is committed, under www/static/media/.
 import { existsSync, statSync } from 'node:fs';
 import path from 'node:path';

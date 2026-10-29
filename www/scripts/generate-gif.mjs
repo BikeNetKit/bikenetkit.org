@@ -2,7 +2,7 @@
 // Capture an animated GIF of an ordered build-up (growbikenet / linkbikenet) — a plain
 // top-down data view with no legend, HUD, playback bar or nav control.
 //
-//   pnpm generate:gif                                     # paris, betweenness/rail/default
+//   pnpm generate:gif                                     # paris, betweenness/rail/from_scratch
 //   pnpm generate:gif --city amsterdam --type grid        # another dataset
 //   pnpm generate:gif --frames 150 --fps 25               # smoother, larger file
 //   pnpm generate:gif --no-seeds --size 640               # no seed dots, smaller frame
