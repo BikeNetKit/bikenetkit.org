@@ -2,59 +2,60 @@
 
 **Audience:** the team building `docs.bikenetkit.org` (Sphinx + Furo, notebook-driven).
 
-The docs currently draw interactive maps with **Folium** (`gdf.explore()` → Leaflet + raster
-CartoDB Positron tiles). That looks nothing like the maps on `bikenetkit.org`, which use **MapLibre
-GL** over our **self-hosted vector basemap**. This guide is how to close that gap.
+The docs draw interactive maps with **Folium** (`gdf.explore()` → Leaflet + raster CartoDB
+Positron tiles). That looks nothing like the maps on `bikenetkit.org`, which use **MapLibre GL**
+over a **self-hosted vector basemap**. This guide is how to close that gap.
 
-The main site's map is a set of Svelte components (`svelte-maplibre-gl`) and is **not portable** into
-Sphinx. But everything _underneath_ those components is reusable, self-hosted, key-less and
-CORS-open — you can render our exact basemap and color scheme from a notebook, from Folium, or from
-an `<iframe>`. Three tiers below, cheapest last.
+The site's map is a set of Svelte components (`svelte-maplibre-gl`) and cannot be ported into
+Sphinx. Everything _underneath_ those components can be reused: it is self-hosted, needs no API
+key and is CORS-open, so a notebook, Folium or an `<iframe>` can render the same basemap and
+colour scheme. There are three tiers below, from highest fidelity to least effort.
 
----
+> **Launch state.** `tiles.bikenetkit.org` and `data.bikenetkit.org` are live now, independently
+> of the main website. `bikenetkit.org` itself serves a placeholder until the full site launches,
+> so Tier 3 (`/embed`) works only after launch. Point at the tiles host for the style, tiles and
+> glyphs, and never at `bikenetkit.org`.
 
-## 1. What you can reuse (the shared assets)
+## 1. What you can reuse
 
-Everything is served from `tiles.bikenetkit.org` / `data.bikenetkit.org` with
-`Access-Control-Allow-Origin: *`. There is no API key and no third-party runtime service — the whole
-point is a stack that keeps working untouched for ~8 years.
+Everything is served from `tiles.bikenetkit.org` and `data.bikenetkit.org` with
+`Access-Control-Allow-Origin: *`. There is no API key and no third-party runtime service: the
+stack is meant to keep working untouched for years.
 
-| Asset                     | URL                                                                   | Notes                                                                                                             |
-| ------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **Basemap style**         | `https://tiles.bikenetkit.org/bikenetkit-map-style.json`              | Self-contained MapLibre style v8. Points at the PMTiles basemap + glyphs below.                                   |
-| **Basemap tiles**         | `pmtiles://https://tiles.bikenetkit.org/basemap-YYYYMMDD.pmtiles`     | Vector PMTiles, Europe + Macaronesia, byte-range served. Referenced _by_ the style — you don't touch it directly. |
-| **Glyphs (label fonts)**  | `https://tiles.bikenetkit.org/fonts/maplibre/{fontstack}/{range}.pbf` | Referenced by the style. Needed for map labels.                                                                   |
-| **Precomputed tool data** | `https://data.bikenetkit.org/<tool>/<city>-<metric>-<type>.geojson`   | The exact GeoJSON the site draws, if you want canonical results instead of a notebook's own.                      |
-| **Color ramp**            | see [§5](#5-the-color-ramp-reference)                                 | 4-stop quantile ramp used for every metric line layer.                                                            |
-
-> **Why `tiles.bikenetkit.org` and not `bikenetkit.org`?** The tiles host is live and CORS-open
-> today, independent of the main website — which serves only a placeholder until full launch. Point
-> at the tiles host for the style, tiles and glyphs; do **not** depend on `bikenetkit.org` for them
-> before launch.
+| Asset                     | URL                                                                               | Notes                                                                                                                                                                              |
+| ------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Basemap style**         | `https://tiles.bikenetkit.org/bikenetkit-map-style.json`                          | Self-contained MapLibre style (spec v8). Points at the PMTiles basemap and the glyphs below.                                                                                       |
+| **Basemap tiles**         | the style's `sources.protomaps.url`                                               | Vector PMTiles covering Europe and the Atlantic archipelagos, served with byte ranges. The archive name is dated and changes on a rebuild, so read it from the style.              |
+| **Glyphs (label fonts)**  | `https://tiles.bikenetkit.org/fonts/maplibre/{fontstack}/{range}.pbf`             | Referenced by the style. Needed for map labels.                                                                                                                                    |
+| **Precomputed tool data** | `https://data.bikenetkit.org/<tool>/<cityid>-<metric>-<type>[-<variant>].geojson` | The exact GeoJSON the site draws, if you want canonical results instead of a notebook's own. The pattern is defined in [DATA_CONTRACT.md § Filenames](DATA_CONTRACT.md#filenames). |
+| **Colour ramp**           | see [§5](#5-the-colour-ramp-reference)                                            | The 4-stop quantile ramp of GrowBikeNet's metric lines. The other tools vary it.                                                                                                   |
 
 ### Attribution is mandatory
 
-The basemap is OpenStreetMap data (ODbL) via Protomaps. The
-`Protomaps | OpenStreetMap` credit must stay **visible on every map**. MapLibre shows it
-automatically from the style's `attribution` field (keep the default `AttributionControl`). If you
-render the basemap any other way, add the credit yourself.
+The basemap is OpenStreetMap data (ODbL) via Protomaps. The credit
+"© OpenStreetMap contributors | Protomaps" must stay **visible on every map**. MapLibre shows it
+automatically from the style's `attribution` field, as long as you keep the default
+`AttributionControl`. If you render the basemap any other way, add the credit yourself.
 
 ### Pin everything for longevity
 
-For the ~8-year no-maintenance goal, **vendor** the JS libraries (`maplibre-gl`, `pmtiles`) into the
-docs' Sphinx `_static/` and reference them by exact version, rather than hot-linking a CDN's
-`@latest`. The style, tiles and glyphs are already self-hosted and versioned; only the client
-libraries need pinning. The examples below use a CDN for brevity — swap to `_static/` for production.
+**Vendor** the JavaScript libraries (`maplibre-gl`, `pmtiles`) into the docs' Sphinx `_static/` and
+reference them by exact version, rather than hot-linking a CDN's `@latest`. The style, tiles and
+glyphs are already self-hosted and versioned, so only the client libraries need pinning. The
+examples below pin the versions the site itself runs (`maplibre-gl` 6.16.0 and `pmtiles` 4.5.0, in
+`www/package.json`) and load them from a CDN for brevity; swap to `_static/` for production.
 
----
+MapLibre 6 ships only as an ES module and loads its worker from a file next to its own module.
+Vendor `maplibre-gl.mjs`, `maplibre-gl-worker.mjs` and `maplibre-gl.css` from the same release,
+side by side.
 
 ## 2. Tier 1 — MapLibre drop-in for notebook maps _(recommended for the MWE)_
 
-The MWE renders the reader's _own_ GeoDataFrame. This tier is a near drop-in for `gdf.explore()`
-that renders arbitrary notebook GeoJSON with our exact basemap and color ramp. Highest fidelity;
-works for any result.
+The MWE (the docs' minimal working example) renders the reader's _own_ GeoDataFrame. This tier is
+a near drop-in for `gdf.explore()` that renders arbitrary notebook GeoJSON with the site's
+basemap and colour ramp. It has the highest fidelity and works for any result.
 
-Drop this helper into a docs utility module (e.g. `growbikenet/_docs_map.py`) and call it from any
+Put this helper in a docs utility module (e.g. `growbikenet/_docs_map.py`) and call it from any
 notebook cell:
 
 ```python
@@ -64,10 +65,11 @@ from string import Template
 from IPython.display import HTML
 
 STYLE_URL = "https://tiles.bikenetkit.org/bikenetkit-map-style.json"
-# Pin these — vendor into _static/ for production instead of hot-linking.
-MAPLIBRE_JS  = "https://unpkg.com/maplibre-gl@5.23.0/dist/maplibre-gl.js"
-MAPLIBRE_CSS = "https://unpkg.com/maplibre-gl@5.23.0/dist/maplibre-gl.css"
-PMTILES_JS   = "https://unpkg.com/pmtiles@4.4.1/dist/pmtiles.js"
+# The versions in www/package.json. Vendor into _static/ for production instead of hot-linking.
+MAPLIBRE = "https://unpkg.com/maplibre-gl@6.16.0/dist"
+MAPLIBRE_JS  = f"{MAPLIBRE}/maplibre-gl.mjs"  # an ES module; the worker loads from next to it
+MAPLIBRE_CSS = f"{MAPLIBRE}/maplibre-gl.css"
+PMTILES_JS   = "https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js"
 
 RAMP = ["#e7e1d1", "#d3d59c", "#65B81D", "#00676f"]  # coreColors.ramp0..ramp3
 WIDTH_RANGE = (0.5, 3.0)                             # DEFAULT_LINE_WIDTH_RANGE
@@ -109,7 +111,6 @@ MAP_PAGE = Template("""<!doctype html>
   <head>
     <meta charset="utf-8" />
     <link href="$maplibre_css" rel="stylesheet" />
-    <script src="$maplibre_js"></script>
     <script src="$pmtiles_js"></script>
     <style>
       html, body, #map { margin: 0; height: 100%; width: 100%; }
@@ -117,7 +118,9 @@ MAP_PAGE = Template("""<!doctype html>
   </head>
   <body>
     <div id="map"></div>
-    <script>
+    <script type="module">
+      import * as maplibregl from '$maplibre_js';
+
       const cfg = $cfg;
 
       maplibregl.addProtocol('pmtiles', new pmtiles.Protocol().tile);
@@ -191,9 +194,9 @@ def bikenetkit_map(gdf, metric="betweenness", *, height=480):
 ```
 
 > **Runnable version:** `maplibre-basemap-demo.ipynb` in
-> [BikeNetKit/docs-map-demo](https://github.com/BikeNetKit/docs-map-demo) is a minimal, verified
-> Tier 1 notebook (basemap swap only, no ramp) — clone it, then `uv run jupyter lab`. The repo is
-> private; ask for access.
+> [BikeNetKit/docs-map-demo](https://github.com/BikeNetKit/docs-map-demo) (private; ask the
+> maintainers for access) is a minimal, verified Tier 1 notebook (basemap swap only, no ramp).
+> Clone it, then run `uv run jupyter lab`.
 
 Usage in a notebook, replacing `gdf.explore(...)`:
 
@@ -204,58 +207,82 @@ bikenetkit_map(gbn.gdf_edges, metric="betweenness")
 
 Notes:
 
-- The overlay is inserted **before** `address_label`, so basemap place names stay legible on top of
-  the network — same as the site.
-- `metric` is any numeric column on the GeoDataFrame; the ramp is cut at quantiles of its values,
-  identical to the site's `makeLinePaint`.
-- For point layers, swap the layer `type` to `circle` and paint `circle-color`/`circle-radius`.
-
----
+- The overlay is inserted **before** `address_label`, so basemap place names stay legible on top
+  of the network, as on the site.
+- `metric` is any numeric column on the GeoDataFrame. The ramp is cut at quantiles of its values,
+  as the site's `makeLinePaint()` does.
+- For point layers, change the layer `type` to `circle` and paint `circle-color` and
+  `circle-radius`.
+- The page that holds the iframe must be served over http(s), as JupyterLab and a published Sphinx
+  site are. Under a `file://` page (an nbconvert export opened straight from disk) MapLibre 6
+  cannot start its worker, and the map stays blank.
 
 ## 3. Tier 2 — keep Folium, swap only the basemap
 
-If you'd rather keep the `gdf.explore()` / Folium workflow and only change how the _background_ looks,
-render our vector basemap in Leaflet with [`protomaps-leaflet`](https://github.com/protomaps/protomaps-leaflet),
-injected via a `folium.MacroElement`. **A runnable, side-by-side demo** (current CartoDB look vs. the
-BikeNetKit basemap, both on real Lyon data) is `folium-basemap-demo.ipynb` in
-[BikeNetKit/docs-map-demo](https://github.com/BikeNetKit/docs-map-demo) (clone, then
-`uv run jupyter lab`):
+If you would rather keep the `gdf.explore()` / Folium workflow and change only how the
+_background_ looks, render the vector basemap in Leaflet with
+[`protomaps-leaflet`](https://github.com/protomaps/protomaps-leaflet), injected through a
+`folium.MacroElement`. A runnable side-by-side demo (the CartoDB look against the BikeNetKit
+basemap, both on real Lyon data) is `folium-basemap-demo.ipynb` in
+[BikeNetKit/docs-map-demo](https://github.com/BikeNetKit/docs-map-demo) (private; ask the
+maintainers for access). The snippet below is a condensed version. It renders the basemap, but in
+protomaps-leaflet's stock `light` flavor, which looks visibly different from the site (see the
+caveat below).
 
 ```python
+import json
+import urllib.request
+
 import folium
 from folium import MacroElement
 from jinja2 import Template
+
+STYLE_URL = "https://tiles.bikenetkit.org/bikenetkit-map-style.json"
+# protomaps-leaflet is not loaded by Folium; the page needs its script. Pin and vendor it too.
+PROTOMAPS_LEAFLET_JS = "https://unpkg.com/protomaps-leaflet@5.1.0/dist/protomaps-leaflet.js"
+
+# The archive name is dated and changes on a rebuild, so read it from the published style.
+with urllib.request.urlopen(STYLE_URL) as r:
+    PMTILES_URL = json.load(r)["sources"]["protomaps"]["url"].removeprefix("pmtiles://")
 
 class BikeNetKitBasemap(MacroElement):
     _template = Template("""
     {% macro script(this, kwargs) %}
       var layer = protomapsL.leafletLayer({
-        url: "https://tiles.bikenetkit.org/basemap-20260902.pmtiles",
+        url: {{ this.url | tojson }},
         // Re-express theme.js here as a protomaps-leaflet "paint rules" flavor (see caveat).
-        flavor: "light", lang: "en"
+        flavor: "light", lang: "en",
+        attribution: "© OpenStreetMap contributors | Protomaps"
       });
       layer.addTo({{ this._parent.get_name() }});
     {% endmacro %}
     """)
 
+    def __init__(self, url=PMTILES_URL):
+        super().__init__()
+        self.url = url
+
 m = gdf.explore(column="betweenness", cmap="...", tiles=None)  # no default basemap
-m.get_root().add_child(BikeNetKitBasemap())
+m.get_root().header.add_child(folium.JavascriptLink(PROTOMAPS_LEAFLET_JS))
+m.add_child(BikeNetKitBasemap())  # added to the map, so `this._parent` is the Leaflet map
 ```
 
-**Caveat — lower fidelity.** `protomaps-leaflet` uses its own _flavor_ paint-rules format, **not**
-the MapLibre style spec. Our theme lives in [src/lib/map-style/theme.js](src/lib/map-style/theme.js)
-and [layers.js](src/lib/map-style/layers.js) as MapLibre layers; matching the site exactly means
-hand-porting those rules into the flavor format and keeping the port in sync. Colors will only match
-as closely as you maintain that port. Choose this tier only if staying in Folium matters more than a
-pixel-perfect basemap. For the network coloring, still use the [§5](#5-the-color-ramp-reference) ramp
-as your `explore()` colormap so the _data_ matches the site.
+Leaflet does not read the MapLibre style, so the credit is passed to the layer, which shows it in
+Leaflet's attribution control.
 
----
+**Caveat: lower fidelity.** `protomaps-leaflet` uses its own _flavor_ paint-rules format, **not**
+the MapLibre style spec. The site's theme lives in
+[src/lib/map-style/theme.js](src/lib/map-style/theme.js) and
+[layers.js](src/lib/map-style/layers.js) as MapLibre layers, so matching the site exactly means
+hand-porting those rules into the flavor format and keeping the port in sync. Colours match only
+as closely as that port is maintained. Choose this tier only if staying in Folium matters more than
+a pixel-perfect basemap. For the network itself, still use the [§5](#5-the-colour-ramp-reference)
+ramp as the `explore()` colour map, so the _data_ matches the site.
 
-## 4. Tier 3 — iframe a canonical map _(post-launch, showcase only)_
+## 4. Tier 3 — iframe a canonical map _(showcase only, after launch)_
 
-For prose/landing pages of the docs that want a real, interactive BikeNetKit map (not the reader's
-own data), embed the app's chromeless `/embed` route:
+For prose and landing pages of the docs that want a real, interactive BikeNetKit map (not the
+reader's own data), embed the site's chrome-free `/embed` route:
 
 ```html
 <iframe
@@ -268,86 +295,78 @@ own data), embed the app's chromeless `/embed` route:
 ></iframe>
 ```
 
-The path mirrors the tool pages: `/embed/<tool>/<city>/<metric>/<type>/<variant>`. Trailing segments
-are optional and fall back to the tool's defaults, so `/embed/growbikenet/lyon_fr` (or
+The path mirrors the map pages: `/embed/<tool>/<cityid>/<metric>/<type>/<variant>`. Trailing
+segments are optional and fall back to the tool's defaults, so `/embed/growbikenet/lyon_fr` (or
 `/embed/superblockify/amsterdam_nl/betweenness/edges`) also works. The route is client-only: every
 `/embed/…` URL is answered with the same app shell (status 200), which then loads the dataset in
 the browser.
 
-- Pixel-identical to the site, zero JS in the notebook, and always current.
-- **Showcase only:** it renders a canonical tool/city, **not** a notebook's MWE GeoDataFrame. Use it
+- It is pixel-identical to the site, needs no JavaScript in the notebook, and stays current.
+- **Showcase only:** it renders a canonical tool and city, **not** the MWE's GeoDataFrame. Use it
   on overview pages, not in the MWE result cell.
-- **Post-launch:** `/embed` ships with the full website, which is a placeholder until launch. Until
-  then, use Tier 1 for live maps.
+- It ships with the full website, so it works only after launch (see the launch note at the top).
+  Until then, use Tier 1 for live maps.
 
-`metric`/`type`/`variant` are the same axes as the tool pages, just as path segments. Slugs are
-`<base>_<cc>` cityids (e.g. `lyon_fr`); tool names are `growbikenet`, `linkbikenet`, `fixbikenet`,
-`superblockify`, etc.
+`metric`, `type` and `variant` are the same axes as on the map pages, as path segments. A `cityid`
+is `<base>_<cc>` (e.g. `lyon_fr`). The five interactive tools are `growbikenet`, `linkbikenet`,
+`fixbikenet`, `sortbikenet` (Paris only) and `superblockify`.
 
 To open the map on part of a city rather than the whole of it, add
 `?bbox=minLon,minLat,maxLon,maxLat` (the order GeoJSON and OSM use):
 
-```
+```text
 /embed/growbikenet/lyon_fr/betweenness/grid/from_bikenw?bbox=4.833,45.758,4.860,45.772
 ```
 
 The box only sets the opening view. The embed fits it with the same padding it uses for the city,
 and the reader can still pan and zoom out to the whole city. A malformed box is ignored, and the
 map frames the city instead. The easiest way to get a URL is the **Embed this view** item in the
-export menu on any tool page. It links to the embed for the dataset on screen, framed on the part
-of the map not covered by the panels.
+export menu on any map page. It links to the embed for the dataset on screen, framed on the part of
+the map the panels do not cover.
 
----
+## 5. The colour ramp reference
 
-## 5. The color ramp reference
-
-Every metric line layer on the site is colored with this 4-stop ramp, cut at evenly-spaced quantiles
-of the metric's values, with a zoom-driven width scale. Source of truth:
-[src/lib/colors.js](src/lib/colors.js), [src/lib/map-style/line-paint.js](src/lib/map-style/line-paint.js),
+GrowBikeNet's metric lines are coloured with this 4-stop ramp, cut at evenly spaced quantiles of
+the metric's values, with a zoom-driven width scale. It is the ramp the Tier 1 helper reproduces.
+Source of truth: [src/lib/colors.js](src/lib/colors.js),
+[src/lib/map-style/line-paint.js](src/lib/map-style/line-paint.js) and
 [src/lib/map-style/render-config.js](src/lib/map-style/render-config.js).
 
-| stop | quantile | color     |
+| Stop | Quantile | Colour    |
 | ---- | -------- | --------- |
 | 0    | 0.00     | `#e7e1d1` |
 | 1    | 0.33     | `#d3d59c` |
 | 2    | 0.67     | `#65B81D` |
 | 3    | 1.00     | `#00676f` |
 
-- **Width:** interpolated `0.5 → 3.0 px` across the same quantiles, then multiplied by a zoom factor
-  (`×0.66 @ z10`, `×1.0 @ z12`, `×3.5 @ z17`).
-- **Existing-network baseline** (fixbikenet/linkbikenet context lines): periwinkle `#9999cc`, drawn
-  faint beneath the ramp so the green stays exclusive to newly-built links.
+- **Width:** interpolated from 0.5 to 3.0 px across the same quantiles, then multiplied by a zoom
+  factor (×0.66 at z10, ×1.0 at z12, ×3.5 at z17).
+- **Other tools differ.** LinkBikeNet's connectivity gain starts part-way between stops 1 and 2;
+  FixBikeNet uses stops 1–3; SortBikeNet runs 3 → 1, so the first-built segments are darkest;
+  SuperBlockify colours blocks categorically. Their line widths differ too. The per-tool table is
+  in [DESIGN.md § Metric ramp](DESIGN.md#metric-ramp), and the widths are each tool's
+  `renderConfig` in `src/lib/data/tools.json`.
+- **Existing-network baseline** (the context lines under FixBikeNet, LinkBikeNet and SortBikeNet):
+  periwinkle `#9999cc`, drawn faint beneath the ramp so the green stays exclusive to new links.
 
 The Python port in [§2](#2-tier-1--maplibre-drop-in-for-notebook-maps-recommended-for-the-mwe)
-(`_ramp_stops`, `_zoom_scale`) reproduces this exactly.
-
----
+(`_ramp_stops`, `_zoom_scale`) reproduces the GrowBikeNet ramp exactly.
 
 ## 6. Choosing a tier
 
-|                             | Fidelity                        | Effort                    | Draws MWE data?   | Runtime deps               |
-| --------------------------- | ------------------------------- | ------------------------- | ----------------- | -------------------------- |
-| **Tier 1** MapLibre helper  | Full                            | Medium (one helper)       | ✅ yes            | style + tiles + glyphs     |
-| **Tier 2** Folium + basemap | Basemap approximate, data exact | Medium-high (flavor port) | ✅ yes            | tiles                      |
-| **Tier 3** iframe `/embed`  | Pixel-identical                 | Low                       | ❌ canonical only | full website (post-launch) |
+| Tier                        | Fidelity                        | Effort                    | Draws MWE data?    | Runtime dependencies        |
+| --------------------------- | ------------------------------- | ------------------------- | ------------------ | --------------------------- |
+| **Tier 1** MapLibre helper  | Full                            | Medium (one helper)       | Yes                | style, tiles, glyphs        |
+| **Tier 2** Folium + basemap | Basemap approximate, data exact | Medium-high (flavor port) | Yes                | tiles                       |
+| **Tier 3** iframe `/embed`  | Pixel-identical                 | Low                       | No, canonical only | full website (after launch) |
 
-**Recommendation:** Tier 1 for the MWE and any cell that visualizes computed results; Tier 3 for
-showcase maps on overview pages once the site is launched. Tier 2 only if the Folium workflow must be
-preserved.
+**Recommendation:** Tier 1 for the MWE and any cell that visualises computed results; Tier 3 for
+showcase maps on overview pages once the site has launched. Tier 2 only if the Folium workflow must
+be preserved.
 
----
+## Maintaining the published assets
 
-## Maintainer notes (this repo)
-
-The published assets are generated and deployed from `www/`:
-
-```sh
-pnpm build:mapstyle    # write static/bikenetkit-map-style.json from the live style modules
-pnpm deploy:mapstyle   # rsync the style + static/fonts/maplibre/ to tiles.bikenetkit.org
-```
-
-Rerun both after a basemap archive bump (the style embeds the dated `basemap-*.pmtiles` filename) or
-any change to `layers.js` / `theme.js`. nginx `location`s and CORS details:
-[DEPLOY_TILES.md](DEPLOY_TILES.md) → "Map style + glyphs for external consumers". The `/embed` route
-lives at [src/routes/embed/[tool]/[city]/[[metric]]/[[type]]/[[variant]]/](src/routes/embed/) and reuses the same data loader as the
-tool pages.
+The style and glyphs are built and published from `www/` with `pnpm build:mapstyle` and
+`pnpm deploy:mapstyle` (maintainers only, SSH to the server). [DEPLOY_TILES.md](DEPLOY_TILES.md)
+says when to rerun them and how the tiles host serves them. The `/embed` route lives in
+`src/routes/embed/` and uses the same data loader as the map pages.
