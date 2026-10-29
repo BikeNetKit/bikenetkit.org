@@ -1,0 +1,7 @@
+{
+	"superblockify": { "version": "1.0.2", "osmDataDate": "2026-09-08" },
+	"growbikenet": { "version": "0.15.0", "osmDataDate": "2026-07-23" },
+	"fixbikenet": { "version": "0.9.1", "osmDataDate": "2026-07-23" },
+	"linkbikenet": { "version": "0.9.0", "osmDataDate": "2026-07-23" },
+	"sortbikenet": { "version": "0.0.0", "osmDataDate": "2026-01-28" }
+}

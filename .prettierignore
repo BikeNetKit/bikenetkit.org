@@ -1,0 +1,10 @@
+# Repo-root prose docs. `pnpm lint`/`pnpm format` run from `www/`, so these were never part of the
+# project's formatting scope — but a prettier invocation at the repo root (or an editor's
+# format-on-save) picks them up and corrupts them.
+#
+# The markdown parser reads unescaped `_` pairs in prose as emphasis spans and re-emits them as `*`,
+# which silently rewrites identifiers: `aachen_de` -> `aachen*de`, `lcc_step_<strategy>` ->
+# `lcc_step*<strategy>`. It also reflows the hand-wrapped ~100-col paragraphs and eats spaces around
+# inline code. 6 of the 10 root docs are affected, so ignore the lot rather than escaping prose by
+# hand and re-litigating it every time a doc is added.
+/*.md

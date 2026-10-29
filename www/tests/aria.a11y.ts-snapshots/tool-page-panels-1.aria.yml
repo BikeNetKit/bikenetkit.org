@@ -1,0 +1,32 @@
+- region "Map panels":
+  - heading "GrowBikeNet" [level=2]:
+    - link "GrowBikeNet":
+      - /url: /growbikenet
+  - link "More info":
+    - /url: /growbikenet
+  - paragraph: Grows a bicycle network, always adding next the street that helps the network most. Play the timeline to watch it build up.
+  - paragraph: The map itself is a picture that screen readers cannot read. The panels on this page give its numbers as text, and the button after this gives a summary and the main results as tables.
+  - button "View as table"
+  - separator
+  - heading "Apply when…" [level=2]
+  - paragraph: you plan from an existing network or from scratch.
+  - heading "Focus" [level=2]
+  - group "Focus":
+    - link "Area coverage":
+      - /url: /growbikenet/copenhagen_dk/betweenness/grid/from_bikenw
+    - link "Rail":
+      - /url: /growbikenet/copenhagen_dk/betweenness/rail/from_bikenw
+    - link "Schools":
+      - /url: /growbikenet/copenhagen_dk/betweenness/school/from_bikenw
+  - checkbox "show grid seeds" [checked]
+  - text: show grid seeds
+  - paragraph: Grows an even blanket of coverage across the whole city, with no particular focus. Choose "rail" or "schools" if you want to prioritize those.
+  - heading "Importance" [level=2]
+  - button "How is this calculated?"
+  - img /Color scale from 1, lightest, to \d+, darkest/
+  - region "Current values": /Existing network Built \d+ \+ \d+ km , at step \d+ of \d+ step 0 step \d+/
+  - group "Playback":
+    - button "Play"
+    - slider "Playback frame": /\d+/
+    - button "Previous step"
+    - button "Next step" [disabled]

@@ -1,0 +1,155 @@
+- main:
+  - img "BikeNetKit"
+  - heading "The digital toolkit for bicycle networks" [level=1]
+  - paragraph: Free, open-source Python tools for designing well-connected bicycle infrastructure.
+  - paragraph:
+    - link "© OpenStreetMap contributors":
+      - /url: /legal
+  - paragraph:
+    - text: Most cities
+    - strong: don't provide enough space to bike safely
+    - text: ", despite the massive demand for cycling and benefits for climate, public health, and city life."
+  - paragraph:
+    - text: /Since \d+, we have been researching/
+    - strong: new computational methods
+    - text: for
+    - strong: growing and fixing bicycle networks
+    - text: . But these were prototypes, too rough for practical use.
+  - paragraph:
+    - text: BikeNetKit turns them into polished,
+    - strong: free & open-source
+    - text: software tools. Urban planners and citizens can run them on their own city with their own data, exploring many scenarios to make safe cycling happen. Read more in our
+    - link "FAQ (opens in new tab)":
+      - /url: https://faq.bikenetkit.org
+    - text: .
+  - figure:
+    - button "Play the BikeNetKit intro video"
+  - heading "Cities" [level=2]
+  - img "Map of the covered cities. Use the search field to choose a city by keyboard."
+  - text: /Population > [\d,.]+[bkmBKM]+ < [\d,.]+[bkmBKM]+ Capital/
+  - button "Zoom in"
+  - heading "Which tool is right for your city?" [level=3]
+  - text: Search for a city
+  - textbox "Search for a city":
+    - /placeholder: Search for a city...
+  - button "Use my location"
+  - status
+  - paragraph:
+    - text: Search by name in the field above,
+    - button "find a nearby city,"
+    - text: or
+    - link "browse all cities":
+      - /url: /cities
+    - text: .
+  - heading "Tools" [level=2]
+  - link "GrowBikeNet Where should a bike network grow? Explore":
+    - /url: /growbikenet
+    - heading "GrowBikeNet" [level=3]
+    - paragraph: Where should a bike network grow?
+    - text: Explore
+  - link "LinkBikeNet How can we connect the pieces of an existing bike network? Explore":
+    - /url: /linkbikenet
+    - heading "LinkBikeNet" [level=3]
+    - paragraph: How can we connect the pieces of an existing bike network?
+    - text: Explore
+  - link "FixBikeNet Which gaps should we close first? Explore":
+    - /url: /fixbikenet
+    - heading "FixBikeNet" [level=3]
+    - paragraph: Which gaps should we close first?
+    - text: Explore
+  - link "SortBikeNet In what order should we build a planned bike network? Explore":
+    - /url: /sortbikenet
+    - heading "SortBikeNet" [level=3]
+    - paragraph: In what order should we build a planned bike network?
+    - text: Explore
+  - link "superblockify How can we create calmer neighborhoods by reorganizing through-traffic? Explore":
+    - /url: /superblockify
+    - heading "superblockify" [level=3]
+    - paragraph: How can we create calmer neighborhoods by reorganizing through-traffic?
+    - text: Explore
+  - link "More tools Shared utilities and more tools for assessing data quality, cyclist motions, and recreational bicycle networks. See all tools":
+    - /url: /more-tools
+    - heading "More tools" [level=3]
+    - paragraph: Shared utilities and more tools for assessing data quality, cyclist motions, and recreational bicycle networks.
+    - text: See all tools
+  - heading "Stats and Info" [level=2]
+  - link /\d+ cities analyzed/:
+    - /url: /cities
+  - link "5 tools":
+    - /url: /growbikenet
+  - text: /[\d,.]+[bkmBKM]+ km of bike trails AGPL License/
+  - heading "News" [level=3]
+  - list:
+    - listitem:
+      - time: /[A-Z][a-z]{2} \d{1,2}, \d{4}/
+      - text: Project launched — stay tuned for updates.
+  - heading "Team" [level=3]
+  - paragraph:
+    - text: Built at
+    - link "NERDS (opens in new tab)":
+      - /url: https://nerds.itu.dk/
+    - text: ", part of the"
+    - link "Data Science Section (opens in new tab)":
+      - /url: https://en.itu.dk/Research/Sections-and-research-groups/Data-Science
+    - text: at the IT University of Copenhagen, by researchers and practitioners in urban mobility and network science.
+  - paragraph: "Software development:"
+  - list:
+    - listitem:
+      - paragraph:
+        - link "Carlson M. Büth (opens in new tab)":
+          - /url: https://github.com/cbueth
+    - listitem:
+      - paragraph:
+        - link "Manuel Knepper (opens in new tab)":
+          - /url: https://github.com/Manuel-Knepper
+    - listitem:
+      - paragraph:
+        - link "Mariana Pessoa (opens in new tab)":
+          - /url: https://github.com/marianamirandapessoa
+    - listitem:
+      - paragraph:
+        - link "Clément Sebastiao (opens in new tab)":
+          - /url: https://github.com/csebastiao
+    - listitem:
+      - paragraph:
+        - link "Michael Szell (opens in new tab)":
+          - /url: https://github.com/mszell
+        - text: (Lead)
+    - listitem:
+      - paragraph:
+        - link "Anastassia Vybornova (opens in new tab)":
+          - /url: https://github.com/anastassiavybornova
+  - paragraph:
+    - text: "Design and visualization:"
+    - link "Moritz Stefaner / Truth & Beauty (opens in new tab)":
+      - /url: https://truth-and-beauty.net
+  - link "NERDS — Network Science and Data Science group, IT University of Copenhagen (opens in new tab)":
+    - /url: https://nerds.itu.dk/
+  - heading "Learn more" [level=3]
+  - paragraph:
+    - text: Check out the
+    - link "FAQs (opens in new tab)":
+      - /url: https://faq.bikenetkit.org
+    - text: ", read the research papers, or explore the source code on"
+    - link "GitHub (opens in new tab)":
+      - /url: https://github.com/BikeNetKit
+    - text: .
+  - heading "Sponsors" [level=3]
+  - paragraph: BikeNetKit is supported by public research funding and open-source contributors.
+  - list:
+    - listitem:
+      - link "Innovation Fund Denmark (opens in new tab)":
+        - /url: https://innovationsfonden.dk/en
+        - img "Innovation Fund Denmark"
+    - listitem:
+      - link "European Union (opens in new tab)":
+        - /url: https://commission.europa.eu/index_en
+        - img "European Union"
+    - listitem:
+      - link "JUST STREETS (opens in new tab)":
+        - /url: https://www.just-streets.eu/
+        - img "JUST STREETS"
+  - list:
+    - listitem:
+      - link "Data Science Section, IT University of Copenhagen (opens in new tab)":
+        - /url: https://en.itu.dk/Research/Sections-and-research-groups/Data-Science

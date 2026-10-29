@@ -1,0 +1,5 @@
+{
+	"note": "Datasets the frozen export ships with zero features, or with geometry confirmed as genuinely belonging to the named city despite sitting more than 3 boundary-widths from it. Legitimate upstream results — not corruption. Reported every run, but they do not fail it. Re-record with `pnpm check:datasets -- --accept`.",
+	"empty": [],
+	"misplaced": []
+}

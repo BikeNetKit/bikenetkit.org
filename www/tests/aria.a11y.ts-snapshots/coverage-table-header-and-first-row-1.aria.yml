@@ -1,0 +1,16 @@
+- rowgroup:
+  - row "City GrowBikeNet from scratch GrowBikeNet from existing LinkBikeNet FixBikeNet superblockify SortBikeNet Paris only":
+    - columnheader "City":
+      - button "City"
+    - columnheader "GrowBikeNet from scratch":
+      - button "GrowBikeNet from scratch"
+    - columnheader "GrowBikeNet from existing":
+      - button "GrowBikeNet from existing"
+    - columnheader "LinkBikeNet":
+      - button "LinkBikeNet"
+    - columnheader "FixBikeNet":
+      - button "FixBikeNet"
+    - columnheader "superblockify":
+      - button "superblockify"
+    - columnheader "SortBikeNet Paris only":
+      - button "SortBikeNet Paris only"

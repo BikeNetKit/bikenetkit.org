@@ -1,0 +1,21 @@
+- 'row "Aachen DE: show cities in Germany View Aachen · GrowBikeNet (from scratch) — available View Aachen · GrowBikeNet (from existing) — available View Aachen · LinkBikeNet — recommended View Aachen · FixBikeNet — recommended View Aachen · superblockify — recommended not available"':
+  - 'rowheader "Aachen DE: show cities in Germany"':
+    - link "Aachen":
+      - /url: /cities/aachen_de
+    - 'button "DE: show cities in Germany"'
+  - cell "View Aachen · GrowBikeNet (from scratch) — available":
+    - link "View Aachen · GrowBikeNet (from scratch) — available":
+      - /url: /growbikenet/aachen_de/betweenness/grid/from_scratch
+  - cell "View Aachen · GrowBikeNet (from existing) — available":
+    - link "View Aachen · GrowBikeNet (from existing) — available":
+      - /url: /growbikenet/aachen_de/betweenness/grid/from_bikenw
+  - cell "View Aachen · LinkBikeNet — recommended":
+    - link "View Aachen · LinkBikeNet — recommended":
+      - /url: /linkbikenet/aachen_de/largest_closest/network
+  - cell "View Aachen · FixBikeNet — recommended":
+    - link "View Aachen · FixBikeNet — recommended":
+      - /url: /fixbikenet/aachen_de/gap/network
+  - cell "View Aachen · superblockify — recommended":
+    - link "View Aachen · superblockify — recommended":
+      - /url: /superblockify/aachen_de/residential/edges
+  - cell "not available"

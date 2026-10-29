@@ -1,0 +1,46 @@
+# Adapted from the org config:
+# https://github.com/BikeNetKit/.github/blob/main/pre-commit-config.yaml
+#
+# Two deliberate differences, both because this is a JS repo rather than a Python one:
+#
+#  - The ruff hooks are dropped. There is no Python here.
+#  - The prettier hook is scoped to www/ and to yaml. The org runs it over all markdown, which
+#    would corrupt the repo-root prose docs: prettier's markdown parser reads unescaped `_` pairs
+#    as emphasis and rewrites identifiers -- `aachen_de` becomes `aachen*de`,
+#    `lcc_step_<strategy>` becomes `lcc_step*<strategy>` -- and reflows the hand-wrapped
+#    ~100-column paragraphs. See .prettierignore, which excludes /*.md for exactly this reason.
+#    Inside www/, `pnpm lint` already runs prettier with the project's own config.
+#
+# Install once:  pre-commit install
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: "v6.0.0"
+    hooks:
+      # This one is why the config is worth having at all. ~1 GB of GeoJSON was committed to this
+      # repo before the data moved off-repo, and it is still the bulk of the history. A 500 KB
+      # ceiling would have refused every one of those files at commit time.
+      - id: check-added-large-files
+        args: [--maxkb=500]
+      - id: check-case-conflict
+      - id: check-json
+      - id: check-merge-conflict
+        args: [--assume-in-merge]
+      - id: check-toml
+      - id: check-yaml
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+      - id: check-illegal-windows-names
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v3.8.1"
+    hooks:
+      - id: prettier
+        files: ^www/.*\.(md|yaml|yml)$
+
+  - repo: local
+    hooks:
+      - id: public-safety
+        name: public-safety (no host details, local paths, or non-redistributable files)
+        entry: node www/scripts/check-public-safety.mjs
+        language: system
+        pass_filenames: false

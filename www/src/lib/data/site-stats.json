@@ -1,0 +1,10 @@
+{
+	"totalNetworkLengthKm": 1830690,
+	"networkLengthKmByTool": {
+		"growbikenet": 668810,
+		"fixbikenet": 5624,
+		"linkbikenet": 81841,
+		"superblockify": 1068330,
+		"sortbikenet": 6085
+	}
+}

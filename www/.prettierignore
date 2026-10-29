@@ -1,0 +1,21 @@
+# Package Managers
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lock
+bun.lockb
+
+# Miscellaneous
+/static/
+# Off-repo GeoJSON + screenshots, moved out of static/ so Vite stops copying them into build/.
+# Not optional: prettier would otherwise walk ~2.4 GB of GeoJSON.
+/data/
+/screenshots/
+/.playwright-cli/
+
+# Generated map geometry (minified by scripts/build-land-geo.mjs)
+/src/lib/data/land.geo.json
+/src/lib/data/borders.geo.json
+
+# Playwright aria snapshots: generated YAML, compared verbatim.
+/tests/*-snapshots/

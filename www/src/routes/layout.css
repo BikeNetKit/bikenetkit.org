@@ -1,0 +1,816 @@
+@import 'tailwindcss';
+/* Bundled locally on purpose. svelte-maplibre-gl otherwise injects a <link> to
+   unpkg.com at runtime — see `autoloadGlobalCss={false}` on every <MapLibre>. */
+@import 'maplibre-gl/dist/maplibre-gl.css';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+/* Inside a map rail too short to show every panel in full (MapHost toggles `.rail-tight`). */
+@custom-variant rail-tight (&:where(.rail-tight *));
+
+/* ── Public Sans (body / UI) ────────────────────── */
+@font-face {
+	font-family: 'Public Sans';
+	src: url('/fonts/Public_Sans/PublicSans-Variable-latin.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'Public Sans';
+	src: url('/fonts/Public_Sans/PublicSans-Variable-latin-ext.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+	unicode-range:
+		U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+		U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+		U+A720-A7FF;
+}
+@font-face {
+	font-family: 'Public Sans';
+	src: url('/fonts/Public_Sans/PublicSans-VariableItalic-latin.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'Public Sans';
+	src: url('/fonts/Public_Sans/PublicSans-VariableItalic-latin-ext.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+	unicode-range:
+		U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+		U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+		U+A720-A7FF;
+}
+
+/* ── IBM Plex Mono (HUD telemetry / counters) ───── */
+@font-face {
+	font-family: 'IBM Plex Mono';
+	src: url('/fonts/IBM_Plex_Mono/IBMPlexMono-400-latin.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'IBM Plex Mono';
+	src: url('/fonts/IBM_Plex_Mono/IBMPlexMono-400-latin-ext.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	unicode-range:
+		U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+		U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+		U+A720-A7FF;
+}
+@font-face {
+	font-family: 'IBM Plex Mono';
+	src: url('/fonts/IBM_Plex_Mono/IBMPlexMono-500-latin.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'IBM Plex Mono';
+	src: url('/fonts/IBM_Plex_Mono/IBMPlexMono-500-latin-ext.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+	unicode-range:
+		U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+		U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+		U+A720-A7FF;
+}
+@font-face {
+	font-family: 'IBM Plex Mono';
+	src: url('/fonts/IBM_Plex_Mono/IBMPlexMono-600-latin.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'IBM Plex Mono';
+	src: url('/fonts/IBM_Plex_Mono/IBMPlexMono-600-latin-ext.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+	unicode-range:
+		U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+		U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+		U+A720-A7FF;
+}
+@font-face {
+	font-family: 'IBM Plex Mono';
+	src: url('/fonts/IBM_Plex_Mono/IBMPlexMono-700-latin.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'IBM Plex Mono';
+	src: url('/fonts/IBM_Plex_Mono/IBMPlexMono-700-latin-ext.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+	unicode-range:
+		U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+		U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+		U+A720-A7FF;
+}
+
+/* ── Bespoke Sans (display / headings) ─────────── */
+@font-face {
+	font-family: 'Bespoke Sans';
+	src: url('/fonts/BespokeSans_Complete/Fonts/WEB/fonts/BespokeSans-Variable.woff2') format('woff2');
+	font-weight: 300 800;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Bespoke Sans';
+	src: url('/fonts/BespokeSans_Complete/Fonts/WEB/fonts/BespokeSans-VariableItalic.woff2')
+		format('woff2');
+	font-weight: 300 800;
+	font-style: italic;
+	font-display: swap;
+}
+
+@theme {
+	--font-sans: 'Public Sans', sans-serif;
+	--font-display: 'Bespoke Sans', sans-serif;
+	--font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+	/* Gap set at each camel-case boundary of a product name, so `GrowBikeNet` reads as
+	   `Grow Bike Net` the way the logo lockup is set. Same value as the lockup's `wordGap` in
+	   `$lib/design/sublogo.js` — 4.22 SVG units at font size 32 — as an em fraction, so it holds
+	   at every type size. Applied by `ui/ToolName.svelte`; see DESIGN.md § Logo sublogos. */
+	--spacing-name-word-gap: 0.1319em;
+
+	/* ── Layout ─────────────────────────────────────────────────────── */
+	/* Widest the page content column ever gets. Beyond this the content centers and the page
+	   background fills the rest, so the composition keeps its center on ultrawide displays.
+	   Tailwind v4 turns this into `max-w-page`. */
+	--container-page: 1920px;
+
+	/* ── Core Colors (palette primitives — from Figma base-*) ──────── */
+
+	/* Green palette */
+	--color-base-eden: #096a51;
+	--color-base-turtle-green: #426736;
+	--color-base-teal: #7cac96;
+	--color-base-teal-light: #accabc;
+	--color-base-teal-lighter: #d4e4db;
+	--color-base-teal-lightest: #eef5f1;
+
+	/* Accent */
+	--color-base-lime: #3cd71d;
+
+	/* Paper */
+	--color-base-sand: #f7f7f0;
+	--color-paper-base: #f7f7f0;
+	--color-paper-white: #ffffff;
+
+	/* Viz ramp anchors */
+	--color-ramp-0: #e7e1d1;
+	--color-ramp-1: #d3d59c;
+	--color-ramp-2: #65b81d;
+	--color-ramp-3: #00676f;
+
+	/* Existing bike network baseline (mirrored in $lib/colors.js for MapLibre paint) */
+	--color-existing-network: #9999cc;
+	--color-existing-network-connected: #4c4c99;
+	--color-existing-network-hover: #7a7aa3;
+	/* Text-only, sitting between the line color and near-black: light enough to read as purple
+	   next to the green ink, dark enough for ~4.8:1 on white. No $lib/colors.js mirror. */
+	--color-existing-network-ink: #6a6ab8;
+
+	--color-category-0: #6ab8df;
+	--color-category-1: #f19730;
+	--color-category-2: #77be3a;
+	--color-category-3: #2ed6a6;
+	--color-category-4: #8579d7;
+	--color-category-other: #c2c2b3;
+
+	/* ── Terminal chrome (CodeSample) ──────────────────────────────── */
+	/* The three macOS window dots. Deliberately *not* brand tokens: they are the cue that says
+	   "this is a shell command", and recolouring them to green would erase it. Everything else in
+	   CodeSample uses paper/ink/border tokens. Decorative — never the sole carrier of meaning. */
+	--color-terminal-dot-red: #ff5f56;
+	--color-terminal-dot-amber: #ffbd2e;
+	--color-terminal-dot-green: #27c93f;
+
+	/* ── Notice (amber) ─────────────────────────────────────────────── */
+	/* A state the reader must not miss — a tool with no results for this city. Amber so it stands
+	   apart from the all-green UI; body copy on it stays in the ink colors. */
+	--color-base-amber: #e6b450;
+	--color-base-amber-lightest: #fdf4dc;
+
+	/* ── Semantic Colors (purpose-based — reference core) ────── */
+
+	/* Brand */
+	--color-brand: var(--color-base-eden);
+	--color-brand-vivid: var(--color-base-lime);
+	--color-brand-vivid-light: color-mix(in lch, var(--color-brand-vivid), #ffffff 30%);
+	--color-brand-vivid-dark: color-mix(in lch, var(--color-brand-vivid), #000000 10%);
+	/* Brand mixed toward black for the intro-video lightbox scrim. oklab (not lch like the other
+	   brand mixes) keeps the darkening neutral instead of picking up a hue cast. */
+	--color-brand-darkest: color-mix(in oklab, var(--color-brand), #000000 50%);
+	--color-brand-ink: var(--color-base-turtle-green);
+	--color-brand-secondary: color-mix(in lch, var(--color-brand), var(--color-brand-muted) 30%);
+	--color-brand-muted: var(--color-base-teal);
+	--color-brand-light: var(--color-base-teal-light);
+	--color-brand-subtle: var(--color-base-teal-lighter);
+
+	/* Ink */
+	--color-ink: var(--color-brand-ink);
+	--color-ink-weaker: #607858cc;
+	--color-ink-weakest: #60785899;
+	--color-ink-alt: var(--color-brand);
+	--color-ink-alt-weaker: #5b8b75;
+	--color-ink-alt-weakest: #7cac96cc;
+	/* Inline prose links (see `.link` below). More chromatic and lighter than --color-brand so a link
+	   is distinguishable from the brand-colored headings and the ink body copy around it, while still
+	   clearing WCAG AA on white (5.4:1), paper (5.0:1) and paper-brand (4.8:1). */
+	--color-ink-link: color-mix(in oklab, var(--color-brand), var(--color-brand-vivid) 15%);
+
+	/* Paper */
+	--color-paper: var(--color-paper-base);
+	--color-paper-brand: #eef5f1;
+
+	/* Border */
+	--color-border: var(--color-ink-alt-weakest);
+	--color-border-weaker: var(--color-ink-alt-weakest);
+	--color-border-weakest: color-mix(in lch, var(--color-ink-alt-weakest), #ffffff 50%);
+
+	/* Notice — heading and icon at 5.4:1 on the fill; ink-alt body copy at 6.0:1. */
+	--color-notice: #8a5a00;
+	--color-notice-border: var(--color-base-amber);
+	--color-notice-subtle: var(--color-base-amber-lightest);
+
+	--text-2xs: 0.625rem;
+
+	--tracking-tight: -0.015em;
+	--tracking-tighter: -0.02em;
+}
+
+/* The map's compact info/settings sheet. Capped in `dvh` so the map keeps at least a third of the
+   screen when the sheet is open, and so an iOS URL bar retracting doesn't push the handle off. */
+@utility map-sheet-body {
+	max-height: 60dvh;
+}
+
+/* Hero min-heights in `dvh`, not `vh` — under an iOS URL bar `vh` includes the retracted bar's
+   space, leaving the hero taller than the viewport actually is. Both figures are 80dvh: the compact
+   hero stacks the wide wordmark over the headline instead of desktop's square logo beside it, but
+   the ambient map below it is the point of the section, so it keeps the same share of the screen.
+   Kept as two utilities because `md:` overriding a same-valued utility is what lets either be
+   retuned on its own. */
+@utility hero-min-h {
+	min-height: 80dvh;
+}
+@utility hero-min-h-md {
+	min-height: 80dvh;
+}
+
+/* A brand-filled range thumb. `appearance: none` on the input (needed for the custom track) also
+   drops `accent-color`: Chromium still paints an accent-coloured thumb, but WebKit falls back to
+   its native white knob with a halo, which on iOS left the playback scrubber looking washed out.
+   Drawing the thumb ourselves makes every engine agree. */
+@utility range-thumb-brand {
+	&::-webkit-slider-thumb {
+		appearance: none;
+		width: 1rem;
+		height: 1rem;
+		border: 0;
+		border-radius: 9999px;
+		background-color: var(--color-brand);
+	}
+	&::-moz-range-thumb {
+		width: 1rem;
+		height: 1rem;
+		border: 0;
+		border-radius: 9999px;
+		background-color: var(--color-brand);
+	}
+	@media (pointer: coarse) {
+		&::-webkit-slider-thumb {
+			width: 1.25rem;
+			height: 1.25rem;
+		}
+		&::-moz-range-thumb {
+			width: 1.25rem;
+			height: 1.25rem;
+		}
+	}
+}
+
+body {
+	font-optical-sizing: auto;
+	background-color: var(--color-paper);
+	color: var(--color-ink);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply text-balance;
+}
+
+p {
+	max-width: 30em;
+}
+
+/* `balance` evens out line lengths inside one block, which is what a lone paragraph — a hero lede,
+   a card blurb — wants. Applied to a *stack* of paragraphs it backfires: each block is balanced
+   against its own line count, so a three-line and a five-line paragraph settle at different
+   measures and the column's rag steps in and out. So stacked paragraphs get `pretty` (no orphans,
+   measure untouched) and only a paragraph with no adjacent `<p>` sibling is balanced.
+
+   Both rules sit in `@layer base` so `text-balance` / `text-pretty` on an element still win —
+   Tailwind emits those into `@layer utilities`, and an *unlayered* rule would beat any layered one
+   no matter how specific, leaving the utilities silently inert. The `max-width` above stays
+   unlayered on purpose: it is the site's measure rather than a per-element default, and keeping it
+   out of the cascade layers is what lets it go on winning over `max-w-*`. */
+@layer base {
+	/* The fallback focus ring, for anything that brings no focus style of its own. In `base`, so
+	   every utility still wins: IconButton's ring, `.link`'s currentColor outline, the white outline
+	   on dark surfaces. A `focus:outline-none` on an interactive element defeats it, so don't add
+	   one without a visible `focus-visible:` replacement (see DESIGN.md § Accessibility). */
+	:where(a[href], button, summary, [role='button'], [tabindex]):focus-visible {
+		outline: 2px solid var(--color-brand);
+		outline-offset: 2px;
+	}
+
+	/* The forms plugin paints a blue (#2563eb) ring and border on focused text fields. Retinted to
+	   the brand rather than removed; the attribute selector outweighs the plugin's `:where()`. */
+	input:is([type='text'], [type='search']):focus,
+	textarea:focus {
+		--tw-ring-color: var(--color-brand);
+		border-color: var(--color-brand);
+	}
+
+	p {
+		text-wrap: pretty;
+	}
+
+	p:not(p + p):not(:has(+ p)) {
+		text-wrap: balance;
+	}
+}
+
+hr {
+	border: none;
+	border-top: 1px solid var(--color-brand-subtle);
+	margin: 1.3rem 0;
+}
+
+@layer base {
+	.display-name {
+		@apply font-display font-bold italic;
+	}
+
+	/* Set by `ui/ToolName.svelte`, never by hand. A margin rather than an inserted thin-space
+	   character on two counts: Bespoke Sans ships no glyph for U+2009/U+200A/U+202F, so the width
+	   would come from whatever fallback face the OS picked; and those characters are break
+	   opportunities, which would let a name wrap mid-word in a narrow table header. Adjacent
+	   inline spans with no whitespace between them add no break opportunity, so the name stays
+	   one unbreakable unit. */
+	.name-word + .name-word {
+		margin-left: var(--spacing-name-word-gap);
+	}
+
+	/* Inline links in body copy. The permanent underline is the point: color alone would not
+	   distinguish a link from the brand-colored text around it (WCAG 1.4.1). It rests at partial
+	   strength so a paragraph with several links does not look striped, and goes full-strength on
+	   hover. Hover darkens rather than brightens, so the hovered state is never less legible. */
+	.link {
+		color: var(--color-ink-link);
+		text-decoration-line: underline;
+		text-decoration-thickness: 1px;
+		text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+		text-underline-offset: 0.15em;
+		transition:
+			color 150ms ease-out,
+			text-decoration-color 150ms ease-out;
+	}
+
+	.link:hover {
+		color: var(--color-brand);
+		text-decoration-color: currentColor;
+		text-decoration-thickness: 2px;
+	}
+
+	.link:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 2px;
+		border-radius: 2px;
+	}
+
+	/* For links that are not inside a sentence — a grid or list where every item is a link, so the
+	   underline carries no information and only adds noise (e.g. the team tiles). Reveal it on hover.
+	   Do not use this inside body copy: there the resting underline is what marks the link. */
+	.link-quiet {
+		text-decoration-line: none;
+	}
+
+	.link-quiet:hover {
+		text-decoration-line: underline;
+	}
+
+	/* The first stop in every page's tab order. Clipped rather than `sr-only` so it can be revealed in
+	   place with nothing but `clip-path`, and always in the accessibility tree. */
+	.skip-link {
+		position: fixed;
+		top: 0.5rem;
+		left: 0.5rem;
+		z-index: 100;
+		padding: 0.5rem 0.75rem;
+		border-radius: 0.25rem;
+		background: var(--color-brand);
+		color: var(--color-paper-white);
+		font-size: var(--text-sm);
+		font-weight: 600;
+		clip-path: inset(50%);
+	}
+
+	.skip-link:focus-visible {
+		clip-path: none;
+		outline: 2px solid var(--color-brand);
+		outline-offset: 2px;
+	}
+
+	/* Funder logos at rest: a duotone that maps every logo — SVG wordmark, EU flag, raster PNG —
+	   onto the same muted teal the social icons use, so the row reads as one quiet group instead of
+	   three competing brand palettes. The ramp is defined by the `#logo-duotone` SVG filter (see
+	   InfoGrid.svelte), which preserves alpha, so transparent backgrounds stay transparent.
+	   Hover/keyboard focus restores the true colors — a funder logo has to be showable as-issued.
+	   No transition: filter interpolation between `url()` and `none` is discrete either way. */
+	.logo-tint {
+		filter: url(#logo-duotone);
+	}
+
+	.logo-tint:hover,
+	a:focus-visible .logo-tint {
+		filter: none;
+	}
+
+	/* The same duotone, lightened first — for the NERDS mark in the Team card. Straight
+	   `.logo-tint` flattens it: the mark is black shapes with details knocked out in yellow, and
+	   the duotone's shadow half is flat, so both the shapes and the card's white ground collapse
+	   towards one value and the wordmark stops reading as letters. `#logo-lighten` (defined in
+	   InfoGrid.svelte) lifts everything onto the duotone's ramp first, where the two survive as
+	   separable values. Filters compose left to right, so the order here is the effect. */
+	.logo-tint-soft {
+		filter: url(#logo-lighten) url(#logo-duotone);
+	}
+
+	.logo-tint-soft:hover,
+	a:focus-visible .logo-tint-soft {
+		filter: none;
+	}
+
+	/* Viewport for the DESIGN.md preview — a named class rather than an arbitrary `max-h-[70vh]`
+	   utility, since the document is far too long to show in full. */
+	.spec-preview {
+		max-height: 70vh;
+		overflow-y: auto;
+		overscroll-behavior: contain;
+	}
+
+	/* Transparency checkerboard for asset previews on the design page. */
+	.checkerboard {
+		--checker: color-mix(in srgb, var(--color-ramp-0) 50%, transparent);
+		background-image:
+			linear-gradient(45deg, var(--checker) 25%, transparent 25%),
+			linear-gradient(-45deg, var(--checker) 25%, transparent 25%),
+			linear-gradient(45deg, transparent 75%, var(--checker) 75%),
+			linear-gradient(-45deg, transparent 75%, var(--checker) 75%);
+		background-size: 16px 16px;
+		background-position:
+			0 0,
+			0 8px,
+			8px -8px,
+			-8px 0;
+	}
+}
+
+/* ── Rendered DESIGN.md (/design) ───────────────── */
+/* Retheming of @tailwindcss/typography (loaded via `@plugin` above) for the spec preview.
+   Unlayered on purpose: the plugin emits `.prose` into the utilities layer and sets these same
+   variables there, so a `.prose-brand` inside `@layer base` would lose the cascade to it despite
+   equal specificity. Same reasoning as the vendor overrides below. */
+.prose-brand {
+	--tw-prose-body: var(--color-ink);
+	--tw-prose-headings: var(--color-brand);
+	--tw-prose-links: var(--color-ink-link);
+	--tw-prose-bold: var(--color-ink);
+	--tw-prose-counters: var(--color-ink-weaker);
+	--tw-prose-bullets: var(--color-brand-muted);
+	--tw-prose-code: var(--color-ink);
+	--tw-prose-quotes: var(--color-ink-weaker);
+	--tw-prose-quote-borders: var(--color-brand-subtle);
+	--tw-prose-hr: var(--color-brand-subtle);
+	--tw-prose-th-borders: var(--color-border-weaker);
+	--tw-prose-td-borders: var(--color-border-weakest);
+	--tw-prose-pre-bg: var(--color-paper);
+	--tw-prose-pre-code: var(--color-ink);
+}
+
+/* The plugin leaves headings in the body family; on this site headings are Bespoke Sans, so the
+   preview would otherwise be set differently from the page framing it. */
+.prose-brand :where(h1, h2, h3, h4, h5, h6) {
+	font-family: var(--font-display);
+}
+
+/* The global `p { max-width: 30em }` rule wins over the plugin's `:where(p)` selectors, which
+   would otherwise leave the prose paragraphs far narrower than the tables they sit between. */
+.prose-brand :where(p) {
+	max-width: none;
+}
+
+/* DESIGN.md's token tables are wider than the column. `display: block` makes each table
+   shrink-to-fit and scroll on its own instead of widening the whole preview. */
+.prose-brand :where(table) {
+	display: block;
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+/* The plugin draws literal backticks around inline code and curly quotes around blockquotes.
+   Both are wrong here: this is a technical spec, and its blockquote is an instruction block, not
+   a pull quote. A tinted chip reads as code without the punctuation. */
+.prose-brand :where(code)::before,
+.prose-brand :where(code)::after,
+.prose-brand :where(blockquote p):first-of-type::before,
+.prose-brand :where(blockquote p):last-of-type::after {
+	content: none;
+}
+
+.prose-brand :where(code):not(:where(pre code)) {
+	background-color: var(--color-paper-brand);
+	border-radius: 0.25rem;
+	padding: 0.125em 0.35em;
+	font-weight: 400;
+}
+
+/* The plugin italicises blockquotes. Here the blockquote carries the agent instructions — the
+   longest prose on the page — and a whole italic block is harder to read than it is emphatic. */
+.prose-brand :where(blockquote) {
+	font-style: normal;
+}
+
+/* ── MapLibre controls ──────────────────────────── */
+/* The zoom buttons sit in the bottom-right corner, above the basemap credits — MapLibre prepends
+   controls in bottom corners, so the zoom control added by the map components lands on top
+   of the attribution the map itself added at construction. No ordering CSS needed. */
+
+/* The control groups wear the same outline and lift as the map's cards (CardPanel: 1px
+   `border-weaker`, `shadow-md`) instead of the vendor's 2px grey halo, so buttons and legends
+   read as one family. A ring rather than a `border`: it adds no size, so the 29px buttons, the
+   stack height `measureCtrlStack()` feeds the overlay rail, and the toggles' `border-radius:
+   inherit` fill all stay as they are. Same selector as the vendor rule, so it wins by order.
+   The collapsed basemap credit sits at the bottom of that stack, so it wears the same chrome. */
+.maplibregl-ctrl-group:not(:empty),
+.maplibregl-ctrl-attrib.maplibregl-compact {
+	box-shadow:
+		0 0 0 1px var(--color-border-weaker),
+		0 4px 6px -1px rgb(0 0 0 / 0.1),
+		0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.maplibregl-ctrl-group button + button {
+	border-top-color: var(--color-border-weaker);
+}
+/* The rules above outrank the vendor's forced-colors overrides, so restate them. */
+@media (forced-colors: active) {
+	.maplibregl-ctrl-group:not(:empty),
+	.maplibregl-ctrl-attrib.maplibregl-compact {
+		box-shadow: 0 0 0 1px ButtonText;
+	}
+	.maplibregl-ctrl-group button + button {
+		border-top-color: ButtonText;
+	}
+}
+
+/* Our own icon buttons (reset view, download, settings) ride in that same corner, so they inherit
+   the vendor button's size and chrome and only need colour, centring and a pressed state.
+   On/off uses the same palette as the segmented controls and toggle buttons: brand fill with
+   white type when active, brand type on white when not, darkening to ink on hover.
+
+   Descendant selectors, not bare classes: the vendor rules `.maplibregl-ctrl-group button`
+   (`display: block`) and `.maplibregl-ctrl button:not(:disabled):hover` (a grey wash, specificity
+   0-3-1) would otherwise win — hence also the explicit `:hover` on the pressed rule, which would
+   lose its fill on hover without it. Unlayered for the same reason as the rule above. */
+.maplibregl-ctrl-group .map-ctrl-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* The group rounds its corners but does not clip, and this button is usually its only child —
+	   without this the active fill would square off the corners the white chrome rounds. */
+	border-radius: inherit;
+	color: var(--color-brand);
+	transition:
+		color 150ms,
+		background-color 150ms;
+}
+.maplibregl-ctrl-group .map-ctrl-toggle:last-child:not(:only-child) {
+	/* The reset button closes the zoom group: only the corners the group rounds below it. */
+	border-radius: 0 0 4px 4px;
+}
+.maplibregl-ctrl-group .map-ctrl-toggle:hover {
+	color: var(--color-ink);
+}
+.maplibregl-ctrl-group .map-ctrl-toggle[aria-pressed='true'],
+.maplibregl-ctrl-group .map-ctrl-toggle[aria-pressed='true']:hover {
+	background: var(--color-brand);
+	color: var(--color-paper-white);
+}
+.maplibregl-ctrl-group .map-ctrl-toggle:disabled,
+.maplibregl-ctrl-group .map-ctrl-toggle[aria-disabled='true'] {
+	color: var(--color-ink-alt-weaker);
+	opacity: 0.4;
+	cursor: default;
+}
+.maplibregl-ctrl-group .map-ctrl-toggle[aria-disabled='true']:hover {
+	background: transparent;
+}
+/* The zoom buttons dim with `aria-disabled` too (see MapZoomControl); the vendor sheet styles only
+   `:disabled`, so its dimmed icon and inert hover are restated for the attribute. */
+.maplibregl-ctrl-group button[aria-disabled='true'] .maplibregl-ctrl-icon {
+	opacity: 0.25;
+}
+.maplibregl-ctrl-group button[aria-disabled='true'] {
+	cursor: default;
+}
+.maplibregl-ctrl-group button[aria-disabled='true']:hover {
+	background-color: transparent;
+}
+
+/* Report-issue is the only control rendered as a plain `<a>`, not a `<button>` — the vendor's
+   `.maplibregl-ctrl-group button { width/height: 29px; padding: 0 }` is a tag selector, so it
+   never applies here, and without a baseline of its own the pill would just shrink-wrap its icon
+   instead of matching its 29px-square siblings. `height` is fixed at rest; `width` stays `auto`
+   with a 29px floor so it can grow on hover/focus to reveal the label. */
+.maplibregl-ctrl-group .map-ctrl-expand {
+	width: auto;
+	height: 29px;
+	min-width: 29px;
+}
+
+/* The pill widens leftwards, into the split-rail readout cards that sit one card gap to its left
+   inside MapHost's z-10 overlay, while the vendor control corner is z-index 2. Lift the corner over
+   the overlay only while the pill is open, so its label reads over the cards and nothing else
+   changes order at rest. Stays below the bottom sheet's z-20. */
+.maplibregl-ctrl-bottom-right:has(.map-ctrl-expand:hover, .map-ctrl-expand:focus-visible) {
+	z-index: 15;
+}
+
+/* The attribution credit is a descendant of `.maplibregl-map`, so it inherits the vendor
+   font rather than our Public Sans. Restate the family so the basemap credit matches the
+   rest of the UI. Unlayered, like the control rules above, to beat the vendor declaration.
+   The class is `-attrib`, not `-attribution`: there is no such class in MapLibre, and this rule
+   matched nothing until it was corrected. */
+.maplibregl-ctrl-attrib {
+	font-family: var(--font-sans);
+}
+
+/* The credit rests as its ⓘ button — `MapHost` closes it at mount, see
+   `$lib/map-style/attribution.js` — so on the interactive maps this button, not the credit strip, is
+   what sits under the zoom / labels / download stack. The vendor draws it as a 24px circle with a
+   translucent fill, which lands 5px short of that stack's right edge with no shadow to lift it off
+   the map. Match the group's footprint instead (its outline is shared with the groups' rule above),
+   so the corner reads as a column of controls, all on one vertical axis.
+
+   **One height for both states.** The vendor sizes the open pill to 24px and the button with it, so
+   styling the closed state alone made opening the credit shrink the box by 5px and slide the icon
+   5px down and right, under the reader's cursor mid-click. The geometry below is therefore shared,
+   and only the left padding — the gap in front of the text — switches.
+
+   The margin is the groups' own `0 10px 10px 0`. The vendor's all-round `margin: 10px` on the
+   compact credit stacks its 10px top on the group's 10px bottom (floats don't collapse margins),
+   which left the ⓘ twice as far from the stack as any group is from the next.
+
+   The ⓘ glyph stays black. It is a `background-image` data-URI, so it cannot take `--color-brand`
+   the way the Lucide icons above it do, and filter-tinting a black SVG to a brand hue is not worth
+   the fragility. A knowing mismatch with the brand-colored icons above it. */
+.maplibregl-ctrl-attrib.maplibregl-compact {
+	/* `border-box` because the vendor's `content-box` would add the padding below to the height.
+	   `min-height`, not `height`: in a narrow embed the credit wraps to two lines, and a fixed height
+	   would leave the second one hanging outside the white. The floor is the button's own size, which
+	   is what keeps the closed pill square. */
+	box-sizing: border-box;
+	min-height: 29px;
+	/* Closed, the right padding *is* the button, which is what makes the pill a 29px square. Flex
+	   centres the credit line against a button that is positioned absolutely, and so out of flow. */
+	padding: 0 29px 0 0;
+	margin: 0 10px 10px 0;
+	display: flex;
+	align-items: center;
+	border-radius: 4px;
+}
+
+/* Open, the text needs the same 8px inset on both sides — with only the button's width to its right
+   the last link ends flush against the ⓘ. On a phone the strip wraps to the map's full width, so it
+   also keeps the same 10px from the left edge that it keeps from the right. `cqw`, not `%`: the
+   corner box is sized by its contents, this strip included, so a percentage would always wrap the
+   strip 20px short of its own text. MapHost's wrapper is the size container, i.e. the map. */
+.maplibregl-ctrl-attrib.maplibregl-compact.maplibregl-compact-show {
+	padding-right: 37px;
+	padding-left: 8px;
+	max-width: calc(100cqw - 20px);
+}
+
+.maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-button {
+	width: 29px;
+	height: 29px;
+	border-radius: 4px;
+	/* The vendor leaves its 24px data-URI at `0 0` and repeating, which in a 29px box pins the glyph
+	   to the top-left corner and tiles slivers of the next copy along two edges. */
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/* Closed, the button *is* the pill, so it must not paint a second surface over it. Open, the
+   vendor's own `rgba(0,0,0,.05)` wash stays — there it reads as the pressed state. */
+.maplibregl-ctrl-attrib.maplibregl-compact:not(.maplibregl-compact-show)
+	.maplibregl-ctrl-attrib-button {
+	background-color: transparent;
+}
+
+/* Now that this button is a control a reader reaches for, give it the ring the rest of the site uses
+   (cf. `.link:focus-visible`) instead of the vendor's `#0096ff` glow — which is off-brand, and fires
+   on mouse clicks too because it hangs off plain `:focus`. That rule is specificity 0-2-0, so it
+   needs resetting explicitly or both rings draw. */
+.maplibregl-ctrl-attrib-button:focus {
+	box-shadow: none;
+}
+
+.maplibregl-ctrl-attrib-button:focus-visible {
+	outline: 2px solid var(--color-ink);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+
+/* On compact the bottom sheet's resting handle covers the bottom of the map, and with it the credit
+   — the only route to /legal on the full-screen map view. Lift the whole corner stack clear of it.
+   The handle is `min-h-11` plus a 1px `border-t` (MapBottomSheet); lifting by the handle alone
+   leaves the ⓘ's 1px ring 8px above the sheet, which is where MapHost puts the playbar dock's card.
+   Scoped to maps that mount the sheet: the capture routes have none. Matches `compact`'s 767px. */
+@media (width < 48rem) {
+	.map-has-sheet .maplibregl-ctrl-bottom-right {
+		bottom: calc(var(--spacing) * 11);
+	}
+}
+
+/* Reduced motion, site-wide. Collapses every CSS animation and transition to a single frame rather
+   than listing them, so the next one added is covered too: the hero crossfade and HUD blink, the
+   loader spinners, hover lifts. JS-driven motion is handled where it runs (`reducedMotion` in
+   `$lib/state/motion.svelte.js`); MapLibre already honors the setting for its camera. */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	::before,
+	::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* MapLibre's control buttons glow #0096ff on focus; one brand ring instead, the same as every other
+   control. Matches the vendor selector's weight, and wins by coming later. The report-issue link
+   sits in a control group too, and gets nothing from the vendor sheet. */
+.maplibregl-ctrl-group button:focus:focus-visible,
+.maplibregl-ctrl-group a:focus-visible {
+	box-shadow: none;
+	outline: 2px solid var(--color-brand);
+	outline-offset: 2px;
+}
+
+/* The map canvas fills a container with `overflow: hidden`, which would clip an outer ring. */
+.maplibregl-canvas:focus-visible {
+	outline: 2px solid var(--color-brand);
+	outline-offset: -3px;
+}

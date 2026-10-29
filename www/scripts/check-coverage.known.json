@@ -1,0 +1,9 @@
+{
+	"note": "Recommended-but-uncovered pairs that are known and tracked. Reported every run, but they do not fail it; each is raised with its tool team. Re-record with `pnpm check:coverage -- --accept` once an answer lands.",
+	"claimed": [
+		{
+			"city": "nikopol_ua",
+			"column": "superblockify"
+		}
+	]
+}

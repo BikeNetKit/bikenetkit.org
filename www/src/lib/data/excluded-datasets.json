@@ -1,0 +1,11 @@
+{
+	"note": "Datasets the export ships with geometry belonging to a different place. Filtered out of the manifest by datasets.ts, skipped by update-data's mirrors, and exempt from the placement audit in check:datasets. Remove an entry once a corrected export lands — update-data samples the file's bounds and reports when one is no longer needed. It cannot report an entry the export has *withdrawn* rather than fixed: with no file there is nothing to sample, so a withdrawal shows up only as the city losing the tool in check:coverage. The 2026-09-24 export withdrew aalborg_dk, aarhus_dk, copenhagen_dk and vejle_dk that way; their entries are removed here and the four are tracked as superblockify coverage gaps instead.",
+	"excluded": [
+		{
+			"tool": "superblockify",
+			"city": "nikopol_ua",
+			"reason": "Export holds Nikopol, Bulgaria (24.9E 43.7N), not Nikopol, Ukraine — a place-name collision.",
+			"issue": "https://github.com/BikeNetKit/dataexport/issues/75"
+		}
+	]
+}

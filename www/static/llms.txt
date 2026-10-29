@@ -1,0 +1,52 @@
+# BikeNetKit
+
+> The digital toolkit for bicycle networks. Free, open-source Python tools for designing
+> well-connected bicycle infrastructure, with interactive visualizations for cities worldwide.
+> Audience: policy makers, sustainable-mobility advocates, and city/transport planners.
+
+BikeNetKit turns a decade of research on the *Science of Bicycle Networks* into user-friendly
+decision-support tools for urban planners and proactive citizens. The site at
+https://bikenetkit.org showcases each tool and lets you explore its output on real cities on an
+interactive map (metric, network type, and city are chosen through the URL). The code is licensed
+under the GNU AGPL-3.0.
+
+## Interactive tools
+
+- [GrowBikeNet](https://bikenetkit.org/growbikenet): Extend a bicycle network or grow one from scratch. Paper: https://www.nature.com/articles/s41598-022-10783-y — Code: https://github.com/BikeNetKit/GrowBikeNet
+- [FixBikeNet](https://bikenetkit.org/fixbikenet): Find the missing links in bicycle networks. Paper: https://onlinelibrary.wiley.com/doi/epdf/10.1111/gean.12324 — Code: https://github.com/BikeNetKit/FixBikeNet
+- [LinkBikeNet](https://bikenetkit.org/linkbikenet): Connect fragmented bicycle network pieces. Paper: https://royalsocietypublishing.org/doi/10.1098/rsos.201130 — Code: https://github.com/BikeNetKit/LinkBikeNet
+- [superblockify](https://bikenetkit.org/superblockify): Create calmer neighborhoods while keeping through-traffic on suitable roads. Paper: https://joss.theoj.org/papers/10.21105/joss.06798 — Code: https://github.com/BikeNetKit/superblockify
+- [SortBikeNet](https://bikenetkit.org/sortbikenet): Find the best implementation of a bicycle network plan — the order in which to build it. Covers one city, Paris, comparing eleven build orderings (including the order Paris actually built) from three starting points. Code: https://github.com/BikeNetKit/SortBikeNet
+
+## More tools
+
+Seven further tools, collected on one page at https://bikenetkit.org/more-tools — each anchored
+at its own section rather than a page of its own. Only BikeNetLib is part of BikeNetKit; the rest
+are related work by the same research community, listed because they solve adjacent problems.
+
+### Part of BikeNetKit
+
+- [BikeNetLib](https://bikenetkit.org/more-tools#bikenetlib): The shared Python toolkit that powers the rest of the BikeNetKit family. Code: https://github.com/BikeNetKit/BikeNetLib
+
+### Related tools
+
+- [MoveBikeNet](https://bikenetkit.org/more-tools#movebikenet): Trace how cyclists actually move, to reveal the routes they want rather than the ones they are given. Paper: https://findingspress.org/article/56683-computational-desire-line-analysis-of-cyclists-on-the-dybbolsbro-intersection-in-copenhagen
+- [BikeDNA](https://bikenetkit.org/more-tools#bikedna): Assess the quality of bicycle infrastructure data by comparing OSM against reference datasets. Paper: https://journals.sagepub.com/doi/10.1177/23998083231184471
+- [HoodBikeNet](https://bikenetkit.org/more-tools#hoodbikenet): Grow the network neighborhood by neighborhood, linking low-traffic areas into one safe cycling web.
+- [StretchBikeNet](https://bikenetkit.org/more-tools#stretchbikenet): Find the corridors worth stretching and upgrading, using optimal transport across a multilayer city network. Paper: https://royalsocietypublishing.org/doi/10.1098/rsif.2024.0532 — Code: https://github.com/cdebacco/MultiOT
+- [BikeNodePlanner](https://bikenetkit.org/more-tools#bikenodeplanner): Evaluate a planned bicycle node network against the terrain, services and destinations around it. Paper: https://journals.sagepub.com/doi/10.1177/23998083251355999 — Code: https://github.com/anastassiavybornova/bike-node-planner
+- [LoopBikeNet](https://bikenetkit.org/more-tools#loopbikenet): Take a census of the loops a node network offers, to see which round trips it actually makes possible. Paper: https://arxiv.org/abs/2604.07029 — Code: https://github.com/mszell/bikenwloops
+
+## Full reference
+
+- [llms-full.txt](https://bikenetkit.org/llms-full.txt): every interactive tool in full — what it computes, each option on its map, how the headline number is derived, coverage, papers and code. Generated from the site's own copy.
+
+## Explore by city
+
+- [Cities](https://bikenetkit.org/cities): browse every covered city.
+- [Tool coverage table](https://bikenetkit.org/cities/table): cities × tools, with recommended and available datasets, each linking to its map.
+
+## More
+
+- Source code and issues: https://github.com/BikeNetKit
+- Follow: https://fosstodon.org/@bikenetkit · https://bsky.app/profile/bikenetkit.bsky.social · https://www.linkedin.com/company/bikenetkit

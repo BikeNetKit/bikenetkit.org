@@ -1,0 +1,5358 @@
+[
+	{
+		"name": "Aachen",
+		"slug": "aachen_de",
+		"bounds": [
+			[5.97504, 50.6648],
+			[6.20311, 50.84515]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 247380,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.8, "l_ratio": 0.28, "gcc1": 0.11, "gcc2": 0.11, "gcc3": 0.06 }
+	},
+	{
+		"name": "Aalborg",
+		"slug": "aalborg_dk",
+		"bounds": [
+			[9.85426, 56.99155],
+			[10.03121, 57.0637]
+		],
+		"country": "Denmark",
+		"countryCode": "DK",
+		"population": 219476,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.97, "l_ratio": 0.45, "gcc1": 0.49, "gcc2": 0.12, "gcc3": 0.06 }
+	},
+	{
+		"name": "Aarhus",
+		"slug": "aarhus_dk",
+		"bounds": [
+			[10.04979, 56.08077],
+			[10.32946, 56.23813]
+		],
+		"country": "Denmark",
+		"countryCode": "DK",
+		"population": 352315,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.93, "l_ratio": 0.44, "gcc1": 0.3, "gcc2": 0.13, "gcc3": 0.1 }
+	},
+	{
+		"name": "Aix-En-Provence",
+		"slug": "aixenprovence_fr",
+		"bounds": [
+			[5.29685, 43.45448],
+			[5.50048, 43.61764]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 142668,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.39, "l_ratio": 0.09, "gcc1": 0.12, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Alcalá De Henares",
+		"slug": "alcaladehenares_es",
+		"bounds": [
+			[-3.43594, 40.45332],
+			[-3.28839, 40.53754]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 195570,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.5, "l_ratio": 0.1, "gcc1": 0.17, "gcc2": 0.07, "gcc3": 0.06 }
+	},
+	{
+		"name": "Alchevsk",
+		"slug": "alchevsk_ua",
+		"bounds": [
+			[38.75963, 48.44949],
+			[38.85571, 48.49568]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 105580,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.02, "l_ratio": 0, "gcc1": 1, "gcc2": 0.07, "gcc3": 0.06 }
+	},
+	{
+		"name": "Alcobendas",
+		"slug": "alcobendas_es",
+		"bounds": [
+			[-3.68183, 40.50559],
+			[-3.59177, 40.55804]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 116895,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.82, "l_ratio": 0.18, "gcc1": 0.31, "gcc2": 0.04, "gcc3": 0.03 }
+	},
+	{
+		"name": "Alcorcón",
+		"slug": "alcorcon_es",
+		"bounds": [
+			[-3.87287, 40.32521],
+			[-3.79851, 40.36265]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 171575,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.65, "l_ratio": 0.18, "gcc1": 0.25, "gcc2": 0.17, "gcc3": 0.12 }
+	},
+	{
+		"name": "Alkmaar",
+		"slug": "alkmaar_nl",
+		"bounds": [
+			[4.70914, 52.5195],
+			[4.92013, 52.67804]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 107106,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.56, "l_ratio": 0.27, "gcc1": 0.31, "gcc2": 0.25, "gcc3": 0.04 }
+	},
+	{
+		"name": "Almere",
+		"slug": "almere_nl",
+		"bounds": [
+			[5.12225, 52.30371],
+			[5.3788, 52.43473]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 196932,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.98, "l_ratio": 0.44, "gcc1": 0.87, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Almería",
+		"slug": "almeria_es",
+		"bounds": [
+			[-2.52493, 36.80151],
+			[-2.21484, 36.92825]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 200273,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.4, "l_ratio": 0.14, "gcc1": 0.54, "gcc2": 0.1, "gcc3": 0.03 }
+	},
+	{
+		"name": "Alphen Aan Den",
+		"slug": "alphenaanden_nl",
+		"bounds": [
+			[4.62256, 52.09832],
+			[4.71169, 52.16001]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 107396,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.86, "l_ratio": 0.6, "gcc1": 0.7, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Amadora",
+		"slug": "amadora_pt",
+		"bounds": [
+			[-9.25373, 38.72535],
+			[-9.20142, 38.79555]
+		],
+		"country": "Portugal",
+		"countryCode": "PT",
+		"population": 171454,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.34, "l_ratio": 0.02, "gcc1": 0.25, "gcc2": 0.09, "gcc3": 0.08 }
+	},
+	{
+		"name": "Amersfoort",
+		"slug": "amersfoort_nl",
+		"bounds": [
+			[5.33225, 52.1311],
+			[5.44323, 52.21191]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 152481,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.97, "l_ratio": 0.3, "gcc1": 0.28, "gcc2": 0.23, "gcc3": 0.11 }
+	},
+	{
+		"name": "Amiens",
+		"slug": "amiens_fr",
+		"bounds": [
+			[2.23844, 49.86214],
+			[2.34408, 49.9453]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 132874,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.79, "l_ratio": 0.21, "gcc1": 0.13, "gcc2": 0.06, "gcc3": 0.05 }
+	},
+	{
+		"name": "Amsterdam",
+		"slug": "amsterdam_nl",
+		"bounds": [
+			[4.73261, 52.31841],
+			[5.03701, 52.43064]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 821752,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.97, "l_ratio": 0.44, "gcc1": 0.77, "gcc2": 0.11, "gcc3": 0.01 }
+	},
+	{
+		"name": "Anderlecht",
+		"slug": "anderlecht_be",
+		"bounds": [
+			[4.2548, 50.80858],
+			[4.33992, 50.8496]
+		],
+		"country": "Belgium",
+		"countryCode": "BE",
+		"population": 108940,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.95, "l_ratio": 0.23, "gcc1": 0.26, "gcc2": 0.21, "gcc3": 0.09 }
+	},
+	{
+		"name": "Andorra la Vella",
+		"slug": "andorralavella_ad",
+		"bounds": [
+			[1.49473, 42.4901],
+			[1.5332, 42.5227]
+		],
+		"country": "Andorra",
+		"countryCode": "AD",
+		"population": 22205,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.6, "l_ratio": 0.12, "gcc1": 0.6, "gcc2": 0.11, "gcc3": 0.09 }
+	},
+	{
+		"name": "Angers",
+		"slug": "angers_fr",
+		"bounds": [
+			[-0.61729, 47.44228],
+			[-0.51246, 47.51458]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 151520,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.92, "l_ratio": 0.19, "gcc1": 0.14, "gcc2": 0.06, "gcc3": 0.05 }
+	},
+	{
+		"name": "Antwerp",
+		"slug": "antwerp_be",
+		"bounds": [
+			[4.24988, 51.14808],
+			[4.50572, 51.37716]
+		],
+		"country": "Belgium",
+		"countryCode": "BE",
+		"population": 498473,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.92, "l_ratio": 0.53, "gcc1": 0.8, "gcc2": 0.05, "gcc3": 0.02 }
+	},
+	{
+		"name": "Apeldoorn",
+		"slug": "apeldoorn_nl",
+		"bounds": [
+			[5.72755, 52.07731],
+			[6.06973, 52.27469]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 158099,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.97, "l_ratio": 0.45, "gcc1": 0.36, "gcc2": 0.18, "gcc3": 0.07 }
+	},
+	{
+		"name": "Argenteuil",
+		"slug": "argenteuil_fr",
+		"bounds": [
+			[2.20496, 48.92922],
+			[2.29077, 48.96832]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 110388,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.6, "l_ratio": 0.06, "gcc1": 0.13, "gcc2": 0.12, "gcc3": 0.08 }
+	},
+	{
+		"name": "Arnhem",
+		"slug": "arnhem_nl",
+		"bounds": [
+			[5.80831, 51.93458],
+			[5.98974, 52.06147]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 152293,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.06, "l_ratio": 0.48, "gcc1": 0.74, "gcc2": 0.02, "gcc3": 0.01 }
+	},
+	{
+		"name": "Athens",
+		"slug": "athens_gr",
+		"bounds": [
+			[23.687, 37.94884],
+			[23.78732, 38.03267]
+		],
+		"country": "Greece",
+		"countryCode": "GR",
+		"population": 664046,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.41, "l_ratio": 0.03, "gcc1": 0.5, "gcc2": 0.06, "gcc3": 0.05 }
+	},
+	{
+		"name": "Augsburg",
+		"slug": "augsburg_de",
+		"bounds": [
+			[10.80751, 48.29301],
+			[10.957, 48.44524]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 295135,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.92, "l_ratio": 0.43, "gcc1": 0.51, "gcc2": 0.05, "gcc3": 0.03 }
+	},
+	{
+		"name": "Badalona",
+		"slug": "badalona_es",
+		"bounds": [
+			[2.21318, 41.42648],
+			[2.26922, 41.48632]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 221750,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.96, "l_ratio": 0.17, "gcc1": 0.09, "gcc2": 0.08, "gcc3": 0.05 }
+	},
+	{
+		"name": "Banja Luka",
+		"slug": "banjaluka_ba",
+		"bounds": [
+			[17.11944, 44.72042],
+			[17.29473, 44.83874]
+		],
+		"country": "Bosnia And Herzegovina",
+		"countryCode": "BA",
+		"population": 135059,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.28, "l_ratio": 0.08, "gcc1": 0.28, "gcc2": 0.17, "gcc3": 0.09 }
+	},
+	{
+		"name": "Baranovichi",
+		"slug": "baranovichi_by",
+		"bounds": [
+			[25.90394, 53.08679],
+			[26.10061, 53.17116]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 175050,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.48, "l_ratio": 0.06, "gcc1": 0.12, "gcc2": 0.08, "gcc3": 0.07 }
+	},
+	{
+		"name": "Barcelona",
+		"slug": "barcelona_es",
+		"bounds": [
+			[2.08078, 41.32192],
+			[2.22405, 41.46708]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 1627559,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.93, "l_ratio": 0.32, "gcc1": 0.64, "gcc2": 0.02, "gcc3": 0.01 }
+	},
+	{
+		"name": "Bari",
+		"slug": "bari_it",
+		"bounds": [
+			[16.7228, 41.01946],
+			[17.03102, 41.1693]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 316577,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.37, "l_ratio": 0.06, "gcc1": 0.12, "gcc2": 0.08, "gcc3": 0.08 }
+	},
+	{
+		"name": "Basel",
+		"slug": "basel_ch",
+		"bounds": [
+			[7.55597, 47.52428],
+			[7.63371, 47.58892]
+		],
+		"country": "Switzerland",
+		"countryCode": "CH",
+		"population": 173064,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.91, "l_ratio": 0.17, "gcc1": 0.1, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Belfast",
+		"slug": "belfast_gb",
+		"bounds": [
+			[-6.05461, 54.53194],
+			[-5.81687, 54.6628]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 280211,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.62, "l_ratio": 0.09, "gcc1": 0.14, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Belgrade",
+		"slug": "belgrade_rs",
+		"bounds": [
+			[20.24573, 44.69038],
+			[20.61552, 44.93239]
+		],
+		"country": "Serbia",
+		"countryCode": "RS",
+		"population": 1382045,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.28, "l_ratio": 0.06, "gcc1": 0.59, "gcc2": 0.03, "gcc3": 0.02 }
+	},
+	{
+		"name": "Berdyansk",
+		"slug": "berdyansk_ua",
+		"bounds": [
+			[36.71237, 46.63476],
+			[36.86684, 46.80933]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 106526,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.01, "l_ratio": 0, "gcc1": 0.56, "gcc2": 0.44, "gcc3": 0.02 }
+	},
+	{
+		"name": "Bergamo",
+		"slug": "bergamo_it",
+		"bounds": [
+			[9.45058, 45.43132],
+			[10.20638, 46.0637]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 119735,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.95, "l_ratio": 0.37, "gcc1": 0.02, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Bergisch Gladbach",
+		"slug": "bergischgladbach_de",
+		"bounds": [
+			[7.06818, 50.9324],
+			[7.24648, 51.02593]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 111966,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.75, "l_ratio": 0.22, "gcc1": 0.19, "gcc2": 0.12, "gcc3": 0.08 }
+	},
+	{
+		"name": "Berlin",
+		"slug": "berlin_de",
+		"bounds": [
+			[13.09187, 52.34225],
+			[13.74161, 52.65981]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 3644826,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.9, "l_ratio": 0.3, "gcc1": 0.24, "gcc2": 0.06, "gcc3": 0.04 }
+	},
+	{
+		"name": "Bern",
+		"slug": "bern_ch",
+		"bounds": [
+			[7.32597, 46.93007],
+			[7.48672, 46.97783]
+		],
+		"country": "Switzerland",
+		"countryCode": "CH",
+		"population": 134290,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.68, "l_ratio": 0.22, "gcc1": 0.17, "gcc2": 0.06, "gcc3": 0.04 }
+	},
+	{
+		"name": "Besançon",
+		"slug": "besancon_fr",
+		"bounds": [
+			[5.94137, 47.20232],
+			[6.06742, 47.29101]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 116676,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.84, "l_ratio": 0.23, "gcc1": 0.2, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Bialystok",
+		"slug": "bialystok_pl",
+		"bounds": [
+			[23.06802, 53.07222],
+			[23.24654, 53.17783]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 295092,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.95, "l_ratio": 0.42, "gcc1": 0.65, "gcc2": 0.03, "gcc3": 0.01 }
+	},
+	{
+		"name": "Bielefeld",
+		"slug": "bielefeld_de",
+		"bounds": [
+			[8.3897, 51.91896],
+			[8.66273, 52.11027]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 333786,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.75, "l_ratio": 0.22, "gcc1": 0.07, "gcc2": 0.07, "gcc3": 0.07 }
+	},
+	{
+		"name": "Bielsko-Biala",
+		"slug": "bielskobiala_pl",
+		"bounds": [
+			[18.95453, 49.75988],
+			[19.12923, 49.88514]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 168499,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.73, "l_ratio": 0.2, "gcc1": 0.05, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Bila Tserkva",
+		"slug": "bilatserkva_ua",
+		"bounds": [
+			[30.02259, 49.76253],
+			[30.21461, 49.85171]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 203344,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.39, "l_ratio": 0.08, "gcc1": 0.1, "gcc2": 0.08, "gcc3": 0.07 }
+	},
+	{
+		"name": "Birmingham",
+		"slug": "birmingham_gb",
+		"bounds": [
+			[-2.03208, 52.38533],
+			[-1.74519, 52.60457]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 1085810,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.65, "l_ratio": 0.1, "gcc1": 0.21, "gcc2": 0.07, "gcc3": 0.05 }
+	},
+	{
+		"name": "Bobruisk",
+		"slug": "bobruisk_by",
+		"bounds": [
+			[29.14025, 53.0762],
+			[29.31929, 53.21699]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 212217,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.18, "l_ratio": 0.03, "gcc1": 0.19, "gcc2": 0.19, "gcc3": 0.15 }
+	},
+	{
+		"name": "Bochum",
+		"slug": "bochum_de",
+		"bounds": [
+			[7.10219, 51.41171],
+			[7.34905, 51.53027]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 364628,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.93, "l_ratio": 0.25, "gcc1": 0.08, "gcc2": 0.04, "gcc3": 0.03 }
+	},
+	{
+		"name": "Bologna",
+		"slug": "bologna_it",
+		"bounds": [
+			[11.23004, 44.42149],
+			[11.43168, 44.5532]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 389764,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.65, "l_ratio": 0.23, "gcc1": 0.33, "gcc2": 0.07, "gcc3": 0.04 }
+	},
+	{
+		"name": "Bonn",
+		"slug": "bonn_de",
+		"bounds": [
+			[7.02541, 50.6465],
+			[7.20646, 50.77259]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 327258,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.96, "l_ratio": 0.32, "gcc1": 0.18, "gcc2": 0.06, "gcc3": 0.05 }
+	},
+	{
+		"name": "Bordeaux",
+		"slug": "bordeaux_fr",
+		"bounds": [
+			[-0.63817, 44.81124],
+			[-0.53508, 44.90931]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 249712,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.86, "l_ratio": 0.19, "gcc1": 0.08, "gcc2": 0.08, "gcc3": 0.06 }
+	},
+	{
+		"name": "Borisov",
+		"slug": "borisov_by",
+		"bounds": [
+			[28.44957, 54.16895],
+			[28.57091, 54.28165]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 140678,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.13, "l_ratio": 0.02, "gcc1": 0.16, "gcc2": 0.14, "gcc3": 0.13 }
+	},
+	{
+		"name": "Bottrop",
+		"slug": "bottrop_de",
+		"bounds": [
+			[6.85278, 51.49745],
+			[6.99784, 51.6425]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 117383,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.81, "l_ratio": 0.35, "gcc1": 0.22, "gcc2": 0.11, "gcc3": 0.05 }
+	},
+	{
+		"name": "Boulogne-Billancourt",
+		"slug": "boulognebillancourt_fr",
+		"bounds": [
+			[2.22404, 48.82219],
+			[2.26153, 48.85284]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 117931,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.81, "l_ratio": 0.11, "gcc1": 0.14, "gcc2": 0.13, "gcc3": 0.12 }
+	},
+	{
+		"name": "Bournemouth",
+		"slug": "bournemouth_gb",
+		"bounds": [
+			[-1.93302, 50.71049],
+			[-1.74265, 50.77487]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 187503,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.81, "l_ratio": 0.11, "gcc1": 0.09, "gcc2": 0.07, "gcc3": 0.07 }
+	},
+	{
+		"name": "Braga",
+		"slug": "braga_pt",
+		"bounds": [
+			[-8.52141, 41.46992],
+			[-8.29643, 41.61526]
+		],
+		"country": "Portugal",
+		"countryCode": "PT",
+		"population": 212635,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.36, "l_ratio": 0.05, "gcc1": 0.35, "gcc2": 0.08, "gcc3": 0.07 }
+	},
+	{
+		"name": "Bratislava",
+		"slug": "bratislava_sk",
+		"bounds": [
+			[16.94832, 48.01382],
+			[17.28225, 48.26486]
+		],
+		"country": "Slovakia",
+		"countryCode": "SK",
+		"population": 435296,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.67, "l_ratio": 0.18, "gcc1": 0.3, "gcc2": 0.05, "gcc3": 0.02 }
+	},
+	{
+		"name": "Braunschweig",
+		"slug": "braunschweig_de",
+		"bounds": [
+			[10.42745, 52.18896],
+			[10.62091, 52.34574]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 248292,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.01, "l_ratio": 0.6, "gcc1": 0.65, "gcc2": 0.03, "gcc3": 0.01 }
+	},
+	{
+		"name": "Breda",
+		"slug": "breda_nl",
+		"bounds": [
+			[4.68636, 51.48574],
+			[4.84188, 51.64268]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 180937,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.8, "l_ratio": 0.32, "gcc1": 0.68, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Bremen",
+		"slug": "bremen_de",
+		"bounds": [
+			[8.4991, 53.02108],
+			[8.9815, 53.22763]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 569352,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.87, "l_ratio": 0.53, "gcc1": 0.72, "gcc2": 0.03, "gcc3": 0.03 }
+	},
+	{
+		"name": "Bremerhaven",
+		"slug": "bremerhaven_de",
+		"bounds": [
+			[8.51023, 53.48508],
+			[8.64907, 53.60702]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 113634,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.85, "l_ratio": 0.36, "gcc1": 0.7, "gcc2": 0.06, "gcc3": 0.04 }
+	},
+	{
+		"name": "Brescia",
+		"slug": "brescia_it",
+		"bounds": [
+			[10.14818, 45.48226],
+			[10.2973, 45.58805]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 196605,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.78, "l_ratio": 0.19, "gcc1": 0.14, "gcc2": 0.09, "gcc3": 0.06 }
+	},
+	{
+		"name": "Brest",
+		"slug": "brest_by",
+		"bounds": [
+			[23.59079, 52.02427],
+			[23.84957, 52.15046]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 339519,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.45, "l_ratio": 0.12, "gcc1": 0.21, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Brest",
+		"slug": "brest_fr",
+		"bounds": [
+			[-4.561, 48.36063],
+			[-4.43307, 48.44441]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 139163,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.71, "l_ratio": 0.12, "gcc1": 0.18, "gcc2": 0.13, "gcc3": 0.1 }
+	},
+	{
+		"name": "Brighton And Hove",
+		"slug": "brightonandhove_gb",
+		"bounds": [
+			[-0.23622, 50.79956],
+			[-0.02386, 50.88018]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 229700,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.69, "l_ratio": 0.08, "gcc1": 0.16, "gcc2": 0.11, "gcc3": 0.09 }
+	},
+	{
+		"name": "Bristol",
+		"slug": "bristol_gb",
+		"bounds": [
+			[-2.7025, 51.39973],
+			[-2.51124, 51.54291]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 535907,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.76, "l_ratio": 0.1, "gcc1": 0.07, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Brno",
+		"slug": "brno_cz",
+		"bounds": [
+			[16.4474, 49.1106],
+			[16.71873, 49.29269]
+		],
+		"country": "Czech Republic",
+		"countryCode": "CZ",
+		"population": 398510,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.73, "l_ratio": 0.14, "gcc1": 0.05, "gcc2": 0.05, "gcc3": 0.03 }
+	},
+	{
+		"name": "Brovary",
+		"slug": "brovary_ua",
+		"bounds": [
+			[30.73789, 50.48259],
+			[30.85044, 50.53576]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 109154,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.26, "l_ratio": 0.07, "gcc1": 0.41, "gcc2": 0.19, "gcc3": 0.16 }
+	},
+	{
+		"name": "Bruges",
+		"slug": "bruges_be",
+		"bounds": [
+			[3.14424, 51.16307],
+			[3.29919, 51.34603]
+		],
+		"country": "Belgium",
+		"countryCode": "BE",
+		"population": 117260,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.75, "l_ratio": 0.43, "gcc1": 0.63, "gcc2": 0.07, "gcc3": 0.03 }
+	},
+	{
+		"name": "Brussels",
+		"slug": "brussels_be",
+		"bounds": [
+			[4.2548, 50.76387],
+			[4.47628, 50.9118]
+		],
+		"country": "Belgium",
+		"countryCode": "BE",
+		"population": 1255834,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.03, "l_ratio": 0.27, "gcc1": 0.17, "gcc2": 0.08, "gcc3": 0.07 }
+	},
+	{
+		"name": "Bucharest",
+		"slug": "bucharest_ro",
+		"bounds": [
+			[25.96679, 44.34197],
+			[26.22522, 44.53863]
+		],
+		"country": "Romania",
+		"countryCode": "RO",
+		"population": 1722865,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.62, "l_ratio": 0.06, "gcc1": 0.08, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Budapest",
+		"slug": "budapest_hu",
+		"bounds": [
+			[18.93652, 47.35773],
+			[19.32536, 47.6114]
+		],
+		"country": "Hungary",
+		"countryCode": "HU",
+		"population": 1737026,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.61, "l_ratio": 0.13, "gcc1": 0.09, "gcc2": 0.08, "gcc3": 0.04 }
+	},
+	{
+		"name": "Bydgoszcz",
+		"slug": "bydgoszcz_pl",
+		"bounds": [
+			[17.88929, 53.05947],
+			[18.19589, 53.20833]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 347716,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.64, "l_ratio": 0.27, "gcc1": 0.27, "gcc2": 0.14, "gcc3": 0.1 }
+	},
+	{
+		"name": "Bytom",
+		"slug": "bytom_pl",
+		"bounds": [
+			[18.78868, 50.31876],
+			[18.95627, 50.41289]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 162766,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.56, "l_ratio": 0.13, "gcc1": 0.06, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Caen",
+		"slug": "caen_fr",
+		"bounds": [
+			[-0.4112, 49.15301],
+			[-0.33129, 49.21565]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 106260,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.94, "l_ratio": 0.24, "gcc1": 0.45, "gcc2": 0.04, "gcc3": 0.03 }
+	},
+	{
+		"name": "Cagliari",
+		"slug": "cagliari_it",
+		"bounds": [
+			[9.03578, 39.18207],
+			[9.18135, 39.27043]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 149332,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.57, "l_ratio": 0.09, "gcc1": 0.16, "gcc2": 0.12, "gcc3": 0.1 }
+	},
+	{
+		"name": "Castelló De La Plana",
+		"slug": "castellodelaplana_es",
+		"bounds": [
+			[-0.16031, 39.94838],
+			[0.03845, 40.04149]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 172637,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.59, "l_ratio": 0.15, "gcc1": 0.55, "gcc2": 0.08, "gcc3": 0.05 }
+	},
+	{
+		"name": "Charleroi",
+		"slug": "charleroi_be",
+		"bounds": [
+			[4.35184, 50.35341],
+			[4.50697, 50.49056]
+		],
+		"country": "Belgium",
+		"countryCode": "BE",
+		"population": 204150,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.67, "l_ratio": 0.11, "gcc1": 0.13, "gcc2": 0.07, "gcc3": 0.07 }
+	},
+	{
+		"name": "Chemnitz",
+		"slug": "chemnitz_de",
+		"bounds": [
+			[12.75236, 50.74481],
+			[13.04967, 50.9014]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 247237,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.72, "l_ratio": 0.16, "gcc1": 0.1, "gcc2": 0.06, "gcc3": 0.05 }
+	},
+	{
+		"name": "Cherkasy",
+		"slug": "cherkasy_ua",
+		"bounds": [
+			[31.95892, 49.365],
+			[32.11992, 49.49703]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 267361,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.12, "l_ratio": 0.02, "gcc1": 0.65, "gcc2": 0.11, "gcc3": 0.11 }
+	},
+	{
+		"name": "Chernihiv",
+		"slug": "chernihiv_ua",
+		"bounds": [
+			[31.2118, 51.44691],
+			[31.37718, 51.54472]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 276927,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.36, "l_ratio": 0.11, "gcc1": 0.29, "gcc2": 0.09, "gcc3": 0.07 }
+	},
+	{
+		"name": "Chernivtsi",
+		"slug": "chernivtsi_ua",
+		"bounds": [
+			[25.83298, 48.24828],
+			[26.00798, 48.3899]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 260540,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.07, "l_ratio": 0, "gcc1": 0.25, "gcc2": 0.24, "gcc3": 0.2 }
+	},
+	{
+		"name": "Chișinău",
+		"slug": "chisinau_md",
+		"bounds": [
+			[28.75803, 46.92221],
+			[28.96957, 47.07457]
+		],
+		"country": "Moldova",
+		"countryCode": "MD",
+		"population": 339079,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.32, "l_ratio": 0.06, "gcc1": 0.11, "gcc2": 0.11, "gcc3": 0.06 }
+	},
+	{
+		"name": "Chorzów",
+		"slug": "chorzow_pl",
+		"bounds": [
+			[18.92183, 50.25281],
+			[19.00228, 50.33348]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 106717,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.05, "l_ratio": 0.36, "gcc1": 0.39, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Clermont-Ferrand",
+		"slug": "clermontferrand_fr",
+		"bounds": [
+			[3.05393, 45.75607],
+			[3.16437, 45.81752]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 141398,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.66, "l_ratio": 0.11, "gcc1": 0.22, "gcc2": 0.1, "gcc3": 0.07 }
+	},
+	{
+		"name": "Cologne",
+		"slug": "cologne_de",
+		"bounds": [
+			[6.8121, 50.83515],
+			[7.14282, 51.08492]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 1085664,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.95, "l_ratio": 0.36, "gcc1": 0.32, "gcc2": 0.16, "gcc3": 0.04 }
+	},
+	{
+		"name": "Copenhagen",
+		"slug": "copenhagen_dk",
+		"bounds": [
+			[12.45426, 55.61352],
+			[12.64836, 55.73023]
+		],
+		"country": "Denmark",
+		"countryCode": "DK",
+		"population": 638790,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 1.01, "l_ratio": 0.49, "gcc1": 0.87, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Cork",
+		"slug": "cork_ie",
+		"bounds": [
+			[-8.63686, 51.83133],
+			[-8.36184, 51.95625]
+		],
+		"country": "Ireland",
+		"countryCode": "IE",
+		"population": 124391,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.36, "l_ratio": 0.07, "gcc1": 0.13, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Cottbus",
+		"slug": "cottbus_de",
+		"bounds": [
+			[14.27977, 51.69406],
+			[14.42189, 51.85194]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 100219,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.75, "l_ratio": 0.42, "gcc1": 0.64, "gcc2": 0.03, "gcc3": 0.03 }
+	},
+	{
+		"name": "Coventry",
+		"slug": "coventry_gb",
+		"bounds": [
+			[-1.60947, 52.36527],
+			[-1.42692, 52.46435]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 325949,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.7, "l_ratio": 0.11, "gcc1": 0.1, "gcc2": 0.09, "gcc3": 0.08 }
+	},
+	{
+		"name": "Cugir",
+		"slug": "cugir_ro",
+		"bounds": [
+			[23.33404, 45.60347],
+			[23.5526, 45.90429]
+		],
+		"country": "Romania",
+		"countryCode": "RO",
+		"population": 19473,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.27, "l_ratio": 0.03, "gcc1": 0.59, "gcc2": 0.23, "gcc3": 0.09 }
+	},
+	{
+		"name": "Czestochowa",
+		"slug": "czestochowa_pl",
+		"bounds": [
+			[19.01147, 50.74502],
+			[19.22693, 50.87893]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 218812,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.54, "l_ratio": 0.27, "gcc1": 0.66, "gcc2": 0.04, "gcc3": 0.03 }
+	},
+	{
+		"name": "Dabrowa Górnicza",
+		"slug": "dabrowagornicza_pl",
+		"bounds": [
+			[19.16251, 50.29576],
+			[19.47695, 50.43734]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 118003,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.41, "l_ratio": 0.23, "gcc1": 0.39, "gcc2": 0.06, "gcc3": 0.05 }
+	},
+	{
+		"name": "Darmstadt",
+		"slug": "darmstadt_de",
+		"bounds": [
+			[8.57689, 49.80079],
+			[8.74729, 49.94851]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 159207,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.99, "l_ratio": 0.35, "gcc1": 0.18, "gcc2": 0.1, "gcc3": 0.03 }
+	},
+	{
+		"name": "Debrecen",
+		"slug": "debrecen_hu",
+		"bounds": [
+			[21.43911, 47.43409],
+			[21.86874, 47.61676]
+		],
+		"country": "Hungary",
+		"countryCode": "HU",
+		"population": 201043,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.36, "l_ratio": 0.14, "gcc1": 0.45, "gcc2": 0.1, "gcc3": 0.04 }
+	},
+	{
+		"name": "Delft",
+		"slug": "delft_nl",
+		"bounds": [
+			[4.32078, 51.96672],
+			[4.40389, 52.03238]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 101030,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.18, "l_ratio": 0.57, "gcc1": 0.65, "gcc2": 0.09, "gcc3": 0.06 }
+	},
+	{
+		"name": "Derby",
+		"slug": "derby_gb",
+		"bounds": [
+			[-1.55593, 52.86189],
+			[-1.38591, 52.96488]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 255394,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.83, "l_ratio": 0.17, "gcc1": 0.34, "gcc2": 0.09, "gcc3": 0.06 }
+	},
+	{
+		"name": "Dijon",
+		"slug": "dijon_fr",
+		"bounds": [
+			[4.98125, 47.28981],
+			[5.0978, 47.37169]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 155114,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.74, "l_ratio": 0.11, "gcc1": 0.13, "gcc2": 0.12, "gcc3": 0.07 }
+	},
+	{
+		"name": "Dnipro",
+		"slug": "dnipro_ua",
+		"bounds": [
+			[34.75839, 48.35882],
+			[35.23441, 48.56647]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 958377,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.3, "l_ratio": 0.05, "gcc1": 0.28, "gcc2": 0.03, "gcc3": 0.03 }
+	},
+	{
+		"name": "Donetsk",
+		"slug": "donetsk_ua",
+		"bounds": [
+			[37.54961, 47.89872],
+			[37.96734, 48.07396]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 892980,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.12, "l_ratio": 0.02, "gcc1": 0.14, "gcc2": 0.12, "gcc3": 0.12 }
+	},
+	{
+		"name": "Dordrecht",
+		"slug": "dordrecht_nl",
+		"bounds": [
+			[4.62554, 51.71745],
+			[4.78296, 51.82171]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 118899,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.99, "l_ratio": 0.49, "gcc1": 0.51, "gcc2": 0.1, "gcc3": 0.08 }
+	},
+	{
+		"name": "Dortmund",
+		"slug": "dortmund_de",
+		"bounds": [
+			[7.30737, 51.4163],
+			[7.63469, 51.59509]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 587010,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.86, "l_ratio": 0.28, "gcc1": 0.1, "gcc2": 0.04, "gcc3": 0.02 }
+	},
+	{
+		"name": "Dresden",
+		"slug": "dresden_de",
+		"bounds": [
+			[13.58634, 50.97729],
+			[13.95875, 51.16643]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 554649,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.73, "l_ratio": 0.22, "gcc1": 0.09, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Dublin",
+		"slug": "dublin_ie",
+		"bounds": [
+			[-6.38634, 53.30049],
+			[-6.13763, 53.40958]
+		],
+		"country": "Ireland",
+		"countryCode": "IE",
+		"population": 544107,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.67, "l_ratio": 0.09, "gcc1": 0.19, "gcc2": 0.04, "gcc3": 0.03 }
+	},
+	{
+		"name": "Duisburg",
+		"slug": "duisburg_de",
+		"bounds": [
+			[6.63125, 51.33454],
+			[6.8229, 51.55057]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 498590,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.93, "l_ratio": 0.41, "gcc1": 0.38, "gcc2": 0.1, "gcc3": 0.08 }
+	},
+	{
+		"name": "Durrës",
+		"slug": "durres_al",
+		"bounds": [
+			[19.42001, 41.28767],
+			[19.51281, 41.37152]
+		],
+		"country": "Albania",
+		"countryCode": "AL",
+		"population": 113249,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.4, "l_ratio": 0.02, "gcc1": 0.2, "gcc2": 0.19, "gcc3": 0.07 }
+	},
+	{
+		"name": "Düsseldorf",
+		"slug": "dusseldorf_de",
+		"bounds": [
+			[6.69307, 51.12488],
+			[6.9357, 51.35082]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 619294,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.98, "l_ratio": 0.47, "gcc1": 0.26, "gcc2": 0.17, "gcc3": 0.07 }
+	},
+	{
+		"name": "Ede",
+		"slug": "ede_nl",
+		"bounds": [
+			[5.58996, 52.0129],
+			[5.80386, 52.0923]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 111575,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.13, "l_ratio": 0.62, "gcc1": 0.7, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Eindhoven",
+		"slug": "eindhoven_nl",
+		"bounds": [
+			[5.357, 51.404],
+			[5.54563, 51.49727]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 223209,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.96, "l_ratio": 0.35, "gcc1": 0.86, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Elblag",
+		"slug": "elblag_pl",
+		"bounds": [
+			[19.3594, 54.13545],
+			[19.50282, 54.24592]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 117164,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.55, "l_ratio": 0.29, "gcc1": 0.78, "gcc2": 0.04, "gcc3": 0.03 }
+	},
+	{
+		"name": "Emmen",
+		"slug": "emmen_nl",
+		"bounds": [
+			[6.83633, 52.72574],
+			[6.97769, 52.83445]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 107775,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.9, "l_ratio": 0.45, "gcc1": 0.33, "gcc2": 0.27, "gcc3": 0.05 }
+	},
+	{
+		"name": "Enschede",
+		"slug": "enschede_nl",
+		"bounds": [
+			[6.75855, 52.16121],
+			[6.97937, 52.28367]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 158553,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.79, "l_ratio": 0.32, "gcc1": 0.26, "gcc2": 0.15, "gcc3": 0.08 }
+	},
+	{
+		"name": "Erfurt",
+		"slug": "erfurt_de",
+		"bounds": [
+			[10.87712, 50.90423],
+			[11.15762, 51.07148]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 213699,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.67, "l_ratio": 0.27, "gcc1": 0.1, "gcc2": 0.05, "gcc3": 0.03 }
+	},
+	{
+		"name": "Erlangen",
+		"slug": "erlangen_de",
+		"bounds": [
+			[10.91928, 49.53744],
+			[11.05354, 49.64148]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 111962,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.82, "l_ratio": 0.4, "gcc1": 0.5, "gcc2": 0.13, "gcc3": 0.03 }
+	},
+	{
+		"name": "Esbjerg",
+		"slug": "esbjerg_dk",
+		"bounds": [
+			[8.42172, 55.4597],
+			[8.52042, 55.52374]
+		],
+		"country": "Denmark",
+		"countryCode": "DK",
+		"population": 115529,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 1.38, "l_ratio": 0.64, "gcc1": 0.32, "gcc2": 0.13, "gcc3": 0.1 }
+	},
+	{
+		"name": "Espoo",
+		"slug": "espoo_fi",
+		"bounds": [
+			[24.50433, 60.10784],
+			[24.85125, 60.35912]
+		],
+		"country": "Finland",
+		"countryCode": "FI",
+		"population": 292796,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.8, "l_ratio": 0.86, "gcc1": 0.92, "gcc2": 0, "gcc3": 0 }
+	},
+	{
+		"name": "Essen",
+		"slug": "essen_de",
+		"bounds": [
+			[6.8953, 51.34953],
+			[7.13708, 51.53249]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 583109,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.88, "l_ratio": 0.24, "gcc1": 0.06, "gcc2": 0.06, "gcc3": 0.04 }
+	},
+	{
+		"name": "Florence",
+		"slug": "florence_it",
+		"bounds": [
+			[11.15027, 43.72608],
+			[11.33757, 43.83102]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 365019,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.55, "l_ratio": 0.15, "gcc1": 0.32, "gcc2": 0.1, "gcc3": 0.08 }
+	},
+	{
+		"name": "Frankfurt Am Main",
+		"slug": "frankfurtammain_de",
+		"bounds": [
+			[8.47852, 50.02642],
+			[8.78475, 50.21065]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 753056,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.94, "l_ratio": 0.32, "gcc1": 0.1, "gcc2": 0.07, "gcc3": 0.06 }
+	},
+	{
+		"name": "Frederiksberg",
+		"slug": "frederiksberg_dk",
+		"bounds": [
+			[12.49219, 55.66722],
+			[12.55639, 55.69688]
+		],
+		"country": "Denmark",
+		"countryCode": "DK",
+		"population": 102940,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.98, "l_ratio": 0.41, "gcc1": 0.91, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Freiburg Im Breisgau",
+		"slug": "freiburgimbreisgau_de",
+		"bounds": [
+			[7.67619, 47.92853],
+			[7.92145, 48.06282]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 230241,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.86, "l_ratio": 0.43, "gcc1": 0.5, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Funchal",
+		"slug": "funchal_pt",
+		"bounds": [
+			[-16.95959, 32.63418],
+			[-16.86048, 32.72683]
+		],
+		"country": "Portugal",
+		"countryCode": "PT",
+		"population": 105701,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.34, "l_ratio": 0.04, "gcc1": 0.19, "gcc2": 0.17, "gcc3": 0.09 }
+	},
+	{
+		"name": "Fürth",
+		"slug": "furth_de",
+		"bounds": [
+			[10.90236, 49.44102],
+			[11.02205, 49.53838]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 127748,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.76, "l_ratio": 0.23, "gcc1": 0.1, "gcc2": 0.08, "gcc3": 0.07 }
+	},
+	{
+		"name": "Gdansk",
+		"slug": "gdansk_pl",
+		"bounds": [
+			[18.43132, 54.27584],
+			[18.78358, 54.44703]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 472094,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.69, "l_ratio": 0.25, "gcc1": 0.41, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Gdynia",
+		"slug": "gdynia_pl",
+		"bounds": [
+			[18.37142, 54.44437],
+			[18.56459, 54.58317]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 243124,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.7, "l_ratio": 0.2, "gcc1": 0.19, "gcc2": 0.12, "gcc3": 0.1 }
+	},
+	{
+		"name": "Gelsenkirchen",
+		"slug": "gelsenkirchen_de",
+		"bounds": [
+			[6.99334, 51.48089],
+			[7.13941, 51.62482]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 260654,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.95, "l_ratio": 0.44, "gcc1": 0.29, "gcc2": 0.17, "gcc3": 0.04 }
+	},
+	{
+		"name": "Geneva",
+		"slug": "geneva_ch",
+		"bounds": [
+			[6.11039, 46.18131],
+			[6.17497, 46.23165]
+		],
+		"country": "Switzerland",
+		"countryCode": "CH",
+		"population": 203401,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1, "l_ratio": 0.29, "gcc1": 0.16, "gcc2": 0.08, "gcc3": 0.04 }
+	},
+	{
+		"name": "Ghent",
+		"slug": "ghent_be",
+		"bounds": [
+			[3.57976, 50.98657],
+			[3.83657, 51.18331]
+		],
+		"country": "Belgium",
+		"countryCode": "BE",
+		"population": 248358,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.9, "l_ratio": 0.37, "gcc1": 0.37, "gcc2": 0.07, "gcc3": 0.07 }
+	},
+	{
+		"name": "Glasgow",
+		"slug": "glasgow_gb",
+		"bounds": [
+			[-4.38947, 55.78459],
+			[-4.07827, 55.92154]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 1209143,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.75, "l_ratio": 0.12, "gcc1": 0.26, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Gliwice",
+		"slug": "gliwice_pl",
+		"bounds": [
+			[18.55393, 50.22883],
+			[18.74968, 50.36836]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 177056,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.67, "l_ratio": 0.22, "gcc1": 0.12, "gcc2": 0.11, "gcc3": 0.1 }
+	},
+	{
+		"name": "Gomel",
+		"slug": "gomel_by",
+		"bounds": [
+			[30.80269, 52.3451],
+			[31.08571, 52.50463]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 510243,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.19, "l_ratio": 0.04, "gcc1": 0.36, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Gorzów Wielkopolski",
+		"slug": "gorzowwielkopolski_pl",
+		"bounds": [
+			[15.12692, 52.68424],
+			[15.30062, 52.77369]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 121878,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.69, "l_ratio": 0.4, "gcc1": 0.34, "gcc2": 0.07, "gcc3": 0.06 }
+	},
+	{
+		"name": "Gothenburg",
+		"slug": "gothenburg_se",
+		"bounds": [
+			[11.70279, 57.5616],
+			[12.21663, 57.86406]
+		],
+		"country": "Sweden",
+		"countryCode": "SE",
+		"population": 491629,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.71, "l_ratio": 0.38, "gcc1": 0.71, "gcc2": 0.03, "gcc3": 0.02 }
+	},
+	{
+		"name": "Göttingen",
+		"slug": "gottingen_de",
+		"bounds": [
+			[9.81925, 51.49003],
+			[10.02104, 51.585]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 119801,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.81, "l_ratio": 0.44, "gcc1": 0.64, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Graz",
+		"slug": "graz_at",
+		"bounds": [
+			[15.35953, 47.01317],
+			[15.52979, 47.12957]
+		],
+		"country": "Austria",
+		"countryCode": "AT",
+		"population": 288806,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.8, "l_ratio": 0.22, "gcc1": 0.17, "gcc2": 0.1, "gcc3": 0.09 }
+	},
+	{
+		"name": "Grenoble",
+		"slug": "grenoble_fr",
+		"bounds": [
+			[5.68432, 45.15501],
+			[5.75313, 45.2114]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 160649,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.98, "l_ratio": 0.32, "gcc1": 0.43, "gcc2": 0.12, "gcc3": 0.07 }
+	},
+	{
+		"name": "Grodno",
+		"slug": "grodno_by",
+		"bounds": [
+			[23.71382, 53.60643],
+			[23.96879, 53.75935]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 356686,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.39, "l_ratio": 0.06, "gcc1": 0.1, "gcc2": 0.07, "gcc3": 0.06 }
+	},
+	{
+		"name": "Groningen",
+		"slug": "groningen_nl",
+		"bounds": [
+			[6.4641, 53.17869],
+			[6.66045, 53.26425]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 200336,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.93, "l_ratio": 0.38, "gcc1": 0.65, "gcc2": 0.15, "gcc3": 0.01 }
+	},
+	{
+		"name": "Gütersloh",
+		"slug": "gutersloh_de",
+		"bounds": [
+			[8.30845, 51.85863],
+			[8.50082, 51.97486]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 100194,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.8, "l_ratio": 0.57, "gcc1": 0.78, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Györ",
+		"slug": "gyor_hu",
+		"bounds": [
+			[17.5682, 47.60514],
+			[17.79918, 47.73921]
+		],
+		"country": "Hungary",
+		"countryCode": "HU",
+		"population": 133340,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.47, "l_ratio": 0.19, "gcc1": 0.42, "gcc2": 0.22, "gcc3": 0.14 }
+	},
+	{
+		"name": "Haarlem",
+		"slug": "haarlem_nl",
+		"bounds": [
+			[4.60063, 52.33928],
+			[4.68567, 52.42709]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 156645,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.97, "l_ratio": 0.35, "gcc1": 0.83, "gcc2": 0.03, "gcc3": 0.02 }
+	},
+	{
+		"name": "Haarlemmermeer",
+		"slug": "haarlemmermeer_nl",
+		"bounds": [
+			[4.55115, 52.21486],
+			[4.81846, 52.43216]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 144152,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.81, "l_ratio": 0.34, "gcc1": 0.8, "gcc2": 0.04, "gcc3": 0.02 }
+	},
+	{
+		"name": "Hagen",
+		"slug": "hagen_de",
+		"bounds": [
+			[7.3789, 51.26588],
+			[7.59697, 51.41746]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 188814,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.61, "l_ratio": 0.18, "gcc1": 0.13, "gcc2": 0.08, "gcc3": 0.04 }
+	},
+	{
+		"name": "Halle",
+		"slug": "halle_de",
+		"bounds": [
+			[11.86864, 51.40602],
+			[12.0822, 51.54087]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 239257,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.87, "l_ratio": 0.31, "gcc1": 0.11, "gcc2": 0.08, "gcc3": 0.07 }
+	},
+	{
+		"name": "Hamburg",
+		"slug": "hamburg_de",
+		"bounds": [
+			[9.73503, 53.39754],
+			[10.31802, 53.72106]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 1841179,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.86, "l_ratio": 0.31, "gcc1": 0.05, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Hamm",
+		"slug": "hamm_de",
+		"bounds": [
+			[7.68219, 51.58219],
+			[7.99315, 51.73225]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 179111,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.65, "l_ratio": 0.45, "gcc1": 0.49, "gcc2": 0.06, "gcc3": 0.02 }
+	},
+	{
+		"name": "Hanover",
+		"slug": "hanover_de",
+		"bounds": [
+			[9.61297, 52.30695],
+			[9.88807, 52.45056]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 538068,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.98, "l_ratio": 0.56, "gcc1": 0.82, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Heidelberg",
+		"slug": "heidelberg_de",
+		"bounds": [
+			[8.59259, 49.35863],
+			[8.78056, 49.45163]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 160355,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.69, "l_ratio": 0.3, "gcc1": 0.44, "gcc2": 0.05, "gcc3": 0.02 }
+	},
+	{
+		"name": "Heilbronn",
+		"slug": "heilbronn_de",
+		"bounds": [
+			[9.09026, 49.09656],
+			[9.27186, 49.20294]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 125960,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.76, "l_ratio": 0.29, "gcc1": 0.45, "gcc2": 0.03, "gcc3": 0.02 }
+	},
+	{
+		"name": "Helsinki",
+		"slug": "helsinki_fi",
+		"bounds": [
+			[24.83247, 60.13352],
+			[25.25125, 60.29554]
+		],
+		"country": "Finland",
+		"countryCode": "FI",
+		"population": 656920,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.95, "l_ratio": 0.9, "gcc1": 0.9, "gcc2": 0.01, "gcc3": 0 }
+	},
+	{
+		"name": "Herne",
+		"slug": "herne_de",
+		"bounds": [
+			[7.1237, 51.50374],
+			[7.29294, 51.57264]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 156374,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.95, "l_ratio": 0.37, "gcc1": 0.13, "gcc2": 0.09, "gcc3": 0.06 }
+	},
+	{
+		"name": "Hildesheim",
+		"slug": "hildesheim_de",
+		"bounds": [
+			[9.87152, 52.10437],
+			[10.03978, 52.18903]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 101990,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.98, "l_ratio": 0.36, "gcc1": 0.43, "gcc2": 0.07, "gcc3": 0.05 }
+	},
+	{
+		"name": "Horlivka",
+		"slug": "horlivka_ua",
+		"bounds": [
+			[37.93094, 48.26547],
+			[38.21311, 48.38719]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 237640,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0, "l_ratio": 0, "gcc1": 1, "gcc2": 0.07, "gcc3": 0.05 }
+	},
+	{
+		"name": "Ingolstadt",
+		"slug": "ingolstadt_de",
+		"bounds": [
+			[11.26205, 48.69374],
+			[11.49493, 48.8159]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 136981,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.84, "l_ratio": 0.42, "gcc1": 0.48, "gcc2": 0.07, "gcc3": 0.03 }
+	},
+	{
+		"name": "Innsbruck",
+		"slug": "innsbruck_at",
+		"bounds": [
+			[11.32079, 47.22158],
+			[11.45015, 47.29595]
+		],
+		"country": "Austria",
+		"countryCode": "AT",
+		"population": 132110,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.63, "l_ratio": 0.17, "gcc1": 0.25, "gcc2": 0.15, "gcc3": 0.1 }
+	},
+	{
+		"name": "Ivano-Frankivsk",
+		"slug": "ivanofrankivsk_ua",
+		"bounds": [
+			[24.64978, 48.86227],
+			[24.7576, 48.95148]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 235343,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.47, "l_ratio": 0.14, "gcc1": 0.29, "gcc2": 0.12, "gcc3": 0.06 }
+	},
+	{
+		"name": "Jena",
+		"slug": "jena_de",
+		"bounds": [
+			[11.5071, 50.86059],
+			[11.66178, 50.97545]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 111407,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.78, "l_ratio": 0.23, "gcc1": 0.12, "gcc2": 0.03, "gcc3": 0.03 }
+	},
+	{
+		"name": "Jyvaskyla",
+		"slug": "jyvaskyla_fi",
+		"bounds": [
+			[25.26815, 61.85516],
+			[26.04562, 62.42483]
+		],
+		"country": "Finland",
+		"countryCode": "FI",
+		"population": 143420,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.2, "l_ratio": 0.25, "gcc1": 0.8, "gcc2": 0.03, "gcc3": 0.02 }
+	},
+	{
+		"name": "Kallithea",
+		"slug": "kallithea_gr",
+		"bounds": [
+			[23.68122, 37.93565],
+			[23.71793, 37.96393]
+		],
+		"country": "Greece",
+		"countryCode": "GR",
+		"population": 100641,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.62, "l_ratio": 0.04, "gcc1": 0.56, "gcc2": 0.16, "gcc3": 0.12 }
+	},
+	{
+		"name": "Kamenets Podolsky",
+		"slug": "kamenetspodolsky_ua",
+		"bounds": [
+			[26.54459, 48.64835],
+			[26.61217, 48.73209]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 226295,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.13, "l_ratio": 0.01, "gcc1": 0.29, "gcc2": 0.23, "gcc3": 0.21 }
+	},
+	{
+		"name": "Kamyanske",
+		"slug": "kamyanske_ua",
+		"bounds": [
+			[34.48386, 48.45269],
+			[34.7165, 48.5467]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 226295,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.09, "l_ratio": 0.01, "gcc1": 0.64, "gcc2": 0.13, "gcc3": 0.11 }
+	},
+	{
+		"name": "Karlsruhe",
+		"slug": "karlsruhe_de",
+		"bounds": [
+			[8.29457, 48.94123],
+			[8.54146, 49.06798]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 313092,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.91, "l_ratio": 0.41, "gcc1": 0.23, "gcc2": 0.19, "gcc3": 0.08 }
+	},
+	{
+		"name": "Kassel",
+		"slug": "kassel_de",
+		"bounds": [
+			[9.37147, 51.26472],
+			[9.56883, 51.35158]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 201585,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.82, "l_ratio": 0.2, "gcc1": 0.1, "gcc2": 0.08, "gcc3": 0.06 }
+	},
+	{
+		"name": "Katowice",
+		"slug": "katowice_pl",
+		"bounds": [
+			[18.9054, 50.16349],
+			[19.11262, 50.29612]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 296468,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.74, "l_ratio": 0.2, "gcc1": 0.1, "gcc2": 0.07, "gcc3": 0.05 }
+	},
+	{
+		"name": "Kaunas",
+		"slug": "kaunas_lt",
+		"bounds": [
+			[23.79278, 54.83192],
+			[24.08393, 54.95841]
+		],
+		"country": "Lithuania",
+		"countryCode": "LT",
+		"population": 298753,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.75, "l_ratio": 0.24, "gcc1": 0.26, "gcc2": 0.08, "gcc3": 0.04 }
+	},
+	{
+		"name": "Kecskemét",
+		"slug": "kecskemet_hu",
+		"bounds": [
+			[19.55066, 46.80701],
+			[19.83924, 46.99198]
+		],
+		"country": "Hungary",
+		"countryCode": "HU",
+		"population": 110012,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.37, "l_ratio": 0.19, "gcc1": 0.46, "gcc2": 0.13, "gcc3": 0.06 }
+	},
+	{
+		"name": "Kerch",
+		"slug": "kerch_ua",
+		"bounds": [
+			[36.38791, 45.2157],
+			[36.63717, 45.39347]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 149566,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.03, "l_ratio": 0, "gcc1": 0.44, "gcc2": 0.22, "gcc3": 0.21 }
+	},
+	{
+		"name": "Kharkiv",
+		"slug": "kharkiv_ua",
+		"bounds": [
+			[36.11746, 49.88168],
+			[36.45291, 50.10439]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 1401558,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.29, "l_ratio": 0.04, "gcc1": 0.42, "gcc2": 0.06, "gcc3": 0.02 }
+	},
+	{
+		"name": "Kherson",
+		"slug": "kherson_ua",
+		"bounds": [
+			[32.55221, 46.59937],
+			[32.71923, 46.69929]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 275529,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.12, "l_ratio": 0.01, "gcc1": 0.68, "gcc2": 0.1, "gcc3": 0.08 }
+	},
+	{
+		"name": "Khmelnitsky",
+		"slug": "khmelnitsky_ua",
+		"bounds": [
+			[26.90507, 49.35888],
+			[27.08428, 49.46899]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 271618,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.2, "l_ratio": 0.03, "gcc1": 0.3, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Kiel",
+		"slug": "kiel_de",
+		"bounds": [
+			[10.04287, 54.25313],
+			[10.20936, 54.43292]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 247548,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.96, "l_ratio": 0.48, "gcc1": 0.52, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Kielce",
+		"slug": "kielce_pl",
+		"bounds": [
+			[20.51183, 50.79821],
+			[20.69765, 50.91208]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 192650,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.62, "l_ratio": 0.25, "gcc1": 0.29, "gcc2": 0.19, "gcc3": 0.08 }
+	},
+	{
+		"name": "Kingston-Upon-Hull",
+		"slug": "kingstonuponhull_gb",
+		"bounds": [
+			[-0.42249, 53.71964],
+			[-0.24512, 53.81199]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 284321,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.83, "l_ratio": 0.13, "gcc1": 0.25, "gcc2": 0.14, "gcc3": 0.09 }
+	},
+	{
+		"name": "Klagenfurt",
+		"slug": "klagenfurt_at",
+		"bounds": [
+			[14.21357, 46.58457],
+			[14.39488, 46.69905]
+		],
+		"country": "Austria",
+		"countryCode": "AT",
+		"population": 100817,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.57, "l_ratio": 0.18, "gcc1": 0.3, "gcc2": 0.12, "gcc3": 0.09 }
+	},
+	{
+		"name": "Klaipeda",
+		"slug": "klaipeda_lt",
+		"bounds": [
+			[21.07899, 55.63981],
+			[21.23953, 55.77794]
+		],
+		"country": "Lithuania",
+		"countryCode": "LT",
+		"population": 152008,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.94, "l_ratio": 0.4, "gcc1": 0.29, "gcc2": 0.27, "gcc3": 0.11 }
+	},
+	{
+		"name": "Koblenz",
+		"slug": "koblenz_de",
+		"bounds": [
+			[7.4998, 50.29304],
+			[7.6751, 50.40749]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 114024,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.76, "l_ratio": 0.2, "gcc1": 0.05, "gcc2": 0.03, "gcc3": 0.03 }
+	},
+	{
+		"name": "Kosice",
+		"slug": "kosice_sk",
+		"bounds": [
+			[21.13311, 48.62061],
+			[21.34347, 48.78333]
+		],
+		"country": "Slovakia",
+		"countryCode": "SK",
+		"population": 238676,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.53, "l_ratio": 0.17, "gcc1": 0.06, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Koszalin",
+		"slug": "koszalin_pl",
+		"bounds": [
+			[16.11526, 54.14574],
+			[16.30089, 54.27471]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 105714,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.67, "l_ratio": 0.29, "gcc1": 0.83, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Kozani",
+		"slug": "kozani_gr",
+		"bounds": [
+			[21.77693, 40.28849],
+			[21.81024, 40.31078]
+		],
+		"country": "Greece",
+		"countryCode": "GR",
+		"population": 67224,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.73, "l_ratio": 0.13, "gcc1": 0.16, "gcc2": 0.12, "gcc3": 0.07 }
+	},
+	{
+		"name": "Kragujevac",
+		"slug": "kragujevac_rs",
+		"bounds": [
+			[20.82966, 43.96849],
+			[20.98314, 44.06543]
+		],
+		"country": "Serbia",
+		"countryCode": "RS",
+		"population": 147786,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.56, "l_ratio": 0.07, "gcc1": 0.04, "gcc2": 0.03, "gcc3": 0.02 }
+	},
+	{
+		"name": "Krakow",
+		"slug": "krakow_pl",
+		"bounds": [
+			[19.79559, 49.97109],
+			[20.2086, 50.11979]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 777520,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.65, "l_ratio": 0.27, "gcc1": 0.15, "gcc2": 0.1, "gcc3": 0.04 }
+	},
+	{
+		"name": "Kramatorsk",
+		"slug": "kramatorsk_ua",
+		"bounds": [
+			[37.45722, 48.67271],
+			[37.63402, 48.7766]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 146693,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.11, "l_ratio": 0, "gcc1": 0.29, "gcc2": 0.13, "gcc3": 0.09 }
+	},
+	{
+		"name": "Krefeld",
+		"slug": "krefeld_de",
+		"bounds": [
+			[6.48483, 51.28578],
+			[6.70163, 51.40056]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 227020,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.82, "l_ratio": 0.42, "gcc1": 0.63, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Kremenchuk",
+		"slug": "kremenchuk_ua",
+		"bounds": [
+			[33.3748, 49.00137],
+			[33.49426, 49.18957]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 214291,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.05, "l_ratio": 0.01, "gcc1": 0.46, "gcc2": 0.17, "gcc3": 0.17 }
+	},
+	{
+		"name": "Kropyvnytskyi",
+		"slug": "kropyvnytskyi_ua",
+		"bounds": [
+			[32.12058, 48.46526],
+			[32.32808, 48.58041]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 216535,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.19, "l_ratio": 0.02, "gcc1": 0.25, "gcc2": 0.13, "gcc3": 0.09 }
+	},
+	{
+		"name": "Kryvyi Rih",
+		"slug": "kryvyirih_ua",
+		"bounds": [
+			[33.14136, 47.65348],
+			[33.59697, 48.1878]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 602390,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.1, "l_ratio": 0.02, "gcc1": 0.14, "gcc2": 0.09, "gcc3": 0.07 }
+	},
+	{
+		"name": "Kuopio",
+		"slug": "kuopio_fi",
+		"bounds": [
+			[26.90834, 62.68751],
+			[27.75594, 63.33319]
+		],
+		"country": "Finland",
+		"countryCode": "FI",
+		"population": 120210,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.18, "l_ratio": 0.22, "gcc1": 0.67, "gcc2": 0.06, "gcc3": 0.01 }
+	},
+	{
+		"name": "Kyiv",
+		"slug": "kyiv_ua",
+		"bounds": [
+			[30.2398, 50.23723],
+			[30.77824, 50.58439]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 2910994,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.63, "l_ratio": 0.12, "gcc1": 0.07, "gcc2": 0.03, "gcc3": 0.03 }
+	},
+	{
+		"name": "L'Hospitalet De Llobregat",
+		"slug": "lhospitaletdellobregat_es",
+		"bounds": [
+			[2.08689, 41.33834],
+			[2.13684, 41.37814]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 265003,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.89, "l_ratio": 0.35, "gcc1": 0.23, "gcc2": 0.1, "gcc3": 0.08 }
+	},
+	{
+		"name": "Lahti",
+		"slug": "lahti_fi",
+		"bounds": [
+			[25.54467, 60.89146],
+			[26.16002, 61.09737]
+		],
+		"country": "Finland",
+		"countryCode": "FI",
+		"population": 119984,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.37, "l_ratio": 0.45, "gcc1": 0.81, "gcc2": 0.1, "gcc3": 0.01 }
+	},
+	{
+		"name": "Lausanne",
+		"slug": "lausanne_ch",
+		"bounds": [
+			[6.58473, 46.50474],
+			[6.71429, 46.59911]
+		],
+		"country": "Switzerland",
+		"countryCode": "CH",
+		"population": 140619,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.55, "l_ratio": 0.17, "gcc1": 0.18, "gcc2": 0.04, "gcc3": 0.03 }
+	},
+	{
+		"name": "Le Havre",
+		"slug": "lehavre_fr",
+		"bounds": [
+			[0.06867, 49.46006],
+			[0.19529, 49.53399]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 172366,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.79, "l_ratio": 0.17, "gcc1": 0.09, "gcc2": 0.08, "gcc3": 0.08 }
+	},
+	{
+		"name": "Le Mans",
+		"slug": "lemans_fr",
+		"bounds": [
+			[0.14009, 47.93502],
+			[0.24714, 48.03537]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 143325,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.74, "l_ratio": 0.13, "gcc1": 0.12, "gcc2": 0.07, "gcc3": 0.06 }
+	},
+	{
+		"name": "Leeuwarden",
+		"slug": "leeuwarden_nl",
+		"bounds": [
+			[5.73402, 53.15833],
+			[5.90085, 53.23405]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 107691,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.86, "l_ratio": 0.4, "gcc1": 0.7, "gcc2": 0.05, "gcc3": 0.01 }
+	},
+	{
+		"name": "Leicester",
+		"slug": "leicester_gb",
+		"bounds": [
+			[-1.21127, 52.58165],
+			[-1.04725, 52.68707]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 443760,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.83, "l_ratio": 0.17, "gcc1": 0.24, "gcc2": 0.11, "gcc3": 0.11 }
+	},
+	{
+		"name": "Leiden",
+		"slug": "leiden_nl",
+		"bounds": [
+			[4.44109, 52.12402],
+			[4.52273, 52.1844]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 121562,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1, "l_ratio": 0.41, "gcc1": 0.64, "gcc2": 0.08, "gcc3": 0.07 }
+	},
+	{
+		"name": "Leipzig",
+		"slug": "leipzig_de",
+		"bounds": [
+			[12.24009, 51.24351],
+			[12.53274, 51.42666]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 587857,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.9, "l_ratio": 0.3, "gcc1": 0.08, "gcc2": 0.08, "gcc3": 0.04 }
+	},
+	{
+		"name": "León",
+		"slug": "leon_es",
+		"bounds": [
+			[-5.62113, 42.5475],
+			[-5.53836, 42.63852]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 122398,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.72, "l_ratio": 0.19, "gcc1": 0.4, "gcc2": 0.07, "gcc3": 0.05 }
+	},
+	{
+		"name": "Leverkusen",
+		"slug": "leverkusen_de",
+		"bounds": [
+			[6.9004, 51.01163],
+			[7.11186, 51.09684]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 163838,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.9, "l_ratio": 0.36, "gcc1": 0.44, "gcc2": 0.05, "gcc3": 0.05 }
+	},
+	{
+		"name": "Liberec",
+		"slug": "liberec_cz",
+		"bounds": [
+			[14.96809, 50.7161],
+			[15.11748, 50.81962]
+		],
+		"country": "Czech Republic",
+		"countryCode": "CZ",
+		"population": 104340,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.4, "l_ratio": 0.06, "gcc1": 0.13, "gcc2": 0.09, "gcc3": 0.09 }
+	},
+	{
+		"name": "Lida",
+		"slug": "lida_by",
+		"bounds": [
+			[25.22307, 53.86275],
+			[25.35367, 53.95001]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 102794,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.05, "l_ratio": 0.01, "gcc1": 0.32, "gcc2": 0.31, "gcc3": 0.26 }
+	},
+	{
+		"name": "Liège",
+		"slug": "liege_be",
+		"bounds": [
+			[5.52343, 50.56846],
+			[5.67285, 50.6876]
+		],
+		"country": "Belgium",
+		"countryCode": "BE",
+		"population": 195965,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.78, "l_ratio": 0.24, "gcc1": 0.4, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Lille",
+		"slug": "lille_fr",
+		"bounds": [
+			[2.96879, 50.60138],
+			[3.12532, 50.65704]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 232741,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.91, "l_ratio": 0.2, "gcc1": 0.16, "gcc2": 0.15, "gcc3": 0.05 }
+	},
+	{
+		"name": "Limoges",
+		"slug": "limoges_fr",
+		"bounds": [
+			[1.15288, 45.79777],
+			[1.31579, 45.92582]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 133627,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.49, "l_ratio": 0.07, "gcc1": 0.15, "gcc2": 0.11, "gcc3": 0.08 }
+	},
+	{
+		"name": "Linz",
+		"slug": "linz_at",
+		"bounds": [
+			[14.24698, 48.21478],
+			[14.40222, 48.35437]
+		],
+		"country": "Austria",
+		"countryCode": "AT",
+		"population": 205726,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.73, "l_ratio": 0.27, "gcc1": 0.41, "gcc2": 0.13, "gcc3": 0.07 }
+	},
+	{
+		"name": "Lisbon",
+		"slug": "lisbon_pt",
+		"bounds": [
+			[-9.22695, 38.69189],
+			[-9.09035, 38.79615]
+		],
+		"country": "Portugal",
+		"countryCode": "PT",
+		"population": 545142,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.89, "l_ratio": 0.13, "gcc1": 0.24, "gcc2": 0.11, "gcc3": 0.1 }
+	},
+	{
+		"name": "Liverpool",
+		"slug": "liverpool_gb",
+		"bounds": [
+			[-3.00851, 53.33591],
+			[-2.82013, 53.47359]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 552267,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.66, "l_ratio": 0.05, "gcc1": 0.18, "gcc2": 0.06, "gcc3": 0.05 }
+	},
+	{
+		"name": "Livorno",
+		"slug": "livorno_it",
+		"bounds": [
+			[10.29872, 43.4497],
+			[10.41818, 43.58925]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 154927,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.05, "l_ratio": 0.4, "gcc1": 0.19, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Ljubljana",
+		"slug": "ljubljana_si",
+		"bounds": [
+			[14.41767, 45.98704],
+			[14.74523, 46.13662]
+		],
+		"country": "Slovenia",
+		"countryCode": "SI",
+		"population": 285604,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.45, "l_ratio": 0.22, "gcc1": 0.47, "gcc2": 0.13, "gcc3": 0.07 }
+	},
+	{
+		"name": "Lodz",
+		"slug": "lodz_pl",
+		"bounds": [
+			[19.32123, 51.68715],
+			[19.63104, 51.85908]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 677864,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.64, "l_ratio": 0.23, "gcc1": 0.55, "gcc2": 0.04, "gcc3": 0.03 }
+	},
+	{
+		"name": "London",
+		"slug": "london_gb",
+		"bounds": [
+			[-0.50361, 51.29243],
+			[0.31241, 51.68559]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 8135667,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.72, "l_ratio": 0.1, "gcc1": 0.05, "gcc2": 0.04, "gcc3": 0.02 }
+	},
+	{
+		"name": "Lübeck",
+		"slug": "lubeck_de",
+		"bounds": [
+			[10.56294, 53.76805],
+			[10.88477, 53.99355]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 217198,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.89, "l_ratio": 0.51, "gcc1": 0.57, "gcc2": 0.04, "gcc3": 0.03 }
+	},
+	{
+		"name": "Lublin",
+		"slug": "lublin_pl",
+		"bounds": [
+			[22.46496, 51.13985],
+			[22.65656, 51.28773]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 341591,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.73, "l_ratio": 0.25, "gcc1": 0.5, "gcc2": 0.08, "gcc3": 0.03 }
+	},
+	{
+		"name": "Ludwigshafen Am Rhein",
+		"slug": "ludwigshafenamrhein_de",
+		"bounds": [
+			[8.31051, 49.43187],
+			[8.47057, 49.54495]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 171061,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.9, "l_ratio": 0.35, "gcc1": 0.24, "gcc2": 0.09, "gcc3": 0.06 }
+	},
+	{
+		"name": "Luhansk",
+		"slug": "luhansk_ua",
+		"bounds": [
+			[39.22042, 48.47583],
+			[39.47363, 48.68278]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 394202,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.09, "l_ratio": 0.02, "gcc1": 0.18, "gcc2": 0.15, "gcc3": 0.13 }
+	},
+	{
+		"name": "Luton",
+		"slug": "luton_gb",
+		"bounds": [
+			[-0.50494, 51.85846],
+			[-0.35834, 51.92717]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 211228,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.72, "l_ratio": 0.08, "gcc1": 0.13, "gcc2": 0.1, "gcc3": 0.1 }
+	},
+	{
+		"name": "Luts'K",
+		"slug": "lutsk_ua",
+		"bounds": [
+			[25.26208, 50.68912],
+			[25.40251, 50.78647]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 212903,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.4, "l_ratio": 0.05, "gcc1": 0.07, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Luxembourg",
+		"slug": "luxembourg_lu",
+		"bounds": [
+			[6.03762, 49.53376],
+			[6.28761, 49.68681]
+		],
+		"country": "Luxembourg",
+		"countryCode": "LU",
+		"population": 128494,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.96, "l_ratio": 0.32, "gcc1": 0.22, "gcc2": 0.11, "gcc3": 0.09 }
+	},
+	{
+		"name": "Lviv",
+		"slug": "lviv_ua",
+		"bounds": [
+			[23.90793, 49.77066],
+			[24.10729, 49.89661]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 710606,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.83, "l_ratio": 0.19, "gcc1": 0.14, "gcc2": 0.07, "gcc3": 0.05 }
+	},
+	{
+		"name": "Lyon",
+		"slug": "lyon_fr",
+		"bounds": [
+			[4.77629, 45.71761],
+			[4.89822, 45.80559]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 513275,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.93, "l_ratio": 0.25, "gcc1": 0.35, "gcc2": 0.09, "gcc3": 0.09 }
+	},
+	{
+		"name": "Maastricht",
+		"slug": "maastricht_nl",
+		"bounds": [
+			[5.64109, 50.80451],
+			[5.75241, 50.90234]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 122397,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.93, "l_ratio": 0.33, "gcc1": 0.43, "gcc2": 0.08, "gcc3": 0.02 }
+	},
+	{
+		"name": "Madrid",
+		"slug": "madrid_es",
+		"bounds": [
+			[-3.83681, 40.32402],
+			[-3.52128, 40.5844]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 3277451,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.72, "l_ratio": 0.1, "gcc1": 0.09, "gcc2": 0.08, "gcc3": 0.07 }
+	},
+	{
+		"name": "Magdeburg",
+		"slug": "magdeburg_de",
+		"bounds": [
+			[11.52089, 52.04475],
+			[11.74277, 52.22823]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 238697,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.9, "l_ratio": 0.52, "gcc1": 0.71, "gcc2": 0.02, "gcc3": 0.01 }
+	},
+	{
+		"name": "Mainz",
+		"slug": "mainz_de",
+		"bounds": [
+			[8.14325, 49.90967],
+			[8.3331, 50.03076]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 217118,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.86, "l_ratio": 0.38, "gcc1": 0.13, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Makijivka",
+		"slug": "makijivka_ua",
+		"bounds": [
+			[37.8335, 47.97291],
+			[38.10466, 48.13727]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 337277,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.07, "l_ratio": 0, "gcc1": 0.2, "gcc2": 0.14, "gcc3": 0.13 }
+	},
+	{
+		"name": "Malmo",
+		"slug": "malmo_se",
+		"bounds": [
+			[12.91224, 55.54822],
+			[13.12543, 55.64914]
+		],
+		"country": "Sweden",
+		"countryCode": "SE",
+		"population": 278522,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.98, "l_ratio": 0.55, "gcc1": 0.93, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Manchester",
+		"slug": "manchester_gb",
+		"bounds": [
+			[-2.31717, 53.34505],
+			[-2.14811, 53.54197]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 510746,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.87, "l_ratio": 0.12, "gcc1": 0.08, "gcc2": 0.06, "gcc3": 0.05 }
+	},
+	{
+		"name": "Mannheim",
+		"slug": "mannheim_de",
+		"bounds": [
+			[8.42398, 49.41036],
+			[8.58624, 49.58987]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 309370,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.9, "l_ratio": 0.38, "gcc1": 0.47, "gcc2": 0.03, "gcc3": 0.03 }
+	},
+	{
+		"name": "Marbella",
+		"slug": "marbella_es",
+		"bounds": [
+			[-5.01393, 36.46156],
+			[-4.73434, 36.53991]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 149032,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.3, "l_ratio": 0.05, "gcc1": 0.11, "gcc2": 0.08, "gcc3": 0.06 }
+	},
+	{
+		"name": "Mariupol",
+		"slug": "mariupol_ua",
+		"bounds": [
+			[37.47311, 47.03706],
+			[37.75333, 47.21567]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 422286,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.17, "l_ratio": 0.01, "gcc1": 0.13, "gcc2": 0.09, "gcc3": 0.08 }
+	},
+	{
+		"name": "Marseille",
+		"slug": "marseille_fr",
+		"bounds": [
+			[5.28655, 43.21076],
+			[5.52935, 43.38891]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 861635,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.58, "l_ratio": 0.09, "gcc1": 0.08, "gcc2": 0.07, "gcc3": 0.06 }
+	},
+	{
+		"name": "Melitopol",
+		"slug": "melitopol_ua",
+		"bounds": [
+			[35.3095, 46.80784],
+			[35.42481, 46.8885]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 148698,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.29, "l_ratio": 0.06, "gcc1": 0.3, "gcc2": 0.24, "gcc3": 0.09 }
+	},
+	{
+		"name": "Messina",
+		"slug": "messina_it",
+		"bounds": [
+			[15.44462, 38.05869],
+			[15.65163, 38.29984]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 221788,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.09, "l_ratio": 0.01, "gcc1": 0.46, "gcc2": 0.28, "gcc3": 0.13 }
+	},
+	{
+		"name": "Metz",
+		"slug": "metz_fr",
+		"bounds": [
+			[6.13822, 49.06274],
+			[6.25476, 49.1486]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 117492,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.83, "l_ratio": 0.24, "gcc1": 0.13, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Milan",
+		"slug": "milan_it",
+		"bounds": [
+			[9.04975, 45.39339],
+			[9.27314, 45.53515]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 1362256,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.84, "l_ratio": 0.16, "gcc1": 0.05, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Minsk",
+		"slug": "minsk_by",
+		"bounds": [
+			[27.38199, 53.79825],
+			[27.80458, 53.97144]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 2020133,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.43, "l_ratio": 0.09, "gcc1": 0.08, "gcc2": 0.04, "gcc3": 0.02 }
+	},
+	{
+		"name": "Miskolc",
+		"slug": "miskolc_hu",
+		"bounds": [
+			[20.48073, 48.03663],
+			[20.85183, 48.14683]
+		],
+		"country": "Hungary",
+		"countryCode": "HU",
+		"population": 151798,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.22, "l_ratio": 0.04, "gcc1": 0.18, "gcc2": 0.14, "gcc3": 0.08 }
+	},
+	{
+		"name": "Moers",
+		"slug": "moers_de",
+		"bounds": [
+			[6.55854, 51.39328],
+			[6.67862, 51.52229]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 103725,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.83, "l_ratio": 0.4, "gcc1": 0.64, "gcc2": 0.04, "gcc3": 0.03 }
+	},
+	{
+		"name": "Mogilev",
+		"slug": "mogilev_by",
+		"bounds": [
+			[30.23216, 53.83371],
+			[30.45277, 53.96235]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 357184,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.26, "l_ratio": 0.05, "gcc1": 0.14, "gcc2": 0.12, "gcc3": 0.08 }
+	},
+	{
+		"name": "Mönchengladbach",
+		"slug": "monchengladbach_de",
+		"bounds": [
+			[6.31506, 51.08904],
+			[6.53643, 51.24211]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 261454,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.78, "l_ratio": 0.33, "gcc1": 0.22, "gcc2": 0.15, "gcc3": 0.11 }
+	},
+	{
+		"name": "Montpellier",
+		"slug": "montpellier_fr",
+		"bounds": [
+			[3.80774, 43.57213],
+			[3.93932, 43.65151]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 277639,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.81, "l_ratio": 0.22, "gcc1": 0.09, "gcc2": 0.07, "gcc3": 0.07 }
+	},
+	{
+		"name": "Montreuil",
+		"slug": "montreuil_fr",
+		"bounds": [
+			[2.41528, 48.84874],
+			[2.48201, 48.87875]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 106691,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.84, "l_ratio": 0.25, "gcc1": 0.18, "gcc2": 0.17, "gcc3": 0.07 }
+	},
+	{
+		"name": "Monza",
+		"slug": "monza_it",
+		"bounds": [
+			[9.22759, 45.55505],
+			[9.32367, 45.62789]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 122253,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.05, "l_ratio": 0.3, "gcc1": 0.19, "gcc2": 0.11, "gcc3": 0.08 }
+	},
+	{
+		"name": "Mozir",
+		"slug": "mozir_by",
+		"bounds": [
+			[29.18052, 52.00768],
+			[29.30897, 52.09567]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 105690,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.3, "l_ratio": 0.04, "gcc1": 0.3, "gcc2": 0.07, "gcc3": 0.06 }
+	},
+	{
+		"name": "Mülheim An Der Ruhr",
+		"slug": "mulheimanderruhr_de",
+		"bounds": [
+			[6.81042, 51.36057],
+			[6.95948, 51.47136]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 170880,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.87, "l_ratio": 0.3, "gcc1": 0.33, "gcc2": 0.11, "gcc3": 0.02 }
+	},
+	{
+		"name": "Mulhouse",
+		"slug": "mulhouse_fr",
+		"bounds": [
+			[7.28508, 47.72279],
+			[7.36594, 47.78044]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 110370,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.83, "l_ratio": 0.18, "gcc1": 0.13, "gcc2": 0.11, "gcc3": 0.09 }
+	},
+	{
+		"name": "Munich",
+		"slug": "munich_de",
+		"bounds": [
+			[11.36737, 48.06542],
+			[11.71552, 48.24605]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 1471508,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.95, "l_ratio": 0.51, "gcc1": 0.82, "gcc2": 0.01, "gcc3": 0 }
+	},
+	{
+		"name": "Münster",
+		"slug": "munster_de",
+		"bounds": [
+			[7.47897, 51.84229],
+			[7.76469, 52.05505]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 314319,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.77, "l_ratio": 0.48, "gcc1": 0.72, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Mykolaiv",
+		"slug": "mykolaiv_ua",
+		"bounds": [
+			[31.88935, 46.82001],
+			[32.10002, 47.04694]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 465516,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.06, "l_ratio": 0.01, "gcc1": 0.1, "gcc2": 0.1, "gcc3": 0.09 }
+	},
+	{
+		"name": "Namur",
+		"slug": "namur_be",
+		"bounds": [
+			[4.72458, 50.38974],
+			[4.98147, 50.52956]
+		],
+		"country": "Belgium",
+		"countryCode": "BE",
+		"population": 110175,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.47, "l_ratio": 0.13, "gcc1": 0.26, "gcc2": 0.06, "gcc3": 0.05 }
+	},
+	{
+		"name": "Nancy",
+		"slug": "nancy_fr",
+		"bounds": [
+			[6.13722, 48.66693],
+			[6.20893, 48.70893]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 105162,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.86, "l_ratio": 0.25, "gcc1": 0.13, "gcc2": 0.1, "gcc3": 0.07 }
+	},
+	{
+		"name": "Nantes",
+		"slug": "nantes_fr",
+		"bounds": [
+			[-1.61909, 47.18099],
+			[-1.48089, 47.2942]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 303382,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.95, "l_ratio": 0.27, "gcc1": 0.2, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Naples",
+		"slug": "naples_it",
+		"bounds": [
+			[14.13904, 40.79553],
+			[14.35377, 40.91419]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 921618,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.22, "l_ratio": 0.02, "gcc1": 0.16, "gcc2": 0.09, "gcc3": 0.09 }
+	},
+	{
+		"name": "Neuss",
+		"slug": "neuss_de",
+		"bounds": [
+			[6.62475, 51.12389],
+			[6.79498, 51.23558]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 153796,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.88, "l_ratio": 0.46, "gcc1": 0.27, "gcc2": 0.11, "gcc3": 0.11 }
+	},
+	{
+		"name": "Newcastle-Upon-Tyne",
+		"slug": "newcastleupontyne_gb",
+		"bounds": [
+			[-1.77098, 54.96002],
+			[-1.53604, 55.06137]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 268064,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.72, "l_ratio": 0.13, "gcc1": 0.28, "gcc2": 0.16, "gcc3": 0.08 }
+	},
+	{
+		"name": "Nice",
+		"slug": "nice_fr",
+		"bounds": [
+			[7.18401, 43.65868],
+			[7.31485, 43.75654]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 342522,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.46, "l_ratio": 0.08, "gcc1": 0.64, "gcc2": 0.07, "gcc3": 0.05 }
+	},
+	{
+		"name": "Nijmegen",
+		"slug": "nijmegen_nl",
+		"bounds": [
+			[5.7582, 51.79115],
+			[5.90764, 51.8578]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 170681,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.14, "l_ratio": 0.4, "gcc1": 0.66, "gcc2": 0.08, "gcc3": 0.03 }
+	},
+	{
+		"name": "Nikopol",
+		"slug": "nikopol_ua",
+		"bounds": [
+			[34.2944, 47.55146],
+			[34.45681, 47.60307]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 107214,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.14, "l_ratio": 0.01, "gcc1": 0.35, "gcc2": 0.17, "gcc3": 0.14 }
+	},
+	{
+		"name": "Nîmes",
+		"slug": "nimes_fr",
+		"bounds": [
+			[4.27403, 43.7611],
+			[4.43277, 43.91794]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 150672,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.26, "l_ratio": 0.06, "gcc1": 0.16, "gcc2": 0.13, "gcc3": 0.11 }
+	},
+	{
+		"name": "Nis",
+		"slug": "nis_rs",
+		"bounds": [
+			[21.83471, 43.28575],
+			[21.96009, 43.35177]
+		],
+		"country": "Serbia",
+		"countryCode": "RS",
+		"population": 183202,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.38, "l_ratio": 0.04, "gcc1": 0.31, "gcc2": 0.18, "gcc3": 0.14 }
+	},
+	{
+		"name": "Northampton",
+		"slug": "northampton_gb",
+		"bounds": [
+			[-0.97049, 52.18667],
+			[-0.80141, 52.28154]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 215173,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.9, "l_ratio": 0.23, "gcc1": 0.18, "gcc2": 0.14, "gcc3": 0.05 }
+	},
+	{
+		"name": "Nottingham",
+		"slug": "nottingham_gb",
+		"bounds": [
+			[-1.24614, 52.88908],
+			[-1.08791, 53.0179]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 289301,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.85, "l_ratio": 0.17, "gcc1": 0.46, "gcc2": 0.09, "gcc3": 0.05 }
+	},
+	{
+		"name": "Novi Sad",
+		"slug": "novisad_rs",
+		"bounds": [
+			[19.76507, 45.22332],
+			[19.89369, 45.32082]
+		],
+		"country": "Serbia",
+		"countryCode": "RS",
+		"population": 298469,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.6, "l_ratio": 0.24, "gcc1": 0.78, "gcc2": 0.06, "gcc3": 0.04 }
+	},
+	{
+		"name": "Nuremberg",
+		"slug": "nuremberg_de",
+		"bounds": [
+			[10.99166, 49.34296],
+			[11.20654, 49.53785]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 518365,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.88, "l_ratio": 0.35, "gcc1": 0.34, "gcc2": 0.15, "gcc3": 0.07 }
+	},
+	{
+		"name": "Nyiregyhaza",
+		"slug": "nyiregyhaza_hu",
+		"bounds": [
+			[21.58602, 47.85229],
+			[21.84187, 48.03746]
+		],
+		"country": "Hungary",
+		"countryCode": "HU",
+		"population": 116684,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.29, "l_ratio": 0.15, "gcc1": 0.37, "gcc2": 0.17, "gcc3": 0.05 }
+	},
+	{
+		"name": "Oberhausen",
+		"slug": "oberhausen_de",
+		"bounds": [
+			[6.78037, 51.44892],
+			[6.92402, 51.57546]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 210829,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.97, "l_ratio": 0.39, "gcc1": 0.11, "gcc2": 0.11, "gcc3": 0.08 }
+	},
+	{
+		"name": "Odense",
+		"slug": "odense_dk",
+		"bounds": [
+			[10.18339, 55.2913],
+			[10.57113, 55.47737]
+		],
+		"country": "Denmark",
+		"countryCode": "DK",
+		"population": 204795,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.52, "l_ratio": 0.32, "gcc1": 0.65, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Odessa",
+		"slug": "odessa_ua",
+		"bounds": [
+			[30.61296, 46.34297],
+			[30.826, 46.61637]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 992874,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.27, "l_ratio": 0.03, "gcc1": 0.2, "gcc2": 0.14, "gcc3": 0.08 }
+	},
+	{
+		"name": "Offenbach Am Main",
+		"slug": "offenbachammain_de",
+		"bounds": [
+			[8.72452, 50.05863],
+			[8.8416, 50.13665]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 128744,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.92, "l_ratio": 0.3, "gcc1": 0.23, "gcc2": 0.08, "gcc3": 0.06 }
+	},
+	{
+		"name": "Oldenburg",
+		"slug": "oldenburg_de",
+		"bounds": [
+			[8.12951, 53.08335],
+			[8.30239, 53.20399]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 168210,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.89, "l_ratio": 0.49, "gcc1": 0.59, "gcc2": 0.02, "gcc3": 0.01 }
+	},
+	{
+		"name": "Olomouc",
+		"slug": "olomouc_cz",
+		"bounds": [
+			[17.17371, 49.54443],
+			[17.32257, 49.64651]
+		],
+		"country": "Czech Republic",
+		"countryCode": "CZ",
+		"population": 106063,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.66, "l_ratio": 0.2, "gcc1": 0.18, "gcc2": 0.07, "gcc3": 0.06 }
+	},
+	{
+		"name": "Olsztyn",
+		"slug": "olsztyn_pl",
+		"bounds": [
+			[20.36837, 53.72442],
+			[20.55817, 53.82487]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 173624,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.71, "l_ratio": 0.33, "gcc1": 0.24, "gcc2": 0.23, "gcc3": 0.06 }
+	},
+	{
+		"name": "Opole",
+		"slug": "opole_pl",
+		"bounds": [
+			[17.78204, 50.58853],
+			[18.03134, 50.7674]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 127198,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.58, "l_ratio": 0.24, "gcc1": 0.32, "gcc2": 0.08, "gcc3": 0.08 }
+	},
+	{
+		"name": "Orléans",
+		"slug": "orleans_fr",
+		"bounds": [
+			[1.8762, 47.86089],
+			[1.94392, 47.93355]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 114644,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.18, "l_ratio": 0.27, "gcc1": 0.2, "gcc2": 0.08, "gcc3": 0.06 }
+	},
+	{
+		"name": "Orsha",
+		"slug": "orsha_by",
+		"bounds": [
+			[30.34586, 54.46828],
+			[30.45867, 54.55307]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 107645,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.1, "l_ratio": 0.01, "gcc1": 0.51, "gcc2": 0.31, "gcc3": 0.18 }
+	},
+	{
+		"name": "Osijek",
+		"slug": "osijek_hr",
+		"bounds": [
+			[18.6143, 45.51882],
+			[18.77643, 45.57627]
+		],
+		"country": "Croatia",
+		"countryCode": "HR",
+		"population": 108048,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.71, "l_ratio": 0.22, "gcc1": 0.42, "gcc2": 0.09, "gcc3": 0.07 }
+	},
+	{
+		"name": "Oslo",
+		"slug": "oslo_no",
+		"bounds": [
+			[10.49437, 59.8134],
+			[10.94888, 60.12864]
+		],
+		"country": "Norway",
+		"countryCode": "NO",
+		"population": 681067,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.51, "l_ratio": 0.23, "gcc1": 0.07, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Osnabrück",
+		"slug": "osnabruck_de",
+		"bounds": [
+			[7.9337, 52.22794],
+			[8.17221, 52.33614]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 164748,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.77, "l_ratio": 0.33, "gcc1": 0.21, "gcc2": 0.08, "gcc3": 0.04 }
+	},
+	{
+		"name": "Ostrava",
+		"slug": "ostrava_cz",
+		"bounds": [
+			[18.11059, 49.73992],
+			[18.36745, 49.90592]
+		],
+		"country": "Czech Republic",
+		"countryCode": "CZ",
+		"population": 282450,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.66, "l_ratio": 0.17, "gcc1": 0.08, "gcc2": 0.07, "gcc3": 0.04 }
+	},
+	{
+		"name": "Oulu",
+		"slug": "oulu_fi",
+		"bounds": [
+			[25.22796, 64.86343],
+			[26.63652, 65.54569]
+		],
+		"country": "Finland",
+		"countryCode": "FI",
+		"population": 207327,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.3, "l_ratio": 0.43, "gcc1": 0.69, "gcc2": 0.06, "gcc3": 0.04 }
+	},
+	{
+		"name": "Paderborn",
+		"slug": "paderborn_de",
+		"bounds": [
+			[8.6384, 51.66857],
+			[8.88202, 51.79743]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 150580,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.68, "l_ratio": 0.46, "gcc1": 0.38, "gcc2": 0.08, "gcc3": 0.04 }
+	},
+	{
+		"name": "Padua",
+		"slug": "padua_it",
+		"bounds": [
+			[11.81143, 45.34298],
+			[11.96205, 45.4536]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 208191,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.79, "l_ratio": 0.18, "gcc1": 0.08, "gcc2": 0.05, "gcc3": 0.05 }
+	},
+	{
+		"name": "Pamplona/Iruña",
+		"slug": "pamplonairuna_es",
+		"bounds": [
+			[-1.69235, 42.78944],
+			[-1.60624, 42.83651]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 203596,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.86, "l_ratio": 0.29, "gcc1": 0.56, "gcc2": 0.06, "gcc3": 0.05 }
+	},
+	{
+		"name": "Paris",
+		"slug": "paris_fr",
+		"bounds": [
+			[2.22568, 48.81586],
+			[2.41632, 48.90204]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 2206488,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.1, "l_ratio": 0.33, "gcc1": 0.63, "gcc2": 0.05, "gcc3": 0.01 }
+	},
+	{
+		"name": "Parla",
+		"slug": "parla_es",
+		"bounds": [
+			[-3.79099, 40.21552],
+			[-3.73816, 40.25286]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 130550,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.63, "l_ratio": 0.09, "gcc1": 0.45, "gcc2": 0.15, "gcc3": 0.08 }
+	},
+	{
+		"name": "Pavlograd",
+		"slug": "pavlograd_ua",
+		"bounds": [
+			[35.8022, 48.48242],
+			[35.96717, 48.58462]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 102373,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.08, "l_ratio": 0.01, "gcc1": 0.25, "gcc2": 0.24, "gcc3": 0.16 }
+	},
+	{
+		"name": "Pécs",
+		"slug": "pecs_hu",
+		"bounds": [
+			[18.13657, 46.00303],
+			[18.34959, 46.15378]
+		],
+		"country": "Hungary",
+		"countryCode": "HU",
+		"population": 141040,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.3, "l_ratio": 0.05, "gcc1": 0.29, "gcc2": 0.09, "gcc3": 0.06 }
+	},
+	{
+		"name": "Peristeri",
+		"slug": "peristeri_gr",
+		"bounds": [
+			[23.66737, 37.99642],
+			[23.71796, 38.03509]
+		],
+		"country": "Greece",
+		"countryCode": "GR",
+		"population": 139981,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.46, "l_ratio": 0.01, "gcc1": 0.29, "gcc2": 0.18, "gcc3": 0.08 }
+	},
+	{
+		"name": "Perpignan",
+		"slug": "perpignan_fr",
+		"bounds": [
+			[2.82686, 42.65175],
+			[2.97663, 42.74791]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 121934,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.63, "l_ratio": 0.1, "gcc1": 0.1, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Pescara",
+		"slug": "pescara_it",
+		"bounds": [
+			[14.15353, 42.41723],
+			[14.25319, 42.49366]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 118879,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.66, "l_ratio": 0.13, "gcc1": 0.36, "gcc2": 0.09, "gcc3": 0.05 }
+	},
+	{
+		"name": "Pforzheim",
+		"slug": "pforzheim_de",
+		"bounds": [
+			[8.64423, 48.82908],
+			[8.7919, 48.92498]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 125542,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.61, "l_ratio": 0.15, "gcc1": 0.11, "gcc2": 0.1, "gcc3": 0.05 }
+	},
+	{
+		"name": "Pilsen",
+		"slug": "pilsen_cz",
+		"bounds": [
+			[13.27122, 49.68011],
+			[13.4627, 49.80536]
+		],
+		"country": "Czech Republic",
+		"countryCode": "CZ",
+		"population": 174007,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.76, "l_ratio": 0.32, "gcc1": 0.26, "gcc2": 0.17, "gcc3": 0.05 }
+	},
+	{
+		"name": "Pinsk",
+		"slug": "pinsk_by",
+		"bounds": [
+			[25.98758, 52.09473],
+			[26.1446, 52.1642]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 126289,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.56, "l_ratio": 0.12, "gcc1": 0.17, "gcc2": 0.09, "gcc3": 0.08 }
+	},
+	{
+		"name": "Piraeus",
+		"slug": "piraeus_gr",
+		"bounds": [
+			[23.62699, 37.92693],
+			[23.67224, 37.9658]
+		],
+		"country": "Greece",
+		"countryCode": "GR",
+		"population": 163688,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.47, "l_ratio": 0.01, "gcc1": 0.28, "gcc2": 0.14, "gcc3": 0.12 }
+	},
+	{
+		"name": "Plock",
+		"slug": "plock_pl",
+		"bounds": [
+			[19.63547, 52.47845],
+			[19.80137, 52.59024]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 117771,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.63, "l_ratio": 0.31, "gcc1": 0.4, "gcc2": 0.25, "gcc3": 0.04 }
+	},
+	{
+		"name": "Plovdiv",
+		"slug": "plovdiv_bg",
+		"bounds": [
+			[24.67205, 42.09184],
+			[24.8142, 42.1858]
+		],
+		"country": "Bulgaria",
+		"countryCode": "BG",
+		"population": 342048,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.47, "l_ratio": 0.11, "gcc1": 0.38, "gcc2": 0.31, "gcc3": 0.15 }
+	},
+	{
+		"name": "Plymouth",
+		"slug": "plymouth_gb",
+		"bounds": [
+			[-4.20189, 50.34123],
+			[-4.02009, 50.43823]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 234982,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.74, "l_ratio": 0.13, "gcc1": 0.22, "gcc2": 0.08, "gcc3": 0.06 }
+	},
+	{
+		"name": "Podgorica",
+		"slug": "podgorica_me",
+		"bounds": [
+			[19.1866, 42.39498],
+			[19.32955, 42.4879]
+		],
+		"country": "Montenegro",
+		"countryCode": "ME",
+		"population": 185937,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.17, "l_ratio": 0.04, "gcc1": 0.52, "gcc2": 0.19, "gcc3": 0.16 }
+	},
+	{
+		"name": "Poltava",
+		"slug": "poltava_ua",
+		"bounds": [
+			[34.4519, 49.54813],
+			[34.65362, 49.64781]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 272572,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.16, "l_ratio": 0.01, "gcc1": 0.1, "gcc2": 0.09, "gcc3": 0.09 }
+	},
+	{
+		"name": "Porto",
+		"slug": "porto_pt",
+		"bounds": [
+			[-8.68961, 41.13987],
+			[-8.55591, 41.18572]
+		],
+		"country": "Portugal",
+		"countryCode": "PT",
+		"population": 231800,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.91, "l_ratio": 0.17, "gcc1": 0.05, "gcc2": 0.04, "gcc3": 0.03 }
+	},
+	{
+		"name": "Portsmouth",
+		"slug": "portsmouth_gb",
+		"bounds": [
+			[-1.11775, 50.7787],
+			[-1.02194, 50.85631]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 238137,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.79, "l_ratio": 0.11, "gcc1": 0.24, "gcc2": 0.23, "gcc3": 0.05 }
+	},
+	{
+		"name": "Potsdam",
+		"slug": "potsdam_de",
+		"bounds": [
+			[12.93301, 52.34555],
+			[13.14925, 52.49407]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 178089,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.9, "l_ratio": 0.36, "gcc1": 0.16, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Poznan",
+		"slug": "poznan_pl",
+		"bounds": [
+			[16.75587, 52.29538],
+			[17.06811, 52.50343]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 533773,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.81, "l_ratio": 0.36, "gcc1": 0.4, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Prague",
+		"slug": "prague_cz",
+		"bounds": [
+			[14.26586, 49.94336],
+			[14.69398, 50.17512]
+		],
+		"country": "Czech Republic",
+		"countryCode": "CZ",
+		"population": 1301432,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.82, "l_ratio": 0.19, "gcc1": 0.03, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Prato",
+		"slug": "prato_it",
+		"bounds": [
+			[11.01448, 43.8176],
+			[11.14624, 43.94899]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 198312,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.81, "l_ratio": 0.19, "gcc1": 0.19, "gcc2": 0.1, "gcc3": 0.07 }
+	},
+	{
+		"name": "Pristina",
+		"slug": "pristina_rs",
+		"bounds": [
+			[21.11089, 42.61546],
+			[21.20286, 42.69632]
+		],
+		"country": "Kosovo",
+		"countryCode": "RS",
+		"population": 161751,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.39, "l_ratio": 0.04, "gcc1": 0.23, "gcc2": 0.16, "gcc3": 0.07 }
+	},
+	{
+		"name": "Radom",
+		"slug": "radom_pl",
+		"bounds": [
+			[21.05523, 51.34758],
+			[21.24535, 51.48007]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 208587,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.57, "l_ratio": 0.26, "gcc1": 0.35, "gcc2": 0.24, "gcc3": 0.07 }
+	},
+	{
+		"name": "Reading",
+		"slug": "reading_gb",
+		"bounds": [
+			[-1.05284, 51.40998],
+			[-0.93021, 51.49298]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 218705,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.67, "l_ratio": 0.14, "gcc1": 0.3, "gcc2": 0.13, "gcc3": 0.1 }
+	},
+	{
+		"name": "Recklinghausen",
+		"slug": "recklinghausen_de",
+		"bounds": [
+			[7.13557, 51.55676],
+			[7.29448, 51.64836]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 112267,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.95, "l_ratio": 0.46, "gcc1": 0.54, "gcc2": 0.07, "gcc3": 0.04 }
+	},
+	{
+		"name": "Regensburg",
+		"slug": "regensburg_de",
+		"bounds": [
+			[12.0291, 48.97167],
+			[12.18381, 49.06251]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 152610,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.93, "l_ratio": 0.52, "gcc1": 0.53, "gcc2": 0.08, "gcc3": 0.06 }
+	},
+	{
+		"name": "Reims",
+		"slug": "reims_fr",
+		"bounds": [
+			[3.9951, 49.20766],
+			[4.12011, 49.29757]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 184076,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.77, "l_ratio": 0.13, "gcc1": 0.23, "gcc2": 0.11, "gcc3": 0.06 }
+	},
+	{
+		"name": "Remscheid",
+		"slug": "remscheid_de",
+		"bounds": [
+			[7.136, 51.14431],
+			[7.30791, 51.22629]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 110994,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.63, "l_ratio": 0.11, "gcc1": 0.14, "gcc2": 0.1, "gcc3": 0.08 }
+	},
+	{
+		"name": "Rennes",
+		"slug": "rennes_fr",
+		"bounds": [
+			[-1.7523, 48.07897],
+			[-1.62682, 48.14416]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 215366,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.96, "l_ratio": 0.35, "gcc1": 0.11, "gcc2": 0.09, "gcc3": 0.05 }
+	},
+	{
+		"name": "Reutlingen",
+		"slug": "reutlingen_de",
+		"bounds": [
+			[9.12585, 48.41919],
+			[9.24981, 48.56811]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 115966,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.82, "l_ratio": 0.21, "gcc1": 0.15, "gcc2": 0.08, "gcc3": 0.07 }
+	},
+	{
+		"name": "Reykjavík",
+		"slug": "reykjavik_is",
+		"bounds": [
+			[-21.98378, 64.0556],
+			[-21.69393, 64.16449]
+		],
+		"country": "Iceland",
+		"countryCode": "IS",
+		"population": 129964,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.78, "l_ratio": 0.45, "gcc1": 0.2, "gcc2": 0.15, "gcc3": 0.1 }
+	},
+	{
+		"name": "Riga",
+		"slug": "riga_lv",
+		"bounds": [
+			[23.93964, 56.85741],
+			[24.31369, 57.08135]
+		],
+		"country": "Latvia",
+		"countryCode": "LV",
+		"population": 614618,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.75, "l_ratio": 0.46, "gcc1": 0.09, "gcc2": 0.08, "gcc3": 0.05 }
+	},
+	{
+		"name": "Rijeka",
+		"slug": "rijeka_hr",
+		"bounds": [
+			[14.35067, 45.3116],
+			[14.52918, 45.37063]
+		],
+		"country": "Croatia",
+		"countryCode": "HR",
+		"population": 128624,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.14, "l_ratio": 0.01, "gcc1": 0.22, "gcc2": 0.17, "gcc3": 0.17 }
+	},
+	{
+		"name": "Rivne",
+		"slug": "rivne_ua",
+		"bounds": [
+			[26.16549, 50.57066],
+			[26.33757, 50.65067]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 240451,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.2, "l_ratio": 0.04, "gcc1": 0.29, "gcc2": 0.21, "gcc3": 0.2 }
+	},
+	{
+		"name": "Rome",
+		"slug": "rome_it",
+		"bounds": [
+			[12.24177, 41.68168],
+			[12.7967, 42.09262]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 2759629,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.26, "l_ratio": 0.06, "gcc1": 0.03, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Rostock",
+		"slug": "rostock_de",
+		"bounds": [
+			[11.99851, 54.05749],
+			[12.2283, 54.24287]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 208886,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.85, "l_ratio": 0.38, "gcc1": 0.35, "gcc2": 0.08, "gcc3": 0.07 }
+	},
+	{
+		"name": "Rotterdam",
+		"slug": "rotterdam_nl",
+		"bounds": [
+			[4.38481, 51.86262],
+			[4.60158, 51.99411]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 623652,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.98, "l_ratio": 0.35, "gcc1": 0.87, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Rouen",
+		"slug": "rouen_fr",
+		"bounds": [
+			[1.0375, 49.41729],
+			[1.14413, 49.46278]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 110169,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.77, "l_ratio": 0.15, "gcc1": 0.14, "gcc2": 0.1, "gcc3": 0.05 }
+	},
+	{
+		"name": "Ruda Slaska",
+		"slug": "rudaslaska_pl",
+		"bounds": [
+			[18.79781, 50.22261],
+			[18.93594, 50.3281]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 135965,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.73, "l_ratio": 0.17, "gcc1": 0.2, "gcc2": 0.11, "gcc3": 0.09 }
+	},
+	{
+		"name": "Ruse",
+		"slug": "ruse_bg",
+		"bounds": [
+			[25.87212, 43.75766],
+			[26.06259, 43.8861]
+		],
+		"country": "Bulgaria",
+		"countryCode": "BG",
+		"population": 135440,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.18, "l_ratio": 0.05, "gcc1": 0.43, "gcc2": 0.21, "gcc3": 0.07 }
+	},
+	{
+		"name": "Rybnik",
+		"slug": "rybnik_pl",
+		"bounds": [
+			[18.45766, 50.03596],
+			[18.64004, 50.17438]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 136299,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.73, "l_ratio": 0.26, "gcc1": 0.13, "gcc2": 0.05, "gcc3": 0.05 }
+	},
+	{
+		"name": "Rzeszów",
+		"slug": "rzeszow_pl",
+		"bounds": [
+			[21.8688, 49.93754],
+			[22.08246, 50.08965]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 194775,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.56, "l_ratio": 0.24, "gcc1": 0.66, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "S-Hertogenbosch",
+		"slug": "shertogenbosch_nl",
+		"bounds": [
+			[5.21049, 51.66717],
+			[5.36996, 51.75122]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 150889,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.83, "l_ratio": 0.36, "gcc1": 0.65, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Saarbrücken",
+		"slug": "saarbrucken_de",
+		"bounds": [
+			[6.8306, 49.17521],
+			[7.12779, 49.31813]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 180741,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.73, "l_ratio": 0.2, "gcc1": 0.05, "gcc2": 0.03, "gcc3": 0.03 }
+	},
+	{
+		"name": "Saint-Denis",
+		"slug": "saintdenis_fr",
+		"bounds": [
+			[2.33388, 48.90162],
+			[2.39784, 48.97396]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 111103,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.92, "l_ratio": 0.25, "gcc1": 0.15, "gcc2": 0.15, "gcc3": 0.08 }
+	},
+	{
+		"name": "Saint-Étienne",
+		"slug": "saintetienne_fr",
+		"bounds": [
+			[4.35602, 45.38439],
+			[4.48315, 45.47488]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 171057,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.46, "l_ratio": 0.09, "gcc1": 0.19, "gcc2": 0.05, "gcc3": 0.05 }
+	},
+	{
+		"name": "Salamanca",
+		"slug": "salamanca_es",
+		"bounds": [
+			[-5.73519, 40.93457],
+			[-5.62401, 40.99273]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 143549,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.67, "l_ratio": 0.25, "gcc1": 0.67, "gcc2": 0.07, "gcc3": 0.04 }
+	},
+	{
+		"name": "Salzburg",
+		"slug": "salzburg_at",
+		"bounds": [
+			[12.99015, 47.75188],
+			[13.12361, 47.85075]
+		],
+		"country": "Austria",
+		"countryCode": "AT",
+		"population": 154211,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.82, "l_ratio": 0.31, "gcc1": 0.17, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Salzgitter",
+		"slug": "salzgitter_de",
+		"bounds": [
+			[10.23745, 52.01961],
+			[10.49975, 52.20654]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 104948,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.69, "l_ratio": 0.4, "gcc1": 0.43, "gcc2": 0.11, "gcc3": 0.08 }
+	},
+	{
+		"name": "Santa Coloma De Gramenet",
+		"slug": "santacolomadegramenet_es",
+		"bounds": [
+			[2.18842, 41.43414],
+			[2.22158, 41.4698]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 118489,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.1, "l_ratio": 0.44, "gcc1": 0.26, "gcc2": 0.08, "gcc3": 0.07 }
+	},
+	{
+		"name": "Sarajevo",
+		"slug": "sarajevo_ba",
+		"bounds": [
+			[18.25744, 43.82222],
+			[18.48022, 43.94839]
+		],
+		"country": "Bosnia and Herzegovina",
+		"countryCode": "BA",
+		"population": 348363,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.28, "l_ratio": 0.04, "gcc1": 0.22, "gcc2": 0.07, "gcc3": 0.07 }
+	},
+	{
+		"name": "Schaerbeek",
+		"slug": "schaerbeek_be",
+		"bounds": [
+			[4.35739, 50.84343],
+			[4.4117, 50.88005]
+		],
+		"country": "Belgium",
+		"countryCode": "BE",
+		"population": 127525,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.88, "l_ratio": 0.14, "gcc1": 0.17, "gcc2": 0.12, "gcc3": 0.06 }
+	},
+	{
+		"name": "Sevastopol",
+		"slug": "sevastopol_ua",
+		"bounds": [
+			[33.38223, 44.51558],
+			[33.58538, 44.61664]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 547820,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.19, "l_ratio": 0.03, "gcc1": 0.17, "gcc2": 0.12, "gcc3": 0.09 }
+	},
+	{
+		"name": "Seville",
+		"slug": "seville_es",
+		"bounds": [
+			[-6.02212, 37.31363],
+			[-5.88741, 37.45217]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 684340,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.74, "l_ratio": 0.22, "gcc1": 0.8, "gcc2": 0.03, "gcc3": 0.01 }
+	},
+	{
+		"name": "Sheffield",
+		"slug": "sheffield_gb",
+		"bounds": [
+			[-1.67901, 53.30885],
+			[-1.32478, 53.4957]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 518090,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.59, "l_ratio": 0.1, "gcc1": 0.09, "gcc2": 0.06, "gcc3": 0.03 }
+	},
+	{
+		"name": "Šiauliai",
+		"slug": "siauliai_lt",
+		"bounds": [
+			[23.22949, 55.84107],
+			[23.41594, 55.9669]
+		],
+		"country": "Lithuania",
+		"countryCode": "LT",
+		"population": 100653,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.75, "l_ratio": 0.32, "gcc1": 0.5, "gcc2": 0.09, "gcc3": 0.05 }
+	},
+	{
+		"name": "Siegen",
+		"slug": "siegen_de",
+		"bounds": [
+			[7.93492, 50.81768],
+			[8.11603, 50.93976]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 102836,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.66, "l_ratio": 0.12, "gcc1": 0.08, "gcc2": 0.05, "gcc3": 0.05 }
+	},
+	{
+		"name": "Simferopol",
+		"slug": "simferopol_ua",
+		"bounds": [
+			[34.0327, 44.89086],
+			[34.19599, 45.0026]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 332317,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.08, "l_ratio": 0.01, "gcc1": 0.27, "gcc2": 0.19, "gcc3": 0.18 }
+	},
+	{
+		"name": "Skopje",
+		"slug": "skopje_mk",
+		"bounds": [
+			[21.31742, 41.94518],
+			[21.53168, 42.0491]
+		],
+		"country": "North Macedonia",
+		"countryCode": "MK",
+		"population": 546824,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.68, "l_ratio": 0.12, "gcc1": 0.19, "gcc2": 0.07, "gcc3": 0.03 }
+	},
+	{
+		"name": "Slovyansk",
+		"slug": "slovyansk_ua",
+		"bounds": [
+			[37.52255, 48.81058],
+			[37.69433, 48.89428]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 103029,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.1, "l_ratio": 0.01, "gcc1": 0.23, "gcc2": 0.21, "gcc3": 0.16 }
+	},
+	{
+		"name": "Sofia",
+		"slug": "sofia_bg",
+		"bounds": [
+			[23.18627, 42.58694],
+			[23.53955, 42.80239]
+		],
+		"country": "Bulgaria",
+		"countryCode": "BG",
+		"population": 1221785,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.38, "l_ratio": 0.05, "gcc1": 0.07, "gcc2": 0.05, "gcc3": 0.05 }
+	},
+	{
+		"name": "Soligorsk",
+		"slug": "soligorsk_by",
+		"bounds": [
+			[27.48601, 52.76856],
+			[27.58844, 52.82654]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 101525,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.4, "l_ratio": 0.08, "gcc1": 0.36, "gcc2": 0.33, "gcc3": 0.12 }
+	},
+	{
+		"name": "Solingen",
+		"slug": "solingen_de",
+		"bounds": [
+			[6.95548, 51.12163],
+			[7.16038, 51.21615]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 159360,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.79, "l_ratio": 0.16, "gcc1": 0.11, "gcc2": 0.04, "gcc3": 0.03 }
+	},
+	{
+		"name": "Sosnowiec",
+		"slug": "sosnowiec_pl",
+		"bounds": [
+			[19.07362, 50.22743],
+			[19.31641, 50.31683]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 197563,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.51, "l_ratio": 0.16, "gcc1": 0.49, "gcc2": 0.07, "gcc3": 0.05 }
+	},
+	{
+		"name": "Southampton",
+		"slug": "southampton_gb",
+		"bounds": [
+			[-1.47536, 50.88018],
+			[-1.32411, 50.9554]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 253651,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.87, "l_ratio": 0.12, "gcc1": 0.1, "gcc2": 0.09, "gcc3": 0.08 }
+	},
+	{
+		"name": "Split",
+		"slug": "split_hr",
+		"bounds": [
+			[16.38931, 43.49976],
+			[16.52943, 43.52927]
+		],
+		"country": "Croatia",
+		"countryCode": "HR",
+		"population": 178102,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.36, "l_ratio": 0.03, "gcc1": 0.19, "gcc2": 0.13, "gcc3": 0.11 }
+	},
+	{
+		"name": "Stockholm",
+		"slug": "stockholm_se",
+		"bounds": [
+			[17.77184, 59.23057],
+			[18.19854, 59.4264]
+		],
+		"country": "Sweden",
+		"countryCode": "SE",
+		"population": 789024,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1, "l_ratio": 0.54, "gcc1": 0.72, "gcc2": 0.04, "gcc3": 0.01 }
+	},
+	{
+		"name": "Stoke-On-Trent",
+		"slug": "stokeontrent_gb",
+		"bounds": [
+			[-2.23518, 52.9511],
+			[-2.08447, 53.08985]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 270726,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.74, "l_ratio": 0.13, "gcc1": 0.22, "gcc2": 0.2, "gcc3": 0.06 }
+	},
+	{
+		"name": "Strasbourg",
+		"slug": "strasbourg_fr",
+		"bounds": [
+			[7.68908, 48.4971],
+			[7.83322, 48.64054]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 277270,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.89, "l_ratio": 0.43, "gcc1": 0.71, "gcc2": 0.03, "gcc3": 0.02 }
+	},
+	{
+		"name": "Stuttgart",
+		"slug": "stuttgart_de",
+		"bounds": [
+			[9.07336, 48.69243],
+			[9.28817, 48.85833]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 634830,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.79, "l_ratio": 0.16, "gcc1": 0.1, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Sumy",
+		"slug": "sumy_ua",
+		"bounds": [
+			[34.72025, 50.84564],
+			[34.90918, 50.95909]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 255672,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.17, "l_ratio": 0.03, "gcc1": 0.2, "gcc2": 0.13, "gcc3": 0.08 }
+	},
+	{
+		"name": "Szczecin",
+		"slug": "szczecin_pl",
+		"bounds": [
+			[14.45355, 53.32984],
+			[14.78732, 53.53316]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 399831,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.7, "l_ratio": 0.33, "gcc1": 0.34, "gcc2": 0.07, "gcc3": 0.04 }
+	},
+	{
+		"name": "Szeged",
+		"slug": "szeged_hu",
+		"bounds": [
+			[19.98821, 46.14228],
+			[20.25253, 46.33612]
+		],
+		"country": "Hungary",
+		"countryCode": "HU",
+		"population": 159666,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.47, "l_ratio": 0.18, "gcc1": 0.43, "gcc2": 0.09, "gcc3": 0.06 }
+	},
+	{
+		"name": "Tallinn",
+		"slug": "tallinn_ee",
+		"bounds": [
+			[24.56998, 59.35193],
+			[24.91559, 59.49793]
+		],
+		"country": "Estonia",
+		"countryCode": "EE",
+		"population": 437817,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.92, "l_ratio": 0.48, "gcc1": 0.15, "gcc2": 0.14, "gcc3": 0.08 }
+	},
+	{
+		"name": "Tampere",
+		"slug": "tampere_fi",
+		"bounds": [
+			[23.55161, 61.42366],
+			[24.09345, 61.82446]
+		],
+		"country": "Finland",
+		"countryCode": "FI",
+		"population": 241009,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.31, "l_ratio": 0.51, "gcc1": 0.91, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Tarnów",
+		"slug": "tarnow_pl",
+		"bounds": [
+			[20.89405, 49.98718],
+			[21.04511, 50.06309]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 105101,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.61, "l_ratio": 0.25, "gcc1": 0.49, "gcc2": 0.07, "gcc3": 0.04 }
+	},
+	{
+		"name": "Ternopil",
+		"slug": "ternopil_ua",
+		"bounds": [
+			[25.51877, 49.51111],
+			[25.66429, 49.58067]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 223522,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.19, "l_ratio": 0.03, "gcc1": 0.35, "gcc2": 0.16, "gcc3": 0.13 }
+	},
+	{
+		"name": "The Hague",
+		"slug": "thehague_nl",
+		"bounds": [
+			[4.19743, 52.01586],
+			[4.42154, 52.11744]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 514861,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.37, "l_ratio": 0.51, "gcc1": 0.73, "gcc2": 0.13, "gcc3": 0.01 }
+	},
+	{
+		"name": "Thessaloniki",
+		"slug": "thessaloniki_gr",
+		"bounds": [
+			[22.90234, 40.58619],
+			[22.98895, 40.6524]
+		],
+		"country": "Greece",
+		"countryCode": "GR",
+		"population": 315196,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.67, "l_ratio": 0.04, "gcc1": 0.44, "gcc2": 0.06, "gcc3": 0.03 }
+	},
+	{
+		"name": "Tilburg",
+		"slug": "tilburg_nl",
+		"bounds": [
+			[4.95009, 51.5298],
+			[5.2071, 51.64078]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 211648,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.89, "l_ratio": 0.31, "gcc1": 0.47, "gcc2": 0.15, "gcc3": 0.06 }
+	},
+	{
+		"name": "Tirana",
+		"slug": "tirana_al",
+		"bounds": [
+			[19.75542, 41.29711],
+			[19.8747, 41.36443]
+		],
+		"country": "Albania",
+		"countryCode": "AL",
+		"population": 418495,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.63, "l_ratio": 0.21, "gcc1": 0.16, "gcc2": 0.09, "gcc3": 0.05 }
+	},
+	{
+		"name": "Torrejón De Ardoz",
+		"slug": "torrejondeardoz_es",
+		"bounds": [
+			[-3.49217, 40.43431],
+			[-3.42711, 40.47999]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 133377,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.67, "l_ratio": 0.14, "gcc1": 0.62, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Torun",
+		"slug": "torun_pl",
+		"bounds": [
+			[18.49322, 52.96858],
+			[18.73292, 53.06172]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 198628,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.88, "l_ratio": 0.42, "gcc1": 0.66, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Toulon",
+		"slug": "toulon_fr",
+		"bounds": [
+			[5.88113, 43.1036],
+			[5.98573, 43.1693]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 167479,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.43, "l_ratio": 0.06, "gcc1": 0.24, "gcc2": 0.18, "gcc3": 0.06 }
+	},
+	{
+		"name": "Toulouse",
+		"slug": "toulouse_fr",
+		"bounds": [
+			[1.35119, 43.5376],
+			[1.51446, 43.66769]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 471941,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.94, "l_ratio": 0.32, "gcc1": 0.12, "gcc2": 0.08, "gcc3": 0.06 }
+	},
+	{
+		"name": "Tours",
+		"slug": "tours_fr",
+		"bounds": [
+			[0.65626, 47.35037],
+			[0.73403, 47.43931]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 136252,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.88, "l_ratio": 0.22, "gcc1": 0.27, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Trier",
+		"slug": "trier_de",
+		"bounds": [
+			[6.55875, 49.70422],
+			[6.72493, 49.83971]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 110636,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.67, "l_ratio": 0.31, "gcc1": 0.24, "gcc2": 0.09, "gcc3": 0.06 }
+	},
+	{
+		"name": "Turin",
+		"slug": "turin_it",
+		"bounds": [
+			[7.5878, 45.00785],
+			[7.77315, 45.13952]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 853477,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.72, "l_ratio": 0.17, "gcc1": 0.56, "gcc2": 0.16, "gcc3": 0.02 }
+	},
+	{
+		"name": "Turku",
+		"slug": "turku_fi",
+		"bounds": [
+			[22.09388, 60.34179],
+			[22.45382, 60.70323]
+		],
+		"country": "Finland",
+		"countryCode": "FI",
+		"population": 194391,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.63, "l_ratio": 0.52, "gcc1": 0.79, "gcc2": 0.03, "gcc3": 0.02 }
+	},
+	{
+		"name": "Tychy",
+		"slug": "tychy_pl",
+		"bounds": [
+			[18.92941, 50.08069],
+			[19.09054, 50.1732]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 125892,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.64, "l_ratio": 0.26, "gcc1": 0.71, "gcc2": 0.14, "gcc3": 0.05 }
+	},
+	{
+		"name": "Ulm",
+		"slug": "ulm_de",
+		"bounds": [
+			[9.85881, 48.31101],
+			[10.04138, 48.46091]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 126329,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.8, "l_ratio": 0.4, "gcc1": 0.13, "gcc2": 0.08, "gcc3": 0.07 }
+	},
+	{
+		"name": "Umeå",
+		"slug": "umea_se",
+		"bounds": [
+			[20.13715, 63.78584],
+			[20.38238, 63.87848]
+		],
+		"country": "Sweden",
+		"countryCode": "SE",
+		"population": 111503,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.78, "l_ratio": 0.62, "gcc1": 0.92, "gcc2": 0.01, "gcc3": 0 }
+	},
+	{
+		"name": "Utrecht",
+		"slug": "utrecht_nl",
+		"bounds": [
+			[4.97406, 52.02643],
+			[5.1935, 52.13802]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 334176,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.93, "l_ratio": 0.36, "gcc1": 0.79, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Uzhhorod",
+		"slug": "uzhhorod_ua",
+		"bounds": [
+			[22.21222, 48.57709],
+			[22.33805, 48.6561]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 113889,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.25, "l_ratio": 0.04, "gcc1": 0.24, "gcc2": 0.16, "gcc3": 0.13 }
+	},
+	{
+		"name": "Valencia",
+		"slug": "valencia_es",
+		"bounds": [
+			[-0.42848, 39.27911],
+			[-0.27672, 39.53051]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 788842,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.76, "l_ratio": 0.29, "gcc1": 0.86, "gcc2": 0.01, "gcc3": 0.01 }
+	},
+	{
+		"name": "Valladolid",
+		"slug": "valladolid_es",
+		"bounds": [
+			[-4.83046, 41.53437],
+			[-4.65458, 41.70913]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 297370,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.71, "l_ratio": 0.23, "gcc1": 0.31, "gcc2": 0.28, "gcc3": 0.04 }
+	},
+	{
+		"name": "Vantaa",
+		"slug": "vantaa_fi",
+		"bounds": [
+			[24.74841, 60.24136],
+			[25.18401, 60.39855]
+		],
+		"country": "Finland",
+		"countryCode": "FI",
+		"population": 237231,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.85, "l_ratio": 0.78, "gcc1": 0.94, "gcc2": 0, "gcc3": 0 }
+	},
+	{
+		"name": "Varna",
+		"slug": "varna_bg",
+		"bounds": [
+			[27.83342, 43.11566],
+			[28.05038, 43.30184]
+		],
+		"country": "Bulgaria",
+		"countryCode": "BG",
+		"population": 332394,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.38, "l_ratio": 0.06, "gcc1": 0.11, "gcc2": 0.09, "gcc3": 0.08 }
+	},
+	{
+		"name": "Vejle",
+		"slug": "vejle_dk",
+		"bounds": [
+			[9.49473, 55.66646],
+			[9.63891, 55.75249]
+		],
+		"country": "Denmark",
+		"countryCode": "DK",
+		"population": 118028,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": false },
+		"metrics": { "cov_ratio": 0.96, "l_ratio": 0.44, "gcc1": 0.67, "gcc2": 0.05, "gcc3": 0.05 }
+	},
+	{
+		"name": "Venice",
+		"slug": "venice_it",
+		"bounds": [
+			[12.17218, 45.4188],
+			[12.39433, 45.54983]
+		],
+		"country": "Italy",
+		"countryCode": "IT",
+		"population": 254014,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.95, "l_ratio": 0.28, "gcc1": 0.1, "gcc2": 0.07, "gcc3": 0.06 }
+	},
+	{
+		"name": "Venlo",
+		"slug": "venlo_nl",
+		"bounds": [
+			[6.07189, 51.28717],
+			[6.22429, 51.50464]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 100536,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.81, "l_ratio": 0.26, "gcc1": 0.46, "gcc2": 0.11, "gcc3": 0.04 }
+	},
+	{
+		"name": "Vienna",
+		"slug": "vienna_at",
+		"bounds": [
+			[16.18716, 48.121],
+			[16.5499, 48.31985]
+		],
+		"country": "Austria",
+		"countryCode": "AT",
+		"population": 1897491,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.85, "l_ratio": 0.27, "gcc1": 0.55, "gcc2": 0.04, "gcc3": 0.02 }
+	},
+	{
+		"name": "Vigo",
+		"slug": "vigo_es",
+		"bounds": [
+			[-8.81806, 42.14395],
+			[-8.63062, 42.26297]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 294650,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.56, "l_ratio": 0.06, "gcc1": 0.09, "gcc2": 0.09, "gcc3": 0.05 }
+	},
+	{
+		"name": "Villeurbanne",
+		"slug": "villeurbanne_fr",
+		"bounds": [
+			[4.85865, 45.75056],
+			[4.92123, 45.79307]
+		],
+		"country": "France",
+		"countryCode": "FR",
+		"population": 148665,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.92, "l_ratio": 0.22, "gcc1": 0.18, "gcc2": 0.16, "gcc3": 0.12 }
+	},
+	{
+		"name": "Vilnius",
+		"slug": "vilnius_lt",
+		"bounds": [
+			[25.04256, 54.56998],
+			[25.48023, 54.8261]
+		],
+		"country": "Lithuania",
+		"countryCode": "LT",
+		"population": 546155,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.48, "l_ratio": 0.17, "gcc1": 0.13, "gcc2": 0.07, "gcc3": 0.06 }
+	},
+	{
+		"name": "Vinnytsia",
+		"slug": "vinnytsia_ua",
+		"bounds": [
+			[28.36819, 49.18762],
+			[28.59192, 49.2865]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 367901,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.54, "l_ratio": 0.14, "gcc1": 0.09, "gcc2": 0.08, "gcc3": 0.04 }
+	},
+	{
+		"name": "Vitebsk",
+		"slug": "vitebsk_by",
+		"bounds": [
+			[30.08847, 55.13535],
+			[30.30601, 55.25495]
+		],
+		"country": "Belarus",
+		"countryCode": "BY",
+		"population": 364862,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.07, "l_ratio": 0.01, "gcc1": 0.36, "gcc2": 0.11, "gcc3": 0.1 }
+	},
+	{
+		"name": "Vratsa",
+		"slug": "vratsa_bg",
+		"bounds": [
+			[23.52681, 43.18893],
+			[23.57721, 43.2263]
+		],
+		"country": "Bulgaria",
+		"countryCode": "BG",
+		"population": 60361,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.08, "l_ratio": 0.01, "gcc1": 1, "gcc2": 0.11, "gcc3": 0.1 }
+	},
+	{
+		"name": "Walbrzych",
+		"slug": "walbrzych_pl",
+		"bounds": [
+			[16.23019, 50.71954],
+			[16.34653, 50.84436]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 109252,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.59, "l_ratio": 0.17, "gcc1": 0.31, "gcc2": 0.19, "gcc3": 0.11 }
+	},
+	{
+		"name": "Warsaw",
+		"slug": "warsaw_pl",
+		"bounds": [
+			[20.85383, 52.10162],
+			[21.26045, 52.36615]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 1792692,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.84, "l_ratio": 0.32, "gcc1": 0.5, "gcc2": 0.02, "gcc3": 0.01 }
+	},
+	{
+		"name": "Westland",
+		"slug": "westland_nl",
+		"bounds": [
+			[4.13092, 51.9441],
+			[4.30628, 52.05404]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 104302,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.94, "l_ratio": 0.32, "gcc1": 0.47, "gcc2": 0.08, "gcc3": 0.04 }
+	},
+	{
+		"name": "Wiesbaden",
+		"slug": "wiesbaden_de",
+		"bounds": [
+			[8.14329, 49.99515],
+			[8.38567, 50.14681]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 278342,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.7, "l_ratio": 0.13, "gcc1": 0.07, "gcc2": 0.03, "gcc3": 0.02 }
+	},
+	{
+		"name": "Winterthur",
+		"slug": "winterthur_ch",
+		"bounds": [
+			[8.66451, 47.46114],
+			[8.80779, 47.54187]
+		],
+		"country": "Switzerland",
+		"countryCode": "CH",
+		"population": 115129,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.68, "l_ratio": 0.25, "gcc1": 0.04, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Wloclawek",
+		"slug": "wloclawek_pl",
+		"bounds": [
+			[18.94858, 52.59537],
+			[19.16925, 52.73373]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 107796,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.71, "l_ratio": 0.33, "gcc1": 0.54, "gcc2": 0.06, "gcc3": 0.06 }
+	},
+	{
+		"name": "Wolfsburg",
+		"slug": "wolfsburg_de",
+		"bounds": [
+			[10.65218, 52.32794],
+			[10.88102, 52.48552]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 124151,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.85, "l_ratio": 0.4, "gcc1": 0.62, "gcc2": 0.05, "gcc3": 0.02 }
+	},
+	{
+		"name": "Wolverhampton",
+		"slug": "wolverhampton_gb",
+		"bounds": [
+			[-2.20308, 52.54568],
+			[-2.05081, 52.63745]
+		],
+		"country": "United Kingdom",
+		"countryCode": "GB",
+		"population": 210319,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.63, "l_ratio": 0.1, "gcc1": 0.56, "gcc2": 0.06, "gcc3": 0.04 }
+	},
+	{
+		"name": "Wroclaw",
+		"slug": "wroclaw_pl",
+		"bounds": [
+			[16.82426, 51.04525],
+			[17.16472, 51.20786]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 642473,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.84, "l_ratio": 0.45, "gcc1": 0.56, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Wuppertal",
+		"slug": "wuppertal_de",
+		"bounds": [
+			[7.03132, 51.16618],
+			[7.27085, 51.31305]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 354382,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": false },
+		"metrics": { "cov_ratio": 0.81, "l_ratio": 0.15, "gcc1": 0.1, "gcc2": 0.06, "gcc3": 0.04 }
+	},
+	{
+		"name": "Würzburg",
+		"slug": "wurzburg_de",
+		"bounds": [
+			[9.87489, 49.71088],
+			[10.00543, 49.83815]
+		],
+		"country": "Germany",
+		"countryCode": "DE",
+		"population": 127880,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.78, "l_ratio": 0.31, "gcc1": 0.17, "gcc2": 0.09, "gcc3": 0.07 }
+	},
+	{
+		"name": "Yevpatoria",
+		"slug": "yevpatoria_ua",
+		"bounds": [
+			[33.31127, 45.15813],
+			[33.48283, 45.24892]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 105719,
+		"recommended": { "gbn": true, "gbn_plus": false, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.09, "l_ratio": 0.02, "gcc1": 0.81, "gcc2": 0.19, "gcc3": 0.07 }
+	},
+	{
+		"name": "Zaanstad",
+		"slug": "zaanstad_nl",
+		"bounds": [
+			[4.68353, 52.41837],
+			[4.86278, 52.51943]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 151418,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.83, "l_ratio": 0.34, "gcc1": 0.6, "gcc2": 0.02, "gcc3": 0.01 }
+	},
+	{
+		"name": "Zabrze",
+		"slug": "zabrze_pl",
+		"bounds": [
+			[18.73127, 50.25468],
+			[18.84441, 50.38225]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 169736,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.72, "l_ratio": 0.24, "gcc1": 0.21, "gcc2": 0.12, "gcc3": 0.09 }
+	},
+	{
+		"name": "Zagreb",
+		"slug": "zagreb_hr",
+		"bounds": [
+			[15.78211, 45.62142],
+			[16.21687, 45.9463]
+		],
+		"country": "Croatia",
+		"countryCode": "HR",
+		"population": 790017,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.62, "l_ratio": 0.17, "gcc1": 0.15, "gcc2": 0.04, "gcc3": 0.04 }
+	},
+	{
+		"name": "Zaporizhzhia",
+		"slug": "zaporizhzhia_ua",
+		"bounds": [
+			[34.98945, 47.75495],
+			[35.34349, 47.90818]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 706116,
+		"recommended": { "gbn": true, "gbn_plus": true, "lbn": false, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.19, "l_ratio": 0.03, "gcc1": 0.14, "gcc2": 0.07, "gcc3": 0.06 }
+	},
+	{
+		"name": "Zaragoza",
+		"slug": "zaragoza_es",
+		"bounds": [
+			[-1.1049, 41.50162],
+			[-0.76756, 41.78129]
+		],
+		"country": "Spain",
+		"countryCode": "ES",
+		"population": 699007,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.98, "l_ratio": 0.33, "gcc1": 0.64, "gcc2": 0.09, "gcc3": 0.02 }
+	},
+	{
+		"name": "Zhytomyr",
+		"slug": "zhytomyr_ua",
+		"bounds": [
+			[28.59314, 50.22537],
+			[28.75238, 50.3082]
+		],
+		"country": "Ukraine",
+		"countryCode": "UA",
+		"population": 260367,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.82, "l_ratio": 0.24, "gcc1": 0.03, "gcc2": 0.02, "gcc3": 0.02 }
+	},
+	{
+		"name": "Zielona Góra",
+		"slug": "zielonagora_pl",
+		"bounds": [
+			[15.42029, 51.82187],
+			[15.63181, 52.03353]
+		],
+		"country": "Poland",
+		"countryCode": "PL",
+		"population": 141631,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.46, "l_ratio": 0.22, "gcc1": 0.51, "gcc2": 0.05, "gcc3": 0.04 }
+	},
+	{
+		"name": "Zoetermeer",
+		"slug": "zoetermeer_nl",
+		"bounds": [
+			[4.42076, 52.03166],
+			[4.55685, 52.09321]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 124025,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": false, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 1.12, "l_ratio": 0.64, "gcc1": 0.76, "gcc2": 0.03, "gcc3": 0.01 }
+	},
+	{
+		"name": "Zurich",
+		"slug": "zurich_ch",
+		"bounds": [
+			[8.46484, 47.32305],
+			[8.61515, 47.43394]
+		],
+		"country": "Switzerland",
+		"countryCode": "CH",
+		"population": 423193,
+		"recommended": { "gbn": false, "gbn_plus": true, "lbn": true, "fbn": false, "sb": true },
+		"metrics": { "cov_ratio": 0.98, "l_ratio": 0.19, "gcc1": 0.03, "gcc2": 0.03, "gcc3": 0.03 }
+	},
+	{
+		"name": "Zwolle",
+		"slug": "zwolle_nl",
+		"bounds": [
+			[6.02338, 52.44118],
+			[6.21025, 52.58782]
+		],
+		"country": "Netherlands",
+		"countryCode": "NL",
+		"population": 123861,
+		"recommended": { "gbn": false, "gbn_plus": false, "lbn": true, "fbn": true, "sb": true },
+		"metrics": { "cov_ratio": 0.78, "l_ratio": 0.35, "gcc1": 0.39, "gcc2": 0.1, "gcc3": 0.04 }
+	}
+]

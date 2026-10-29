@@ -1,0 +1,2466 @@
+{
+	"countries": {
+		"AD": { "ministry": { "url": "https://www.mobilitat.ad/", "lang": "ca" } },
+		"AL": { "ministry": { "url": "https://infrastruktura.gov.al/", "lang": "sq" } },
+		"AT": {
+			"ministry": {
+				"url": "https://www.bmimi.gv.at/themen/mobilitaet/fuss_radverkehr.html",
+				"lang": "de"
+			},
+			"orgs": [{ "name": "Radlobby Österreich", "url": "https://www.radlobby.at", "lang": "de" }]
+		},
+		"BA": {
+			"ministry": {
+				"url": "https://www.mkt.gov.ba/bs/meni/menu_cmj9e3pa10enuck3uurdokjaw",
+				"lang": "bs"
+			}
+		},
+		"BE": { "ministry": { "url": "https://mobilit.belgium.be/fr/mobilite-durable", "lang": "fr" } },
+		"BG": { "ministry": { "url": "https://www.mtc.government.bg/bg/contact", "lang": "bg" } },
+		"CH": {
+			"ministry": { "url": "https://www.uvek.admin.ch/de/kontakt", "lang": "de" },
+			"orgs": [{ "name": "Pro Velo Schweiz", "url": "https://www.pro-velo.ch", "lang": "de" }]
+		},
+		"CZ": { "ministry": { "url": "https://md.gov.cz/kontakt", "lang": "cs" } },
+		"DE": {
+			"ministry": {
+				"url": "https://www.bmv.de/DE/Meta/Buergerservice/buergerservice.html",
+				"lang": "de"
+			},
+			"orgs": [
+				{
+					"name": "ADFC (Allgemeiner Deutscher Fahrrad-Club)",
+					"url": "https://www.adfc.de",
+					"lang": "de"
+				}
+			]
+		},
+		"DK": {
+			"ministry": { "url": "https://www.bltm.dk/", "lang": "da" },
+			"orgs": [
+				{ "name": "Cyklistforbundet", "url": "https://www.cyklistforbundet.dk", "lang": "da" }
+			]
+		},
+		"EE": { "ministry": { "url": "https://www.kliimaministeerium.ee/kontakt", "lang": "et" } },
+		"ES": {
+			"ministry": { "url": "https://www.transportes.gob.es/ministerio/contacto-web", "lang": "es" },
+			"orgs": [{ "name": "ConBici", "url": "https://conbici.org", "lang": "es" }]
+		},
+		"FI": {
+			"ministry": { "url": "https://lvm.fi/yhteystiedot", "lang": "fi" },
+			"orgs": [
+				{
+					"name": "Pyöräliitto (Finnish Cyclists' Federation)",
+					"url": "https://pyoraliitto.fi",
+					"lang": "fi"
+				}
+			]
+		},
+		"FR": {
+			"ministry": { "url": "https://www.ecologie.gouv.fr/contact", "lang": "fr" },
+			"orgs": [
+				{
+					"name": "FUB (Fédération française des Usagers de la Bicyclette)",
+					"url": "https://www.fub.fr",
+					"lang": "fr"
+				}
+			]
+		},
+		"GB": {
+			"ministry": {
+				"url": "https://www.gov.uk/government/organisations/department-for-transport",
+				"lang": "en"
+			},
+			"orgs": [{ "name": "Cycling UK", "url": "https://www.cyclinguk.org", "lang": "en" }]
+		},
+		"GR": {
+			"ministry": {
+				"url": "https://www.yme.gov.gr/ypoyrgeio/igesia/tilefona-epikoinonias",
+				"lang": "el"
+			},
+			"orgs": [
+				{ "name": "Cities for Cycling", "url": "https://citiesforcycling.gr", "lang": "el" },
+				{
+					"name": "Hellenic Urban Cycling Federation (EOAP)",
+					"url": "https://eoap.org.gr",
+					"lang": "el"
+				}
+			]
+		},
+		"HR": {
+			"ministry": { "url": "https://mmpi.gov.hr/kontakti/85", "lang": "hr" },
+			"orgs": [
+				{ "name": "Sindikat Biciklista", "url": "https://sindikatbiciklista.hr", "lang": "hr" }
+			]
+		},
+		"HU": {
+			"ministry": {
+				"url": "https://kormany.hu/kormanyzat/kozlekedesi-es-beruhazasi-miniszterium",
+				"lang": "hu"
+			},
+			"orgs": [
+				{
+					"name": "Magyar Kerékpárosklub (Hungarian Cyclists' Club)",
+					"url": "https://kerekparosklub.hu",
+					"lang": "hu"
+				}
+			]
+		},
+		"IE": {
+			"ministry": { "url": "https://www.gov.ie/en/department-of-transport/", "lang": "en" },
+			"orgs": [{ "name": "Irish Cycling Campaign", "url": "https://cyclist.ie", "lang": "en" }]
+		},
+		"IS": {
+			"ministry": {
+				"url": "https://www.stjornarradid.is/raduneyti/innvidaraduneytid/",
+				"lang": "is"
+			},
+			"orgs": [
+				{ "name": "LHM – Icelandic Cyclists' Federation", "url": "https://lhm.is", "lang": "is" }
+			]
+		},
+		"IT": {
+			"ministry": { "url": "https://www.mit.gov.it/ministero/URP", "lang": "it" },
+			"orgs": [
+				{
+					"name": "FIAB (Federazione Italiana Ambiente e Bicicletta)",
+					"url": "https://fiabitalia.it",
+					"lang": "it"
+				}
+			]
+		},
+		"LT": {
+			"ministry": {
+				"url": "https://sumin.lrv.lt/lt/struktura-ir-kontaktai/kontaktai/",
+				"lang": "lt"
+			},
+			"orgs": [
+				{ "name": "Lietuvos dviratininkų bendrija", "url": "http://dviratis.lt", "lang": "lt" }
+			]
+		},
+		"LU": {
+			"ministry": { "url": "https://mmtp.gouvernement.lu/fr.html", "lang": "fr" },
+			"orgs": [{ "name": "ProVelo.lu", "url": "https://www.provelo.lu", "lang": "fr" }]
+		},
+		"LV": {
+			"ministry": { "url": "https://www.sam.gov.lv/en/departments", "lang": "en" },
+			"orgs": [
+				{
+					"name": "BICYCLE.LV – Latvian Bicycle Information Centre",
+					"url": "https://www.bicycle.lv/",
+					"lang": "lv"
+				}
+			]
+		},
+		"MD": { "ministry": { "url": "https://midr.gov.md/contacte", "lang": "ro" } },
+		"ME": {
+			"ministry": { "url": "https://www.gov.me/en/msa", "lang": "en" },
+			"orgs": [{ "name": "Biciklo.me", "url": "https://biciklo.me", "lang": "sr" }]
+		},
+		"MK": { "ministry": { "url": "https://mtc.gov.mk/mk-MK/kontakt/kontakt", "lang": "mk" } },
+		"NL": {
+			"ministry": {
+				"url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat/contact",
+				"lang": "nl"
+			},
+			"orgs": [{ "name": "Fietsersbond", "url": "https://www.fietsersbond.nl", "lang": "nl" }]
+		},
+		"NO": {
+			"ministry": { "url": "https://www.regjeringen.no/no/dep/sd/kontakt/id799/", "lang": "no" },
+			"orgs": [
+				{ "name": "Syklistenes Landsforening", "url": "https://syklistforeningen.no", "lang": "no" }
+			]
+		},
+		"PL": {
+			"ministry": { "url": "https://www.gov.pl/web/infrastruktura/kontakt", "lang": "pl" },
+			"orgs": [
+				{
+					"name": "Polish Cyclists' Federation",
+					"url": "https://federacjarowerowa.pl/",
+					"lang": "pl"
+				}
+			]
+		},
+		"PT": {
+			"ministry": {
+				"url": "https://portugal.gov.pt/gc25/area-de-governo/infraestruturas-e-habitacao/contactos",
+				"lang": "pt"
+			},
+			"orgs": [
+				{ "name": "MUBi", "url": "https://mubi.pt", "lang": "pt" },
+				{ "name": "FPCUB", "url": "https://www.fpcub.pt", "lang": "pt" }
+			]
+		},
+		"RO": {
+			"ministry": { "url": "https://www.mt.ro/contact", "lang": "ro" },
+			"orgs": [
+				{ "name": "Romanian Cyclists' Federation", "url": "https://biciclisti.ro", "lang": "ro" }
+			]
+		},
+		"RS": { "ministry": { "url": "https://www.mgsi.gov.rs/cir/contacts", "lang": "sr" } },
+		"SE": {
+			"ministry": { "url": "https://www.trafikverket.se/om-oss/kontakta-oss/", "lang": "sv" },
+			"orgs": [{ "name": "Cykelfrämjandet", "url": "https://cykelframjandet.se", "lang": "sv" }]
+		},
+		"SI": {
+			"ministry": {
+				"url": "https://www.gov.si/en/state-authorities/ministries/ministry-of-infrastructure-and-energy/",
+				"lang": "en"
+			}
+		},
+		"SK": {
+			"ministry": { "url": "https://www.mindop.sk/kontakt", "lang": "sk" },
+			"orgs": [{ "name": "Cyklokoalícia", "url": "https://cyklokoalicia.sk", "lang": "sk" }]
+		},
+		"UA": { "ministry": { "url": "https://mininfra.gov.ua/kontakty", "lang": "uk" } },
+		"XK": { "ministry": { "url": "https://mit-ks.net/sq/kontakti", "lang": "sq" } }
+	},
+	"cities": {
+		"aachen_de": {
+			"contact": { "url": "https://www.aachen.de/kontakt/", "lang": "de" },
+			"mobility": {
+				"url": "https://serviceportal.aachen.de/suche/-/vr-bis-detail/einrichtung/6160290/show",
+				"lang": "de"
+			}
+		},
+		"aalborg_dk": {
+			"contact": { "url": "https://www.aalborg.dk/kontakt/", "lang": "da" },
+			"mobility": {
+				"url": "https://www.aalborg.dk/mit-liv/trafik-og-parkering/trafik-og-veje/cykler-og-loebehjul/",
+				"lang": "da"
+			}
+		},
+		"aarhus_dk": {
+			"contact": { "url": "https://aarhus.dk/kontakt-borgerservice", "lang": "da" },
+			"mobility": {
+				"url": "https://aarhus.dk/borger/trafik-og-parkering/trafik/paa-cykel-i-aarhus",
+				"lang": "da"
+			}
+		},
+		"aixenprovence_fr": {
+			"contact": { "url": "https://www.aixenprovence.fr/Nous-contacter-3595", "lang": "fr" },
+			"mobility": { "url": "https://ampmetropole.fr/missions/mobilite/", "lang": "fr" }
+		},
+		"alcaladehenares_es": {
+			"contact": { "url": "https://atencionciudadana.ayto-alcaladehenares.es/", "lang": "es" },
+			"mobility": { "url": "https://movilidad.ayto-alcaladehenares.es/en-bici/", "lang": "es" }
+		},
+		"alcobendas_es": {
+			"contact": { "url": "https://www.alcobendas.org/es/contactar", "lang": "es" }
+		},
+		"alcorcon_es": {
+			"contact": { "url": "https://www.ayto-alcorcon.es/en/contact", "lang": "en" },
+			"mobility": {
+				"url": "https://www.ayto-alcorcon.es/en/services/city-development/sustainability-mobility-and-renewables/mobility",
+				"lang": "en"
+			}
+		},
+		"alkmaar_nl": {
+			"contact": { "url": "https://www.alkmaar.nl/contact/", "lang": "nl" },
+			"mobility": {
+				"url": "https://www.alkmaar.nl/direct-regelen/verkeer-vervoer-parkeren/",
+				"lang": "nl"
+			}
+		},
+		"almere_nl": {
+			"contact": { "url": "https://www.almere.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://www.almere.nl/verkeer-en-vervoer", "lang": "nl" }
+		},
+		"almeria_es": {
+			"contact": { "url": "https://almeriaciudad.es/contacto-general", "lang": "es" },
+			"mobility": { "url": "https://almeriaciudad.es/seguridad-movilidad", "lang": "es" }
+		},
+		"alphenaanden_nl": {
+			"contact": {
+				"url": "https://www.alphenaandenrijn.nl/Contact_en_openingstijden",
+				"lang": "nl"
+			},
+			"mobility": { "url": "https://www.alphenaandenrijn.nl/Parkeren_en_verkeer", "lang": "nl" }
+		},
+		"amadora_pt": {
+			"contact": { "url": "https://www.cm-amadora.pt/pt/contactos.html", "lang": "pt" }
+		},
+		"amersfoort_nl": {
+			"contact": { "url": "https://www.amersfoort.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://www.amersfoort.nl/lopen-en-fietsen", "lang": "nl" }
+		},
+		"amiens_fr": {
+			"contact": { "url": "https://www.amiens.fr/Liens-utiles/Nous-contacter", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.amiens.fr/Vivre-a-Amiens/Mobilite/Se-deplacer-a-velo",
+				"lang": "fr"
+			}
+		},
+		"amsterdam_nl": {
+			"contact": { "url": "https://www.amsterdam.nl/contact/", "lang": "nl" },
+			"mobility": { "url": "https://www.amsterdam.nl/verkeer-vervoer/", "lang": "nl" }
+		},
+		"anderlecht_be": {
+			"contact": { "url": "https://www.anderlecht.be/fr/contact", "lang": "fr" },
+			"orgs": [
+				{ "name": "Avello", "url": "https://www.avello.org", "lang": "fr" },
+				{ "name": "Fietsersbond", "url": "https://www.fietsersbond.be", "lang": "nl" }
+			]
+		},
+		"andorralavella_ad": {
+			"contact": { "url": "https://www.andorralavella.ad/comu/contactes", "lang": "ca" },
+			"mobility": { "url": "https://www.andorralavella.ad/comu/?q=mobilitat", "lang": "ca" }
+		},
+		"angers_fr": {
+			"contact": {
+				"url": "https://www.angers.fr/services-demarches/contacter-la-mairie/index.html",
+				"lang": "fr"
+			},
+			"mobility": {
+				"url": "https://www.angersloiremetropole.fr/mon-quotidien/mobilites/velo/index.html",
+				"lang": "fr"
+			}
+		},
+		"antwerp_be": {
+			"contact": { "url": "https://www.antwerpen.be/info/contacteer-stad-antwerpen", "lang": "nl" },
+			"mobility": { "url": "https://www.velo-antwerpen.be/nl/contact", "lang": "nl" },
+			"orgs": [{ "name": "Fietsersbond", "url": "https://www.fietsersbond.be", "lang": "nl" }]
+		},
+		"apeldoorn_nl": {
+			"contact": { "url": "https://www.apeldoorn.nl/contact", "lang": "nl" },
+			"mobility": {
+				"url": "https://www.apeldoorn.nl/regelen-en-weten/parkeren-en-verkeer/",
+				"lang": "nl"
+			}
+		},
+		"argenteuil_fr": {
+			"contact": { "url": "https://www.argenteuil.fr/fr/contacter", "lang": "fr" },
+			"mobility": { "url": "https://www.argenteuil.fr/fr/velos", "lang": "fr" }
+		},
+		"arnhem_nl": {
+			"contact": { "url": "https://www.arnhem.nl/contact/", "lang": "nl" },
+			"mobility": { "url": "https://www.arnhem.nl/alle-onderwerpen/verkeer/", "lang": "nl" }
+		},
+		"athens_gr": {
+			"contact": { "url": "https://www.cityofathens.gr/contact/", "lang": "el" },
+			"mobility": {
+				"url": "https://www.cityofathens.gr/department/tmima-viosimis-kinitikotitas/",
+				"lang": "el"
+			}
+		},
+		"augsburg_de": {
+			"contact": { "url": "https://www.augsburg.de/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.augsburg.de/buergerservice-rathaus/verkehr/radverkehr",
+				"lang": "de"
+			}
+		},
+		"badalona_es": {
+			"contact": {
+				"url": "https://www.badalona.cat/ca/ajuntament/atencio-a-la-ciutadania/que-es-el-servei-dantencio-al-ciutada",
+				"lang": "ca"
+			},
+			"mobility": {
+				"url": "https://www.badalona.cat/ca/serveis-ajuntament/transports-i-mobilitat",
+				"lang": "ca"
+			}
+		},
+		"banjaluka_ba": {
+			"contact": {
+				"url": "https://www.banjaluka.rs.ba/gradjani/kancelarija-za-gradjane/",
+				"lang": "sr"
+			},
+			"mobility": { "url": "https://www.banjaluka.rs.ba/gradjani/saobracaj/", "lang": "sr" },
+			"orgs": [{ "name": "CZZS – Centre for Environment", "url": "https://czzs.org", "lang": "sr" }]
+		},
+		"barcelona_es": {
+			"contact": {
+				"url": "https://ajuntament.barcelona.cat/ca/atencio-ciutadana-i-comunicacio/canals-datencio-ciutadana",
+				"lang": "ca"
+			},
+			"mobility": {
+				"url": "https://www.barcelona.cat/mobilitat/ca/mitjans-de-transport/bicicleta",
+				"lang": "ca"
+			}
+		},
+		"bari_it": {
+			"contact": { "url": "https://www.comune.bari.it/contatti", "lang": "it" },
+			"mobility": {
+				"url": "https://www.comune.bari.it/argomenti/mobilita-e-trasporti",
+				"lang": "it"
+			}
+		},
+		"basel_ch": {
+			"mobility": {
+				"url": "https://www.bs.ch/themen/mobilitaet/fahren-und-parkieren/velofahren-basel",
+				"lang": "de"
+			}
+		},
+		"belfast_gb": {
+			"contact": { "url": "https://www.belfastcity.gov.uk/contactus", "lang": "en" },
+			"mobility": { "url": "https://www.infrastructure-ni.gov.uk/topics/cycling", "lang": "en" }
+		},
+		"belgrade_rs": {
+			"contact": { "url": "https://www.beograd.rs/cir/kontakt", "lang": "sr" },
+			"mobility": {
+				"url": "https://www.beograd.rs/cir/gradska-uprava/a88211/Sekretarijat-za-saobracaj.html",
+				"lang": "sr"
+			}
+		},
+		"bergamo_it": {
+			"mobility": {
+				"url": "https://www.comune.bergamo.it/categoria-di-servizio/mobilit%C3%A0-e-trasporti",
+				"lang": "it"
+			}
+		},
+		"bergischgladbach_de": {
+			"contact": { "url": "https://www.bergischgladbach.de/kontakt.aspx", "lang": "de" },
+			"mobility": { "url": "https://www.bergischgladbach.de/radverkehr.aspx", "lang": "de" }
+		},
+		"berlin_de": {
+			"contact": { "url": "https://www.berlin.de/wir-ueber-uns/kontakt/", "lang": "de" },
+			"mobility": {
+				"url": "https://www.berlin.de/sen/uvk/mobilitaet-und-verkehr/verkehrsplanung/radverkehr/",
+				"lang": "de"
+			}
+		},
+		"bern_ch": {
+			"contact": { "url": "https://www.bern.ch/@@contact", "lang": "de" },
+			"mobility": {
+				"url": "https://www.bern.ch/politik-und-verwaltung/stadtverwaltung/tvs/tiefbau/verkehrsplanung",
+				"lang": "de"
+			}
+		},
+		"besancon_fr": {
+			"contact": {
+				"url": "https://www.besancon.fr/mairie-de-besancon-nous-contacter/",
+				"lang": "fr"
+			},
+			"mobility": {
+				"url": "https://www.grandbesancon.fr/infos-pratiques/transports/se-deplacer-plus-simplement/",
+				"lang": "fr"
+			}
+		},
+		"bialystok_pl": {
+			"contact": { "url": "https://www.bialystok.pl/pl/dane-kontaktowe.html", "lang": "pl" }
+		},
+		"bielefeld_de": {
+			"contact": { "url": "https://www.bielefeld.de/kontakt", "lang": "de" },
+			"mobility": { "url": "https://www.bielefeld.de/f%C3%A4hrt-rad", "lang": "de" }
+		},
+		"bielskobiala_pl": {
+			"contact": { "url": "https://bielsko-biala.pl/kontakt", "lang": "pl" },
+			"mobility": { "url": "https://mzd.bielsko.pl/", "lang": "pl" }
+		},
+		"bilatserkva_ua": { "mobility": { "url": "https://bc-rada.gov.ua/node/7100", "lang": "uk" } },
+		"birmingham_gb": {
+			"contact": {
+				"url": "https://www.birmingham.gov.uk/info/50044/contact_us_form",
+				"lang": "en"
+			},
+			"mobility": { "url": "https://www.birmingham.gov.uk/cycling", "lang": "en" }
+		},
+		"bochum_de": {
+			"contact": { "url": "https://www.bochum.de/Kontakt-zu-Ihrer-Stadtverwaltung", "lang": "de" },
+			"mobility": { "url": "https://www.bochum.de/Tiefbauamt/Radfahren-in-Bochum", "lang": "de" }
+		},
+		"bologna_it": {
+			"mobility": {
+				"url": "https://www.comune.bologna.it/amministrazione/uffici/sportello-mobilita-urbana",
+				"lang": "it"
+			}
+		},
+		"bonn_de": {
+			"contact": { "url": "https://www.bonn.de/service-angebote/kontakt/index.php", "lang": "de" },
+			"mobility": {
+				"url": "https://www.bonn.de/themen-entdecken/verkehr-mobilitaet/radverkehr.php",
+				"lang": "de"
+			}
+		},
+		"bordeaux_fr": {
+			"contact": {
+				"url": "https://mesdemarches.bordeaux.fr/portals/public/services?id=bordeaux&page=DEM_NousContacter_Presentation",
+				"lang": "fr"
+			},
+			"mobility": {
+				"url": "https://www.bordeaux-metropole.fr/metropole/projets-en-cours/deplacements-infrastructures",
+				"lang": "fr"
+			}
+		},
+		"bottrop_de": {
+			"contact": { "url": "https://www.bottrop.de/service/kontakt.php", "lang": "de" },
+			"mobility": {
+				"url": "https://www.bottrop.de/wohnen-stadtquartier-verkehr/fussverkehr/radverkehr/radverkehr-in-bottrop.php",
+				"lang": "de"
+			}
+		},
+		"boulognebillancourt_fr": {
+			"contact": { "url": "https://www.boulognebillancourt.com/contact", "lang": "fr" },
+			"mobility": { "url": "https://www.seineouest.fr/vos-services/mobilite/velo", "lang": "fr" }
+		},
+		"bournemouth_gb": {
+			"contact": { "url": "https://www.bcpcouncil.gov.uk/contact-us", "lang": "en" },
+			"mobility": {
+				"url": "https://www.bcpcouncil.gov.uk/roads-and-transport/travel-and-transport/cycling",
+				"lang": "en"
+			}
+		},
+		"braga_pt": {
+			"contact": {
+				"url": "https://www.cm-braga.pt/en/0101/municipio/camara-municipal/contactos",
+				"lang": "en"
+			},
+			"mobility": {
+				"url": "https://www.cm-braga.pt/en/0101/conhecer/acessibilidades-e-mobilidades/mobilidades/apresentacao",
+				"lang": "en"
+			}
+		},
+		"bratislava_sk": {
+			"contact": { "url": "https://www.bratislava.sk/kontakty-a-uradne-hodiny", "lang": "sk" }
+		},
+		"braunschweig_de": {
+			"contact": { "url": "https://www.braunschweig.de/kontakt.php", "lang": "de" },
+			"mobility": {
+				"url": "https://www.braunschweig.de/leben/stadtplan_verkehr/radverkehr/index.php",
+				"lang": "de"
+			}
+		},
+		"breda_nl": {
+			"contact": { "url": "https://www.breda.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://www.breda.nl/fietsen", "lang": "nl" }
+		},
+		"bremen_de": {
+			"contact": { "url": "https://www.service.bremen.de/", "lang": "de" },
+			"mobility": { "url": "https://bau.bremen.de/mobilitaet/radverkehr-14567", "lang": "de" }
+		},
+		"bremerhaven_de": {
+			"contact": { "url": "https://www.bremerhaven.de/de/", "lang": "de" },
+			"mobility": {
+				"url": "https://www.bremerhaven.de/de/verwaltung-politik-sicherheit/buergerdialog/nachhaltige-mobilitaet/nachhaltige-mobilitaet-in-bremerhaven.141076.html",
+				"lang": "de"
+			}
+		},
+		"brescia_it": {
+			"contact": {
+				"url": "https://www.comune.brescia.it/it/organizational_unit/ufficio-relazioni-con-il-pubblico-urp",
+				"lang": "it"
+			},
+			"mobility": { "url": "https://www.comune.brescia.it/it/page/139582", "lang": "it" }
+		},
+		"brest_fr": {
+			"mobility": {
+				"url": "https://brest.fr/gerer-mon-quotidien/transports/se-deplacer-velo",
+				"lang": "fr"
+			}
+		},
+		"brightonandhove_gb": {
+			"contact": { "url": "https://www.brighton-hove.gov.uk/contact-us", "lang": "en" },
+			"mobility": {
+				"url": "https://www.brighton-hove.gov.uk/travel-and-road-safety/travel-transport-and-road-safety/cycling",
+				"lang": "en"
+			}
+		},
+		"bristol_gb": {
+			"contact": { "url": "https://www.bristol.gov.uk/contact", "lang": "en" },
+			"mobility": {
+				"url": "https://www.bristol.gov.uk/residents/streets-travel/cycling",
+				"lang": "en"
+			}
+		},
+		"brno_cz": {
+			"contact": { "url": "https://www.brno.cz/kontakty", "lang": "cs" },
+			"mobility": { "url": "https://www.brno.cz/w/odbor-dopravy", "lang": "cs" }
+		},
+		"brovary_ua": {
+			"contact": { "url": "https://brovary-rada.gov.ua/forma-zvernennia-hromadian", "lang": "uk" },
+			"mobility": { "url": "https://brovary-rada.gov.ua/transportne-spoluchennia", "lang": "uk" }
+		},
+		"bruges_be": {
+			"contact": { "url": "https://www.brugge.be/huis-van-de-bruggeling", "lang": "nl" },
+			"mobility": {
+				"url": "https://www.brugge.be/mobiliteit/duurzaam-verplaatsen/duurzaam-met-de-fiets",
+				"lang": "nl"
+			},
+			"orgs": [{ "name": "Fietsersbond", "url": "https://www.fietsersbond.be", "lang": "nl" }]
+		},
+		"brussels_be": {
+			"contact": { "url": "https://be.brussels/fr/contact", "lang": "fr" },
+			"mobility": {
+				"url": "https://be.brussels/fr/transport-mobilite/pietons-et-velos/reseau-cyclable",
+				"lang": "fr"
+			},
+			"orgs": [
+				{ "name": "Avello", "url": "https://www.avello.org", "lang": "fr" },
+				{ "name": "Fietsersbond", "url": "https://www.fietsersbond.be", "lang": "nl" }
+			]
+		},
+		"bucharest_ro": {
+			"contact": { "url": "https://www.pmb.ro/contact", "lang": "ro" },
+			"mobility": { "url": "https://www.pmb.ro/servicii/transport/", "lang": "ro" }
+		},
+		"budapest_hu": {
+			"contact": { "url": "https://budapest.hu/kapcsolat", "lang": "hu" },
+			"mobility": {
+				"url": "https://budapest.hu/kozlekedes/kozlekedesfejlesztes/kerekparos-fejlesztesek",
+				"lang": "hu"
+			}
+		},
+		"bydgoszcz_pl": {
+			"contact": { "url": "https://bip.um.bydgoszcz.pl/artykul/2/3/dane-podstawowe", "lang": "pl" },
+			"mobility": { "url": "https://zdmikp.bydgoszcz.pl/", "lang": "pl" }
+		},
+		"bytom_pl": {
+			"contact": { "url": "https://www.bytom.pl/dla-mieszkanca/kontakt", "lang": "pl" },
+			"mobility": { "url": "https://www.mzdim.bytom.pl/", "lang": "pl" }
+		},
+		"caen_fr": {
+			"contact": { "url": "https://caen.fr/contact", "lang": "fr" },
+			"mobility": { "url": "https://caen.fr/velo-pied", "lang": "fr" }
+		},
+		"cagliari_it": {
+			"contact": {
+				"url": "https://www.comune.cagliari.it/portale/page/it/ufficio_relazioni_con_il_pubblico_urp?contentId=ORG9607",
+				"lang": "it"
+			},
+			"mobility": {
+				"url": "https://www.comune.cagliari.it/portale/page/it/servizi_mobilita",
+				"lang": "it"
+			}
+		},
+		"charleroi_be": {
+			"contact": { "url": "https://www.charleroi.be/contactez-nous", "lang": "fr" },
+			"mobility": { "url": "https://www.charleroi.be/vivre/mobilite/a-velo", "lang": "fr" },
+			"orgs": [{ "name": "Avello", "url": "https://www.avello.org", "lang": "fr" }]
+		},
+		"chemnitz_de": {
+			"contact": { "url": "https://www.chemnitz.de/de/aktuell/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.chemnitz.de/de/unsere-stadt/verkehr/fussgaenger_radfahrer",
+				"lang": "de"
+			}
+		},
+		"cherkasy_ua": {
+			"mobility": {
+				"url": "https://cherkasy-rada.gov.ua/department/departament-dorozhno-transportnoyi-infrastruktury-ta-ekologiyi/",
+				"lang": "uk"
+			}
+		},
+		"chernihiv_ua": {
+			"mobility": { "url": "https://chernigiv-rada.gov.ua/velo-infrastruktura/", "lang": "uk" }
+		},
+		"chisinau_md": {
+			"mobility": { "url": "https://mobilitatechisinau.md/?page_id=6131", "lang": "ro" }
+		},
+		"chorzow_pl": {
+			"contact": { "url": "https://mieszkancy.chorzow.eu/article/kontakt", "lang": "pl" },
+			"mobility": { "url": "https://mzuim.chorzow.eu", "lang": "pl" }
+		},
+		"clermontferrand_fr": {
+			"contact": { "url": "https://clermont-ferrand.fr/nous-contacter", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.clermontmetropole.eu/habiter-se-deplacer/deplacement-et-mobilite/a-velo/",
+				"lang": "fr"
+			}
+		},
+		"cologne_de": {
+			"contact": { "url": "https://www.stadt-koeln.de/service/kontakt/index.html", "lang": "de" },
+			"mobility": {
+				"url": "https://www.stadt-koeln.de/leben-in-koeln/verkehr/radfahren/",
+				"lang": "de"
+			}
+		},
+		"copenhagen_dk": {
+			"contact": { "url": "https://www.kk.dk/kontakt", "lang": "da" },
+			"mobility": {
+				"url": "https://www.kk.dk/kontaktoversigt/om-kommunen/forvaltninger/klima-miljoe-og-teknikforvaltningen",
+				"lang": "da"
+			}
+		},
+		"cork_ie": {
+			"contact": { "url": "https://www.corkcity.ie/en/contact-us/", "lang": "en" },
+			"mobility": {
+				"url": "https://www.corkcity.ie/en/council-services/services/roads-and-traffic-management/",
+				"lang": "en"
+			}
+		},
+		"cottbus_de": {
+			"contact": { "url": "https://cottbus.de/verwaltung/", "lang": "de" },
+			"mobility": {
+				"url": "https://cottbus.de/verwaltung/gb-2/fb-61-stadtentwicklung/verkehrsplanung/radverkehr-in-cottbus/",
+				"lang": "de"
+			}
+		},
+		"coventry_gb": {
+			"contact": { "url": "https://www.coventry.gov.uk/contact-council", "lang": "en" },
+			"mobility": {
+				"url": "https://www.coventry.gov.uk/transport-strategy-2/transport-strategy/5",
+				"lang": "en"
+			}
+		},
+		"cugir_ro": { "contact": { "url": "https://primariacugir.ro/site/contact", "lang": "ro" } },
+		"czestochowa_pl": {
+			"contact": { "url": "https://www.czestochowa.pl/kontakt", "lang": "pl" },
+			"mobility": { "url": "https://mzd.czest.pl/", "lang": "pl" }
+		},
+		"dabrowagornicza_pl": {
+			"contact": { "url": "https://www.dabrowa-gornicza.pl/kontakt/", "lang": "pl" }
+		},
+		"darmstadt_de": {
+			"contact": { "url": "https://www.darmstadt.de/", "lang": "de" },
+			"mobility": { "url": "https://www.darmstadt.de/leben/mobilitaet/radverkehr", "lang": "de" }
+		},
+		"debrecen_hu": {
+			"contact": { "url": "https://www.debrecen.hu/hu/debreceni/elerhetosegek/", "lang": "hu" }
+		},
+		"delft_nl": {
+			"contact": { "url": "https://www.delft.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://www.delft.nl/fiets", "lang": "nl" }
+		},
+		"derby_gb": {
+			"contact": { "url": "https://myaccount.derby.gov.uk/service/contact_us", "lang": "en" },
+			"mobility": { "url": "https://www.derby.gov.uk/transport-and-streets/cycling/", "lang": "en" }
+		},
+		"dijon_fr": {
+			"contact": { "url": "https://www.dijon.fr/nous-ecrire/", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.dijon-metropole.fr/dijon-metropole-a-votre-service/deplacements/",
+				"lang": "fr"
+			}
+		},
+		"dnipro_ua": {
+			"contact": { "url": "https://dniprorada.gov.ua/uk/page/kontakti", "lang": "uk" }
+		},
+		"dordrecht_nl": {
+			"contact": { "url": "https://cms.dordrecht.nl/Contact", "lang": "nl" },
+			"mobility": {
+				"url": "https://cms.dordrecht.nl/Inwoners/Overzicht_Inwoners/Parkeren_verkeer_en_vervoer",
+				"lang": "nl"
+			}
+		},
+		"dortmund_de": {
+			"contact": { "url": "https://www.dortmund.de/allgemeines/kontakt/", "lang": "de" },
+			"mobility": {
+				"url": "https://www.dortmund.de/themen/mobilitaet-und-verkehr/radverkehr/",
+				"lang": "de"
+			}
+		},
+		"dresden_de": {
+			"contact": { "url": "https://www.dresden.de/de/sonstiges/kontakt.php", "lang": "de" },
+			"mobility": { "url": "https://www.dresden.de/de/stadtraum/verkehr/rad.php", "lang": "de" }
+		},
+		"dublin_ie": {
+			"contact": {
+				"url": "https://www.dublincity.ie/your-city-council/contact-dublin-city-council/contact-customer-services",
+				"lang": "en"
+			},
+			"mobility": {
+				"url": "https://www.dublincity.ie/sports-and-healthy-living/walking-and-cycling-dublin",
+				"lang": "en"
+			}
+		},
+		"duisburg_de": {
+			"contact": { "url": "https://www.duisburg.de/", "lang": "de" },
+			"mobility": {
+				"url": "https://www.duisburg.de/microsites/pbv/verkehr/radverkehr",
+				"lang": "de"
+			}
+		},
+		"durres_al": { "contact": { "url": "https://durres.gov.al/kontakt/", "lang": "sq" } },
+		"dusseldorf_de": {
+			"contact": { "url": "https://www.duesseldorf.de/infonav/kontakt", "lang": "de" },
+			"mobility": { "url": "https://www.duesseldorf.de/radverkehr", "lang": "de" }
+		},
+		"ede_nl": {
+			"contact": { "url": "https://www.ede.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://www.ede.nl/in-de-gemeente-ede/ede-fietst", "lang": "nl" }
+		},
+		"eindhoven_nl": {
+			"contact": {
+				"url": "https://www.eindhoven.nl/bestuur-en-beleid/contact/contact-met-de-gemeente",
+				"lang": "nl"
+			},
+			"mobility": {
+				"url": "https://www.eindhoven.nl/stad-en-wonen/verkeer/fietsen-in-eindhoven",
+				"lang": "nl"
+			}
+		},
+		"elblag_pl": {
+			"contact": { "url": "https://elblag.eu/kontakt.html", "lang": "pl" },
+			"mobility": { "url": "https://elblag.eu/komunikacja.html", "lang": "pl" }
+		},
+		"emmen_nl": {
+			"contact": { "url": "https://gemeente.emmen.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://gemeente.emmen.nl/parkeren-en-verkeer", "lang": "nl" }
+		},
+		"enschede_nl": {
+			"contact": { "url": "https://www.enschede.nl/contact-en-openingstijden", "lang": "nl" },
+			"mobility": { "url": "https://www.enschede.nl/fietsen", "lang": "nl" }
+		},
+		"erlangen_de": {
+			"contact": { "url": "https://erlangen.de/kontakt", "lang": "de" },
+			"mobility": { "url": "https://erlangen.de/themenseite/aktiv/fahrrad", "lang": "de" }
+		},
+		"esbjerg_dk": {
+			"contact": {
+				"url": "https://www.esbjerg.dk/om-kommunen/kontakt-esbjerg-kommune",
+				"lang": "da"
+			},
+			"mobility": { "url": "https://www.esbjerg.dk/planer-projekter-og-trafik", "lang": "da" }
+		},
+		"espoo_fi": {
+			"contact": {
+				"url": "https://www.espoo.fi/fi/kaupunki-ja-paatoksenteko/espoon-kaupungin-yhteystiedot-ja-palaute",
+				"lang": "fi"
+			},
+			"mobility": {
+				"url": "https://www.espoo.fi/fi/liikenne-ja-kadut/espoo-pyorailee",
+				"lang": "fi"
+			}
+		},
+		"essen_de": {
+			"contact": { "url": "https://www.essen.de/kontakt.de.html", "lang": "de" },
+			"mobility": {
+				"url": "https://www.essen.de/leben/mobilitaet/radfahren_1/radfahren_in_essen__.de.jsp",
+				"lang": "de"
+			}
+		},
+		"florence_it": {
+			"contact": { "url": "https://www.comune.firenze.it/contatti", "lang": "it" },
+			"mobility": {
+				"url": "https://www.comune.firenze.it/servizi/mobilita-e-trasporti",
+				"lang": "it"
+			}
+		},
+		"frankfurtammain_de": {
+			"contact": { "url": "https://frankfurt.de/kontakt-zur-stadt", "lang": "de" },
+			"mobility": { "url": "https://www.radfahren-ffm.de/", "lang": "de" }
+		},
+		"frederiksberg_dk": {
+			"contact": {
+				"url": "https://www.frederiksberg.dk/kommunen/forvaltning-og-fakta-om-kommunen/kontakt",
+				"lang": "da"
+			},
+			"mobility": {
+				"url": "https://www.frederiksberg.dk/by-bolig-og-miljoe/trafik/kom-rundt-i-byen/cyklister",
+				"lang": "da"
+			}
+		},
+		"freiburgimbreisgau_de": {
+			"contact": { "url": "https://www.freiburg.de/kontakt/index.html", "lang": "de" },
+			"mobility": { "url": "https://www.freiburg.de/radverkehr/index.html", "lang": "de" }
+		},
+		"funchal_pt": { "contact": { "url": "https://www.funchal.pt/contactos/", "lang": "pt" } },
+		"furth_de": {
+			"contact": { "url": "https://www.fuerth.de/", "lang": "de" },
+			"mobility": {
+				"url": "https://www.fuerth.de/bauen-mobilitaet/mobilitaet/fuerth-faehrt-rad/",
+				"lang": "de"
+			}
+		},
+		"gdansk_pl": {
+			"contact": { "url": "https://www.gdansk.pl/kontaktgdansk", "lang": "pl" },
+			"mobility": { "url": "https://gzdiz.gda.pl/", "lang": "pl" },
+			"orgs": [
+				{
+					"name": "PSWE – Pomeranian Association Common Europe",
+					"url": "http://pswe.org",
+					"lang": "pl"
+				}
+			]
+		},
+		"gdynia_pl": {
+			"contact": { "url": "https://bip.um.gdynia.pl/", "lang": "pl" },
+			"mobility": { "url": "https://www.zdiz.gdynia.pl/", "lang": "pl" },
+			"orgs": [
+				{
+					"name": "PSWE – Pomeranian Association Common Europe",
+					"url": "http://pswe.org",
+					"lang": "pl"
+				}
+			]
+		},
+		"gelsenkirchen_de": {
+			"contact": {
+				"url": "https://www.gelsenkirchen.de/de/Rathaus/Buergerservice/index.aspx",
+				"lang": "de"
+			},
+			"mobility": {
+				"url": "https://www.gelsenkirchen.de/de/Infrastruktur/Verkehr/Radverkehr",
+				"lang": "de"
+			}
+		},
+		"geneva_ch": {
+			"contact": { "url": "https://www.geneve.ch/propos/contact", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.geneve.ch/themes/mobilite-transport/faire-velo-geneve",
+				"lang": "fr"
+			}
+		},
+		"ghent_be": {
+			"contact": { "url": "https://stad.gent/nl/contact-meldpunten", "lang": "nl" },
+			"mobility": {
+				"url": "https://stad.gent/nl/openingsuren-adressen/trefwoord/diensten-mobiliteitsbedrijf",
+				"lang": "nl"
+			},
+			"orgs": [{ "name": "Fietsersbond", "url": "https://www.fietsersbond.be", "lang": "nl" }]
+		},
+		"glasgow_gb": {
+			"contact": { "url": "https://www.glasgow.gov.uk/contactus", "lang": "en" },
+			"mobility": { "url": "https://www.glasgow.gov.uk/activetravel", "lang": "en" }
+		},
+		"gliwice_pl": {
+			"contact": { "url": "https://gliwice.eu/kontakt", "lang": "pl" },
+			"mobility": { "url": "https://zdm.gliwice.pl/", "lang": "pl" }
+		},
+		"gorzowwielkopolski_pl": {
+			"contact": { "url": "https://um.gorzow.pl/kontakt.html", "lang": "pl" },
+			"mobility": { "url": "https://um.gorzow.pl/wydzial-drog.html", "lang": "pl" }
+		},
+		"gothenburg_se": {
+			"contact": { "url": "https://goteborg.se/wps/portal/kontakta-oss", "lang": "sv" },
+			"mobility": {
+				"url": "https://goteborg.se/wps/portal/start/trafik-och-resor/trafik-och-gator/cykling-och-cykelvagar",
+				"lang": "sv"
+			}
+		},
+		"gottingen_de": {
+			"contact": { "url": "https://www.goettingen.de/portal/startseite.html", "lang": "de" },
+			"mobility": { "url": "https://www.goettingen.de/leben/mobilitaet/radfahren/", "lang": "de" }
+		},
+		"graz_at": {
+			"contact": { "url": "https://www.graz.at/cms/beitrag/10303721/8425359/", "lang": "de" },
+			"mobility": { "url": "https://rad.graz.at", "lang": "de" }
+		},
+		"grenoble_fr": {
+			"contact": {
+				"url": "https://www.grenoble.fr/582-contacter-la-ville-de-grenoble.htm",
+				"lang": "fr"
+			}
+		},
+		"groningen_nl": {
+			"contact": { "url": "https://gemeente.groningen.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://gemeente.groningen.nl/fiets", "lang": "nl" }
+		},
+		"gutersloh_de": {
+			"contact": { "url": "https://www.guetersloh.de/de/kontakt/", "lang": "de" },
+			"mobility": {
+				"url": "https://www.guetersloh.de/de/rathaus/fachbereiche-und-einrichtungen/stadtplanung/verkehrsplanung.php",
+				"lang": "de"
+			}
+		},
+		"gyor_hu": {
+			"contact": {
+				"url": "https://gyor.hu/varoshaza/polgarmesteri-hivatal/lakossagi-kapcsolat/",
+				"lang": "hu"
+			},
+			"mobility": {
+				"url": "https://gyor.hu/gyor/telepulesfejlesztes-es-foepiteszi-ugyek/fejlesztesi-programok/fenntarthato_mobilitasi_terv_sump/",
+				"lang": "hu"
+			}
+		},
+		"haarlem_nl": {
+			"contact": { "url": "https://haarlem.nl/contact-en-openingstijden", "lang": "nl" },
+			"mobility": { "url": "https://haarlem.nl/parkeren-en-verkeer", "lang": "nl" }
+		},
+		"haarlemmermeer_nl": {
+			"contact": { "url": "https://haarlemmermeergemeente.nl/contact", "lang": "nl" },
+			"mobility": {
+				"url": "https://haarlemmermeergemeente.nl/verkeer-vervoer-en-wegen",
+				"lang": "nl"
+			}
+		},
+		"halle_de": {
+			"contact": {
+				"url": "https://halle.de/verwaltung-stadtrat/stadtverwaltung/zentrale-ansprechpartner",
+				"lang": "de"
+			},
+			"mobility": {
+				"url": "https://halle.de/verwaltung-stadtrat/stadtverwaltung/verwaltungsorganisation/oe-information/abteilung-verkehrsplanung/396610636",
+				"lang": "de"
+			}
+		},
+		"hamburg_de": {
+			"contact": { "url": "https://www.hamburg.de/leben-in-hamburg/buergerservice", "lang": "de" },
+			"mobility": { "url": "https://www.hamburg.de/verkehr/fahrradfahren-in-hamburg", "lang": "de" }
+		},
+		"hamm_de": {
+			"contact": { "url": "https://www.hamm.de/kontakt", "lang": "de" },
+			"mobility": { "url": "https://www.hamm.de/verkehr/rad/ueberblick", "lang": "de" }
+		},
+		"hanover_de": {
+			"contact": { "url": "https://www.hannover.de/Kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.hannover.de/Leben-in-der-Region-Hannover/Verwaltungen-Kommunen/Die-Verwaltung-der-Landeshauptstadt-Hannover/Dezernate-und-Fachbereiche-der-LHH/Stadtentwicklung-und-Bauen/Fachbereich-Planen-und-Stadtentwicklung/Stadtentwicklung-und-Mobilit%C3%A4tsplanung",
+				"lang": "de"
+			}
+		},
+		"heidelberg_de": {
+			"contact": { "url": "https://www.heidelberg.de/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.heidelberg.de/HD/Leben/Fahrradfreundliches+Heidelberg.html",
+				"lang": "de"
+			}
+		},
+		"heilbronn_de": {
+			"contact": { "url": "https://www.heilbronn.de/kontakt", "lang": "de" },
+			"mobility": { "url": "https://www.heilbronn.de/umwelt-mobilitaet.html", "lang": "de" }
+		},
+		"helsinki_fi": {
+			"contact": {
+				"url": "https://www.hel.fi/fi/paatoksenteko-ja-hallinto/ota-yhteytta",
+				"lang": "fi"
+			},
+			"mobility": {
+				"url": "https://www.hel.fi/fi/kaupunkiymparisto-ja-liikenne/pyoraily",
+				"lang": "fi"
+			}
+		},
+		"herne_de": {
+			"contact": { "url": "https://www.herne.de/Technische-Seiten/Kontakt/", "lang": "de" },
+			"mobility": {
+				"url": "https://www.herne.de/Wirtschaft-und-Infrastruktur/Verkehr/Radfahren-in-Herne/",
+				"lang": "de"
+			}
+		},
+		"hildesheim_de": {
+			"contact": { "url": "https://www.stadt-hildesheim.de/portal/kontakt.html", "lang": "de" },
+			"mobility": {
+				"url": "https://www.stadt-hildesheim.de/wirtschaft-bauen/stadtplanung-und-stadtentwicklung/stadtentwicklung/radverkehr/",
+				"lang": "de"
+			}
+		},
+		"ingolstadt_de": {
+			"contact": { "url": "https://www.ingolstadt.de/kontakt", "lang": "de" },
+			"mobility": { "url": "https://www.ingolstadt.de/Rathaus/Verkehr/Radverkehr/", "lang": "de" }
+		},
+		"innsbruck_at": {
+			"contact": { "url": "https://www.innsbruck.gv.at/dienststellen", "lang": "de" },
+			"mobility": { "url": "https://www.innsbruck.gv.at/mobil/fahrrad", "lang": "de" }
+		},
+		"ivanofrankivsk_ua": { "mobility": { "url": "https://www.mvk.if.ua/trmista/", "lang": "uk" } },
+		"jena_de": {
+			"contact": { "url": "https://service.jena.de/de/kontakt-zur-stadtverwaltung", "lang": "de" },
+			"mobility": { "url": "https://mobilitaet.jena.de/de/fahrradfahren", "lang": "de" }
+		},
+		"jyvaskyla_fi": {
+			"contact": { "url": "https://www.jyvaskyla.fi/info/yhteys/yhteystiedot", "lang": "fi" },
+			"mobility": {
+				"url": "https://www.jyvaskyla.fi/kaupunkisuunnittelu/liikenne-ja-katusuunnittelu/kavely-ja-pyoraily",
+				"lang": "fi"
+			}
+		},
+		"kallithea_gr": { "contact": { "url": "https://kallithea.gr/?page_id=17289", "lang": "el" } },
+		"kamenetspodolsky_ua": { "mobility": { "url": "https://kmr.gov.ua/", "lang": "uk" } },
+		"kamyanske_ua": {
+			"contact": { "url": "https://kam.gov.ua/kontakti_miskoi_radi", "lang": "uk" },
+			"mobility": {
+				"url": "https://kam.gov.ua/viddili/upravlinnya_transportnoi_infrastrukturi_ta_zvyazku",
+				"lang": "uk"
+			}
+		},
+		"karlsruhe_de": {
+			"contact": { "url": "https://www.karlsruhe.de/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.karlsruhe.de/mobilitaet-stadtbild/mobilitaet/radverkehr",
+				"lang": "de"
+			}
+		},
+		"kassel_de": {
+			"contact": { "url": "https://www.kassel.de/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.kassel.de/buerger/verkehr_und_mobilitaet/mit-dem-fahrrad/mit-dem-fahrrad.php",
+				"lang": "de"
+			}
+		},
+		"katowice_pl": {
+			"contact": { "url": "https://katowice.eu/kontakt", "lang": "pl" },
+			"mobility": { "url": "https://mzum.katowice.pl/", "lang": "pl" }
+		},
+		"kaunas_lt": {
+			"contact": {
+				"url": "https://www.kaunas.lt/administracija/struktura-ir-kontaktine-informacija/",
+				"lang": "lt"
+			},
+			"mobility": { "url": "https://www.kaunas.lt/kvt", "lang": "lt" }
+		},
+		"kecskemet_hu": {
+			"contact": {
+				"url": "https://kecskemet.hu/varoshaza/polgarmesteri-hivatal/elerhetosegek-ugyfelszolgalat-irodak",
+				"lang": "hu"
+			},
+			"mobility": { "url": "https://ekecskemet.hu/mernoki-iroda", "lang": "hu" }
+		},
+		"kherson_ua": {
+			"contact": { "url": "https://miskrada-ks.gov.ua/kontakti/", "lang": "uk" },
+			"mobility": {
+				"url": "https://miskrada-ks.gov.ua/offis-khersoncja/transportna-merezha/",
+				"lang": "uk"
+			}
+		},
+		"khmelnitsky_ua": {
+			"mobility": {
+				"url": "https://www.khm.gov.ua/uk/vlada/vykonavchi-organy/upravlinnya-transportu-ta-zvyazku",
+				"lang": "uk"
+			}
+		},
+		"kiel_de": {
+			"contact": { "url": "https://www.kiel.de/de/_info/kontakt.php", "lang": "de" },
+			"mobility": { "url": "https://www.kiel.de/de/umwelt_verkehr/fahrrad/index.php", "lang": "de" }
+		},
+		"kielce_pl": {
+			"contact": { "url": "https://www.kielce.eu/pl/kontakt.html", "lang": "pl" },
+			"mobility": { "url": "https://www.mzd.kielce.pl/", "lang": "pl" }
+		},
+		"kingstonuponhull_gb": {
+			"contact": { "url": "https://www.hull.gov.uk/contact-us", "lang": "en" },
+			"mobility": { "url": "https://travel.hull.gov.uk/cycling", "lang": "en" }
+		},
+		"klagenfurt_at": {
+			"contact": { "url": "https://www.klagenfurt.at/stadtservice/buergerservice", "lang": "de" },
+			"mobility": {
+				"url": "https://www.klagenfurt.at/stadtservice/mobilitaet-parken/fahrradfahren-in-klagenfurt",
+				"lang": "de"
+			}
+		},
+		"klaipeda_lt": {
+			"contact": {
+				"url": "https://www.klaipeda.lt/lt/-1/struktura-ir-kontaktine-informacija/131",
+				"lang": "lt"
+			},
+			"mobility": {
+				"url": "https://www.klaipeda.lt/lt/-1/struktura-ir-kontaktine-informacija/131/transporto-skyrius/d44",
+				"lang": "lt"
+			}
+		},
+		"koblenz_de": {
+			"contact": { "url": "https://www.koblenz.de/kontakt/", "lang": "de" },
+			"mobility": {
+				"url": "https://www.koblenz.de/umwelt-und-planung/mobilitaet/radfahren-in-koblenz/",
+				"lang": "de"
+			}
+		},
+		"kosice_sk": {
+			"contact": { "url": "https://www.kosice.sk/kontakt", "lang": "sk" },
+			"mobility": { "url": "https://www.kosice.sk/mesto/doprava-v-kosiciach", "lang": "sk" }
+		},
+		"koszalin_pl": {
+			"contact": { "url": "https://www.koszalin.pl/pl/page/kontakt", "lang": "pl" },
+			"mobility": { "url": "https://zdit-koszalin.pl/", "lang": "pl" }
+		},
+		"kozani_gr": { "contact": { "url": "https://cityofkozani.gov.gr/epikoinonia", "lang": "el" } },
+		"kragujevac_rs": {
+			"contact": {
+				"url": "https://kragujevac.ls.gov.rs/tekst/264/prijava-problema-upita-i-predloga.php",
+				"lang": "sr"
+			},
+			"mobility": {
+				"url": "https://kragujevac.ls.gov.rs/tekst/2159/gu-za-komunalne-poslove.php",
+				"lang": "sr"
+			}
+		},
+		"krakow_pl": {
+			"contact": { "url": "https://www.krakow.pl/start/2708,artykul,kontakt.html", "lang": "pl" },
+			"mobility": { "url": "https://ztp.krakow.pl/rower", "lang": "en" }
+		},
+		"krefeld_de": {
+			"contact": { "url": "https://www.krefeld.de/online-kontakt", "lang": "de" },
+			"mobility": { "url": "https://www.krefeld.de/fairkehr", "lang": "de" }
+		},
+		"kropyvnytskyi_ua": {
+			"contact": { "url": "https://www.kr-rada.gov.ua/contacts-main/", "lang": "uk" },
+			"mobility": { "url": "https://kr-rada.gov.ua/upravlinnya-transportu-20220312/", "lang": "uk" }
+		},
+		"kryvyirih_ua": {
+			"mobility": {
+				"url": "https://kr.gov.ua/upravlinnya-transportu-ta-telekomunikacziyi-1",
+				"lang": "uk"
+			}
+		},
+		"kuopio_fi": {
+			"contact": { "url": "https://www.kuopio.fi/en/contact-the-city-of-kuopio/", "lang": "en" },
+			"mobility": {
+				"url": "https://www.kuopio.fi/en/environment-and-housing/transport/walking-and-cycling/",
+				"lang": "en"
+			}
+		},
+		"kyiv_ua": {
+			"contact": {
+				"url": "https://kyivcity.gov.ua/kyiv_ta_miska_vlada/kontaktna_informatsiia.html",
+				"lang": "uk"
+			},
+			"mobility": { "url": "https://dti.kyivcity.gov.ua/kontaktna-informatsiia", "lang": "uk" },
+			"orgs": [
+				{
+					"name": "U-Cycle (Kyiv Cyclists' Association)",
+					"url": "https://u-cycle.org.ua",
+					"lang": "uk"
+				}
+			]
+		},
+		"lahti_fi": {
+			"contact": { "url": "https://www.lahti.fi/yhteystiedot/", "lang": "fi" },
+			"mobility": {
+				"url": "https://www.lahti.fi/asuminen-ja-ymparisto/liikenne-ja-kadut/",
+				"lang": "fi"
+			}
+		},
+		"lausanne_ch": {
+			"contact": {
+				"url": "https://www.lausanne.ch/officiel/administration/culture-et-developpement-urbain/secretariat-municipal.html",
+				"lang": "fr"
+			},
+			"mobility": {
+				"url": "https://www.lausanne.ch/officiel/administration/finances-et-mobilite/mobilite-et-amenagements-publics.html",
+				"lang": "fr"
+			}
+		},
+		"leeuwarden_nl": {
+			"contact": { "url": "https://www.leeuwarden.nl/contact-opnemen-met/contact/", "lang": "nl" },
+			"mobility": { "url": "https://www.leeuwarden.nl/parkeren-verkeer-en-vervoer/", "lang": "nl" }
+		},
+		"lehavre_fr": {
+			"contact": { "url": "https://lehavre.fr/contact", "lang": "fr" },
+			"mobility": { "url": "https://www.lehavreseinemetropole.fr/amonservice/velo", "lang": "fr" }
+		},
+		"leicester_gb": {
+			"contact": {
+				"url": "https://www.leicester.gov.uk/contact-leicester-city-council",
+				"lang": "en"
+			},
+			"mobility": {
+				"url": "https://www.leicester.gov.uk/culture-and-sport/sports-and-leisure/cycle-leicester",
+				"lang": "en"
+			}
+		},
+		"leiden_nl": {
+			"contact": { "url": "https://gemeente.leiden.nl/contact/", "lang": "nl" },
+			"mobility": { "url": "https://gemeente.leiden.nl/projecten/fietsen/", "lang": "nl" }
+		},
+		"leipzig_de": {
+			"contact": { "url": "https://www.leipzig.de/kontakt", "lang": "de" },
+			"mobility": { "url": "https://www.leipzig.de/leben-in-leipzig/verkehr/fahrrad", "lang": "de" }
+		},
+		"lemans_fr": {
+			"contact": {
+				"url": "https://www.lemans.fr/contacter-les-services-de-la-ville-du-mans",
+				"lang": "fr"
+			},
+			"mobility": {
+				"url": "https://www.lemansmetropole.fr/mon-quotidien/deplacements-et-mobilite/les-mobilites-douces/le-velo",
+				"lang": "fr"
+			}
+		},
+		"leon_es": {
+			"contact": {
+				"url": "https://www.aytoleon.es/es/contacto/Paginas/default.aspx",
+				"lang": "es"
+			},
+			"mobility": {
+				"url": "https://aytoleon.es/es/inicio/movilidad/Paginas/default.aspx",
+				"lang": "es"
+			}
+		},
+		"leverkusen_de": {
+			"contact": { "url": "https://www.leverkusen.de/service/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.leverkusen.de/stadt-entwickeln/mobilitaet/fahrrad",
+				"lang": "de"
+			}
+		},
+		"lhospitaletdellobregat_es": {
+			"contact": { "url": "https://seuelectronica.l-h.cat/185518_1.aspx?id=1", "lang": "ca" },
+			"mobility": {
+				"url": "https://www.l-h.cat/seguretatciutadana/262625_1.aspx?id=1",
+				"lang": "ca"
+			}
+		},
+		"liberec_cz": {
+			"contact": {
+				"url": "https://www.liberec.cz/cz/mesto-samosprava/zakladni-kontaktni-udaje/",
+				"lang": "cs"
+			}
+		},
+		"liege_be": {
+			"contact": {
+				"url": "https://formulaires-e-guichet.liege.be/contact/formulaire-de-contact-ville-de-liege/",
+				"lang": "fr"
+			},
+			"mobility": {
+				"url": "https://www.liege.be/mes-services/mobilite/se-deplacer/a-velo",
+				"lang": "fr"
+			},
+			"orgs": [{ "name": "Avello", "url": "https://www.avello.org", "lang": "fr" }]
+		},
+		"lille_fr": {
+			"contact": { "url": "https://www.lille.fr/Contactez-nous", "lang": "fr" },
+			"mobility": { "url": "https://www.lillemetropole.fr/se-deplacer-velo", "lang": "fr" }
+		},
+		"limoges_fr": {
+			"contact": { "url": "https://www.limoges.fr/contacter", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.limoges-metropole.fr/services/mobilites/velos",
+				"lang": "fr"
+			}
+		},
+		"linz_at": {
+			"contact": { "url": "https://www.linz.at/kontakt.php", "lang": "de" },
+			"mobility": { "url": "https://www.linz.at/mobilitaet/3424.php", "lang": "de" }
+		},
+		"lisbon_pt": {
+			"contact": {
+				"url": "https://informacoeseservicos.lisboa.pt/contactos/contacte-nos",
+				"lang": "pt"
+			},
+			"mobility": { "url": "https://www.lisboa.pt/temas/mobilidade/entrada", "lang": "pt" }
+		},
+		"liverpool_gb": {
+			"contact": { "url": "https://liverpool.gov.uk/contact-us/", "lang": "en" },
+			"mobility": {
+				"url": "https://liverpool.gov.uk/parking-roads-and-travel/getting-around-liverpool/cycling/",
+				"lang": "en"
+			}
+		},
+		"livorno_it": {
+			"contact": {
+				"url": "https://www.comune.livorno.it/it/unita_organizzative/23774",
+				"lang": "it"
+			},
+			"mobility": {
+				"url": "https://www.comune.livorno.it/it/page/mobilita-e-trasporti",
+				"lang": "it"
+			}
+		},
+		"ljubljana_si": {
+			"contact": {
+				"url": "https://www.ljubljana.si/sl/mestna-obcina/organizacija/mestna-uprava",
+				"lang": "sl"
+			},
+			"mobility": {
+				"url": "https://www.ljubljana.si/sl/ljubljana/mobilna/hoja-in-kolesarjenje",
+				"lang": "sl"
+			}
+		},
+		"lodz_pl": {
+			"contact": { "url": "https://uml.lodz.pl/kontakt", "lang": "pl" },
+			"mobility": {
+				"url": "https://uml.lodz.pl/komunikacja-i-transport/zarzad-drog-i-transportu-bip/",
+				"lang": "pl"
+			}
+		},
+		"london_gb": {
+			"contact": { "url": "https://www.london.gov.uk/contact-us", "lang": "en" },
+			"mobility": { "url": "https://tfl.gov.uk/modes/cycling/", "lang": "en" }
+		},
+		"lubeck_de": {
+			"contact": {
+				"url": "https://www.luebeck.de/de/buergerservice/anliegenmanagement/anliegenmanagement",
+				"lang": "de"
+			},
+			"mobility": {
+				"url": "https://www.luebeck.de/de/stadtentwicklung/radverkehr/radverkehr",
+				"lang": "de"
+			}
+		},
+		"lublin_pl": { "mobility": { "url": "https://lublin.eu/lublin/komunikacja/", "lang": "pl" } },
+		"luton_gb": {
+			"contact": { "url": "https://www.luton.gov.uk/contact-us", "lang": "en" },
+			"mobility": {
+				"url": "https://www.luton.gov.uk/parking-streets-transport/travel-transport/cycling",
+				"lang": "en"
+			}
+		},
+		"lutsk_ua": {
+			"contact": { "url": "https://lutskrada.gov.ua/", "lang": "uk" },
+			"mobility": { "url": "https://transport.lutskrada.gov.ua/ua/kontakty", "lang": "uk" }
+		},
+		"luxembourg_lu": {
+			"contact": { "url": "https://www.vdl.lu/en/contact", "lang": "en" },
+			"mobility": { "url": "https://www.vdl.lu/en/getting-around/bike-or-foot", "lang": "en" }
+		},
+		"lviv_ua": {
+			"contact": { "url": "https://city-adm.lviv.ua/", "lang": "uk" },
+			"mobility": { "url": "https://city-adm.lviv.ua/portal/transport", "lang": "uk" }
+		},
+		"lyon_fr": {
+			"contact": {
+				"url": "https://www.lyon.fr/demarche/contact/nous-contacter-ou-signaler-un-probleme",
+				"lang": "fr"
+			},
+			"mobility": {
+				"url": "https://www.grandlyon.com/mes-services-au-quotidien/se-deplacer",
+				"lang": "fr"
+			}
+		},
+		"maastricht_nl": {
+			"contact": { "url": "https://www.gemeentemaastricht.nl/contact", "lang": "nl" },
+			"mobility": {
+				"url": "https://www.gemeentemaastricht.nl/parkeren-en-verkeer/actieplannen-fietsen",
+				"lang": "nl"
+			}
+		},
+		"madrid_es": {
+			"contact": { "url": "https://www.madrid.es/portales/munimadrid/contacto.html", "lang": "es" },
+			"mobility": {
+				"url": "https://www.madrid.es/portales/munimadrid/temas/MovilidadYTransporte.html",
+				"lang": "es"
+			}
+		},
+		"magdeburg_de": {
+			"contact": {
+				"url": "https://www.magdeburg.de/B%C3%BCrger-Stadt/Verwaltung-Service/Kontakt/",
+				"lang": "de"
+			},
+			"mobility": {
+				"url": "https://www.magdeburg.de/B%C3%BCrger-Stadt/Leben-in-Magdeburg/Verkehr/",
+				"lang": "de"
+			}
+		},
+		"mainz_de": {
+			"contact": {
+				"url": "https://www.mainz.de/vv/produkte/hauptamt/buerger-innen-beratung-kontaktieren",
+				"lang": "de"
+			},
+			"mobility": {
+				"url": "https://www.mainz.de/angebote-entdecken/mobiliaet-und-verkehr/fahrrad/fahrrad-portal",
+				"lang": "de"
+			}
+		},
+		"malmo_se": {
+			"contact": { "url": "https://malmo.se/Kontakta-Malmo-stad.html", "lang": "sv" },
+			"mobility": {
+				"url": "https://malmo.se/Bo-och-leva/Stadsmiljo-och-trafik/Trafik/For-dig-som-cyklar.html",
+				"lang": "sv"
+			}
+		},
+		"manchester_gb": {
+			"contact": {
+				"url": "https://www.manchester.gov.uk/people-and-communities/contact-us",
+				"lang": "en"
+			},
+			"mobility": {
+				"url": "https://www.manchester.gov.uk/roads-and-transport/active-travel/active-travel-in-manchester",
+				"lang": "en"
+			}
+		},
+		"mannheim_de": {
+			"contact": { "url": "https://www.mannheim.de/de/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.mannheim.de/de/service-bieten/verkehr/radfahren-in-mannheim",
+				"lang": "de"
+			}
+		},
+		"marbella_es": {
+			"contact": { "url": "https://www.marbella.es/contacto.html", "lang": "es" },
+			"mobility": {
+				"url": "https://ayuntamiento.marbella.es/gestion-municipal/delegaciones/movilidad.html",
+				"lang": "es"
+			}
+		},
+		"marseille_fr": {
+			"contact": { "url": "https://www.marseille.fr/contact", "lang": "fr" },
+			"mobility": { "url": "https://ampmetropole.fr/categorie/mobilite-transports/", "lang": "fr" }
+		},
+		"messina_it": {
+			"mobility": {
+				"url": "https://www.comune.messina.it/it/page/mobilita-e-trasporti-204",
+				"lang": "it"
+			}
+		},
+		"metz_fr": {
+			"contact": { "url": "https://metz.fr/demarches/contacter.php", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.eurometropolemetz.eu/vivre-habiter/se-deplacer/a-velo",
+				"lang": "fr"
+			}
+		},
+		"milan_it": {
+			"mobility": { "url": "https://www.comune.milano.it/argomenti/mobilita", "lang": "it" }
+		},
+		"miskolc_hu": {
+			"mobility": {
+				"url": "https://www.miskolc.hu/varoshaza/polgarmesteri-hivatal/szervezeti-egysegek/varosfejlesztesi-foosztaly/kozlekedesszervezo-osztaly",
+				"lang": "hu"
+			}
+		},
+		"moers_de": {
+			"contact": {
+				"url": "https://www.moers.de/rathaus-politik/fachbereiche-und-einrichtungen/buergerservice",
+				"lang": "de"
+			},
+			"mobility": {
+				"url": "https://www.moers.de/rathaus-politik/rathaus/dienstleistungen/radverkehr",
+				"lang": "de"
+			}
+		},
+		"monchengladbach_de": {
+			"contact": { "url": "https://www.moenchengladbach.de/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.moenchengladbach.de/rathaus/buergerinfo-a-z/planen-bauen-mobilitaet-umwelt-dezernat-vi/fachbereich-stadtentwicklung-und-planung-61/abteilung-kommunale-verkehrsplanung-und-mobilitaetsplanung/fuss-rad",
+				"lang": "de"
+			}
+		},
+		"montpellier_fr": {
+			"mobility": {
+				"url": "https://www.montpellier.fr/actions/competences/transports-mobilites/le-velo",
+				"lang": "fr"
+			}
+		},
+		"montreuil_fr": {
+			"contact": { "url": "https://www.montreuil.fr/la-mairie/contacts", "lang": "fr" },
+			"mobility": { "url": "https://www.est-ensemble.fr/plan-local-de-mobilite-plm", "lang": "fr" }
+		},
+		"monza_it": {
+			"mobility": {
+				"url": "https://www.comune.monza.it/it/unita_organizzative/mobilita-e-trasporti",
+				"lang": "it"
+			}
+		},
+		"mulheimanderruhr_de": {
+			"contact": { "url": "https://cms.muelheim-ruhr.de/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://cms.muelheim-ruhr.de/stadtraum/mobilitaet/mit-dem-fahrrad",
+				"lang": "de"
+			}
+		},
+		"mulhouse_fr": {
+			"contact": { "url": "https://www.mulhouse.fr/contact/", "lang": "fr" },
+			"mobility": { "url": "https://www.m2a.fr/mobilites/velo/", "lang": "fr" }
+		},
+		"munich_de": {
+			"contact": { "url": "https://stadt.muenchen.de/rathaus/kontakt.html", "lang": "de" },
+			"mobility": {
+				"url": "https://muenchenunterwegs.de/angebote/verkehrsmittel/fahrrad",
+				"lang": "de"
+			}
+		},
+		"munster_de": {
+			"contact": { "url": "https://www.stadt-muenster.de/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.stadt-muenster.de/verkehrsplanung/mit-dem-rad",
+				"lang": "de"
+			}
+		},
+		"mykolaiv_ua": {
+			"contact": { "url": "https://mkrada.gov.ua/content/kontakti.html", "lang": "uk" }
+		},
+		"namur_be": {
+			"contact": { "url": "https://www.namur.be/fr/contact", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.namur.be/fr/ma-ville/mobilite/mobilite/service-mobilite",
+				"lang": "fr"
+			},
+			"orgs": [{ "name": "Avello", "url": "https://www.avello.org", "lang": "fr" }]
+		},
+		"nancy_fr": {
+			"contact": {
+				"url": "https://demarches.nancy.fr/contactez-nous/une-autre-requete/",
+				"lang": "fr"
+			},
+			"mobility": { "url": "https://www.grandnancy.eu/se-deplacer/a-velo", "lang": "fr" }
+		},
+		"nantes_fr": {
+			"contact": {
+				"url": "https://formulaires.eservices-metropole.nantes.fr/contacts-institutionnels/contacter-nantes-ville-metropole/",
+				"lang": "fr"
+			},
+			"mobility": {
+				"url": "https://metropole.nantes.fr/mes-services-mon-quotidien/deplacement-stationnement",
+				"lang": "fr"
+			}
+		},
+		"naples_it": {
+			"contact": {
+				"url": "https://www.comune.napoli.it/amministrazione/unita_organizzativa/servizio-protocollo-urp-e-albo-pretorio/",
+				"lang": "it"
+			},
+			"mobility": {
+				"url": "https://www.comune.napoli.it/amministrazione/unita_organizzativa/servizio-mobilita-sostenibile-e-parcheggi/",
+				"lang": "it"
+			}
+		},
+		"neuss_de": {
+			"contact": { "url": "https://www.neuss.de/kontakt", "lang": "de" },
+			"mobility": { "url": "https://www.neuss.de/infos/mobilitaet", "lang": "de" }
+		},
+		"nice_fr": {
+			"contact": { "url": "https://www.nice.fr/fr/contact", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.nicecotedazur.org/services/transports-et-mobilites/velo/",
+				"lang": "fr"
+			}
+		},
+		"nijmegen_nl": {
+			"contact": { "url": "https://www.nijmegen.nl/contact", "lang": "nl" },
+			"mobility": {
+				"url": "https://www.nijmegen.nl/over-de-gemeente/plannen/toekomst-mobiliteit/",
+				"lang": "nl"
+			}
+		},
+		"nikopol_ua": { "contact": { "url": "https://nikopol-mrada.dp.gov.ua/", "lang": "uk" } },
+		"nimes_fr": {
+			"contact": { "url": "https://www.nimes.fr/nous-contacter", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.nimes.fr/mon-quotidien/deplacement-stationnement/se-deplacer/a-pied-a-velo",
+				"lang": "fr"
+			}
+		},
+		"nis_rs": {
+			"contact": { "url": "https://www.ni.rs/kontakt/", "lang": "sr" },
+			"mobility": {
+				"url": "https://www.ni.rs/gradska-uprava-za-komunalne-delatnosti-poslove-inspekcije-i-komunalne-milicije/",
+				"lang": "sr"
+			}
+		},
+		"northampton_gb": {
+			"contact": {
+				"url": "https://www.westnorthants.gov.uk/contact-or-visit-us/contact-us",
+				"lang": "en"
+			},
+			"mobility": {
+				"url": "https://www.westnorthants.gov.uk/highways-policies/highways-plans-and-strategies",
+				"lang": "en"
+			}
+		},
+		"nottingham_gb": {
+			"contact": {
+				"url": "https://www.nottinghamcity.gov.uk/your-council/contact-us",
+				"lang": "en"
+			},
+			"mobility": {
+				"url": "https://www.nottinghamcity.gov.uk/information-for-residents/transport-parking-and-streets/walking-and-cycling/",
+				"lang": "en"
+			}
+		},
+		"novisad_rs": {
+			"contact": { "url": "https://novisad.rs/kontakt", "lang": "sr" },
+			"mobility": { "url": "https://novisad.rs/docs-gu/59", "lang": "sr" }
+		},
+		"nuremberg_de": {
+			"contact": {
+				"url": "https://www.nuernberg.de/internet/stadtportal/kontakt.html",
+				"lang": "de"
+			},
+			"mobility": {
+				"url": "https://www.nuernberg.de/internet/stadtportal/radfahren.html",
+				"lang": "de"
+			}
+		},
+		"nyiregyhaza_hu": {
+			"contact": { "url": "https://www.nyiregyhaza.hu/kapcsolat", "lang": "hu" },
+			"mobility": {
+				"url": "https://varoshaza.nyiregyhaza.hu/ugyintezes/varosfejlesztesi-es-varosuezemeltetesi-osztaly",
+				"lang": "hu"
+			}
+		},
+		"oberhausen_de": {
+			"contact": { "url": "https://www.oberhausen.de/kontakt.php", "lang": "de" },
+			"mobility": {
+				"url": "https://www.oberhausen.de/de/index/rathaus/verwaltung/stadtplanung-bauen-mobilitat-umwelt/mobilitat/verkehrsplanung-undsignalwesen.php",
+				"lang": "de"
+			}
+		},
+		"odense_dk": {
+			"contact": { "url": "https://www.odense.dk/om-kommunen/kontakt-til-kommunen", "lang": "da" },
+			"mobility": {
+				"url": "https://www.odense.dk/borger/trafik-og-veje/transport/cykler",
+				"lang": "da"
+			}
+		},
+		"offenbachammain_de": {
+			"contact": { "url": "https://www.offenbach.de/service/kontakt.php", "lang": "de" },
+			"mobility": {
+				"url": "https://www.offenbach.de/buerger_innen/verkehr-mobilitaet/mit-dem-fahrrad/index.php",
+				"lang": "de"
+			}
+		},
+		"oldenburg_de": {
+			"contact": { "url": "https://serviceportal.oldenburg.de/kontakt/", "lang": "de" },
+			"mobility": {
+				"url": "https://www.oldenburg.de/startseite/stadtraum/verkehr-mobilitaet/radverkehr.html",
+				"lang": "de"
+			}
+		},
+		"olomouc_cz": { "contact": { "url": "https://www.olomouc.eu/kontakty", "lang": "cs" } },
+		"olsztyn_pl": {
+			"contact": { "url": "https://olsztyn.eu/urzad-miasta/kontakt.html" },
+			"mobility": { "url": "https://bip.zdzit.olsztyn.eu/", "lang": "pl" }
+		},
+		"opole_pl": {
+			"contact": { "url": "https://www.opole.pl/dla-mieszkanca/menu/kontakt", "lang": "pl" },
+			"mobility": { "url": "https://mzd.opole.pl/", "lang": "pl" }
+		},
+		"orleans_fr": {
+			"contact": {
+				"url": "https://www.orleans.fr/form/contacter-la-mairie-ou-la-metrop",
+				"lang": "fr"
+			},
+			"mobility": {
+				"url": "https://www.orleans-metropole.fr/actions-et-services/mobilite-et-deplacements/mobilites-actives",
+				"lang": "fr"
+			}
+		},
+		"osijek_hr": {
+			"contact": { "url": "https://www.osijek.hr/kontakt/", "lang": "hr" },
+			"mobility": {
+				"url": "https://www.osijek.hr/gradska-uprava/gradski-uredi-odjeli-i-sluzbe/upravni-odjel-za-komunalno-gospodarstvo-i-promet/",
+				"lang": "hr"
+			}
+		},
+		"oslo_no": {
+			"contact": { "url": "https://oslo.kommune.no/kontakt/", "lang": "no" },
+			"mobility": {
+				"url": "https://www.oslo.kommune.no/etater-foretak-og-ombud/bymiljoetaten/",
+				"lang": "no"
+			}
+		},
+		"osnabruck_de": {
+			"contact": { "url": "https://www.osnabrueck.de/de/kontakt/", "lang": "de" },
+			"mobility": { "url": "https://mobil.osnabrueck.de/de/kontakt/", "lang": "de" }
+		},
+		"ostrava_cz": {
+			"contact": { "url": "https://ostrava.cz/cs/urad/kontakty/kontakty", "lang": "cs" },
+			"mobility": {
+				"url": "https://ostrava.cz/cs/urad/magistrat/odbory-magistratu/odbor-dopravy",
+				"lang": "cs"
+			}
+		},
+		"oulu_fi": {
+			"contact": { "url": "https://www.ouka.fi/yhteystiedot-ja-palaute", "lang": "fi" },
+			"mobility": { "url": "https://www.ouka.fi/pyoraily", "lang": "fi" }
+		},
+		"paderborn_de": {
+			"contact": { "url": "https://www.paderborn.de/service/kontakt.php", "lang": "de" },
+			"mobility": {
+				"url": "https://www.paderborn.de/wohnen-soziales/mobilitaet/mobilitaet.php",
+				"lang": "de"
+			}
+		},
+		"padua_it": {
+			"mobility": {
+				"url": "https://www.comune.padova.it/amministrazione/settori-del-comune/settore-mobilita",
+				"lang": "it"
+			}
+		},
+		"pamplonairuna_es": {
+			"contact": { "url": "https://www.pamplona.es/contacto", "lang": "es" },
+			"mobility": {
+				"url": "https://www.pamplona.es/temas/movilidad-y-transporte/enbicicleta",
+				"lang": "es"
+			}
+		},
+		"paris_fr": {
+			"contact": { "url": "https://www.paris.fr/pages/contact-232", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.paris.fr/en/pages/a-new-cycling-plan-for-a-100-bikeable-city-28350",
+				"lang": "en"
+			}
+		},
+		"pavlograd_ua": {
+			"mobility": {
+				"url": "https://pavlogradmrada.dp.gov.ua/informaciya-pro-viddil-5",
+				"lang": "uk"
+			}
+		},
+		"pecs_hu": {
+			"contact": { "url": "https://pecs.hu/kapcsolat/", "lang": "hu" },
+			"mobility": { "url": "https://pecs.hu/kozlekedesfejlesztes/", "lang": "hu" }
+		},
+		"peristeri_gr": {
+			"contact": { "url": "https://www.peristeri.gr/epikoinonia/", "lang": "el" },
+			"mobility": { "url": "https://www.peristeri.gr/kykloforiaka/", "lang": "el" }
+		},
+		"perpignan_fr": {
+			"contact": {
+				"url": "https://www.mairie-perpignan.fr/la-municipalite/contacts",
+				"lang": "fr"
+			},
+			"mobility": {
+				"url": "https://perpignanmediterraneemetropole.fr/les-mobilites/a-pied-velo/",
+				"lang": "fr"
+			}
+		},
+		"pescara_it": {
+			"contact": {
+				"url": "https://www.comune.pescara.it/punto_contatto/ufficio-relazioni-con-il-pubblico-urp/",
+				"lang": "it"
+			},
+			"mobility": {
+				"url": "https://www.comune.pescara.it/amministrazione/unita_organizzativa/servizio-pianificazione-strategica-e-della-mobilita/",
+				"lang": "it"
+			}
+		},
+		"pforzheim_de": {
+			"contact": { "url": "https://www.pforzheim.de/kontakt.html", "lang": "de" },
+			"mobility": {
+				"url": "https://www.pforzheim.de/stadt/mobilitaet/radverkehr.html",
+				"lang": "de"
+			}
+		},
+		"pilsen_cz": {
+			"contact": { "url": "https://plzen.eu/o-meste/kontakty/pro-obcany/", "lang": "cs" }
+		},
+		"piraeus_gr": { "contact": { "url": "https://piraeus.gov.gr/ypiresion-dimou/", "lang": "el" } },
+		"plock_pl": {
+			"contact": { "url": "https://nowy.plock.eu/kontakt/", "lang": "pl" },
+			"mobility": { "url": "http://www.mzd-plock.eu/", "lang": "pl" }
+		},
+		"plovdiv_bg": { "contact": { "url": "https://www.plovdiv.bg/fmenu/contacts/", "lang": "bg" } },
+		"plymouth_gb": {
+			"contact": { "url": "https://www.plymouth.gov.uk/contact-us", "lang": "en" },
+			"mobility": {
+				"url": "https://www.plymouth.gov.uk/walking-wheeling-and-cycle-route-improvements",
+				"lang": "en"
+			}
+		},
+		"podgorica_me": {
+			"contact": { "url": "https://podgorica.me/kontakti/", "lang": "sr" },
+			"mobility": { "url": "https://podgorica.me/sekretarijat-za-saobracaj/", "lang": "sr" }
+		},
+		"poltava_ua": { "contact": { "url": "https://rada-poltava.gov.ua/ua/feedback", "lang": "uk" } },
+		"porto_pt": {
+			"contact": { "url": "https://www.cm-porto.pt/contactos/contactos-1_1", "lang": "pt" },
+			"mobility": {
+				"url": "https://mobilidade.cm-porto.pt/modos-suaves/bicicleta-e-outros-velocipedes",
+				"lang": "pt"
+			}
+		},
+		"portsmouth_gb": {
+			"contact": {
+				"url": "https://www.portsmouth.gov.uk/services/council-and-democracy/your-council/contact-us",
+				"lang": "en"
+			},
+			"mobility": {
+				"url": "https://www.portsmouth.gov.uk/services/parking-roads-and-travel/travel/cycling-around-portsmouth",
+				"lang": "en"
+			}
+		},
+		"potsdam_de": {
+			"contact": { "url": "https://www.potsdam.de/de/kontakt", "lang": "de" },
+			"mobility": { "url": "https://www.potsdam.de/de/kategorie/verkehrsentwicklung", "lang": "de" }
+		},
+		"poznan_pl": {
+			"contact": { "url": "https://www.poznan.pl/kontakt/", "lang": "pl" },
+			"mobility": { "url": "https://zdm.poznan.pl", "lang": "pl" }
+		},
+		"prague_cz": {
+			"contact": { "url": "https://praha.eu/magistrat-kontakt", "lang": "cs" },
+			"mobility": { "url": "https://praha.eu/aktivni_mobilita", "lang": "cs" }
+		},
+		"prato_it": {
+			"contact": {
+				"url": "https://www.comune.prato.it/it/amministrazione/uffici/urp/archivio61_0_120.html",
+				"lang": "it"
+			},
+			"mobility": {
+				"url": "https://www.comune.prato.it/it/amministrazione/aree-amministrative/servizio-mobilita-infrastrutture/archivio61_0_189.html",
+				"lang": "it"
+			}
+		},
+		"pristina_rs": {
+			"contact": { "url": "https://prishtinaonline.com/kontakti", "lang": "sq" },
+			"mobility": { "url": "https://prishtinaonline.com/drejtorite/mobilitet", "lang": "sq" }
+		},
+		"radom_pl": {
+			"contact": { "url": "https://www.radom.pl/kontakt/", "lang": "pl" },
+			"mobility": { "url": "https://www.mzdik.pl/", "lang": "pl" }
+		},
+		"reading_gb": {
+			"contact": { "url": "https://www.reading.gov.uk/contact-us/", "lang": "en" },
+			"mobility": {
+				"url": "https://www.reading.gov.uk/vehicles-roads-and-transport/transport-strategy/reading-transport-strategy-2040/walking-and-cycling/",
+				"lang": "en"
+			}
+		},
+		"recklinghausen_de": {
+			"contact": {
+				"url": "https://www.recklinghausen.de/Inhalte/Startseite/_Kontakt_Startseite/index.asp",
+				"lang": "de"
+			},
+			"mobility": {
+				"url": "https://www.recklinghausen.de/Inhalte/Startseite/Klima_Mobilitaet/Mobilitaet/Radfahren_in_Recklinghausen/index.asp",
+				"lang": "de"
+			}
+		},
+		"regensburg_de": {
+			"contact": { "url": "https://www.regensburg.de/rathaus/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.regensburg.de/leben/verkehr-u-mobilitaet/fahrrad",
+				"lang": "de"
+			}
+		},
+		"reims_fr": {
+			"contact": { "url": "https://www.reims.fr/reims-contact-signalement", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.reims.fr/qualite-de-vie-environnement/ecologie-urbaine/reims-a-velo",
+				"lang": "fr"
+			}
+		},
+		"remscheid_de": {
+			"contact": {
+				"url": "https://www.remscheid.de/kontaktmoeglichkeiten/kontakt.php",
+				"lang": "de"
+			},
+			"mobility": { "url": "https://www.remscheid.de/vv/oe/4/4.12.5.php", "lang": "de" }
+		},
+		"rennes_fr": {
+			"contact": { "url": "https://metropole.rennes.fr/contactez-nous/", "lang": "fr" },
+			"mobility": { "url": "https://transport.metropole.rennes.fr/velo/", "lang": "fr" }
+		},
+		"reutlingen_de": {
+			"contact": { "url": "https://www.reutlingen.de/kontakt", "lang": "de" },
+			"mobility": { "url": "https://www.reutlingen.de/reutlingen-radelt", "lang": "de" }
+		},
+		"reykjavik_is": {
+			"contact": { "url": "https://reykjavik.is/en/service-center", "lang": "en" },
+			"mobility": {
+				"url": "https://reykjavik.is/en/department-of-environment-and-planning",
+				"lang": "en"
+			}
+		},
+		"riga_lv": {
+			"contact": { "url": "https://www.riga.lv/en/contacts", "lang": "en" },
+			"mobility": { "url": "https://www.riga.lv/lv/velobraucejiem", "lang": "lv" }
+		},
+		"rijeka_hr": {
+			"contact": {
+				"url": "https://www.rijeka.hr/gradska-uprava/gradonacelnica/kontakti/",
+				"lang": "hr"
+			},
+			"mobility": {
+				"url": "https://www.rijeka.hr/gradska-uprava/upravni-odjeli/upravni-odjel-za-komunalni-sustav-gradsko-redarstvo-sigurnost-mobilnost-i-okolis/",
+				"lang": "hr"
+			}
+		},
+		"rome_it": {
+			"contact": { "url": "https://www.comune.roma.it/web/it/contatti.page", "lang": "it" },
+			"mobility": {
+				"url": "https://www.comune.roma.it/web/it/dipartimento-mobilita-sostenibile-e-trasporti-uffici-e-contatti.page",
+				"lang": "it"
+			}
+		},
+		"rostock_de": {
+			"contact": { "url": "https://rathaus.rostock.de/", "lang": "de" },
+			"mobility": {
+				"url": "https://rathaus.rostock.de/de/wirtschaft_verkehr/mobilitaet/fuss_rad/249752",
+				"lang": "de"
+			}
+		},
+		"rotterdam_nl": {
+			"contact": { "url": "https://www.rotterdam.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://www.rotterdam.nl/fietsen-in-rotterdam", "lang": "nl" }
+		},
+		"rouen_fr": {
+			"contact": { "url": "https://www.rouen.fr/fr/contact", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.metropole-rouen-normandie.fr/mon-quotidien/deplacements",
+				"lang": "fr"
+			}
+		},
+		"rudaslaska_pl": {
+			"contact": { "url": "https://www.rudaslaska.pl/urzad-miasta/kontakt", "lang": "pl" },
+			"mobility": {
+				"url": "https://www.rudaslaska.pl/urzad-miasta/wydzialy/wydzial-drog-i-mostow",
+				"lang": "pl"
+			}
+		},
+		"ruse_bg": {
+			"contact": { "url": "https://obshtinaruse.bg/kontakti", "lang": "bg" },
+			"mobility": { "url": "https://obshtinaruse.bg/transport-new", "lang": "bg" }
+		},
+		"rybnik_pl": {
+			"contact": { "url": "https://www.rybnik.eu/kontakt", "lang": "pl" },
+			"mobility": { "url": "https://zdm.rybnik.pl", "lang": "pl" }
+		},
+		"rzeszow_pl": { "contact": { "url": "http://erzeszow.pl/48-kontakt.html", "lang": "pl" } },
+		"saarbrucken_de": {
+			"contact": { "url": "https://www.saarbruecken.de/fusszeile/kontakt" },
+			"mobility": {
+				"url": "https://www.saarbruecken.de/leben_in_saarbruecken/mobilitaet/radfahren_in_saarbruecken",
+				"lang": "de"
+			}
+		},
+		"saintdenis_fr": {
+			"contact": { "url": "https://www.saintdenis.fr/contact", "lang": "fr" },
+			"mobility": { "url": "https://plainecommune.fr/projets/transports-et-mobilite", "lang": "fr" }
+		},
+		"saintetienne_fr": {
+			"contact": { "url": "https://www.saint-etienne.fr/contacter", "lang": "fr" },
+			"mobility": {
+				"url": "https://www.saint-etienne-metropole.fr/habiter-se-deplacer/deplacement-et-mobilite/en-velo",
+				"lang": "fr"
+			}
+		},
+		"salamanca_es": {
+			"contact": { "url": "https://www.aytosalamanca.es/atencion-ciudadana", "lang": "es" },
+			"mobility": { "url": "https://www.aytosalamanca.es/proteccion-ciudadana", "lang": "es" }
+		},
+		"salzburg_at": {
+			"contact": { "url": "https://www.stadt-salzburg.at/org-db/", "lang": "de" },
+			"mobility": { "url": "https://www.stadt-salzburg.at/radfahren", "lang": "de" }
+		},
+		"salzgitter_de": {
+			"contact": {
+				"url": "https://www2.salzgitter.de/rathaus/buergerservice/kontakt-oeffnungszeiten.php",
+				"lang": "de"
+			},
+			"mobility": { "url": "https://www.salzgitter.de/rathaus/fachdienste/tiefbau/", "lang": "de" }
+		},
+		"santacolomadegramenet_es": {
+			"contact": {
+				"url": "https://www.gramenet.cat/seu-electronica/suport/contacte/",
+				"lang": "ca"
+			},
+			"mobility": {
+				"url": "https://www.gramenet.cat/ajuntament/arees-municipals/medi-ambient/mobilitat/",
+				"lang": "ca"
+			}
+		},
+		"sarajevo_ba": {
+			"contact": { "url": "https://www.sarajevo.ba/bs/contact", "lang": "bs" },
+			"mobility": { "url": "https://ms.ks.gov.ba/ministarstvo/kontakti", "lang": "bs" }
+		},
+		"schaerbeek_be": {
+			"contact": { "url": "https://www.1030.be/fr/webform/nous-contacter", "lang": "fr" },
+			"mobility": { "url": "https://www.1030.be/fr/mobilite", "lang": "fr" },
+			"orgs": [
+				{ "name": "Avello", "url": "https://www.avello.org", "lang": "fr" },
+				{ "name": "Fietsersbond", "url": "https://www.fietsersbond.be", "lang": "nl" }
+			]
+		},
+		"seville_es": {
+			"orgs": [
+				{
+					"name": "A Contramano – Asamblea Ciclista de Sevilla",
+					"url": "https://www.acontramano.org",
+					"lang": "es"
+				}
+			]
+		},
+		"sheffield_gb": {
+			"contact": {
+				"url": "https://www.sheffield.gov.uk/your-city-council/contact-us",
+				"lang": "en"
+			},
+			"mobility": {
+				"url": "https://www.sheffield.gov.uk/travel-transport/cycling-city",
+				"lang": "en"
+			}
+		},
+		"shertogenbosch_nl": {
+			"contact": { "url": "https://www.s-hertogenbosch.nl/contact/", "lang": "nl" },
+			"mobility": { "url": "https://www.s-hertogenbosch.nl/duurzame-mobiliteit/", "lang": "nl" }
+		},
+		"siauliai_lt": {
+			"contact": { "url": "https://www.siauliai.lt/structure", "lang": "lt" },
+			"mobility": {
+				"url": "https://www.siauliai.lt/list/view/transportas-ir-pervezimai",
+				"lang": "lt"
+			}
+		},
+		"siegen_de": {
+			"contact": { "url": "https://www.siegen.de/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.siegen.de/leben-in-siegen/verkehr-und-mobilitaet",
+				"lang": "de"
+			}
+		},
+		"skopje_mk": {
+			"contact": { "url": "https://skopje.gov.mk/mk/kontakt/", "lang": "mk" },
+			"mobility": {
+				"url": "https://skopje.gov.mk/mk/skopje/administracija/sektor-soobrakjaj/",
+				"lang": "mk"
+			}
+		},
+		"slovyansk_ua": { "contact": { "url": "https://slv.gov.ua/feedback/", "lang": "uk" } },
+		"sofia_bg": {
+			"contact": { "url": "https://www.sofia.bg/bg/contact-us", "lang": "bg" },
+			"mobility": { "url": "https://www.sofia.bg/bikeway", "lang": "bg" }
+		},
+		"solingen_de": {
+			"contact": {
+				"url": "https://service.solingen.de/kontakt/-/egov-kontakt/dienstleistung/1279471",
+				"lang": "de"
+			},
+			"mobility": {
+				"url": "https://service.solingen.de/detail/-/vr-bis-detail/einrichtung/4966/show",
+				"lang": "de"
+			}
+		},
+		"sosnowiec_pl": {
+			"contact": {
+				"url": "https://www.sosnowiec.pl/urzad-miejski-w-sosnowcu/kontakt/",
+				"lang": "pl"
+			},
+			"mobility": {
+				"url": "https://www.sosnowiec.pl/zalatw-sprawe-w-urzedzie-miejskim/ruch-drogowy/",
+				"lang": "pl"
+			}
+		},
+		"southampton_gb": {
+			"contact": { "url": "https://www.southampton.gov.uk/contact-us/", "lang": "en" },
+			"mobility": {
+				"url": "https://www.southampton.gov.uk/travel-transport/getting-around-southampton/transport-policy/",
+				"lang": "en"
+			}
+		},
+		"split_hr": {
+			"contact": { "url": "https://split.hr/kontakt", "lang": "hr" },
+			"mobility": {
+				"url": "https://split.hr/gradska-uprava/upravna-tijela/upravni-odjel-za-promet",
+				"lang": "hr"
+			}
+		},
+		"stockholm_se": {
+			"contact": { "url": "https://start.stockholm/kontakta-oss/", "lang": "sv" },
+			"mobility": { "url": "https://trafik.stockholm/", "lang": "sv" }
+		},
+		"stokeontrent_gb": {
+			"contact": { "url": "https://www.stoke.gov.uk/contact", "lang": "en" },
+			"mobility": { "url": "https://www.stoke.gov.uk/info/20048/travel", "lang": "en" }
+		},
+		"strasbourg_fr": {
+			"contact": { "url": "https://www.strasbourg.eu/contact", "lang": "fr" },
+			"mobility": { "url": "https://www.strasbourg.eu/transports-deplacements", "lang": "fr" }
+		},
+		"stuttgart_de": {
+			"contact": { "url": "https://www.stuttgart.de/service/kontakt/", "lang": "de" },
+			"mobility": {
+				"url": "https://www.stuttgart.de/organigramm/verwaltungseinheit/abteilung-mobilitaet",
+				"lang": "de"
+			}
+		},
+		"szczecin_pl": { "contact": { "url": "https://www.szczecin.eu/kontakt", "lang": "pl" } },
+		"szeged_hu": {
+			"contact": {
+				"url": "https://www.szegedvaros.hu/polgarmesteri-hivatal-ugyfelszolgalatai",
+				"lang": "hu"
+			}
+		},
+		"tallinn_ee": {
+			"contact": { "url": "https://www.tallinn.ee/en/contacts-tallinn-city", "lang": "en" },
+			"mobility": { "url": "https://www.tallinn.ee/en/bicycle", "lang": "en" }
+		},
+		"tampere_fi": {
+			"contact": { "url": "https://www.tampere.fi/en/contact-information", "lang": "en" },
+			"mobility": {
+				"url": "https://www.tampere.fi/en/transport-streets-and-maintenance/cycling-and-walking",
+				"lang": "en"
+			}
+		},
+		"tarnow_pl": {
+			"contact": {
+				"url": "https://www.tarnow.pl/Dla-mieszkancow/Urzad-Miasta/Dane-teleadresowe",
+				"lang": "pl"
+			},
+			"mobility": { "url": "https://zdik.tarnow.pl/", "lang": "pl" }
+		},
+		"ternopil_ua": {
+			"contact": { "url": "https://ternopilcity.gov.ua/contacts/", "lang": "uk" },
+			"mobility": {
+				"url": "https://ternopilcity.gov.ua/vikonavchi-organi-radi/upravlinnya--viddili/4827.html",
+				"lang": "uk"
+			}
+		},
+		"thehague_nl": {
+			"contact": { "url": "https://www.denhaag.nl/nl/contact/", "lang": "nl" },
+			"mobility": { "url": "https://www.denhaag.nl/nl/verkeer-en-vervoer/", "lang": "nl" }
+		},
+		"thessaloniki_gr": {
+			"contact": { "url": "https://thessaloniki.gr/#epikoinonia", "lang": "el" },
+			"mobility": {
+				"url": "https://thessaloniki.gr/%ce%b8%ce%ad%ce%bb%cf%89-%ce%b1%cf%80%cf%8c-%cf%84%ce%bf%ce%bd-%ce%b4%ce%ae%ce%bc%ce%bf/%ce%bf-%ce%b4%ce%ae%ce%bc%ce%bf%cf%82/%ce%b3%ce%b5%ce%bd%ce%b9%ce%ba%ce%ae-%ce%b4%ce%b9%ce%b5%cf%8d%ce%b8%cf%85%ce%bd%cf%83%ce%b7/diefthynsi-ergon-anaplaseon-kai-syntiriseon-dimosiou-chorou/",
+				"lang": "el"
+			}
+		},
+		"tilburg_nl": {
+			"contact": { "url": "https://www.tilburg.nl/contact", "lang": "nl" },
+			"mobility": {
+				"url": "https://www.tilburg.nl/gemeente/gebiedsontwikkeling/gemeentebreed/mobiliteit/",
+				"lang": "nl"
+			}
+		},
+		"tirana_al": { "contact": { "url": "https://tirana.al/kontakt", "lang": "sq" } },
+		"torrejondeardoz_es": {
+			"contact": { "url": "https://www.ayto-torrejon.es/contacto", "lang": "es" },
+			"mobility": { "url": "https://www.ayto-torrejon.es/ciudad/transportes", "lang": "es" }
+		},
+		"torun_pl": {
+			"contact": { "url": "https://www.torun.pl/pl/kontakt", "lang": "pl" },
+			"mobility": { "url": "https://www.torun.pl/pl/miasto/utrzymanie-drog", "lang": "pl" }
+		},
+		"toulon_fr": {
+			"contact": { "url": "https://toulon.fr/nous-contacter", "lang": "fr" },
+			"mobility": {
+				"url": "https://metropoletpm.fr/nos-missions/transports-mobilite",
+				"lang": "fr"
+			}
+		},
+		"toulouse_fr": {
+			"contact": { "url": "https://metropole.toulouse.fr/nous-contacter", "lang": "fr" },
+			"mobility": {
+				"url": "https://metropole.toulouse.fr/mon-quotidien/deplacements-stationnement/se-deplacer/se-deplacer-velo",
+				"lang": "fr"
+			}
+		},
+		"tours_fr": {
+			"contact": {
+				"url": "https://formulaires.services.tours.fr/contact/contacter-la-mairie/",
+				"lang": "fr"
+			},
+			"mobility": {
+				"url": "https://www.tours.fr/page-portail-ma-mairie/services-pratiques/deplacement/",
+				"lang": "fr"
+			}
+		},
+		"trier_de": {
+			"contact": { "url": "https://www.trier.de/service/kontakt-stadtverwaltung", "lang": "de" },
+			"mobility": {
+				"url": "https://www.trier.de/leben-in-trier/verkehr-mobilitaet/radverkehr",
+				"lang": "de"
+			}
+		},
+		"turin_it": {
+			"contact": {
+				"url": "https://www.comune.torino.it/amministrazione/punto-informativo-unificato-urp-partecipazione",
+				"lang": "it"
+			},
+			"mobility": {
+				"url": "https://www.comune.torino.it/amministrazione/servizio-mobilita-esercizio-trasporto-pubblico-locale",
+				"lang": "it"
+			}
+		},
+		"turku_fi": {
+			"contact": {
+				"url": "https://www.turku.fi/en/services-and-contact-information",
+				"lang": "en"
+			},
+			"mobility": {
+				"url": "https://www.turku.fi/en/traffic-streets-and-maintenance/sustainable-urban-mobility",
+				"lang": "en"
+			}
+		},
+		"tychy_pl": {
+			"contact": { "url": "https://www.umtychy.pl/kontakt", "lang": "pl" },
+			"mobility": { "url": "https://mzuim.tychy.pl/", "lang": "pl" }
+		},
+		"ulm_de": {
+			"contact": {
+				"url": "https://www.ulm.de/sonderseiten/formulare/kontakt/kontaktformular-allgemein",
+				"lang": "de"
+			},
+			"mobility": {
+				"url": "https://www.ulm.de/leben-in-ulm/verkehr-und-mobilitaet/radverkehr",
+				"lang": "de"
+			}
+		},
+		"umea_se": {
+			"contact": { "url": "https://www.umea.se/kontakt", "lang": "sv" },
+			"mobility": {
+				"url": "https://www.umea.se/trafikochgator/cykel.4.7d7d901172bb372c5d360.html",
+				"lang": "sv"
+			}
+		},
+		"utrecht_nl": {
+			"contact": { "url": "https://www.utrecht.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://www.utrecht.nl/wonen-en-leven/verkeer/fiets/", "lang": "nl" }
+		},
+		"valencia_es": {
+			"contact": {
+				"url": "https://www.valencia.es/ca/val/atencio-ciutadana/sub-atencio-ciutadana",
+				"lang": "ca"
+			},
+			"mobility": { "url": "https://www.valencia.es/agenciabici/va", "lang": "ca" }
+		},
+		"valladolid_es": {
+			"contact": {
+				"url": "https://www.valladolid.es/es/ayuntamiento/atencion-ciudadana",
+				"lang": "es"
+			},
+			"mobility": {
+				"url": "https://www.valladolid.es/es/ciudad/movilidad-transporte",
+				"lang": "es"
+			}
+		},
+		"vantaa_fi": {
+			"contact": { "url": "https://www.vantaa.fi/en/contact-information", "lang": "en" },
+			"mobility": { "url": "https://www.vantaa.fi/fi/kadut-ja-liikenne", "lang": "en" }
+		},
+		"varna_bg": { "contact": { "url": "https://www.varna.bg/bg/105", "lang": "bg" } },
+		"vejle_dk": {
+			"contact": { "url": "https://www.vejle.dk/da/om-os/kontakt-os/", "lang": "da" },
+			"mobility": {
+				"url": "https://www.vejle.dk/da/service-og-selvbetjening/borger/trafik-og-parkering/trafik-bus-og-cykel/paa-cykel/",
+				"lang": "da"
+			}
+		},
+		"venice_it": {
+			"contact": {
+				"url": "https://www.comune.venezia.it/it/content/urp-ufficio-relazioni-con-il-pubblico",
+				"lang": "it"
+			},
+			"mobility": {
+				"url": "https://www.comune.venezia.it/it/content/sedi-contatti-e-orari-10",
+				"lang": "it"
+			}
+		},
+		"venlo_nl": {
+			"contact": { "url": "https://www.venlo.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://www.venlo.nl/fietsen", "lang": "nl" }
+		},
+		"vienna_at": {
+			"contact": { "url": "https://www.wien.gv.at/kontakt/", "lang": "de" },
+			"mobility": { "url": "https://www.wien.gv.at/verkehr/planung-radwege", "lang": "de" }
+		},
+		"villeurbanne_fr": {
+			"contact": {
+				"url": "https://www.villeurbanne.fr/annuaire/services-publics-et-equipements-municipaux",
+				"lang": "fr"
+			},
+			"mobility": {
+				"url": "https://www.villeurbanne.fr/mon-quotidien/mes-deplacements",
+				"lang": "fr"
+			}
+		},
+		"vilnius_lt": {
+			"contact": { "url": "https://vilnius.lt/struktura-ir-kontaktai", "lang": "lt" },
+			"mobility": {
+				"url": "https://judu.lt/keliaujantiems-dviraciais-ir-paspirtukai/",
+				"lang": "lt"
+			}
+		},
+		"vratsa_bg": { "contact": { "url": "https://www.vratza.bg/bg/kontakti", "lang": "bg" } },
+		"walbrzych_pl": {
+			"contact": { "url": "https://um.walbrzych.pl/pl/page/dane-kontaktowe", "lang": "pl" }
+		},
+		"warsaw_pl": {
+			"contact": { "url": "https://um.warszawa.pl/kontakt", "lang": "pl" },
+			"mobility": { "url": "https://zdm.waw.pl/", "lang": "pl" }
+		},
+		"westland_nl": {
+			"contact": { "url": "https://www.gemeentewestland.nl/contact", "lang": "nl" },
+			"mobility": {
+				"url": "https://www.gemeentewestland.nl/in-de-gemeente/verkeer-en-vervoer/fietsen-in-westland",
+				"lang": "nl"
+			}
+		},
+		"wiesbaden_de": {
+			"contact": { "url": "https://www.wiesbaden.de/service/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.wiesbaden.de/leben-wohnen/mobilitaet/radverkehr/",
+				"lang": "de"
+			}
+		},
+		"winterthur_ch": {
+			"contact": {
+				"url": "https://stadt.winterthur.ch/kontakt-und-oeffnungszeiten-der-stadtverwaltung",
+				"lang": "de"
+			},
+			"mobility": {
+				"url": "https://stadt.winterthur.ch/themen/mobilitaet/mobilitaetsplanung",
+				"lang": "de"
+			}
+		},
+		"wloclawek_pl": {
+			"contact": {
+				"url": "https://www.wloclawek.eu/strona-4709-wykaz_kontaktow_urzedu_miasta_wloclawek.html",
+				"lang": "pl"
+			}
+		},
+		"wolfsburg_de": {
+			"mobility": { "url": "https://www.wolfsburg.de/mobilitaetverkehr/radfahren", "lang": "de" }
+		},
+		"wolverhampton_gb": {
+			"contact": { "url": "https://www.wolverhampton.gov.uk/contact-us", "lang": "en" },
+			"mobility": {
+				"url": "https://www.wolverhampton.gov.uk/parking-and-roads/cycling",
+				"lang": "en"
+			}
+		},
+		"wroclaw_pl": {
+			"contact": { "url": "https://www.wroclaw.pl/nasz-wroclaw/kontakt", "lang": "pl" },
+			"mobility": {
+				"url": "https://www.wroclaw.pl/komunikacja/rowerzysci-we-wroclawiu",
+				"lang": "pl"
+			}
+		},
+		"wuppertal_de": {
+			"contact": { "url": "https://www.wuppertal.de/service/kontakt.php", "lang": "de" },
+			"mobility": {
+				"url": "https://serviceportal.wuppertal.de/suche/-/vr-bis-detail/einrichtung/2724/show",
+				"lang": "de"
+			}
+		},
+		"wurzburg_de": {
+			"contact": { "url": "https://www.wuerzburg.de/infos/kontakt", "lang": "de" },
+			"mobility": {
+				"url": "https://www.wuerzburg.de/themen/bauen-planen/tiefbau-verkehrswesen/verkplan/541072.Radverkehr.html",
+				"lang": "de"
+			}
+		},
+		"zaanstad_nl": {
+			"contact": { "url": "https://zaanstad.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://mobiliteitsplan.zaanstad.nl", "lang": "nl" }
+		},
+		"zabrze_pl": { "contact": { "url": "https://miastozabrze.pl/kontakt", "lang": "pl" } },
+		"zagreb_hr": {
+			"contact": {
+				"url": "https://www.zagreb.hr/strucna-sluzba-gradske-uprave/175263",
+				"lang": "hr"
+			},
+			"mobility": { "url": "https://zagreb.hr/sektor-za-mobilnost/194243", "lang": "hr" }
+		},
+		"zaporizhzhia_ua": {
+			"contact": { "url": "https://zp.gov.ua/contacts", "lang": "uk" },
+			"mobility": { "url": "https://zp.gov.ua/department/5714", "lang": "uk" }
+		},
+		"zaragoza_es": {
+			"contact": { "url": "https://www.zaragoza.es/sede/portal/contacto/", "lang": "es" },
+			"mobility": { "url": "https://www.zaragoza.es/sede/portal/movilidad/", "lang": "es" }
+		},
+		"zhytomyr_ua": {
+			"contact": { "url": "https://www.zt-rada.gov.ua/contacts", "lang": "uk" },
+			"mobility": { "url": "https://zt-rada.gov.ua/transportzt", "lang": "uk" }
+		},
+		"zielonagora_pl": {
+			"contact": { "url": "https://www.zielona-gora.pl/kontakt/", "lang": "pl" },
+			"mobility": {
+				"url": "https://www.zielona-gora.pl/wydzialy-i-biura/departament-zarzadzania-drogami-dz/",
+				"lang": "pl"
+			}
+		},
+		"zoetermeer_nl": {
+			"contact": { "url": "https://www.zoetermeer.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://www.zoetermeer.nl/verkeer-en-vervoer", "lang": "nl" }
+		},
+		"zurich_ch": {
+			"mobility": { "url": "https://www.stadt-zuerich.ch/de/mobilitaet/velo.html", "lang": "de" }
+		},
+		"zwolle_nl": {
+			"contact": { "url": "https://www.zwolle.nl/contact", "lang": "nl" },
+			"mobility": { "url": "https://www.zwolle.nl/fietsen", "lang": "nl" }
+		}
+	},
+	"excluded": [
+		"alchevsk_ua",
+		"baranovichi_by",
+		"berdyansk_ua",
+		"bobruisk_by",
+		"borisov_by",
+		"brest_by",
+		"donetsk_ua",
+		"gomel_by",
+		"grodno_by",
+		"horlivka_ua",
+		"kerch_ua",
+		"lida_by",
+		"luhansk_ua",
+		"makijivka_ua",
+		"mariupol_ua",
+		"melitopol_ua",
+		"minsk_by",
+		"mogilev_by",
+		"mozir_by",
+		"orsha_by",
+		"pinsk_by",
+		"sevastopol_ua",
+		"simferopol_ua",
+		"soligorsk_by",
+		"vitebsk_by",
+		"yevpatoria_ua"
+	]
+}

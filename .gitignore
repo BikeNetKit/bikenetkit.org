@@ -1,0 +1,37 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Scratch dirs the browser-driving tools write into while verifying a change — screenshots, console
+# logs, page snapshots. Regenerated on demand; safe to delete at any time.
+/.playwright-cli
+/.playwright-mcp
+
+# Moved to its own repo: github.com/BikeNetKit/docs-map-demo. Ignored so a stale local copy
+# (or a still-running Jupyter session) doesn't show up as untracked noise — safe to delete.
+/docs-map-demo
+
+# The private working-docs repo: the project brief, launch plan, todo list, the data-export
+# documents and the plan files. It has its own .git and its own remote
+# (MoritzStefaner/bikenetkit-internal, private) — nothing in it may ever be committed here.
+# Nested inside this checkout rather than beside it so its repo-relative links into www/ keep
+# resolving and both open in one editor window.
+/internal
+
+# Maintainer-only agent instructions (imports internal/AGENTS-internal.md). Gitignored on
+# purpose, which means it exists only in the checkout that created it — copy it into each new
+# worktree. See internal/AGENTS-internal.md § New worktree setup.
+/CLAUDE.local.md
+
+# Handover draft of the metrics FAQ for faq.bikenetkit.org, whose source of truth is the FAQ
+# repo (BikeNetKit/.github) once pasted there. Kept out of the tree so it cannot drift as a
+# second copy of that page; the in-app version lives in www/src/lib/data/metric-help.ts.
+/METRICS.md
+plan-*.md
+/tmp
