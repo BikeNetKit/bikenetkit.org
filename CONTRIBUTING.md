@@ -54,9 +54,22 @@ Both must be clean. CI runs both on every pull request, and `pnpm lint` fails it
 file, so run `pnpm format` first if Prettier complains. If you open the repository root in VS Code
 and install the recommended Prettier extension, files under `www/` are formatted on save with the
 project's config. The repo-root docs are left alone on purpose, because Prettier's markdown parser
-corrupts them. `pnpm test` currently runs nothing — there is no e2e suite yet, so **verify in
-the browser** and say in the PR what you checked. A clean `pnpm check` does not catch a visual or
-CSS regression.
+corrupts them.
+
+`pnpm test` runs a Playwright smoke suite (`www/tests/*.e2e.ts`). It covers every top-level route,
+each tool's default map, the degraded states and navigation, in under half a minute. It reuses a
+server that is already running, so start `pnpm dev` first and point the suite at it:
+
+```sh
+PW_BASE_URL=http://localhost:5173 pnpm test
+```
+
+Without a running server it builds the site first, which is slow. The map checks need the data, so
+set `PUBLIC_DATA_URL` in `www/.env` before running them. On a fresh machine, install the browser
+once with `pnpm exec playwright install chromium`. CI does not run the suite yet.
+
+The suite checks app state and the DOM, never pixels, so **verify in the browser** too, and say in
+the PR what you checked. Neither `pnpm check` nor `pnpm test` catches a visual or CSS regression.
 
 `pnpm build` is slow. Use the dev server unless a change genuinely cannot be verified there.
 
