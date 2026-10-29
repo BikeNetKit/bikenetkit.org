@@ -207,7 +207,7 @@
 	<div class="flex flex-col gap-4">
 		<div class="rounded-sm bg-paper-brand p-6 md:flex-1">
 			<h3 class="font-display text-lg font-bold text-brand">Learn more</h3>
-			<p class="mt-2 flex items-center gap-3 text-sm text-ink">
+			<p class="my-4 flex items-center gap-4 text-sm text-ink">
 				<BookOpen class="shrink-0 text-brand" size="20" aria-hidden="true" />
 				<span>
 					Check out the
@@ -221,7 +221,7 @@
 					>.
 				</span>
 			</p>
-			<p class="mt-3 flex items-center gap-3 text-sm text-ink">
+			<p class="my-4 flex items-center gap-4 text-sm text-ink">
 				<CirclePlay class="shrink-0 text-brand" size="20" aria-hidden="true" />
 				<span>
 					Watch our film
