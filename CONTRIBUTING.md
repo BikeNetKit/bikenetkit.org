@@ -13,7 +13,7 @@ The site is built to run for years without maintenance, which makes it an unusua
 contribute to. Changes that fit that goal are very welcome:
 
 - **Bug reports** — especially anything that renders wrongly in a browser we have not tested.
-- **Accessibility and mobile fixes.** The a11y pass is best-effort, not certified, and reports of
+- **Accessibility and mobile fixes.** The accessibility (a11y) pass is best-effort, not certified, and reports of
   real problems are more useful than an audit tool's output.
 - **Content and copy corrections**, including in the tool descriptions.
   [EDIT_CONTENT.md](EDIT_CONTENT.md) says where each piece of text lives and what a text-only change

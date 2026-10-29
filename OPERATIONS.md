@@ -78,7 +78,7 @@ takes `-- --dry-run`.
 `deploy:site -- --skip-build` uploads the existing `build/` without rebuilding.
 
 `pnpm deploy` is a pnpm builtin and is **not** any of these. The full script list is in
-[AGENTS.md](AGENTS.md) § Common commands. Refreshing the data has its own runbook:
+[AGENTS.md § Common commands](AGENTS.md#common-commands-run-from-www). Refreshing the data has its own runbook:
 [README.md](README.md#for-maintainers-updating-the-data) § For maintainers: updating the data.
 
 Every site deploy refuses to upload a build without the display font (Bespoke Sans, which is not
