@@ -81,7 +81,9 @@ function parseArgs(argv) {
 	};
 	for (let i = 0; i < argv.length; i++) {
 		const a = argv[i];
-		if (a === '--dry-run') args.dryRun = true;
+		// `pnpm update-data -- --tool x` passes the separator through.
+		if (a === '--') continue;
+		else if (a === '--dry-run') args.dryRun = true;
 		else if (a === '--force') args.force = true;
 		else if (a === '--boundaries-only') args.boundariesOnly = true;
 		else if (a === '--date') args.date = argv[++i];
