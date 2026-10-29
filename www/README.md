@@ -18,14 +18,15 @@ what the project is.
 
 ```sh
 cp .env.example .env     # required: PUBLIC_* vars are statically imported
-pnpm install
+pnpm install             # also installs the Chromium that Playwright uses
+# add the display font now; see § Fonts below
 pnpm dev
 ```
 
 Without `.env`, `pnpm build` fails with `"PUBLIC_BASEMAP_URL" is not exported by
 "$env/static/public"`. The example values are enough to build and browse; none of them is secret.
-A clean clone with them copied builds the full site in about a minute, needing no data on disk and
-no reachable data host.
+A clean clone with them copied builds the full site, needing no data on disk and no reachable data
+host. To see the bicycle networks on the maps, set `PUBLIC_DATA_URL=https://data.bikenetkit.org`.
 
 ## Fonts
 
@@ -33,11 +34,13 @@ All of the type ships in the repo **except Bespoke Sans, the display face**. Its
 ([ITF FFL](https://www.fontshare.com/licenses/itf-ffl)) permits self-hosting it for this site but
 not putting it on a publicly accessible repository, so you need your own copy: download
 `BespokeSans_Complete.zip` from <https://www.fontshare.com/fonts/bespoke-sans> and unzip into
-`static/fonts/`, where `.gitignore` keeps it out of commits. The zip's folder
-names already match the `@font-face` rules in [src/routes/layout.css](src/routes/layout.css), and
-you only need the two `.woff2` variables, `BespokeSans-BoldItalic.woff`, and `License/FFL.txt`. **Do
-not subset or convert them**, since § 02 of the licence forbids both. `pnpm fonts:check` runs on
-`dev`, `build` and `lint` and tells you exactly this when a file is missing.
+`static/fonts/`, where `.gitignore` keeps it out of commits. The zip's folder names already match
+the `@font-face` rules in [src/routes/layout.css](src/routes/layout.css), and you only need the two
+`.woff2` variables, `BespokeSans-BoldItalic.woff`, and `License/FFL.txt`. **Do not subset or
+convert them**, since § 02 of the licence forbids both. `pnpm fonts:check` runs on `dev`, `build`
+and `lint` and tells you exactly this when a file is missing. Without the font the site still
+builds, but headings fall back to a generic sans, and the deploy scripts refuse to upload such a
+build.
 
 The other families are all [SIL OFL](https://openfontlicense.org/) and are committed: Public Sans,
 IBM Plex Mono, and the Noto Sans sources under [scripts/glyph-src/](scripts/glyph-src/) that
@@ -45,26 +48,20 @@ IBM Plex Mono, and the Noto Sans sources under [scripts/glyph-src/](scripts/glyp
 
 ## Scripts
 
-| Script                      | Description                                  |
-| --------------------------- | -------------------------------------------- |
-| `pnpm dev`                  | Start Vite dev server                        |
-| `pnpm build`                | Build static site to `build/`                |
-| `pnpm preview`              | Preview the production build                 |
-| `pnpm lint`                 | Run Prettier check + ESLint                  |
-| `pnpm format`               | Apply Prettier formatting                    |
-| `pnpm test`                 | Run Playwright end-to-end tests              |
-| `pnpm check:search`         | Audit city search against typeable spellings |
-| `pnpm check:a11y`           | Accessibility: axe, aria snapshots, keyboard |
-| `pnpm pull-screenshots`     | Fetch the data host's screenshots (additive) |
-| `pnpm generate:screenshots` | Capture reference screenshots via Playwright |
-| `pnpm generate:og-cards`    | Capture the per-city Open Graph cards        |
-| `pnpm check:og-cards`       | Every listed per-city card exists on disk    |
-| `pnpm generate:gif`         | Capture the animated build-up GIF (ffmpeg)   |
-| `pnpm generate:video`       | Render one 4K build-up video (ffmpeg)        |
-| `pnpm generate:videos`      | Render the 4K videos for both target cities  |
-| `pnpm update-data`          | Sync data assets (see [scripts/](scripts/))  |
-| `pnpm basemap:build`        | Build the self-hosted basemap archive        |
-| `pnpm deploy:basemap`       | Upload the basemap archive to the server     |
+The everyday ones, all run from `www/`:
+
+| Script         | Description                                        |
+| -------------- | -------------------------------------------------- |
+| `pnpm dev`     | Start the Vite dev server                          |
+| `pnpm build`   | Build the static site to `build/` (slow)           |
+| `pnpm preview` | Serve the production build                         |
+| `pnpm lint`    | Prettier check and ESLint                          |
+| `pnpm check`   | `svelte-check`, including type checks of `.svelte` |
+| `pnpm test`    | The Playwright smoke suite                         |
+
+The full list, split into what anyone can run and what needs SSH to the server, is in
+[AGENTS.md § Common commands](../AGENTS.md#common-commands-run-from-www). How to run the smoke
+suite is in [CONTRIBUTING.md § Testing](../CONTRIBUTING.md#testing).
 
 ## No external runtime dependencies
 
@@ -106,103 +103,98 @@ Two entries the script allows are _not_ runtime dependencies, and the reasons ar
 
 ## Structure
 
-```
+```text
 src/
   app.html
+  hooks.server.ts             # build preflight against the committed data manifest
   routes/
-    +layout.svelte
-    +page.svelte                  # root showroom page
-    (app)/
-      more-tools/                 # static tools, one page, anchored sections
-      (tools)/
-        growbikenet/              # interactive viz
-    screenshot/                   # screenshot route for generators
-    og/                           # social-card routes for generators (per tool, per city)
-    animation/                    # chrome-free build-up route for the GIF and video exports
+    layout.css                # design tokens and every global style
+    +page.svelte              # landing page
+    (app)/                    # everything with the sidebar layout
+      (map)/<tool>/           # interactive maps, /<tool>/<city>/…
+      (tools)/(interactive)/  # one page per interactive tool
+      cities/                 # city index, per-city pages, coverage table
+      more-tools/             # the static tools, one page with anchored sections
+    animation/                # chrome-free build-up for the GIF and video exports
+    design/                   # design-system reference, the live companion to DESIGN.md
+    embed/                    # embeddable map per tool and city
+    legal/                    # publisher, privacy, accessibility, credits
+    og/                       # Open Graph card capture routes (per tool, per city)
+    screenshot/               # capture route for the screenshot generator
+    llms-full.txt/, sitemap.xml/
   lib/
-    components/                   # shared UI
-    data/                         # static datasets + loaders
-    map-style/                    # MapLibre style fragments
-    assets/                       # images, fonts, icons
-    colors.js
-scripts/                          # data sync + tooling
-static/                           # files served as-is
+    components/               # shared UI: ui/ primitives, map/, map-shell/, landing/, tool/, …
+    data/                     # tool catalogue (tools.json), committed manifests, loaders
+    map-style/                # MapLibre style, layers and paint
+    state/                    # shared reactive state
+    design/                   # helpers behind the /design page
+    export/                   # props for the map's SVG download
+    utils/                    # formatting, geometry and URL helpers
+    assets/                   # brand images and media
+    colors.js                 # raw hex for MapLibre paint
+scripts/                      # data import, checks, capture and deploy tooling
+static/                       # served as-is: fonts, OG cards, media
+tests/                        # Playwright smoke, accessibility and capture specs
 ```
 
 ## Animated exports
 
-`/animation/[tool]/[city]` is a chrome-free render of an ordered build-up, with no legend, HUD,
-playback bar or nav control. Two Playwright drivers step it frame by frame (each frame waits for
-MapLibre's `idle`) and hand the frames to ffmpeg; shared plumbing lives in
+`/animation/[tool]/[city]` renders an ordered build-up with no legend, HUD, playback bar or
+navigation control. Two Playwright drivers step it frame by frame, wait for MapLibre's `idle` event
+on each frame, and hand the frames to ffmpeg; their shared code is in
 [scripts/capture-common.mjs](scripts/capture-common.mjs).
 
-| Query param                   | Default  | Effect                                           |
-| ----------------------------- | -------- | ------------------------------------------------ |
-| `size`                        | `800`    | Square shorthand, sets both `width` and `height` |
-| `width`                       | `size`   | Frame width in **CSS** px                        |
-| `height`                      | `size`   | Frame height in **CSS** px                       |
-| `labels`                      | `1`      | `0` hides every basemap symbol layer             |
-| `attribution`                 | `1`      | `0` removes the MapLibre attribution control     |
-| `padding`                     | `40`     | `fitBounds` padding in CSS px                    |
-| `weight`                      | `1`      | Multiplies line widths and the seed-dot radius   |
-| `seeds`                       | `1`      | `0` hides the seed dots                          |
-| `metric` / `type` / `variant` | per tool | Which dataset to load                            |
+The route reads its options from the query string: `size` (or `width` and `height`, in CSS px,
+default 800), `padding` (CSS px, default 40), `weight` (a line-width multiplier, default 1),
+`labels=0`, `attribution=0` and `seeds=0` to hide those, and `metric` / `type` / `variant` to pick
+the dataset (default: the tool's).
 
-`pnpm generate:gif` writes an 800×800 GIF to `static/media/`. Its unchanged defaults are paris,
-betweenness / rail / default, labels on.
+`pnpm generate:gif` writes an 800×800 GIF to `static/media/`; it defaults to GrowBikeNet in
+`paris_fr`, `betweenness` / `rail` / `from_scratch`, with labels. `pnpm generate:video` writes
+3840×2160 H.264 to the gitignored `exports/`; it defaults to GrowBikeNet in `copenhagen_dk`,
+`betweenness` / `grid` / `from_bikenw`, with labels and attribution off. `pnpm generate:videos`
+renders both target cities, Copenhagen and Podgorica. The `FLAGS` and `opts` objects at the top
+of [scripts/generate-video.mjs](scripts/generate-video.mjs) and
+[scripts/generate-gif.mjs](scripts/generate-gif.mjs) list every option and its default.
 
-`pnpm generate:video` writes 3840×2160 H.264 to the gitignored `exports/`. Its defaults are
-growbikenet / copenhagen / betweenness_centrality / grid / with-bikenw, labels **off**, attribution
-**off**. `pnpm generate:videos` renders both target cities (Copenhagen and Podgorica).
-
-```
-pnpm generate:video --city podgorica
-pnpm generate:video --city podgorica --per-step --no-seeds   # one frame per build step, no seed dots
-pnpm generate:video --city paris --type rail --variant default --labels
-pnpm generate:video --codec prores --duration 30 --fps 60
-pnpm generate:video --width 960 --height 540 --scale 1 --duration 4   # fast smoke test
-```
-
-Length is `--duration` × `--fps` by default, so the frame count is independent of how many build
-steps the dataset has: Copenhagen's 1202 steps get subsampled, Podgorica's 173 get held for several
-frames each. `--per-step` overrides that with exactly one frame per step, and the run then lasts
-`steps / fps` seconds (Podgorica: 174 frames ≈ 5.8 s at 30 fps, plus the `--hold` tail).
+A video lasts `--duration` × `--fps` frames by default, so long build-ups are subsampled and short
+ones hold each step for several frames. `--per-step` renders exactly one frame per step instead.
 
 Three things to know before changing it:
 
-- Resolution comes from `--scale`, and not from a bigger viewport. MapLibre sizes line widths in CSS
-  pixels, so a 3840-wide viewport fits the same bounds ~2.3 zoom stops higher and renders the
-  network as hairlines. 1920×1080 at `deviceScaleFactor: 2` gives a true 3840×2160 backing store at
-  the designed weights. MapLibre's `maxCanvasSize` caps this at 4096²; the script refuses anything
-  larger rather than let it be silently downscaled.
-- Attribution is off in videos, and that is a licensing obligation rather than a free choice. The
-  basemap is OSM/ODbL via Protomaps. Wherever a video is published the credit has to appear, in the
-  edit, on an end card or in the description. `--attribution` puts it back in-frame.
-- Don't edit files under `www/` during a run. Both drivers reuse a running `vite dev` server, and an
-  HMR reload destroys the capture bridge mid-render. `generate-video.mjs` detects this and fails
-  with a message; `--base-url` against a `pnpm preview` build avoids it entirely.
+- **Resolution comes from `--scale`, not from a bigger viewport.** MapLibre sizes line widths in
+  CSS pixels, so a 3840-wide viewport would render the network as hairlines. 1920×1080 at
+  `deviceScaleFactor: 2` gives a true 3840×2160 at the designed weights. The script refuses
+  anything above MapLibre's 4096² `maxCanvasSize` rather than let it be silently downscaled.
+- **Attribution off is a licensing obligation, not a free choice.** The basemap is OSM/ODbL via
+  Protomaps, so wherever a video is published the credit has to appear: in the edit, on an end
+  card or in the description. `--attribution` puts it back in-frame.
+- **Don't edit files under `www/` during a run.** Both drivers reuse a running `vite dev` server,
+  and an HMR reload breaks the capture mid-render. `generate-video.mjs` detects this and fails;
+  `--base-url` against a `pnpm preview` build avoids it.
 
-## License
+## Licence
 
-The BikeNetKit code is licensed under the **GNU Affero General Public License v3.0**,
-© 2026 Moritz Stefaner ([../LICENSE](../LICENSE)). Fonts: Public Sans, IBM Plex Mono and Noto Sans
-are **SIL OFL**, bundled and committed, and their licence texts must be reproduced in the site's
-licences block. Bespoke Sans is **ITF FFL**, self-hosted, not committed, and requires no attribution;
-see [§ Fonts](#fonts) for where to get it. Map data is
-© OpenStreetMap contributors (ODbL) with Protomaps basemap tiles, credited in the map UI and in
-[DEPLOY_TILES.md](DEPLOY_TILES.md).
+The BikeNetKit code is licensed under the **GNU Affero General Public License v3.0 or later**,
+© 2026 Moritz Stefaner ([../LICENSE](../LICENSE)). Public Sans, IBM Plex Mono and Noto Sans are
+**SIL OFL** and committed with their licence notices (Noto Sans's is in
+[scripts/glyph-src/README.md](scripts/glyph-src/README.md)), and `/legal` credits the two served
+faces. Bespoke Sans is **ITF FFL**, self-hosted and not committed ([§ Fonts](#fonts)). Map data is © OpenStreetMap contributors
+(ODbL) with Protomaps basemap tiles, credited in the map and in [DEPLOY_TILES.md](DEPLOY_TILES.md).
 
 ## Related docs
 
-| Document                                 | Covers                                       |
-| ---------------------------------------- | -------------------------------------------- |
-| [DESIGN.md](DESIGN.md)                   | Visual spec and design tokens                |
-| [DATA_CONTRACT.md](DATA_CONTRACT.md)     | What the importer expects from a tool export |
-| [DEPLOY_NGINX.md](DEPLOY_NGINX.md)       | Serving the site                             |
-| [DEPLOY_TILES.md](DEPLOY_TILES.md)       | Building and serving the self-hosted basemap |
-| [DEPLOY_DATA.md](DEPLOY_DATA.md)         | The off-repo GeoJSON host                    |
-| [DEPLOY_STATS.md](DEPLOY_STATS.md)       | Cookieless visitor stats                     |
-| [../OPERATIONS.md](../OPERATIONS.md)     | Server layout, deploys, TLS, triage          |
-| [../EDIT_CONTENT.md](../EDIT_CONTENT.md) | Changing the text, without touching the data |
-| [../ADD_A_CITY.md](../ADD_A_CITY.md)     | Adding a city to the catalogue               |
-| [../ADD_A_TOOL.md](../ADD_A_TOOL.md)     | Adding a tool                                |
+| Document                                           | Covers                                       |
+| -------------------------------------------------- | -------------------------------------------- |
+| [DESIGN.md](DESIGN.md)                             | Visual spec and design tokens                |
+| [DATA_CONTRACT.md](DATA_CONTRACT.md)               | What the importer expects from a tool export |
+| [DOCS_MAP_INTEGRATION.md](DOCS_MAP_INTEGRATION.md) | Using the site's basemap in the docs site    |
+| [DEPLOY_NGINX.md](DEPLOY_NGINX.md)                 | Serving the site                             |
+| [DEPLOY_TILES.md](DEPLOY_TILES.md)                 | Building and serving the self-hosted basemap |
+| [DEPLOY_DATA.md](DEPLOY_DATA.md)                   | The off-repo GeoJSON host                    |
+| [DEPLOY_STATS.md](DEPLOY_STATS.md)                 | Cookieless visitor stats                     |
+| [../OPERATIONS.md](../OPERATIONS.md)               | Server layout, deploys, TLS, triage          |
+| [../CONTRIBUTING.md](../CONTRIBUTING.md)           | Setup, checks, tests and conventions         |
+| [../EDIT_CONTENT.md](../EDIT_CONTENT.md)           | Changing the text, without touching the data |
+| [../ADD_A_CITY.md](../ADD_A_CITY.md)               | Adding a city to the catalogue               |
+| [../ADD_A_TOOL.md](../ADD_A_TOOL.md)               | Adding a tool                                |
