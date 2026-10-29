@@ -1,8 +1,13 @@
-// Shared plumbing for the Playwright-driven exporters that step /animation/[tool]/[city]
-// frame by frame — `generate-gif.mjs` and `generate-video.mjs`.
+// Shared plumbing for the Playwright-driven exporters: `generate-gif.mjs` and `generate-video.mjs`,
+// which step /animation/[tool]/[city] frame by frame, and `generate-hero-clips.mjs` (server lookup,
+// argument parsing and `openEncoder` only).
 //
-// Both drive the same page contract, so it lives here rather than in either script: the
-// `window.__capture` bridge and the `data-*` ready flags have to stay in lockstep across them.
+// The /animation page contract lives here rather than in either script: the `window.__capture`
+// bridge and the `data-*` ready flags have to stay in lockstep across them. The /hero-clip contract
+// lives in src/lib/hero-clip/bridge.js instead, because the page imports it too.
+//
+// `openEncoder` is the ffmpeg plumbing `generate-video.mjs` still carries inline; keep the two in
+// step until that script is moved onto it.
 import { spawn } from 'node:child_process';
 import { WWW_ROOT, isPortOpen } from './server-config.mjs';
 
@@ -86,4 +91,72 @@ export async function resolveServer({ baseUrl = null, label = 'capture' } = {}) 
 		await new Promise((r) => setTimeout(r, 500));
 	}
 	return { baseURL: 'http://localhost:4174', stop: () => child.kill() };
+}
+
+/**
+ * Spawn ffmpeg reading PNG frames on stdin, with the plumbing a frame-stepping exporter needs:
+ * backpressure-aware writes, stderr captured for the error message, and a `finish()` that never
+ * rejects on its own — a frame loop that throws first must surface its own error, not ffmpeg's.
+ *
+ * @param {string[]} args  ffmpeg arguments after the input (`-i -` is supplied here)
+ * @param {{ fps: number, label?: string }} opts
+ */
+export function openEncoder(args, { fps, label = 'encode' }) {
+	const ffmpeg = spawn(
+		'ffmpeg',
+		[
+			'-y',
+			'-loglevel',
+			'error',
+			'-f',
+			'image2pipe',
+			'-framerate',
+			String(fps),
+			'-c:v',
+			'png',
+			'-i',
+			'-',
+			...args
+		],
+		{ stdio: ['pipe', 'inherit', 'pipe'] }
+	);
+
+	let stderr = '';
+	/** @type {Error | null} */
+	let error = null;
+	ffmpeg.stderr.on('data', (chunk) => (stderr += chunk));
+	// The frame loop can still be writing when ffmpeg dies; without this the EPIPE lands as an
+	// unhandled 'error' event.
+	ffmpeg.stdin.on('error', (err) => (error ??= err));
+	const closed = new Promise((resolve) => {
+		ffmpeg.on('error', (err) => {
+			error ??= err;
+			resolve(undefined);
+		});
+		ffmpeg.on('close', (code, signal) => {
+			if (code !== 0)
+				error ??= new Error(
+					`[${label}] ffmpeg exited with ${signal ? `signal ${signal}` : `code ${code}`}` +
+						(stderr.trim() ? `\n${stderr.trim()}` : '')
+				);
+			resolve(undefined);
+		});
+	});
+
+	return {
+		/** @param {Buffer} buf */
+		write: (buf) =>
+			new Promise((resolve) => {
+				if (error) return resolve(undefined);
+				if (ffmpeg.stdin.write(buf)) resolve(undefined);
+				else ffmpeg.stdin.once('drain', () => resolve(undefined));
+			}),
+		/** Close stdin and wait for ffmpeg; throws whatever went wrong on the way. */
+		finish: async () => {
+			ffmpeg.stdin.end();
+			await closed;
+			if (error) throw error;
+		},
+		abort: () => ffmpeg.kill('SIGKILL')
+	};
 }

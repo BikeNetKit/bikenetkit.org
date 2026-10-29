@@ -35,6 +35,7 @@
 		"generate:gif": "node scripts/generate-gif.mjs",
 		"generate:video": "node scripts/generate-video.mjs",
 		"generate:videos": "node scripts/generate-video.mjs --all",
+		"generate:hero-clips": "node scripts/generate-hero-clips.mjs",
 		"generate:tutorial-thumbs": "node scripts/fetch-tutorial-thumbnails.mjs",
 		"update-data": "node scripts/update-data.mjs",
 		"import:context": "node scripts/import-context-points.mjs",

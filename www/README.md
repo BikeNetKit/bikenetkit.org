@@ -167,6 +167,51 @@ Three things to know before changing it:
   and an HMR reload breaks the capture mid-render. `generate-video.mjs` detects this and fails;
   `--base-url` against a `pnpm preview` build avoids it.
 
+### Hero clips
+
+`pnpm generate:hero-clips` renders the per-city clips listed in `scripts/hero-clips.json`, for
+social media and talks. Each clip shows one city and one tool. It has the landing hero's look
+(the label-free white basemap, the existing network, the tool's layer and the pitched orbit), but
+no logo, headline, HUD or credit. Every clip runs the same 14 s at 60 fps: a 1 s fade in from
+white, a 5 s build-up, 4 s of orbit around the finished network, a 3 s tear-down in reverse, and
+a 1 s fade out to white. So the clips line up in the edit.
+
+```
+pnpm generate:hero-clips -- --base-url http://localhost:5187        # all 20 -> exports/hero-clips
+pnpm generate:hero-clips -- --only "berlin|paris"                   # regex on <tool>/<city>
+pnpm generate:hero-clips -- --fps 10 --codecs h264                  # fast framing pass
+pnpm generate:hero-clips -- --orbit-speed 6 --hold 6 --scale 2      # variations
+pnpm generate:hero-clips -- --transparent                           # no basemap, + alpha master
+pnpm generate:hero-clips -- --out-dir /Volumes/Work/hero-clips      # ~15 GB of ProRes
+```
+
+Each clip writes these files to `exports/hero-clips/`, named `NN-<tool>-<city>-<combo>`:
+
+- a ProRes 422 HQ master (`.mov`) and an H.264 MP4, both BT.709-tagged;
+- under `--transparent`, also a ProRes 4444 with alpha (`-alpha.mov`);
+- a sidecar `.json` with the city, tool and metric labels, the step count and the phase times,
+  for titles in post;
+- a `-sheet.png` contact sheet for checking the framing.
+
+Finished clips are skipped, so an interrupted run resumes; `--force` redoes them. A clip counts as
+finished only once its sidecar `.json` exists, because the sidecar is written after ffmpeg has
+closed the files. Each manifest entry can set its own `bearing`, `padding`, `weight` (a line-width
+multiplier for the tool layer only) and phase durations.
+
+Filenames start with the entry's position in the manifest. So add new clips at the end, because
+inserting one renames every clip after it. `--scale` means **supersampling** here: the output
+stays at `--width` × `--height`. In `generate:video`, the same flag scales the output resolution.
+
+- The basemap credit is not in the frame. Wherever a clip is published, "© OpenStreetMap
+  contributors" has to appear in the edit, on an end card or in the caption.
+- The script renders on the GPU (Chromium's Metal ANGLE backend), at about 0.3 s per frame, so
+  about 4.5 min per clip. `--no-gpu` falls back to SwiftShader at about 2 s per frame.
+- The page and the script talk through `window.__clip` (`frames`, `meta`, `seek`) and the
+  `data-clip-ready` / `data-clip-error` flags on `<body>`. Both import that contract from
+  `src/lib/hero-clip/bridge.js`, so change it there.
+- Pass `--base-url` explicitly. The script otherwise probes `:5173` first, which may be another
+  project's dev server. The same rule as above applies: don't edit `www/` during a run.
+
 ## Licence
 
 The BikeNetKit code is licensed under the **GNU Affero General Public License v3.0 or later**,

@@ -1,0 +1,150 @@
+[
+	{
+		"tool": "superblockify",
+		"city": "berlin_de",
+		"metric": "residential",
+		"type": "edges",
+		"variant": "default"
+	},
+	{
+		"tool": "superblockify",
+		"city": "vienna_at",
+		"metric": "residential",
+		"type": "edges",
+		"variant": "default",
+		"padding": 110
+	},
+	{
+		"tool": "superblockify",
+		"city": "barcelona_es",
+		"metric": "residential",
+		"type": "edges",
+		"variant": "default"
+	},
+	{
+		"tool": "superblockify",
+		"city": "ghent_be",
+		"metric": "residential",
+		"type": "edges",
+		"variant": "default"
+	},
+	{
+		"tool": "growbikenet",
+		"city": "prague_cz",
+		"metric": "betweenness",
+		"type": "grid",
+		"variant": "from_bikenw"
+	},
+	{
+		"tool": "growbikenet",
+		"city": "rome_it",
+		"metric": "betweenness",
+		"type": "grid",
+		"variant": "from_bikenw"
+	},
+	{
+		"tool": "growbikenet",
+		"city": "podgorica_me",
+		"metric": "betweenness",
+		"type": "grid",
+		"variant": "from_bikenw"
+	},
+	{
+		"tool": "growbikenet",
+		"city": "odessa_ua",
+		"metric": "betweenness",
+		"type": "grid",
+		"variant": "from_scratch"
+	},
+	{
+		"tool": "growbikenet",
+		"city": "kyiv_ua",
+		"metric": "betweenness",
+		"type": "grid",
+		"variant": "from_scratch"
+	},
+	{
+		"tool": "growbikenet",
+		"city": "naples_it",
+		"metric": "betweenness",
+		"type": "grid",
+		"variant": "from_scratch"
+	},
+	{
+		"tool": "linkbikenet",
+		"city": "budapest_hu",
+		"metric": "largest_closest",
+		"type": "network",
+		"variant": "default"
+	},
+	{
+		"tool": "linkbikenet",
+		"city": "dublin_ie",
+		"metric": "largest_closest",
+		"type": "network",
+		"variant": "default"
+	},
+	{
+		"tool": "linkbikenet",
+		"city": "lyon_fr",
+		"metric": "largest_closest",
+		"type": "network",
+		"variant": "default"
+	},
+	{
+		"tool": "linkbikenet",
+		"city": "tirana_al",
+		"metric": "largest_closest",
+		"type": "network",
+		"variant": "default"
+	},
+	{
+		"tool": "fixbikenet",
+		"city": "copenhagen_dk",
+		"metric": "gap",
+		"type": "network",
+		"variant": "default",
+		"weight": 2.5
+	},
+	{
+		"tool": "fixbikenet",
+		"city": "amsterdam_nl",
+		"metric": "gap",
+		"type": "network",
+		"variant": "default",
+		"padding": 180,
+		"weight": 2.5
+	},
+	{
+		"tool": "fixbikenet",
+		"city": "helsinki_fi",
+		"metric": "gap",
+		"type": "network",
+		"variant": "default",
+		"padding": 150,
+		"weight": 2.5
+	},
+	{
+		"tool": "fixbikenet",
+		"city": "antwerp_be",
+		"metric": "gap",
+		"type": "network",
+		"variant": "default",
+		"weight": 2.5
+	},
+	{
+		"tool": "fixbikenet",
+		"city": "augsburg_de",
+		"metric": "gap",
+		"type": "network",
+		"variant": "default",
+		"weight": 2.5
+	},
+	{
+		"tool": "sortbikenet",
+		"city": "paris_fr",
+		"metric": "real",
+		"type": "from_scratch",
+		"variant": "default"
+	}
+]

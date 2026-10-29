@@ -91,6 +91,7 @@ pnpm generate:og              # regenerate the per-tool Open Graph cards -> stat
 pnpm generate:gif             # animated build-up GIF -> static/media (needs ffmpeg)
 pnpm generate:video           # one 4K build-up video -> www/exports (gitignored, needs ffmpeg)
 pnpm generate:videos          # the 4K videos for Copenhagen and Podgorica
+pnpm generate:hero-clips      # 20 per-city hero clips, 1080p60 ProRes + H.264 -> www/exports/hero-clips (needs ffmpeg)
 pnpm generate:tutorial-thumbs # each tool's YouTube tutorial still -> src/lib/assets/media/tutorials (commit it)
 pnpm build:glyphs             # merge Noto Sans into the MapLibre glyph stacks in static/fonts/maplibre
 pnpm build:geo                # regenerate the landing-page land and border geometry in src/lib/data
