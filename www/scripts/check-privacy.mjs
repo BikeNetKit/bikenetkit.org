@@ -11,11 +11,9 @@
  *   2. That applies to the whole site: `bikenetkit.org`, `tiles.` and `data.`.
  *   3. Logs are kept for 14 days.
  *
- * This exists because the launch plan asserted (1) and (2) twice, in opposite directions: W11 said
- * it was applied on 2026-09-14 and — its own word — "assumed"; W3 recorded as a known gap that the
- * `anonymized` format was not defined and no vhost used it, so `data.bikenetkit.org` was logging
- * full addresses. Both cannot be true. A privacy notice is the wrong place for an assumption, so
- * the answer is now a command rather than a memory.
+ * This exists because those claims were once recorded as done while one vhost
+ * (`data.bikenetkit.org`) was still logging full addresses. A privacy notice is the wrong place for
+ * an assumption, so the answer is a command rather than a memory.
  *
  * **Read-only.** It runs `nginx -T`, reads the logrotate config, and looks at one access-log line.
  * It changes nothing. Fixing anything it finds is a deliberate, separate act — see DEPLOY_NGINX.md.
