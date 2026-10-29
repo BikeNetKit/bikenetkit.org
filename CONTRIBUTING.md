@@ -9,8 +9,8 @@ and everyone participating is expected to uphold it.
 
 ## What kind of contribution fits
 
-The site is built to run for about eight years without maintenance, which makes it an unusual
-codebase to contribute to. Changes that fit that goal are very welcome:
+The site is built to run for years without maintenance, which makes it an unusual codebase to
+contribute to. Changes that fit that goal are very welcome:
 
 - **Bug reports** — especially anything that renders wrongly in a browser we have not tested.
 - **Accessibility and mobile fixes.** The a11y pass is best-effort, not certified, and reports of
@@ -27,21 +27,22 @@ we cannot.
 
 ## Getting set up
 
+You need Node ≥ 20.12 and pnpm; `engine-strict` is on, so a wrong Node version fails immediately
+rather than mysteriously. [README.md § Quick start](README.md#quick-start) shows how to install
+both.
+
 ```sh
 git clone https://github.com/BikeNetKit/bikenetkit.org.git
 cd bikenetkit.org/www
-cp .env.example .env
-pnpm install
+cp .env.example .env   # required: PUBLIC_* variables are imported statically
+pnpm install           # also installs the Chromium that the tests use
+# add the display font (see § Fonts below), then:
 pnpm dev
 ```
 
-Copying `.env.example` is required, not a nicety: `PUBLIC_*` variables are imported statically, so
-a missing one fails the build outright rather than defaulting to empty. Nothing in the example file
-is secret.
-
-Node ≥ 20.12 and pnpm; `engine-strict` is on, so a wrong Node version fails immediately rather than
-mysteriously. [README.md](README.md) explains what you will and will not see without the data and
-the display font — both absences are quiet, and neither is a bug you need to fix.
+Nothing in the example file is secret. To see the bicycle networks on the maps, set
+`PUBLIC_DATA_URL=https://data.bikenetkit.org` in `www/.env`. Without it the maps show the basemap
+and a "Could not load" notice, which is expected and not a bug you need to fix.
 
 ## Before you open a pull request
 
@@ -50,62 +51,69 @@ pnpm lint     # prettier + eslint
 pnpm check    # svelte-check, and it does type-check .svelte files
 ```
 
-Both must be clean. CI runs both on every pull request, and `pnpm lint` fails it on any unformatted
-file, so run `pnpm format` first if Prettier complains. If you open the repository root in VS Code
-and install the recommended Prettier extension, files under `www/` are formatted on save with the
+Both must be clean. CI ([.github/workflows/lint.yml](.github/workflows/lint.yml)) runs both on
+every pull request and every push to `dev`, and `pnpm lint` fails it on any unformatted file, so
+run `pnpm format` first if Prettier complains. If you open the repository root in VS Code and
+install the recommended Prettier extension, files under `www/` are formatted on save with the
 project's config. The repo-root docs are left alone on purpose, because Prettier's markdown parser
 corrupts them.
 
+**Verify in the browser** too, and say in the PR what you checked. Neither `pnpm check` nor
+`pnpm test` catches a visual or CSS regression. `pnpm build` is slow, so use the dev server unless
+a change genuinely cannot be verified there.
+
+## Testing
+
 `pnpm test` runs a Playwright smoke suite (`www/tests/*.e2e.ts`). It covers every top-level route,
-each tool's default map, the degraded states and navigation, in under half a minute. It reuses a
-server that is already running, so start `pnpm dev` first and point the suite at it:
+each tool's default map, the degraded states and navigation, in under half a minute. It checks app
+state and the DOM, never pixels.
+
+The suite runs against whatever answers at `PW_BASE_URL`, which defaults to
+`http://localhost:4173`, the port `pnpm preview` uses. When nothing answers there, it builds the
+site and starts a preview first, which is slow. While you work, point it at the dev server instead:
 
 ```sh
-PW_BASE_URL=http://localhost:5173 pnpm test
+pnpm dev                                      # in one terminal
+PW_BASE_URL=http://localhost:5173 pnpm test   # in another
 ```
 
-Without a running server it builds the site first, which is slow. The map checks need the data, so
-set `PUBLIC_DATA_URL` in `www/.env` before running them. On a fresh machine, install the browser
-once with `pnpm exec playwright install chromium`. CI does not run the suite yet.
-
-The suite checks app state and the DOM, never pixels, so **verify in the browser** too, and say in
-the PR what you checked. Neither `pnpm check` nor `pnpm test` catches a visual or CSS regression.
-
-`pnpm build` is slow. Use the dev server unless a change genuinely cannot be verified there.
+The map checks need the data, so set `PUBLIC_DATA_URL` as above. `pnpm check:a11y` runs the
+accessibility suite (axe, aria snapshots, keyboard paths) against the same server. CI runs neither
+suite, so run them yourself before a PR that touches routes or the map. Before adding cases, read
+the two traps listed under `pnpm test` in [AGENTS.md](AGENTS.md#common-commands-run-from-www).
 
 ## Conventions
 
-- **Commits** follow [Conventional Commits](https://www.conventionalcommits.org) — `feat(map): …`,
-  `fix(cities): …`, `chore(data): …`. This differs from the org's capitalised-imperative convention;
-  the whole history here uses this form, and the scopes carry useful signal in a repo with this many
-  documentation commits.
+- **Commits** follow [Conventional Commits](https://www.conventionalcommits.org): `feat(map): …`,
+  `fix(cities): …`, `chore(data): …`. This differs from the org's capitalised-imperative
+  convention; the scopes carry useful signal in a repo with this many documentation commits.
 - **Branches** use the org form: `feature/short-description`, lowercase, hyphenated. **Open pull
-  requests against `dev`**, not `main`. `dev` is the integration branch, built onto the password-gated
-  preview host by `pnpm deploy:preview`; `main` records what is live on `bikenetkit.org` and moves only when the site is
-  published.
-- **Semantic colour tokens only** in templates — `bg-brand`, `text-ink`, `border-brand-subtle`. Raw
-  hex belongs in `src/lib/colors.js` and nowhere else. [www/DESIGN.md](www/DESIGN.md) is the spec,
-  and `/design` in the dev server renders it live.
+  requests against `dev`**, not `main`; GitHub then requests a review from the maintainers
+  ([.github/CODEOWNERS](.github/CODEOWNERS)). `dev` is the integration branch. `main` records what
+  is live on `bikenetkit.org`, and only the maintainers move it, when the site is published
+  ([OPERATIONS.md § Deploying](OPERATIONS.md#deploying)).
+- **Semantic colour tokens only** in templates: `bg-brand`, `text-ink`, `border-brand-subtle`.
+  Raw hex belongs in `src/lib/colors.js`, plus the basemap palette in
+  `src/lib/map-style/theme.js`, and nowhere else. [www/DESIGN.md](www/DESIGN.md) is the spec, and
+  `/design` in the dev server renders it live.
 - **Global styles live only in `src/routes/layout.css`.** There is no `app.css`.
 
 ## The constraint to check every change against
 
 **Nothing may load from a third-party origin at runtime.** No CDN scripts, no hosted fonts, no tile
 services, no embeds, no analytics. The site must keep working when every external service it might
-have used has changed its terms, its URLs, or disappeared.
-
-This is easy to break by accident — a component library that injects a stylesheet link, a map
-control that links out to an API. `www/README.md` § No external runtime dependencies explains how to
-check what the browser actually requests, which is the only reliable test.
+have used has changed its terms, its URLs, or disappeared. It is easy to break by accident: a
+component library that injects a stylesheet link, a map control that links out to an API.
+[www/README.md § No external runtime dependencies](www/README.md#no-external-runtime-dependencies)
+explains how to check what the browser actually requests, which is the only reliable test.
 
 ## Fonts
 
-Bespoke Sans is licensed for this site's own use and **may not be redistributed**, so it is not in
-this repository and you need your own copy. `pnpm fonts:check` runs on dev, build and lint and tells
-you where to get it if it is missing; `.gitignore` and the public-safety pre-commit hook keep it
-from being committed. Do not subset or convert the files — § 02
-of its licence forbids both. Everything else builds and runs without it; only the display face and
-`/design`'s logo generator are affected.
+Bespoke Sans, the display face, may not be redistributed, so it is not in this repository and you
+need your own copy; [www/README.md § Fonts](www/README.md#fonts) says where to get it and what not
+to do with it. `.gitignore` keeps it out of commits, and so does the optional pre-commit hook
+(`pre-commit install`, configured in [.pre-commit-config.yaml](.pre-commit-config.yaml)).
+Everything else builds and runs without it.
 
 ## Licence
 
