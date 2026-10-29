@@ -12,7 +12,8 @@ import {
 } from './label-clip.js';
 import { fonts, theme } from './theme.js';
 
-const SOURCE = 'protomaps';
+export const BASEMAP_SOURCE_ID = 'protomaps';
+const SOURCE = BASEMAP_SOURCE_ID;
 
 export const mapStyle = {
 	version: 8,

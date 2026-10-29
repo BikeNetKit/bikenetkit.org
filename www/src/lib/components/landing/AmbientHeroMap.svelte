@@ -5,6 +5,8 @@
 	import { heroAdapterFor, heroToolSlugs } from './hero-tools.js';
 	import AmbientHud from './AmbientHud.svelte';
 	import AmbientMapPane from './AmbientMapPane.svelte';
+	import { ZOOM_PULL_AMT, easeInCubic, easeOutCubic } from './hero-motion.js';
+	import { makePaneState } from './pane-state.js';
 	import { reducedMotion } from '$lib/state/motion.svelte.js';
 
 	// `paused` is the hero's own pause control (WCAG 2.2.2: anything that moves for more than five
@@ -25,46 +27,11 @@
 
 	const CROSSFADE_MS = 1200;
 	const ORBIT_DWELL_MS = 4000;
-	const ZOOM_PULL_AMT = 0.8;
 	const PUSH_MS = CROSSFADE_MS;
 	const PULL_MS = CROSSFADE_MS;
 	const FIRST_PAINT_BUDGET_MS = 6000;
 	const SWAP_PAINT_BUDGET_MS = 2500;
 	const REVEAL_HOLD_MS = CROSSFADE_MS;
-	const easeInCubic = (t) => t * t * t;
-	const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-
-	/**
-	 * @typedef {Object} PaneCombo
-	 * @property {string} tool
-	 * @property {string} city
-	 * @property {string} [metric]
-	 * @property {string} [type]
-	 * @property {string} [variant]
-	 */
-
-	/**
-	 * @typedef {Object} PaneCurrent
-	 * @property {PaneCombo} combo
-	 * @property {number} total
-	 * @property {number[]} cumulativeLengths
-	 * @property {number} baselineLength
-	 * @property {GeoJSON.FeatureCollection | null} [hulls]
-	 */
-
-	/**
-	 * @returns {{ current: PaneCurrent | null, frame: number, bearing: number, zoom: number, baseZoom: number, zoomPullOffset: number, center: [number, number], phase: string }}
-	 */
-	const makePaneState = () => ({
-		current: null,
-		frame: -1,
-		bearing: 0,
-		zoom: 5,
-		baseZoom: 5,
-		zoomPullOffset: 0,
-		center: [0, 51],
-		phase: 'idle'
-	});
 
 	let paneAState = $state(makePaneState());
 	let paneBState = $state(makePaneState());

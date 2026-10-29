@@ -24,6 +24,14 @@
 	} from '$lib/data/tool-paths';
 	import { wantsExistingNetwork } from '$lib/data/dataset-layers';
 	import { heroAdapterFor } from './hero-tools.js';
+	import {
+		BUILD_MS,
+		MAX_ZOOM_CREEP,
+		ORBIT_SPEED,
+		PITCH,
+		ZOOM_EASE_RANGE,
+		ZOOM_SPEED
+	} from './hero-motion.js';
 	import { realFromBaseline } from '$lib/data/sortbikenet';
 	import { animateValue } from '$lib/utils/animation';
 	import { waitForSourcesLoaded } from '$lib/utils/map-ready';
@@ -42,19 +50,18 @@
 		reducedMotion = false,
 		paused = false,
 		pageVisible = true,
-		onMapReady
+		onMapReady,
+		// Capture-only (/hero-clip): `basemap={false}` draws on an empty, transparent style.
+		basemap = true,
+		antialias = false,
+		// Capture-only multiplier on the tool layer's line widths — the tool layer only, so the
+		// existing network and the plan underlay keep the hero's weights.
+		lineWeight = 1,
+		// Capture-only: the caller owns the camera. The orbit loop never starts, so nothing but the
+		// caller writes bearing or zoom between its seek and its screenshot.
+		externalCamera = false
 	} = $props();
 
-	const PITCH = 50;
-	const BUILD_MS = 3000;
-	const ORBIT_SPEED = 3;
-	const ZOOM_PUSH = 0.4;
-	const ORBIT_MS = 3000;
-	const ZOOM_SPEED = ZOOM_PUSH / ((BUILD_MS + ORBIT_MS) / 1000);
-	// Ceiling on the creep above the city's fitted zoom; the last `ZOOM_EASE_RANGE` decelerates
-	// into it rather than stopping dead. A normal cycle swaps before reaching the ease.
-	const MAX_ZOOM_CREEP = 1.5;
-	const ZOOM_EASE_RANGE = 0.5;
 	// A hidden tab pauses rAF, so the first frame back would otherwise apply the whole absence.
 	const MAX_FRAME_DT = 0.1;
 
@@ -62,6 +69,14 @@
 		...mapStyle,
 		layers: mapStyle.layers.filter((l) => l.type !== 'symbol')
 	});
+	const EMPTY_STYLE = /** @type {import('maplibre-gl').StyleSpecification} */ ({
+		version: 8,
+		sources: {},
+		layers: []
+	});
+	// Read once: MapLibre takes the style at construction.
+	// svelte-ignore state_referenced_locally
+	const style = basemap ? ambientStyle : EMPTY_STYLE;
 
 	let map = $state();
 
@@ -79,7 +94,11 @@
 	);
 
 	const widthRange = $derived(
-		adapter && paneState.current ? adapter.widthRange(paneState.current.combo) : undefined
+		adapter && paneState.current
+			? /** @type {[number, number]} */ (
+					adapter.widthRange(paneState.current.combo).map((w) => w * lineWeight)
+				)
+			: undefined
 	);
 
 	// `paneState.frame` is an index into `steps`, not an `ordering` value — resolve it to the real
@@ -321,7 +340,7 @@
 		};
 	}
 
-	function makeCurrent(loaded) {
+	function makeCurrent(loaded, startBearing) {
 		const cfg = heroAdapterFor(loaded.combo.tool);
 		const built =
 			cfg.mode === 'severity'
@@ -341,18 +360,18 @@
 			cumulativeLengths: built.cumulativeLengths,
 			baselineLength: built.baselineLength,
 			total: built.steps.length,
-			startBearing: Math.random() * 360
+			startBearing
 		};
 	}
 
-	function computeCameraFor(combo, startBearing) {
+	function computeCameraFor(combo, startBearing, padding) {
 		if (!map) return null;
 		const cityBounds = cityBySlug[combo.city]?.bounds;
 		if (!cityBounds) return null;
 		const cam = map.cameraForBounds(cityBounds, {
 			pitch: reducedMotion ? 0 : PITCH,
 			bearing: reducedMotion ? 0 : startBearing,
-			padding: 40
+			padding
 		});
 		if (!cam) return null;
 		const c = cam.center;
@@ -364,9 +383,18 @@
 		};
 	}
 
+	export function getMap() {
+		return map;
+	}
+
 	export async function prepareCombo(
 		combo,
-		{ paintTimeoutMs = 6000, holdCameraDuringEntry = true } = {}
+		{
+			paintTimeoutMs = 6000,
+			holdCameraDuringEntry = true,
+			startBearing = Math.random() * 360,
+			padding = 40
+		} = {}
 	) {
 		const token = ++playToken;
 		if (!combo) return null;
@@ -375,9 +403,9 @@
 		if (!loaded) return null;
 
 		// A dataset with no ordered features has nothing to build — skip it so the caller retries.
-		const next = makeCurrent(loaded);
+		const next = makeCurrent(loaded, startBearing);
 		if (next.total === 0) return null;
-		const cam = computeCameraFor(next.combo, next.startBearing);
+		const cam = computeCameraFor(next.combo, next.startBearing, padding);
 		if (!cam) return null;
 
 		paneState.current = next;
@@ -464,7 +492,7 @@
 	}
 
 	onMount(() => {
-		orbitLoop();
+		if (!externalCamera) orbitLoop();
 		return () => {
 			cancelled = true;
 			if (orbitRaf) cancelAnimationFrame(orbitRaf);
@@ -475,7 +503,8 @@
 <MapLibre
 	class="h-full w-full"
 	autoloadGlobalCss={false}
-	style={ambientStyle}
+	{style}
+	canvasContextAttributes={{ antialias }}
 	center={[0, 51]}
 	zoom={5}
 	pitch={reducedMotion ? 0 : PITCH}
