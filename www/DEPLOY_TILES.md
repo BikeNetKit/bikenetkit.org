@@ -1,44 +1,41 @@
 # Self-hosted basemap (`tiles.bikenetkit.org`)
 
-> **Placeholders.** `<SERVER_IP>`, `<SSH_USER>`, `<STATS_PATH>` and `<STATS_USER>` stand in for
-> values deliberately kept out of this repo. Substitute your own. The maintainer's are recorded in
-> `internal/AGENTS-internal.md`, which is not published.
+> **Maintainers only — needs SSH access to the server** for § Storage volume, § Uploading,
+> § nginx, § Map style and § Self-hosted media. Building and checking the archive locally needs
+> no server access.
+
+> **Placeholders.** `<SERVER_IP>` and `<SSH_USER>` stand in for values kept out of this
+> repository; substitute your own. The maintainers (listed in
+> [.github/CODEOWNERS](../.github/CODEOWNERS)) hold the real values.
 
 The basemap is a single **PMTiles archive covering Europe plus the Atlantic archipelagos**
 (Madeira, the Canaries, the Azores), built once from a Protomaps planet build and served as a
 static file from the same server as the site. MapLibre reads it with HTTP byte ranges, so there is
 no tile server, no API key, and no third-party service in the runtime path.
 
-This matters more than it looks: the site must keep working for ~8 years with no maintenance.
-Until 2026-08, tiles came from `api.protomaps.com` behind a key baked into the build — one
-revocation or shutdown away from every map on the site going blank.
+This matters more than it looks: the site must keep working for years with no maintenance, and a
+hosted tile API would put a key, and someone else's service, between the site and every map.
 
-**Current archive:** `basemap-20260902.pmtiles`, built from
-`https://build.protomaps.com/20260902.pmtiles` (OSM data of 2026-09-02 04:00 UTC).
-
----
+The archive in service is the one `PUBLIC_BASEMAP_URL` in [.env.example](.env.example) names.
+Its filename carries the date of the Protomaps planet build it was cut from.
 
 ## Storage volume
 
-Since 2026-08-18 the tiles live on a **dedicated 100 GB OVH block volume** (`/dev/sdb1`, ext4,
-UUID `1caa633d-91cd-42d9-a874-cc29d0f2e744`), not on the root filesystem — the root fs was 81 %
-full with only ~14 GB spare. The volume is mounted at `/mnt/data`, and its `tiles/` subfolder is
-**bind-mounted** onto the canonical serving path so nothing downstream had to change:
+The tiles live on a **dedicated block volume**, not on the root filesystem, which cannot hold the
+archive. The volume is mounted at `/mnt/data`, and its `tiles/` subfolder is **bind-mounted** onto
+the serving path, so nginx `root`, `DEPLOY_TILES_PATH` (`~/bikenetkit/tiles/`) and
+`PUBLIC_BASEMAP_URL` all stay the same:
 
 ```
 # /etc/fstab
-UUID=1caa633d-91cd-42d9-a874-cc29d0f2e744  /mnt/data  ext4  defaults,nofail  0  2
+UUID=<volume UUID>  /mnt/data  ext4  defaults,nofail  0  2
 /mnt/data/tiles  /home/<SSH_USER>/bikenetkit/tiles  none  bind,nofail  0  0
 ```
 
-`nofail` on both lines keeps the server bootable if the volume ever detaches (an empty tiles dir
-→ 404s, not a boot hang). Mounting the volume at `/mnt/data` (rather than directly at the tiles
-path) leaves the rest of the disk free for other data; the bind mount means nginx `root`,
-`DEPLOY_TILES_PATH` (`~/bikenetkit/tiles/`), and `PUBLIC_BASEMAP_URL` are all **unchanged**. The
-volume was partitioned with `parted` (GPT, one partition) and formatted `mkfs.ext4`; get the UUID
-back any time with `sudo blkid /dev/sdb1`.
-
----
+`nofail` on both lines keeps the server bootable if the volume ever detaches (an empty tiles
+directory gives 404s, not a boot hang). Mounting the volume at `/mnt/data` rather than directly at
+the tiles path leaves the rest of it free for other data. Get the UUID with `sudo blkid` on the
+volume's partition.
 
 ## What the archive contains
 
@@ -49,68 +46,46 @@ back any time with `sudo blkid /dev/sdb1`.
 | Size     | ~46 GB                                                                                                                                  |
 | Content  | Protomaps' tiles verbatim — nothing re-encoded                                                                                          |
 
-**Why a region, not one bbox.** The archive used to be a single bbox (`-25,34,40,72`, "Europe plus
-near neighbours"). Funchal — at lat 32.64–32.73 — sits just south of it, so it had no basemap below
-z8 (the zoom where the tile rows covering Europe stop reaching Madeira). Of the 400+ cities in
-[src/lib/data/cities.json](src/lib/data/cities.json), Funchal was the only one outside the crop.
-Widening the bbox south to include it (down to Canaries latitude, ~27.5°) would also sweep in the
-whole North African and Levantine coast — real land data, gigabytes of it, for zero cities. A
-`MultiPolygon` region (`pmtiles extract --region=`) adds the three archipelagos as small separate
-boxes instead: **98 MB** total against the ~46 GB Europe box, negligible.
+**Why a region, not one bbox.** Every city in the catalogue has to sit inside the archive, and
+Funchal, on Madeira, lies south of the Europe box. A single bbox reaching south to the Canaries
+(~27.5°) would also sweep in the whole North African and Levantine coast: gigabytes of land data
+for no city. A `MultiPolygon` region (`pmtiles extract --region=`) adds the three archipelagos as
+small separate boxes instead, at about 100 MB against the ~46 GB Europe box.
 
-The header bounds MapLibre sees now widen to the region's union envelope
-(`-31.4,27.5,40,72`), which includes open Atlantic and North African land the archive does not
-actually contain. That's expected: a miss inside the PMTiles directory resolves to an empty tile,
-not an error — see `Protocol.tilev4` in the `pmtiles` package, which returns `new Uint8Array()` for
-a missing MVT tile.
+The header bounds MapLibre sees are the region's union envelope (`-31.4,27.5,40,72`), which
+includes open Atlantic and North African land the archive does not contain. That is expected: a
+miss inside the PMTiles directory resolves to an empty tile, not an error (see `Protocol.tilev4`
+in the `pmtiles` package, which returns `new Uint8Array()` for a missing MVT tile).
 
 **Why z15 and not 17.** Protomaps builds the planet to z15 and no deeper. `MAX_ZOOM` in
 [src/lib/map-style/render-config.js](src/lib/map-style/render-config.js) is 17; those last two
-levels are produced by MapLibre _overzooming_ z15 tiles. `api.protomaps.com` did exactly the same,
-so the self-hosted archive renders identically. Going deeper would mean running Planetiler over an
-OSM Europe extract — hundreds of GB, and detail the style does not use (its only z16+ layer is
-`address_label` at `minzoom: 18`, which never renders below `MAX_ZOOM` 17).
+levels are produced by MapLibre _overzooming_ z15 tiles. Going deeper would mean running
+Planetiler over an OSM Europe extract: hundreds of GB, and detail the style does not use (its only
+z16+ layer is `address_label` at `minzoom: 18`, which never renders below `MAX_ZOOM` 17).
 
-**Why we do not strip unused layers.** The style only reads seven `source-layer` values —
-`earth`, `landuse`, `roads`, `water`, `buildings`, `boundaries`, `places` — so dropping the rest
-(`pois` above all) with tippecanoe's `tile-join -l` looks like free savings. It is not, and the
-reasoning is worth recording because it is an easy mistake to repeat.
+**Why we do not strip unused layers.** The style reads only seven `source-layer` values (`earth`,
+`landuse`, `roads`, `water`, `buildings`, `boundaries`, `places`), so dropping the rest (`pois`
+above all) with tippecanoe's `tile-join -l` looks like free savings. It is not, and it is an easy
+mistake to repeat. A few POI-dense city-centre tiles suggest `pois` is a large share of the bytes;
+summed over every tile in a city's bounding box, stripping saves only 7–10 %. Against that,
+`tile-join`:
 
-Sampling 20 hand-picked z15 tiles suggested `pois` was **43 %** of all bytes. Summing _every_ tile
-in a bounding box instead gives the real figure:
-
-| region          | verbatim | pois stripped | saving |
-| --------------- | -------- | ------------- | ------ |
-| Amsterdam z0–15 | 30.7 MB  | 28.7 MB       | −6.6 % |
-| London z0–15    | 129.7 MB | 117.2 MB      | −9.6 % |
-
-City-centre tiles are POI-dense and unrepresentative; most tiles are not. So the real saving is
-**7–10 %**, and against that `tile-join` costs:
-
-- **~4 hours** per rebuild (vs ~20 minutes for the extract alone).
-- **The archive bounds**, which it resets to the whole world, so MapLibre would request tiles for
-  places the archive does not cover. Recoverable with `pmtiles edit --header-json`, but a trap.
-- **The PMTiles run-length encoding.** Protomaps writes tiles in Hilbert order so long runs of
-  identical ocean tiles collapse into one directory entry. `tile-join` does not preserve those
-  runs. On an Atlantic test region the directory went from 14,984 entries to 108,394 — a 7.2×
-  blow-up for the same 211,244 addressed tiles. `pmtiles cluster` cannot repair it; it reports the
+- takes **hours** per rebuild, against minutes for the extract alone;
+- resets **the archive bounds** to the whole world, so MapLibre would request tiles for places the
+  archive does not cover (recoverable with `pmtiles edit --header-json`, but a trap);
+- breaks **the PMTiles run-length encoding.** Protomaps writes tiles in Hilbert order, so long runs
+  of identical ocean tiles collapse into one directory entry. `tile-join` does not preserve those
+  runs, and the directory grows about sevenfold. `pmtiles cluster` cannot repair it; it reports the
   archive as already clustered.
 
-It is _not_ a compression problem — both archives gzip at ~41 %, and re-compressing a tile at
-level 6 or 9 reproduces the stored size to within 0.5 %.
-
 Shipping Protomaps' bytes verbatim keeps the ordering, the run-length encoding, the bounds and the
-`planetiler:*` provenance metadata, at roughly the same size. Visitors download ~9 % more at z15;
-that is the whole cost.
-
----
+`planetiler:*` provenance metadata, at roughly the same size.
 
 ## Rebuilding
 
-Needs `pmtiles` (go-pmtiles) on PATH and **~60 GB free** on `BASEMAP_WORK_DIR`. The build runs on
-an external disk (the local Mac's SanDisk), not the server: the server's root fs has only ~14 GB
-free, and even the dedicated tiles volume (~50 GB free beside the archive; see **Storage volume**)
-has no room to stage a second copy for the extract.
+Needs `pmtiles` (go-pmtiles) on `PATH` and **~60 GB free** on `BASEMAP_WORK_DIR` (a scratch disk
+named in `www/.env`, not a repo path). The build runs on a workstation, not the server, which has
+no room to stage a second copy of the archive.
 
 ```sh
 pnpm basemap:build                    # dry run: reports the size, downloads nothing
@@ -118,10 +93,9 @@ pnpm basemap:build -- --run           # extract for real
 pnpm basemap:build -- --run --date 20260902    # pin a planet build
 ```
 
-`pmtiles extract --region=scripts/basemap-region.geojson` pulls Europe plus the three Macaronesian
-archipelagos out of the 137 GB remote planet build over range requests — ~49 GB transferred, about
-20–25 minutes at 36 MB/s. (The archipelagos add ~98 MB combined; the Europe box is ~99.8 % of the
-transfer.)
+`pmtiles extract --region=scripts/basemap-region.geojson` pulls Europe plus the three archipelagos
+out of the remote planet build over range requests, so only the bytes the archive keeps cross the
+network. Expect well under an hour on a fast connection.
 
 The script ends with `pmtiles show` and `pmtiles verify`. Confirm **max zoom 15**, bounds
 `-31.4,27.5,40,72` (the region's union envelope), and `clustered: true` before uploading anything.
@@ -130,58 +104,54 @@ The script ends with `pmtiles show` and `pmtiles verify`. Confirm **max zoom 15*
 > about a week of daily builds, so a rebuild cannot reproduce the served file byte for byte. It
 > produces the same region and zoom range from a newer OSM snapshot, which is all the site needs.
 >
-> The one thing that can break is the **basemap schema version**. The served archive
-> (`basemap-20260902.pmtiles`) carries `version: 4.15.2` in its metadata, and the style in
-> `src/lib/map-style/` is written against that v4 schema. Before uploading a rebuild, check its
-> version with `pmtiles show --metadata <file>`. A minor or patch bump within v4 is safe. A new major
-> version means checking the layer and field names in `layers.js` and loading a tool page against
-> the new archive locally before swapping `PUBLIC_BASEMAP_URL`.
-
----
+> The one thing that can break is the **basemap schema version**. The style in
+> `src/lib/map-style/` is written against Protomaps' v4 schema, and the served archive carries a
+> v4 `version` in its metadata. Before uploading a rebuild, check its version with
+> `pmtiles show --metadata <file>`. A minor or patch bump within v4 is safe. A new major version
+> means checking the layer and field names in `layers.js` and loading a tool page against the new
+> archive locally before swapping `PUBLIC_BASEMAP_URL`.
 
 ## Uploading
+
+Before uploading, check `df -h /mnt/data`: during a cutover the volume holds the live archive and
+the new one side by side, so it needs **~46 GB free**.
 
 ```sh
 pnpm deploy:basemap -- --dry-run
 pnpm deploy:basemap
 ```
 
-Uploads the newest `basemap-*.pmtiles` to `DEPLOY_TILES_PATH` (`~/bikenetkit/tiles/`). Expect
-hours on a home connection; `--partial` resumes an interrupted run.
+`deploy:basemap` uploads the newest `basemap-*.pmtiles` in `BASEMAP_WORK_DIR` to
+`DEPLOY_TILES_PATH` (`~/bikenetkit/tiles/`), a sibling of the website directory
+([OPERATIONS.md](../OPERATIONS.md) § Server layout). Expect hours on a home connection. It uses
+`rsync --inplace --partial`, so an interrupted transfer resumes into the same file instead of
+staging a second copy. The filename is new, so nothing serves the file until `PUBLIC_BASEMAP_URL`
+names it, and a half-written upload is never visible.
 
-Two things to know:
+Then switch to the new archive:
 
-- The target is deliberately **not** under `~/bikenetkit/website/`. `pnpm deploy:site` syncs that
-  directory with `--delete` and would erase the archive on the next site deploy.
-- It uses `rsync --inplace` rather than the default write-temp-then-rename, because the tiles
-  volume (~50 GB free beside the current archive) cannot hold two full copies. The file is briefly
-  inconsistent mid-transfer, so re-upload during a quiet window. After launch you can reclaim
-  ~6 GB on the root fs by deleting `placeholder-website/` and `datadev/`.
-- During a cutover, the 100 GB tiles volume briefly holds **two** ~46 GB archives (old + new).
-  Check `df -h /mnt/data` before uploading; delete the superseded archive only after the new
-  `PUBLIC_BASEMAP_URL` and the published map style (see below) are both verified live.
+1. Point `PUBLIC_BASEMAP_URL` at the new filename in both `www/.env` and `www/.env.example`, so a
+   fresh checkout copied from the example gets the live archive:
 
-Then point the site at the new filename and redeploy:
+   ```sh
+   PUBLIC_BASEMAP_URL=https://tiles.bikenetkit.org/basemap-YYYYMMDD.pmtiles
+   ```
 
-```sh
-# www/.env
-PUBLIC_BASEMAP_URL=https://tiles.bikenetkit.org/basemap-20260902.pmtiles
-pnpm deploy:site
-```
+2. Run `pnpm deploy:mapstyle`. The published style embeds the archive filename, so it has to be
+   rebuilt and republished after every bump (§ Map style). Commit the regenerated
+   `static/bikenetkit-map-style.json` with the `.env.example` change.
+3. Release the site as usual ([OPERATIONS.md](../OPERATIONS.md) § Deploying).
+4. Once the site and the published style both load the new archive, delete the superseded archive
+   from `~/bikenetkit/tiles/` by hand.
 
-Update the same line in `www/.env.example`, so a fresh checkout copied from it gets the live
-archive.
-
-Filenames are date-stamped so they can be cached forever and a half-written upload can never be
-served under the live name. Delete the superseded archive by hand once the new one is verified.
-
----
+Filenames are date-stamped, so they can be cached forever and a half-written upload can never be
+served under the live name.
 
 ## nginx
 
 Lives at `/etc/nginx/sites-available/bikenetkit-tiles`, symlinked into `sites-enabled/`. The site
-vhost is `server_name _` on `default_server`, and nginx prefers an exact `server_name` match, so
-the two coexist with no change to the site config.
+vhost names only `bikenetkit.org` and `www.bikenetkit.org`, so nginx routes requests for
+`tiles.bikenetkit.org` here by its exact `server_name`, with no change to the site config.
 
 ```nginx
 server {
@@ -197,8 +167,9 @@ server {
 
     # Truncate the client IP before it is logged, like the site vhost. The format is defined in
     # conf.d/anonymized-log.conf — see DEPLOY_NGINX.md; the privacy notice at /legal#privacy says
-    # no full address is stored anywhere, and that has to hold on this host too.
-    access_log /var/log/nginx/access.log anonymized;
+    # no full address is stored anywhere, and that has to hold on this host too. A log of its own,
+    # so tile range requests never count as page views (DEPLOY_STATS.md).
+    access_log /var/log/nginx/tiles.access.log anonymized;
 
     location ~ \.pmtiles$ {
         include snippets/bikenetkit-security.conf;
@@ -233,13 +204,22 @@ server {
         try_files $uri =404;
     }
 
-    # Glyph PDFs (label fonts) for the same consumers. Stable content, so a long cache. CORS `*` so
+    # Glyph PBFs (label fonts) for the same consumers. Stable content, so a long cache. CORS `*` so
     # a cross-origin MapLibre may fetch them (same-origin site loads need no header, but it is
     # harmless). Already gzipped-ish protobuf; leave nginx gzip off to keep ranges clean.
     location /fonts/ {
         include snippets/bikenetkit-security.conf;
         gzip off;
         default_type application/x-protobuf;
+        add_header Access-Control-Allow-Origin "*" always;
+        add_header Cache-Control "public, max-age=2592000" always;
+        try_files $uri =404;
+    }
+
+    # Self-hosted intro video (§ Self-hosted media). Range requests for scrubbing; long cache,
+    # since the filename is stable.
+    location /media/ {
+        include snippets/bikenetkit-security.conf;
         add_header Access-Control-Allow-Origin "*" always;
         add_header Cache-Control "public, max-age=2592000" always;
         try_files $uri =404;
@@ -252,44 +232,41 @@ server {
 ```sh
 sudo ln -sf /etc/nginx/sites-available/bikenetkit-tiles /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
-```
-
-TLS, once the DNS A record for `tiles.bikenetkit.org` points at `<SERVER_IP>`:
-
-```sh
 sudo certbot --nginx -d tiles.bikenetkit.org
 sudo certbot renew --dry-run
 ```
 
----
+`tiles.bikenetkit.org` resolves through the zone's wildcard record
+([DEPLOY_NGINX.md](DEPLOY_NGINX.md) § DNS), so certbot can issue the certificate as soon as this
+vhost answers on port 80.
 
 ## Map style + glyphs for external consumers
 
 The interactive maps on `bikenetkit.org` build their MapLibre style in
 [src/lib/map-style/style.js](src/lib/map-style/style.js), which imports `$env/static/public` and
-registers the `pmtiles://` protocol — neither of which a non-SvelteKit consumer (the docs site, a
+registers the `pmtiles://` protocol, neither of which a non-SvelteKit consumer (the docs site, a
 notebook, a partner) can run. So the style is also **published as one self-contained JSON on the
 tiles host**, next to the PMTiles archive it already depends on. This is what lets
-`docs.bikenetkit.org` render the exact same basemap — see
+`docs.bikenetkit.org` render the exact same basemap; see
 [DOCS_MAP_INTEGRATION.md](DOCS_MAP_INTEGRATION.md).
 
-Why the tiles host and not `bikenetkit.org`: `tiles.bikenetkit.org` is live and CORS-open
-independently of the website deploy, which serves the full site only at launch (before then it is a
-placeholder). A consumer must not lean on `bikenetkit.org` for the style or glyphs until then.
+The tiles host rather than `bikenetkit.org`, because it is CORS-open and independent of the
+website deploys, and every consumer depends on it for the archive anyway.
 
 ```sh
 pnpm deploy:mapstyle -- --dry-run
 pnpm deploy:mapstyle         # rebuilds the style, then rsyncs it + static/fonts/maplibre/ to ~/bikenetkit/tiles/
 ```
 
-`deploy:mapstyle` runs `build:mapstyle` first, so it can never ship a style that has drifted from the
-current `layers.js` / `theme.js` — a module change shows up as a dirty `static/bikenetkit-map-style.json`
-to commit. (Run `pnpm build:mapstyle` alone to just regenerate the committed file.) `build:mapstyle`
-writes glyph URLs absolute to the tiles origin by default (derived from `PUBLIC_BASEMAP_URL`), so the
-published file is self-contained; `--relative-glyphs` emits a root-relative path for a consumer that
-vendors the glyphs instead. The style also embeds the dated `basemap-*.pmtiles` filename, so redeploy
-after a basemap archive bump too. The nginx `location`s above (`/bikenetkit-map-style.json` and
-`/fonts/`) serve them with `Access-Control-Allow-Origin: *`.
+`deploy:mapstyle` runs `build:mapstyle` first, so it can never ship a style that has drifted from
+the current `layers.js` / `theme.js`; a module change shows up as a modified
+`static/bikenetkit-map-style.json` to commit. (Run `pnpm build:mapstyle` alone to just regenerate
+the committed file.) `build:mapstyle` writes glyph URLs absolute to the tiles origin by default
+(derived from `PUBLIC_BASEMAP_URL`), so the published file is self-contained; `--relative-glyphs`
+emits a root-relative path for a consumer that vendors the glyphs instead. The style also embeds
+the dated `basemap-*.pmtiles` filename, so redeploy it after every archive bump (§ Uploading). The
+nginx `location`s above (`/bikenetkit-map-style.json` and `/fonts/`) serve both with
+`Access-Control-Allow-Origin: *`.
 
 Verify cross-origin reachability:
 
@@ -299,71 +276,10 @@ curl -sI https://tiles.bikenetkit.org/fonts/maplibre/Public%20Sans%20Regular/0-2
 # expect: 200, Access-Control-Allow-Origin: *
 ```
 
----
-
-## Self-hosted media (intro video)
-
-The color-graded intro video is served the same self-hosted way as the tiles — a static MP4 under
-the tiles vhost — so no third-party player (YouTube/Vimeo) sits in the runtime path. The landing
-page reads its URL from `PUBLIC_VIDEO_URL`; when that is unset the page falls back to a poster
-placeholder, so the site still builds without the asset.
-
-Of the intro video, **only the WebVTT captions are committed** (`www/static/media/bikenetkit-intro.en.vtt`, a few KB,
-same-origin with the page). The MP4 is large and lives outside the repo, in the gitignored working
-dir `../../05_dev_data/media/`.
-
-**Encode** the editor's delivery to a web-delivery MP4 (H.264 High, ~1080p, faststart for
-progressive streaming, keep audio):
-
-```sh
-# 1080p (default rendition)
-ffmpeg -i BikeNetKit_version_2_colorgraded.mp4 \
-  -c:v libx264 -profile:v high -crf 20 -preset slow -vf "scale=-2:1080" \
-  -c:a aac -b:a 128k -movflags +faststart \
-  bikenetkit-intro.mp4
-# ~130 MB source → ~46 MB. Drop to -crf 18 if the accepted moiré around 1:20 visibly worsens.
-
-# 720p (served to narrow viewports)
-ffmpeg -i BikeNetKit_version_2_colorgraded.mp4 \
-  -c:v libx264 -profile:v high -crf 21 -preset slow -vf "scale=-2:720" \
-  -c:a aac -b:a 128k -movflags +faststart \
-  bikenetkit-intro-720p.mp4
-# ~17 MB.
-```
-
-The landing page picks the rendition by viewport with `matchMedia('(max-width: 767px)')` (see
-`ProblemSolutionExplainer.svelte`): the 720p file is derived from `PUBLIC_VIDEO_URL` by swapping
-`.mp4` → `-720p.mp4`, so both must sit in the same media dir. `pnpm deploy:media` uploads both.
-
-**Convert** the delivered SRT to WebVTT (native `<track>` only reads VTT): prepend a `WEBVTT`
-header and change `,` to `.` in the timestamps (`ffmpeg -i subs.srt bikenetkit-intro.en.vtt` also
-works).
-
-**Upload** the MP4 to `DEPLOY_MEDIA_PATH` (`~/bikenetkit/tiles/media/`, under the tiles dir so
-`deploy:site --delete` never touches it):
-
-```sh
-pnpm deploy:media -- --dry-run
-pnpm deploy:media
-# then confirm PUBLIC_VIDEO_URL resolves:
-#   https://tiles.bikenetkit.org/media/bikenetkit-intro.mp4
-```
-
-Add a `/media/` location to the tiles vhost (range requests for scrubbing; long cache, filename is
-stable):
-
-```nginx
-    location /media/ {
-        include snippets/bikenetkit-security.conf;
-        add_header Access-Control-Allow-Origin "*" always;
-        add_header Cache-Control "public, max-age=2592000" always;
-        try_files $uri =404;
-    }
-```
-
 ## Verifying
 
-**The archive**, before it goes anywhere:
+**The archive**, before it goes anywhere (`basemap-YYYYMMDD.pmtiles` is the file
+`pnpm basemap:build` wrote):
 
 ```sh
 # expect max zoom 15, clustered: true, and the planetiler:* metadata intact. Bounds read back as
@@ -371,45 +287,90 @@ stable):
 # `pmtiles extract` rounds out to whole tiles. Neither means a bad build.
 # The archive is Protomaps' output verbatim, so every source-layer is present —
 # `pois` included. That is correct; see "Why we do not strip unused layers" above.
-pmtiles show   "$BASEMAP_WORK_DIR/basemap-20260902.pmtiles"
-pmtiles verify "$BASEMAP_WORK_DIR/basemap-20260902.pmtiles"
+pmtiles show   "$BASEMAP_WORK_DIR/basemap-YYYYMMDD.pmtiles"
+pmtiles verify "$BASEMAP_WORK_DIR/basemap-YYYYMMDD.pmtiles"
 ```
 
-**Visually**, without uploading anything — serve the work dir locally and point the app at it:
+**Visually**, without uploading anything: serve the work directory locally and point the app at
+it.
 
 ```sh
 npx --yes http-server "$BASEMAP_WORK_DIR" -p 8081 --cors   # serves byte ranges
-# www/.env: PUBLIC_BASEMAP_URL=http://localhost:8081/basemap-20260902.pmtiles
+# www/.env: PUBLIC_BASEMAP_URL=http://localhost:8081/basemap-YYYYMMDD.pmtiles
 pnpm dev
 ```
 
-Check an interactive algorithm page, `/design`, and the landing page — those cover all four map
-components (`Map`, `MapStatic`, `MapSuperblocks`, `AmbientMapPane`). Zoom to 17 in a city centre
-and confirm buildings, minor roads and labels are there. Check Athens and Kyiv too: their labels
-depend on the Noto fallback glyphs baked in by `pnpm build:glyphs`.
+Check an interactive tool map and the landing page. Those cover both map renderers: `MapHost`,
+which every tool map, embed and screenshot mounts, and the landing page's `AmbientMapPane`. Zoom
+to 17 in a city centre and confirm buildings, minor roads and labels are there. Check Athens and
+Kyiv too: their labels depend on the Noto fallback glyphs baked in by `pnpm build:glyphs`.
 
-**The server** — before DNS exists, address the vhost by Host header:
+**The server**: byte ranges and CORS on the served archive.
 
 ```sh
-curl -sI -H 'Host: tiles.bikenetkit.org' -r 0-16383 \
-  http://<SERVER_IP>/basemap-20260902.pmtiles
+curl -sI -r 0-16383 https://tiles.bikenetkit.org/basemap-YYYYMMDD.pmtiles
 # expect: 206 Partial Content, Access-Control-Allow-Origin: *, no Content-Encoding
 ```
 
-**The whole point** — load the site with `api.protomaps.com` blocked in devtools and confirm every
-map still draws. Then check nothing external crept back into the build:
+On a new server that has no certificate yet, add `--resolve tiles.bikenetkit.org:80:<SERVER_IP>`
+and use `http://`. Once certbot has run, port 80 only redirects.
 
-```sh
-grep -rhoE 'https?://[a-z0-9.-]+' build/_app build/*.html | sort -u
-```
-
-Only `bikenetkit.org`, `tiles.bikenetkit.org`, and the `protomaps.com` / `openstreetmap.org`
-attribution links should appear.
-
----
+**Nothing external in the build**: after `pnpm build`, run `pnpm check:build-output`. It fails if
+the built site names any third-party origin it would load from at runtime.
 
 ## Attribution
 
-The style carries `<a href="https://protomaps.com">Protomaps</a> | <a
-href="https://openstreetmap.org">OpenStreetMap</a>`. Self-hosting does not change the obligation:
-OSM data is ODbL and the attribution must stay visible on every map.
+The style carries `© OpenStreetMap contributors | Protomaps`, linked to
+`https://www.openstreetmap.org/copyright` and `https://protomaps.com`, the same credit the app's
+own style shows ([src/lib/map-style/style.js](src/lib/map-style/style.js)). Self-hosting does not
+change the obligation: OSM data is ODbL, and the attribution must stay visible on every map.
+
+## Self-hosted media (intro video)
+
+The colour-graded intro video is served the same self-hosted way as the tiles, as a static MP4
+under the tiles vhost (the `/media/` location in § nginx), so no third-party player
+(YouTube/Vimeo) sits in the runtime path. The landing page reads its URL from `PUBLIC_VIDEO_URL`;
+when that is unset the page falls back to a poster placeholder, so the site still builds without
+the asset.
+
+Of the intro video, **only the WebVTT captions are committed**
+(`www/static/media/bikenetkit-intro.en.vtt`, a few KB, same-origin with the page). The MP4 is large
+and lives outside the repository, in the directory `MEDIA_SRC_DIR` in `www/.env` names; the
+maintainers hold the source files.
+
+**Encode** the editor's delivery (`<source.mp4>`) to a web-delivery MP4 (H.264 High, ~1080p,
+faststart for progressive streaming, keep audio):
+
+```sh
+# 1080p (default rendition)
+ffmpeg -i <source.mp4> \
+  -c:v libx264 -profile:v high -crf 20 -preset slow -vf "scale=-2:1080" \
+  -c:a aac -b:a 128k -movflags +faststart \
+  bikenetkit-intro.mp4
+# Drop to -crf 18 if the accepted moiré around 1:20 visibly worsens.
+
+# 720p (served to narrow viewports)
+ffmpeg -i <source.mp4> \
+  -c:v libx264 -profile:v high -crf 21 -preset slow -vf "scale=-2:720" \
+  -c:a aac -b:a 128k -movflags +faststart \
+  bikenetkit-intro-720p.mp4
+```
+
+The landing page picks the rendition by viewport with `matchMedia('(max-width: 767px)')` (see
+`ProblemSolutionExplainer.svelte`): the 720p file is derived from `PUBLIC_VIDEO_URL` by swapping
+`.mp4` → `-720p.mp4`, so both must sit in the same media directory. `pnpm deploy:media` uploads
+both.
+
+**Convert** the delivered SRT to WebVTT (native `<track>` only reads VTT): prepend a `WEBVTT`
+header and change `,` to `.` in the timestamps (`ffmpeg -i subs.srt bikenetkit-intro.en.vtt` also
+works).
+
+**Upload** both renditions to `DEPLOY_MEDIA_PATH` (`~/bikenetkit/tiles/media/`, under the tiles
+directory so a site deploy never touches it):
+
+```sh
+pnpm deploy:media -- --dry-run
+pnpm deploy:media
+# then confirm PUBLIC_VIDEO_URL resolves:
+#   https://tiles.bikenetkit.org/media/bikenetkit-intro.mp4
+```
