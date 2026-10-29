@@ -49,9 +49,22 @@ pnpm install            # install dependencies
 pnpm dev                # dev server at http://localhost:5173
 ```
 
-The clone does not include the display font. Before running `pnpm dev`, download
-`BespokeSans_Complete.zip` from [Fontshare](https://www.fontshare.com/fonts/bespoke-sans) and unzip
-it into `www/static/fonts/`. `pnpm fonts:check` tells you whether the font is in place.
+> [!WARNING]
+> The clone does not include the display font. Bespoke Sans is licensed for this site's use but may
+> not be redistributed. Before running `pnpm dev`, download `BespokeSans_Complete.zip` from
+> [Fontshare](https://www.fontshare.com/fonts/bespoke-sans) and unzip it into `www/static/fonts/`.
+> `pnpm fonts:check` tells you whether the font is in place. Without it, everything but the
+> headings still works.
+
+**Do not skip the `.env` copy.** SvelteKit imports `PUBLIC_*` variables statically, so a missing
+file breaks the build (`"PUBLIC_BASEMAP_URL" is not exported`). The example file's defaults work as
+they are, and nothing in it is secret.
+
+**The map shows no bicycle network until you point it at the data.** The per-city GeoJSON
+(~4.3 GB) is not in this repository. It is served from `data.bikenetkit.org` and fetched in the
+browser. Set `PUBLIC_DATA_URL` in `www/.env` to load it, or leave it empty and the map shows the
+basemap alone. The build never reads this data, because the page set comes from a committed
+manifest, so a clean clone builds the complete site either way.
 
 ## The tools
 
@@ -67,31 +80,6 @@ algorithm runs in the browser.
 | **SortBikeNet** | Plans the order in which a network gets built |
 
 Seven further research tools have static sections under `/more-tools`.
-
-## Running it
-
-The [quick start](#quick-start) above is all it takes.
-
-**The `.env` copy is not optional.** SvelteKit imports `PUBLIC_*` variables statically, so an
-undefined one is a build error rather than an empty value: without the file, `pnpm build` fails with
-`"PUBLIC_BASEMAP_URL" is not exported`. The example file's defaults are all you need, and nothing in
-it is secret.
-
-That is enough to browse the site, with one gap you should expect and one caveat about the type.
-
-- The map has no network on it. The per-city GeoJSON (~4.3 GB) is deliberately not in this
-  repository; it is served from `data.bikenetkit.org` and fetched in the browser. Set
-  `PUBLIC_DATA_URL` in `www/.env` to load it, or leave it empty and the map renders the basemap
-  alone. Nothing errors when it is missing, and nothing needs to: the build never reads this data,
-  because the page set comes from a committed manifest, so a clean clone builds the complete site
-  either way.
-- The display face is not in the repo. Bespoke Sans is licensed for this site's use but may not be
-  redistributed, so you need your own copy from Fontshare. `pnpm fonts:check` says so and points at
-  the download, and everything but the headings works without it.
-
-[www/README.md](www/README.md) covers the stack, the scripts, and the no-external-dependencies
-invariant the project is built around. [AGENTS.md](AGENTS.md) is the orientation guide, written for
-coding agents and also the fastest way in for a person.
 
 ## Updating the data
 
@@ -174,6 +162,7 @@ no Node runtime in production.
 
 | Document | Covers |
 | --- | --- |
+| [AGENTS.md](AGENTS.md) | Orientation guide, written for coding agents; also the fastest way in for a person |
 | [www/README.md](www/README.md) | Stack, scripts, project structure |
 | [www/DESIGN.md](www/DESIGN.md) | Visual system and design tokens |
 | [www/DATA_CONTRACT.md](www/DATA_CONTRACT.md) | What the importer expects from a tool export |
