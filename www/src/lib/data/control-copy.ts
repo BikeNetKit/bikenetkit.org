@@ -7,7 +7,7 @@
  * starting conditions), and filing them under metric metadata would blur two vocabularies that
  * happen to share a route parameter name.
  *
- * Drafts pending sign-off from the metric-interpretation session — see LAUNCH_PLAN W6.
+ * Drafts pending sign-off from the metric-interpretation session.
  */
 
 export type AxisCopy = {
@@ -45,7 +45,7 @@ const INTRO: Record<string, string> = {
 /**
  * A short phrase per tool that completes the panel's "Apply when…" heading, naming the kind of city
  * and network it suits so a planner can tell at a glance whether to reach for it. Draft copy —
- * pending the same sign-off as the intros (LAUNCH_PLAN W6).
+ * pending the same sign-off as the intros.
  */
 const APPLY_WHEN: Record<string, string> = {
 	growbikenet: 'you plan from an existing network or from scratch.',

@@ -22,8 +22,8 @@ const pinnedSrc = args.includes('--src') ? args[args.indexOf('--src') + 1] : nul
 
 // Default sources: the web-encoded renditions from the editor's delivery (gitignored working dir).
 // The 720p variant is served to narrow viewports via matchMedia (see ProblemSolutionExplainer).
-// Defaults to the retired 05_dev_data checkout, which only the maintainer still has; override with
-// MEDIA_SRC_DIR, or pass --src <file>.
+// The sources are not in the repo. The default is a sibling checkout (`../../05_dev_data/media`);
+// set MEDIA_SRC_DIR, or pass --src <file>.
 const mediaDir = process.env.MEDIA_SRC_DIR
 	? path.resolve(process.env.MEDIA_SRC_DIR)
 	: path.resolve(WWW_ROOT, '../../05_dev_data/media');
@@ -35,7 +35,7 @@ const sources = pinnedSrc ? [path.resolve(pinnedSrc)] : defaultSrcs.filter((f) =
 if (!sources.length) {
 	console.error(
 		`[media] No source files found in ${mediaDir}\n` +
-			`[media] That path defaults to the maintainer's retired 05_dev_data checkout.\n` +
+			`[media] That path is only a default; the source videos are not in the repo.\n` +
 			`[media] Set MEDIA_SRC_DIR in www/.env, or pass --src <file>.\n` +
 			`        Encode them first — see www/DEPLOY_TILES.md "Self-hosted media".`
 	);

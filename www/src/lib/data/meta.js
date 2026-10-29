@@ -125,7 +125,7 @@ export function staticToolsMeta() {
 
 // JSON-LD for a tool: the software itself, plus the paper it implements when there is one.
 // Rendered as <script type="application/ld+json"> blocks by <Meta>. Makes the tools and papers
-// legible to search engines and LLMs (LAUNCH_PLAN.md W8). `url` overrides the canonical
+// legible to search engines and LLMs. `url` overrides the canonical
 // `${SITE_URL}/${slug}` for tools that live as an anchored section rather than their own page.
 export function toolJsonLd(tool, url = `${SITE_URL}/${tool.slug}`) {
 	/** @type {Record<string, string | number | boolean | object>[]} */

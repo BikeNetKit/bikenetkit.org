@@ -52,7 +52,7 @@ export const PUBLISHER_NAME = 'Michael Szell';
 // legal text changes; the date is what a reader (or a regulator) uses to tell versions apart.
 export const LEGAL_LAST_UPDATED = '2026-10-16';
 
-// The FAQ lives on its own subdomain, not as a /faq route (see LAUNCH_PLAN.md W6) — it is
+// The FAQ lives on its own subdomain, not as a /faq route — it is
 // maintained alongside the tools rather than in this repo. It is a site of its own, so no fragment
 // is needed to skip past any surrounding chrome the way the previous GitHub blob URL required.
 export const FAQ_URL = 'https://faq.bikenetkit.org';

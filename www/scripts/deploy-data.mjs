@@ -12,8 +12,9 @@
 // screenshots/ is generated locally over hours (pnpm generate:screenshots), unlike
 // data/ which is pulled from the server export. A screenshot sync that used --delete
 // unconditionally would prune the server's complete set down to whatever partial set happens to
-// be on disk locally. screenshot-coverage.mjs reports coverage against the datasets data/
-// actually holds; below 90% the screenshot sync drops --delete (purely additive) unless --force.
+// be on disk locally. screenshot-coverage.mjs reports coverage against the datasets the committed
+// manifest lists (src/lib/data/data-files.json); below 90% the screenshot sync drops --delete
+// (purely additive) unless --force.
 //
 // data/context/ (rail stations and schools) does not come from the tool export but from the
 // importers `pnpm pull-data` runs. A machine without it would delete them from the data host on the
