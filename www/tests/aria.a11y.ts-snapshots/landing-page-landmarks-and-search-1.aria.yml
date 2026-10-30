@@ -77,7 +77,9 @@
     - /url: /cities
   - link "5 tools":
     - /url: /growbikenet
-  - text: /[\d,.]+[bkmBKM]+ km of bike trails AGPL License/
+  - text: /[\d,.]+[bkmBKM]+ km of bike trails/
+  - link "AGPL License (opens in new tab)":
+    - /url: https://choosealicense.com/licenses/agpl-3.0/
   - heading "News" [level=3]
   - list:
     - listitem:

@@ -34,6 +34,10 @@ export const PARIS_EN_SELLE_URL = 'https://parisenselle.fr/';
 // on /legal. Here so `pnpm check:links` sees it.
 export const ECF_URL = 'https://www.ecf.com/en/community/members/';
 
+// The plain-language summary of the license the tools ship under, linked from the AGPL circle in
+// the landing page's stats block. Here so `pnpm check:links` sees it.
+export const AGPL_SUMMARY_URL = 'https://choosealicense.com/licenses/agpl-3.0/';
+
 // Site and logo design, credited on the landing page and on /legal. Here for the same reason as
 // NERDS_URL, and so /legal does not pull in the landing data (and cities.json with it).
 export const DESIGN_CREDIT_NAME = 'Moritz Stefaner / Truth & Beauty';

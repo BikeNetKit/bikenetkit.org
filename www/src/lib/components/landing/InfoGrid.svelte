@@ -1,6 +1,7 @@
 <script>
 	import { designCredit, hostGroup, logoBox, teamRole } from '$lib/data/landing';
 	import {
+		AGPL_SUMMARY_URL,
 		EXPLAINER_VIDEO_URL,
 		FAQ_URL,
 		GITHUB_ORG_URL,
@@ -55,12 +56,17 @@
 					</div>
 				{/if}
 			{/each}
-			<div
-				class="flex grow flex-col items-center justify-center rounded-full border-2 border-dotted border-brand-muted text-center"
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- external URL -->
+			<a
+				href={AGPL_SUMMARY_URL}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="relative flex grow flex-col items-center justify-center rounded-full border-2 border-dotted border-brand-muted text-center"
 			>
 				<span class="text-4xl text-brand">AGPL</span>
 				<span class="ml-1 text-sm text-ink">License</span>
-			</div>
+				<span class="sr-only"> (opens in new tab)</span>
+			</a>
 		</div>
 
 		<section class="flex flex-col rounded-sm bg-paper-brand p-6 lg:grow">
