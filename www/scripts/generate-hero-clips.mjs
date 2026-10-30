@@ -37,6 +37,8 @@ const FLAGS = {
 	orbitSpeed: Number,
 	transparent: Boolean,
 	tight: Boolean,
+	still: Boolean,
+	hud: Boolean,
 	zoom: Number,
 	focus: String,
 	codecs: String,
@@ -67,6 +69,10 @@ const opts = {
 	// densest part (`focus: 'data'`). Entries may set their own `zoom` / `focus` for this mode;
 	// --zoom / --focus on the command line win over both.
 	tight: false,
+	// --still writes one PNG of the mid-hold frame (built, mid-orbit) at the rendered size instead
+	// of a clip; --hud overlays the landing hero's telemetry HUD.
+	still: false,
+	hud: false,
 	zoom: null,
 	focus: null,
 	codecs: null,
@@ -252,11 +258,19 @@ async function renderClip(entry) {
 	// interrupted run (Ctrl-C reaches ffmpeg too, which then closes a short but valid file) leaves
 	// outputs without one, and the clip is rendered again.
 	const sidecar = path.join(outDir, `${name}.json`);
-	if (!opts.force && [sidecar, ...Object.values(outputs)].every((p) => existsSync(p))) {
-		console.log(`[hero-clips] ${name}: done, skipping (--force to redo)`);
-		return;
+	const stillPath = path.join(outDir, `${name}${opts.hud ? '-hud' : ''}-still.png`);
+	if (opts.still) {
+		if (!opts.force && existsSync(stillPath)) {
+			console.log(`[hero-clips] ${path.basename(stillPath)}: done, skipping (--force to redo)`);
+			return;
+		}
+	} else {
+		if (!opts.force && [sidecar, ...Object.values(outputs)].every((p) => existsSync(p))) {
+			console.log(`[hero-clips] ${name}: done, skipping (--force to redo)`);
+			return;
+		}
+		rmSync(sidecar, { force: true });
 	}
-	rmSync(sidecar, { force: true });
 
 	const phases = Object.fromEntries(
 		PHASE_KEYS.map((k) => [k, opts[k] ?? entry[k]]).filter(([, v]) => v != null)
@@ -274,6 +288,7 @@ async function renderClip(entry) {
 		weight: String(entry.weight ?? 1),
 		...(opts.orbitSpeed != null ? { orbit: String(opts.orbitSpeed) } : {}),
 		...(opts.transparent ? { transparent: '1' } : {}),
+		...(opts.hud ? { hud: '1' } : {}),
 		...(framing.zoom !== 0 ? { zoom: String(framing.zoom) } : {}),
 		...(framing.focus ? { focus: framing.focus } : {}),
 		...Object.fromEntries(Object.entries(phases).map(([k, v]) => [k, String(v)]))
@@ -326,6 +341,17 @@ async function renderClip(entry) {
 			await cdp.send('Emulation.setDefaultBackgroundColorOverride', {
 				color: { r: 0, g: 0, b: 0, a: 0 }
 			});
+
+		if (opts.still) {
+			const { buildEnd, teardownStart } = meta.phases;
+			const midHold = Math.round(((buildEnd + teardownStart) / 2) * opts.fps);
+			const idle = await page.evaluate((n) => window.__clip.seek(n), midHold);
+			if (!idle) console.warn(`[hero-clips] ${name}: the still hit the idle timeout.`);
+			const { data } = await cdp.send('Page.captureScreenshot', { format: 'png' });
+			writeFileSync(stillPath, Buffer.from(data, 'base64'));
+			console.log(`[hero-clips] ${path.basename(stillPath)}`);
+			return;
+		}
 
 		const outW = opts.width;
 		const outH = opts.height;

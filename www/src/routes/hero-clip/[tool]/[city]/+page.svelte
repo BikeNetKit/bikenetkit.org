@@ -2,6 +2,7 @@
 	import { onMount, tick } from 'svelte';
 	import { page } from '$app/state';
 	import AmbientMapPane from '$lib/components/landing/AmbientMapPane.svelte';
+	import AmbientHud from '$lib/components/landing/AmbientHud.svelte';
 	import { makePaneState } from '$lib/components/landing/pane-state.js';
 	import { BASEMAP_SOURCE_ID } from '$lib/map-style/style.js';
 	import { heroAdapterFor } from '$lib/components/landing/hero-tools.js';
@@ -39,6 +40,9 @@
 	// (the revealed layer's median vertex) or `lon,lat`. Anything outside the frame is let go.
 	const zoomOffset = num('zoom', 0);
 	const focusParam = params.get('focus');
+	// The landing hero's telemetry HUD, for stills. Its line reveals run on CSS animations, which
+	// `seek` settles into their end state so a screenshot never catches one halfway.
+	const hud = params.get('hud') === '1';
 	const phases = {
 		fadeIn: num('fadeIn', DEFAULT_PHASES.fadeIn),
 		build: num('build', DEFAULT_PHASES.build),
@@ -50,6 +54,19 @@
 	let pane = $state();
 	let paneState = $state(makePaneState());
 	let opacity = $state(0);
+	/** @type {{ phase: string, frame: number, bearing: number, zoom: number, center: [number, number] } | null} */
+	let hudState = $state(null);
+
+	async function settleAnimations() {
+		await document.fonts.ready;
+		for (const a of document.getAnimations()) {
+			// The cursor blinks forever; hold it on its visible half. Everything else ends.
+			if (a.effect?.getComputedTiming().endTime === Infinity) {
+				a.pause();
+				a.currentTime = 0;
+			} else a.finish();
+		}
+	}
 
 	/** Resolves on the next `idle`, or after `ms` — a frame that changes nothing never fires one. */
 	function idleOrTimeout(map, ms) {
@@ -140,7 +157,20 @@
 				await tick();
 				map.jumpTo({ bearing: base.bearing + f.bearing, zoom: base.zoom + f.zoom });
 				map.triggerRepaint();
-				return idleOrTimeout(map, 15_000);
+				const idle = await idleOrTimeout(map, 15_000);
+				if (hud) {
+					const c = map.getCenter();
+					hudState = {
+						phase: f.reveal === total - 1 ? 'orbit' : f.reveal < 0 ? 'enter' : 'build',
+						frame: f.reveal,
+						bearing: map.getBearing(),
+						zoom: map.getZoom(),
+						center: [c.lng, c.lat]
+					};
+					await tick();
+					await settleAnimations();
+				}
+				return idle;
 			}
 		};
 		/** @type {Window & { __clip?: typeof bridge }} */ (window).__clip = bridge;
@@ -165,7 +195,7 @@
 	</style>
 </svelte:head>
 
-<div style="width: {width}px; height: {height}px; opacity: {opacity};">
+<div style="position: relative; width: {width}px; height: {height}px; opacity: {opacity};">
 	<AmbientMapPane
 		bind:this={pane}
 		bind:paneState
@@ -176,4 +206,19 @@
 		lineWeight={weight}
 		onMapReady={init}
 	/>
+	{#if hud && hudState && paneState.current}
+		<AmbientHud
+			combo={paneState.current.combo}
+			cityName={cityBySlug[paneState.current.combo.city]?.name ?? paneState.current.combo.city}
+			country={cityBySlug[paneState.current.combo.city]?.country ?? ''}
+			phase={hudState.phase}
+			frame={hudState.frame}
+			total={paneState.current.total}
+			bearing={hudState.bearing}
+			zoom={hudState.zoom}
+			center={hudState.center}
+			cumulativeLengths={paneState.current.cumulativeLengths}
+			baselineLength={paneState.current.baselineLength}
+		/>
+	{/if}
 </div>

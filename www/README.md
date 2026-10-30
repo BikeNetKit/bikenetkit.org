@@ -184,6 +184,7 @@ pnpm generate:hero-clips -- --orbit-speed 6 --hold 6 --scale 2      # variations
 pnpm generate:hero-clips -- --transparent                           # no basemap, + alpha master
 pnpm generate:hero-clips -- --tight                                 # closer framing for social
 pnpm generate:hero-clips -- --tight --width 1080 --height 1920      # 9:16 portrait, -1080x1920 in the name
+pnpm generate:hero-clips -- --still --hud [--tight]                 # one PNG per city: built, mid-orbit, with the HUD
 pnpm generate:hero-clips -- --out-dir /Volumes/Work/hero-clips      # ~15 GB of ProRes
 ```
 
