@@ -71,6 +71,7 @@ export const TOP_LEVEL_ROUTES = [
 	'/more-tools',
 	'/legal',
 	'/design',
+	'/hero',
 	...TOOLS.map((tool) => `/${tool}`),
 	`/cities/${SAMPLE.typical}`
 ];

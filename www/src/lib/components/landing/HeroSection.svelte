@@ -13,8 +13,16 @@
 		// OSM/Protomaps credit ODbL requires is rendered here instead. `linkCredit` is false on the
 		// placeholder build, whose prerender never crawls beyond `/` — the credit still shows, it
 		// just doesn't pull /legal into a build that isn't meant to publish it yet.
-		linkCredit = true
+		linkCredit = true,
+		// Fades out the logo + headline lockup, and the white gradient that only exists to give it
+		// contrast, leaving the bare map. Used by the full-viewport /hero page; the map, HUD, pause
+		// button and the ODbL credit stay regardless.
+		hideBrand = false
 	} = $props();
+
+	const brandFade = $derived(
+		`transition-opacity duration-500 ${hideBrand ? 'opacity-0' : 'opacity-100'}`
+	);
 
 	let paused = $state(false);
 </script>
@@ -36,11 +44,12 @@
 		<AmbientHeroMap {datasets} {paused} />
 	</div>
 
-	<div class="overlay rounded-sm"></div>
+	<div class="overlay rounded-sm {brandFade}"></div>
 
 	<!-- Brand -->
 	<div
-		class="area-brand relative z-10 flex flex-col items-center justify-center rounded-sm p-4 md:p-6"
+		class="area-brand relative z-10 flex flex-col items-center justify-center rounded-sm p-4 md:p-6 {brandFade}"
+		aria-hidden={hideBrand}
 	>
 		<img src={wordmarkSquare} alt="BikeNetKit" class="hero-logo-square w-auto" />
 		<img src={wordmarkHorizontal} alt="BikeNetKit" class="hero-logo-wide w-auto" />
@@ -48,7 +57,8 @@
 
 	<!-- Headline -->
 	<div
-		class="area-headline relative z-10 flex flex-col rounded-sm px-0 py-4 text-white md:justify-center md:p-8"
+		class="area-headline relative z-10 flex flex-col rounded-sm px-0 py-4 text-white md:justify-center md:p-8 {brandFade}"
+		aria-hidden={hideBrand}
 	>
 		<!-- The landing page's `h1`. It was an `h2`, which left the site's most important page with
 		     no first-level heading at all: the wordmark beside it is an image, so nothing else was
