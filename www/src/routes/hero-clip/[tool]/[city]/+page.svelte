@@ -7,6 +7,7 @@
 	import { heroAdapterFor } from '$lib/components/landing/hero-tools.js';
 	import { cityBySlug } from '$lib/data/cities';
 	import { DEFAULT_PHASES, frameAt, frameCount, phaseBounds } from '$lib/hero-clip/timeline.js';
+	import { dataFocus } from '$lib/hero-clip/framing.js';
 
 	// Capture page for scripts/generate-hero-clips.mjs: the landing hero's map pane on its own —
 	// no logo, headline, overlay, HUD or credit — stepped frame by frame on the clip timeline.
@@ -34,6 +35,10 @@
 	const orbitSpeed = num('orbit', undefined);
 	const transparent = params.get('transparent') === '1';
 	const weight = num('weight', 1);
+	// A tighter frame for social video: `zoom` stops past the fit, centered on `focus` — `data`
+	// (the revealed layer's median vertex) or `lon,lat`. Anything outside the frame is let go.
+	const zoomOffset = num('zoom', 0);
+	const focusParam = params.get('focus');
 	const phases = {
 		fadeIn: num('fadeIn', DEFAULT_PHASES.fadeIn),
 		build: num('build', DEFAULT_PHASES.build),
@@ -81,8 +86,18 @@
 		const current = paneState.current;
 		if (!prepared || !current) return fail(`${combo.tool}/${combo.city}: combo did not load`);
 
-		const base = { bearing: paneState.bearing, zoom: paneState.baseZoom };
+		const base = { bearing: paneState.bearing, zoom: paneState.baseZoom + zoomOffset };
 		const total = current.total;
+
+		/** @type {[number, number] | null} */
+		let focus = null;
+		if (focusParam === 'data') focus = dataFocus(current.geojson ?? current.hulls);
+		else if (focusParam) {
+			const [lon, lat] = focusParam.split(',').map(Number);
+			if (Number.isFinite(lon) && Number.isFinite(lat)) focus = [lon, lat];
+			else return fail(`focus "${focusParam}" is neither "data" nor "lon,lat"`);
+		}
+		if (focus) map.jumpTo({ center: focus });
 
 		// Warm the tile cache at the opening camera, so frame 0 does not wait on a cold basemap.
 		const first = frameAt(0, { fps, total, phases, orbitSpeed });
@@ -106,7 +121,7 @@
 				baselineLength: current.baselineLength,
 				totalLength: current.cumulativeLengths?.at(-1) ?? null,
 				camera: {
-					center: paneState.center,
+					center: focus ?? paneState.center,
 					zoom: base.zoom,
 					bearing: base.bearing,
 					pitch: map.getPitch()
@@ -114,7 +129,9 @@
 				phases: phaseBounds(phases),
 				basemapLoaded: transparent
 					? null
-					: Boolean(map.getSource(BASEMAP_SOURCE_ID) && map.isSourceLoaded(BASEMAP_SOURCE_ID))
+					: Boolean(map.getSource(BASEMAP_SOURCE_ID) && map.isSourceLoaded(BASEMAP_SOURCE_ID)),
+				zoomOffset,
+				focus
 			}),
 			seek: async (i) => {
 				const f = frameAt(i, { fps, total, phases, orbitSpeed });

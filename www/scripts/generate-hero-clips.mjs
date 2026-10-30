@@ -8,6 +8,7 @@
 //   pnpm generate:hero-clips -- --only prague --fps 30 --codecs h264    # quick look
 //   pnpm generate:hero-clips -- --orbit-speed 6 --hold 6 --scale 2      # variations
 //   pnpm generate:hero-clips -- --transparent                           # no basemap, + alpha
+//   pnpm generate:hero-clips -- --tight                                 # closer, for social
 //
 // Frames are stepped deterministically through /hero-clip/[tool]/[city] and piped into one
 // ffmpeg per clip, which writes every requested codec from the same frames. The basemap is
@@ -35,6 +36,9 @@ const FLAGS = {
 	fadeOut: Number,
 	orbitSpeed: Number,
 	transparent: Boolean,
+	tight: Boolean,
+	zoom: Number,
+	focus: String,
 	codecs: String,
 	gpu: Boolean,
 	sheet: Boolean,
@@ -59,6 +63,12 @@ const opts = {
 	fadeOut: null,
 	orbitSpeed: null,
 	transparent: false,
+	// A closer frame for social video: TIGHT_ZOOM stops past the fit, centered on the network's
+	// densest part (`focus: 'data'`). Entries may set their own `zoom` / `focus` for this mode;
+	// --zoom / --focus on the command line win over both.
+	tight: false,
+	zoom: null,
+	focus: null,
 	codecs: null,
 	// SwiftShader (headless Chromium's default) costs ~2 s a frame; Metal ANGLE ~0.3 s.
 	gpu: true,
@@ -71,6 +81,7 @@ const opts = {
 };
 
 const PHASE_KEYS = ['fadeIn', 'build', 'hold', 'teardown', 'fadeOut'];
+const TIGHT_ZOOM = 1.2;
 const ATTRIBUTION = '© OpenStreetMap contributors';
 const GPU_ARGS = ['--use-angle=metal', '--enable-gpu', '--ignore-gpu-blocklist'];
 const BT709 = [
@@ -181,10 +192,20 @@ try {
 }
 if (failed.length) fail(`${failed.length} clip(s) failed: ${failed.join(', ')}`);
 
+/** Framing for an entry: `zoom` stops past the fit and a `focus`, CLI over entry over preset. */
+function framingFor(e) {
+	const zoom = opts.zoom ?? (opts.tight ? (e.zoom ?? TIGHT_ZOOM) : 0);
+	const entryFocus = Array.isArray(e.focus) ? e.focus.join(',') : e.focus;
+	const focus = opts.focus ?? (opts.tight ? (entryFocus ?? 'data') : null);
+	return { zoom, focus };
+}
+
 function clipName(e) {
 	const variant = e.variant && e.variant !== 'default' ? `-${e.variant}` : '';
+	const { zoom, focus } = framingFor(e);
+	const tight = zoom !== 0 || focus ? '-tight' : '';
 	const mode = opts.transparent ? '-transparent' : '';
-	return `${String(e.index).padStart(2, '0')}-${e.tool}-${e.city}-${e.metric}-${e.type}${variant}${mode}`;
+	return `${String(e.index).padStart(2, '0')}-${e.tool}-${e.city}-${e.metric}-${e.type}${variant}${tight}${mode}`;
 }
 
 /** The filter graph: one branch per codec, all fed from the same decoded frames. */
@@ -233,6 +254,7 @@ async function renderClip(entry) {
 	const phases = Object.fromEntries(
 		PHASE_KEYS.map((k) => [k, opts[k] ?? entry[k]]).filter(([, v]) => v != null)
 	);
+	const framing = framingFor(entry);
 	const query = new URLSearchParams({
 		metric: entry.metric,
 		type: entry.type,
@@ -245,6 +267,8 @@ async function renderClip(entry) {
 		weight: String(entry.weight ?? 1),
 		...(opts.orbitSpeed != null ? { orbit: String(opts.orbitSpeed) } : {}),
 		...(opts.transparent ? { transparent: '1' } : {}),
+		...(framing.zoom !== 0 ? { zoom: String(framing.zoom) } : {}),
+		...(framing.focus ? { focus: framing.focus } : {}),
 		...Object.fromEntries(Object.entries(phases).map(([k, v]) => [k, String(v)]))
 	});
 	const url = `${baseURL}/hero-clip/${entry.tool}/${entry.city}?${query}`;

@@ -22,6 +22,8 @@ export const CLIP_SETTLED = 'body[data-clip-ready], body[data-clip-error]';
  * @property {{ center: [number, number], zoom: number, bearing: number, pitch: number }} camera
  * @property {{ buildStart: number, buildEnd: number, teardownStart: number, teardownEnd: number, end: number }} phases
  * @property {boolean | null} basemapLoaded  `null` when rendered without a basemap
+ * @property {number} zoomOffset  stops added to the fitted zoom (0 unless framed tighter)
+ * @property {[number, number] | null} focus  the center the clip is framed on, when not the city's
  */
 
 /**

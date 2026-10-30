@@ -182,6 +182,7 @@ pnpm generate:hero-clips -- --only "berlin|paris"                   # regex on <
 pnpm generate:hero-clips -- --fps 10 --codecs h264                  # fast framing pass
 pnpm generate:hero-clips -- --orbit-speed 6 --hold 6 --scale 2      # variations
 pnpm generate:hero-clips -- --transparent                           # no basemap, + alpha master
+pnpm generate:hero-clips -- --tight                                 # closer framing for social
 pnpm generate:hero-clips -- --out-dir /Volumes/Work/hero-clips      # ~15 GB of ProRes
 ```
 
@@ -192,6 +193,12 @@ Each clip writes these files to `exports/hero-clips/`, named `NN-<tool>-<city>-<
 - a sidecar `.json` with the city, tool and metric labels, the step count and the phase times,
   for titles in post;
 - a `-sheet.png` contact sheet for checking the framing.
+
+`--tight` frames the network's dense core instead of the whole city: 1.2 zoom stops past the
+fit, centered on the median vertex of the revealed layer, with the outskirts running off the
+edges. Its clips carry a `-tight` suffix, so they sit next to the full-city set. `--zoom <stops>`
+and `--focus data|lon,lat` tune it directly, and a manifest entry's own `zoom` and `focus` apply
+under `--tight`.
 
 Finished clips are skipped, so an interrupted run resumes; `--force` redoes them. A clip counts as
 finished only once its sidecar `.json` exists, because the sidecar is written after ffmpeg has

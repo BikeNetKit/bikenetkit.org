@@ -17,6 +17,7 @@
  * @property {number} total
  * @property {number[]} cumulativeLengths
  * @property {number} baselineLength
+ * @property {GeoJSON.FeatureCollection | null} [geojson]  the revealed layer; `null` for superblock clips
  * @property {GeoJSON.FeatureCollection | null} [hulls]
  */
 
