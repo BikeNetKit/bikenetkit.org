@@ -606,7 +606,8 @@
 		{/if}
 
 		<!-- Dev server only. Gated here rather than inside the overlay, whose listeners would otherwise
-		     run a feature query and a console.log on every mousemove of a production map. -->
+		     run a feature query and a console.log on every mousemove of a production map. The panel
+		     itself starts hidden; `d` toggles it. `window.__map` is set regardless. -->
 		{#if showDebug && import.meta.env.DEV}
 			<MapDebugOverlay {map} />
 		{/if}
