@@ -183,6 +183,7 @@ pnpm generate:hero-clips -- --fps 10 --codecs h264                  # fast frami
 pnpm generate:hero-clips -- --orbit-speed 6 --hold 6 --scale 2      # variations
 pnpm generate:hero-clips -- --transparent                           # no basemap, + alpha master
 pnpm generate:hero-clips -- --tight                                 # closer framing for social
+pnpm generate:hero-clips -- --tight --width 1080 --height 1920      # 9:16 portrait, -1080x1920 in the name
 pnpm generate:hero-clips -- --out-dir /Volumes/Work/hero-clips      # ~15 GB of ProRes
 ```
 
@@ -195,7 +196,7 @@ Each clip writes these files to `exports/hero-clips/`, named `NN-<tool>-<city>-<
 - a `-sheet.png` contact sheet for checking the framing.
 
 `--tight` frames the network's dense core instead of the whole city: 1.2 zoom stops past the
-fit, centered on the median vertex of the revealed layer, with the outskirts running off the
+fit (1.7 for a portrait frame, whose fit is limited by its width), centered on the median vertex of the revealed layer, with the outskirts running off the
 edges. Its clips carry a `-tight` suffix, so they sit next to the full-city set. `--zoom <stops>`
 and `--focus data|lon,lat` tune it directly, and a manifest entry's own `zoom` and `focus` apply
 under `--tight`.

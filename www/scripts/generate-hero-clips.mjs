@@ -81,7 +81,10 @@ const opts = {
 };
 
 const PHASE_KEYS = ['fadeIn', 'build', 'hold', 'teardown', 'fadeOut'];
+// A portrait frame's fit is limited by its width, which leaves the network a band across the
+// middle; it needs more zoom to fill the height.
 const TIGHT_ZOOM = 1.2;
+const TIGHT_ZOOM_PORTRAIT = 1.7;
 const ATTRIBUTION = '© OpenStreetMap contributors';
 const GPU_ARGS = ['--use-angle=metal', '--enable-gpu', '--ignore-gpu-blocklist'];
 const BT709 = [
@@ -194,7 +197,8 @@ if (failed.length) fail(`${failed.length} clip(s) failed: ${failed.join(', ')}`)
 
 /** Framing for an entry: `zoom` stops past the fit and a `focus`, CLI over entry over preset. */
 function framingFor(e) {
-	const zoom = opts.zoom ?? (opts.tight ? (e.zoom ?? TIGHT_ZOOM) : 0);
+	const preset = opts.height > opts.width ? TIGHT_ZOOM_PORTRAIT : TIGHT_ZOOM;
+	const zoom = opts.zoom ?? (opts.tight ? (e.zoom ?? preset) : 0);
 	const entryFocus = Array.isArray(e.focus) ? e.focus.join(',') : e.focus;
 	const focus = opts.focus ?? (opts.tight ? (entryFocus ?? 'data') : null);
 	return { zoom, focus };
@@ -205,7 +209,10 @@ function clipName(e) {
 	const { zoom, focus } = framingFor(e);
 	const tight = zoom !== 0 || focus ? '-tight' : '';
 	const mode = opts.transparent ? '-transparent' : '';
-	return `${String(e.index).padStart(2, '0')}-${e.tool}-${e.city}-${e.metric}-${e.type}${variant}${tight}${mode}`;
+	// Any frame other than the default 1920×1080 (e.g. 1080×1920 portrait) is named by its size, so
+	// the sets never collide and a resume never mistakes one for the other.
+	const size = opts.width === 1920 && opts.height === 1080 ? '' : `-${opts.width}x${opts.height}`;
+	return `${String(e.index).padStart(2, '0')}-${e.tool}-${e.city}-${e.metric}-${e.type}${variant}${tight}${size}${mode}`;
 }
 
 /** The filter graph: one branch per codec, all fed from the same decoded frames. */
