@@ -47,7 +47,12 @@
 	/** @type {Record<string, { name: string, value: string, alias: string | null, note: string | null }[]>} */
 	const colorGroups = $derived(groupColorTokens(resolvedTokens));
 
-	const groupTitles = { logos: 'Logos', wordmarks: 'Wordmarks', backgrounds: 'Backgrounds' };
+	const groupTitles = {
+		logos: 'Logos',
+		wordmarks: 'Wordmarks',
+		qr: 'QR codes',
+		backgrounds: 'Backgrounds'
+	};
 
 	// Demo data for SuperblockSizeFilter: log-uniform block areas, roughly the shape a real city's
 	// distribution has (many small blocks, a long tail of large ones).

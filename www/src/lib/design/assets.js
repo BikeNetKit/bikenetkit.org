@@ -25,6 +25,14 @@ const GROUPS = {
 		'logo-round-teal'
 	],
 	wordmarks: ['word-mark', 'logo-word-mark-horizontal', 'logo-word-mark-square'],
+	qr: [
+		'qr-code',
+		'qr-code-sand',
+		'qr-code-white',
+		'qr-code-logo',
+		'qr-code-logo-sand',
+		'qr-code-logo-white'
+	],
 	backgrounds: ['banner', 'city-bg']
 };
 
@@ -39,6 +47,12 @@ const LABELS = {
 	'word-mark': 'Wordmark',
 	'logo-word-mark-horizontal': 'Logo + wordmark (horizontal)',
 	'logo-word-mark-square': 'Logo + wordmark (square)',
+	'qr-code': 'QR code',
+	'qr-code-sand': 'QR code on sand',
+	'qr-code-white': 'QR code on white',
+	'qr-code-logo': 'QR code + logo',
+	'qr-code-logo-sand': 'QR code + logo on sand',
+	'qr-code-logo-white': 'QR code + logo on white',
 	banner: 'Banner',
 	'city-bg': 'City background'
 };
@@ -53,12 +67,7 @@ const PADDED_VARIANTS = {
 };
 
 function paddedOnWhite(raw, padding) {
-	const root = raw.match(/<svg[^>]*>/)?.[0];
-	const width = Number(root?.match(/\bwidth="([\d.]+)"/)?.[1]);
-	const height = Number(root?.match(/\bheight="([\d.]+)"/)?.[1]);
-	if (!width || !height) {
-		throw new Error('logo-colors.svg: could not read its intrinsic size for the padded variants.');
-	}
+	const { width, height } = intrinsicSize(raw, 'logo-colors');
 	const box = PADDED.size * (1 - 2 * padding);
 	const scale = Math.min(box / width, box / height);
 	const x = round((PADDED.size - width * scale) / 2);
@@ -73,6 +82,41 @@ function paddedOnWhite(raw, padding) {
 		'</svg>',
 		''
 	].join('\n');
+}
+
+// The QR codes (both encode https://bikenetkit.org) ship transparent; the sand and white
+// variants are the same file over a full-size background rect. The logo version carries a
+// sand-coloured plate behind the mark, which on white would show as a faint square, so that
+// variant recolours the plate to match.
+const BACKGROUND_VARIANTS = {
+	'qr-code-sand': { source: 'qr-code', color: '#f7f7f0' },
+	'qr-code-white': { source: 'qr-code', color: '#ffffff' },
+	'qr-code-logo-sand': { source: 'qr-code-logo', color: '#f7f7f0' },
+	'qr-code-logo-white': {
+		source: 'qr-code-logo',
+		color: '#ffffff',
+		recolor: { '#F7F7F0': '#ffffff' }
+	}
+};
+
+function intrinsicSize(raw, name) {
+	const root = raw.match(/<svg[^>]*>/)?.[0];
+	const width = Number(root?.match(/\bwidth="([\d.]+)"/)?.[1]);
+	const height = Number(root?.match(/\bheight="([\d.]+)"/)?.[1]);
+	if (!width || !height) {
+		throw new Error(`${name}.svg: could not read its intrinsic size for the derived variants.`);
+	}
+	return { root, width, height };
+}
+
+function onBackground(raw, name, { color, recolor = {} }) {
+	const { root, width, height } = intrinsicSize(raw, name);
+	let out = raw;
+	for (const [from, to] of Object.entries(recolor)) {
+		out = out.replaceAll(`fill="${from}"`, `fill="${to}"`);
+	}
+	const rect = `<rect width="${width}" height="${height}" fill="${color}"/>`;
+	return out.replace(root, `${root}\n${rect}`);
 }
 
 function round(value, places = 2) {
@@ -98,6 +142,10 @@ function buildCatalog() {
 	const pngs = byBasename(pngUrls);
 	for (const [name, padding] of Object.entries(PADDED_VARIANTS)) {
 		raws[name] = paddedOnWhite(raws['logo-colors'], padding);
+		urls[name] = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(raws[name])}`;
+	}
+	for (const [name, variant] of Object.entries(BACKGROUND_VARIANTS)) {
+		raws[name] = onBackground(raws[variant.source], variant.source, variant);
 		urls[name] = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(raws[name])}`;
 	}
 	const catalog = [];

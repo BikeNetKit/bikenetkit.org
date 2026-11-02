@@ -281,8 +281,9 @@ it yet; pass it through anyway so a future one can.
 
 ## Brand assets & exports
 
-The `/design` page generates the brand assets below in the browser. None of them is stored as a
-file except the Open Graph cards.
+The `/design` page generates the brand assets below in the browser from the source SVGs in
+`www/src/lib/assets/brand/`. None of the derived files is stored in the repo except the Open Graph
+cards.
 
 ### Logo sublogos
 
@@ -371,6 +372,13 @@ Site-level values (canonical URL, tagline, default card) live in `src/lib/site.j
 `www/src/lib/design/assets.js` rather than stored as files: a `512 × 512` white canvas with
 `logo-colors.svg` fitted into the inset box and centred. Deriving them means the mark can never
 drift from its source; add a further variant by extending `PADDED_VARIANTS`.
+
+The two QR codes, `qr-code.svg` and `qr-code-logo.svg` (`740 × 740`, both encoding
+`https://bikenetkit.org`, with the mark sitting inside the code's error-correction budget), ship
+transparent. Their sand (`#f7f7f0`) and white variants are derived the same way, in
+`BACKGROUND_VARIANTS`: a full-size `<rect>` is inserted behind the code. The logo version carries a
+sand plate behind the mark, so the white variant also recolours that plate to white; the
+transparent and sand variants keep it. Verify a regenerated code with `zbarimg` before committing.
 
 ### Token exports
 
