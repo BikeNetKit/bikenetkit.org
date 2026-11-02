@@ -10,7 +10,7 @@
 
 The site is served over TLS for `bikenetkit.org` (with `www.` redirecting to it) from
 `~/bikenetkit/website/`, which `pnpm deploy:site` fills. The same nginx also serves the preview
-host (§ A private preview vhost), the data host ([DEPLOY_DATA.md](DEPLOY_DATA.md)), the tiles host
+host (§ The preview vhost), the data host ([DEPLOY_DATA.md](DEPLOY_DATA.md)), the tiles host
 ([DEPLOY_TILES.md](DEPLOY_TILES.md)) and the visitor stats ([DEPLOY_STATS.md](DEPLOY_STATS.md)).
 Each has its own directory, never one inside the website directory, for the reason in
 [OPERATIONS.md](../OPERATIONS.md) § Server layout.
@@ -308,7 +308,7 @@ after 14 days:
 
 ```bash
 pnpm check:headers                                            # bikenetkit.org + tiles + data
-pnpm check:headers -- --base https://<PREVIEW_HOST>           # needs PREVIEW_AUTH in www/.env
+pnpm check:headers -- --base https://<PREVIEW_HOST>           # PREVIEW_AUTH in www/.env only while gated
 pnpm check:privacy
 ```
 
@@ -436,15 +436,17 @@ server {
 certbot's port-80 block keeps sending `http://www.` to `https://www.`, which then lands here, so
 that block needs no change. Renewal is unaffected: the certificate still names both hosts.
 
-### A private preview vhost
+### The preview vhost
 
 The apex serves whatever was last deployed to it, so without a second vhost there is no place to
 see a build on the real stack before the public does. That leaves the config's own behaviour
 untested: the `try_files $uri.html $uri $uri/index.html` ordering, the branded 404 on a real
 build, and the immutable-asset headers.
 
-A password-gated vhost closes that gap without publishing anything. It roots at its own directory,
-`preview-website/`, which `pnpm deploy:preview` fills with the same full build `deploy:site` makes:
+A second vhost closes that gap. It roots at its own directory, `preview-website/`, which
+`pnpm deploy:preview` fills with the same full build `deploy:site` makes. It can be password-gated
+(it was, from 2026-10-05 until it was opened for the preview launch on 2026-11-02); either way it
+sends `X-Robots-Tag: noindex`, so it never competes with the apex in search results:
 
 ```nginx
 server {
@@ -456,10 +458,11 @@ server {
     root /home/<SSH_USER>/bikenetkit/preview-website;
     index index.html;
 
-    auth_basic "BikeNetKit preview";
-    auth_basic_user_file /etc/nginx/.htpasswd-preview;
+    # Uncomment both to gate the preview (§ below); comment out to open it.
+    # auth_basic "BikeNetKit preview";
+    # auth_basic_user_file /etc/nginx/.htpasswd-preview;
 
-    # Keep it out of search results even though auth already blocks crawlers.
+    # Keep it out of search results: the apex is the canonical site.
     add_header X-Robots-Tag "noindex, nofollow" always;
     # Security headers, as on the apex (§ Security headers).
     include snippets/bikenetkit-security.conf;
@@ -489,8 +492,10 @@ server {
 As deployed, the vhost also repeats the apex's gzip settings, so the preview exercises the
 config that goes live. `pnpm check:headers -- --base https://<PREVIEW_HOST>` probes it.
 
-Create the password file on the box (the password lives only there, never in the repo), with
-`<user>` the preview login:
+**Gating the preview.** To put it behind a password, create the password file on the box (the
+password lives only there, never in the repo), with `<user>` the preview login, then uncomment the
+two `auth_basic` lines and reload. To open it again, comment them out and reload; the password
+file can stay.
 
 ```bash
 (umask 077; openssl rand -base64 24 | tr -d '/+=\n' > ~/bikenetkit/.preview-credentials)
@@ -500,8 +505,9 @@ sudo nginx -t && sudo systemctl reload nginx
 ```
 
 **Do not rely on an obscure hostname.** Every name a certificate is issued for is published to
-public Certificate Transparency logs within minutes, so the name is discoverable by design. The
-`auth_basic` is the protection; the hostname is just a label.
+public Certificate Transparency logs within minutes, so the name is discoverable by design. While
+the preview is meant to be private, the `auth_basic` is the protection; the hostname is just a
+label. An open preview is public, full stop.
 
 **Every release is staged here first.** The build checked on the preview is then shipped
 unchanged with `pnpm deploy:site -- --skip-build`; the full sequence is in

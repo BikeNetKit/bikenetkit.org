@@ -26,7 +26,7 @@ restart, nothing that can crash. If the site is down, it is nginx, TLS, DNS or t
 | Host                   | Serves                                    | From                            |
 | ---------------------- | ----------------------------------------- | ------------------------------- |
 | `bikenetkit.org`       | The site                                  | `~/bikenetkit/website/`         |
-| `<PREVIEW_HOST>`       | Staging copy of the site, Basic Auth      | `~/bikenetkit/preview-website/` |
+| `<PREVIEW_HOST>`       | Staging copy of the site, `noindex`       | `~/bikenetkit/preview-website/` |
 | `data.bikenetkit.org`  | Per-city GeoJSON, screenshots, OG cards   | `~/bikenetkit/data/`            |
 | `tiles.bikenetkit.org` | Basemap archive, map style, glyphs, media | `~/bikenetkit/tiles/`           |
 
@@ -64,16 +64,16 @@ fast-forward) are prepared, and GitHub only allows them once the repository is p
 The deploy targets, all run from `www/`, all reading `www/.env` (copied from `.env.example`). Each
 takes `-- --dry-run`.
 
-| Command                   | What it does                                        | Server dir             |
-| ------------------------- | --------------------------------------------------- | ---------------------- |
-| `pnpm deploy:site`        | Builds, then syncs `build/`                         | `website/`             |
-| `pnpm deploy:preview`     | The same build, for staging                         | `preview-website/`     |
-| `pnpm deploy:placeholder` | Builds and syncs the "coming soon" page             | `placeholder-website/` |
-| `pnpm deploy:data`        | Syncs `www/data/` and `www/screenshots/`            | `data/`                |
-| `pnpm compress:data`      | Writes the `.gz`/`.br` siblings, on the server      | `data/`                |
-| `pnpm deploy:basemap`     | Uploads the newest archive in `BASEMAP_WORK_DIR`    | `tiles/`               |
-| `pnpm deploy:mapstyle`    | Rebuilds and uploads the map style and glyphs       | `tiles/`               |
-| `pnpm deploy:media`       | Uploads the intro video from `MEDIA_SRC_DIR`        | `tiles/media/`         |
+| Command                   | What it does                                     | Server dir             |
+| ------------------------- | ------------------------------------------------ | ---------------------- |
+| `pnpm deploy:site`        | Builds, then syncs `build/`                      | `website/`             |
+| `pnpm deploy:preview`     | The same build, for staging                      | `preview-website/`     |
+| `pnpm deploy:placeholder` | Builds and syncs the "coming soon" page          | `placeholder-website/` |
+| `pnpm deploy:data`        | Syncs `www/data/` and `www/screenshots/`         | `data/`                |
+| `pnpm compress:data`      | Writes the `.gz`/`.br` siblings, on the server   | `data/`                |
+| `pnpm deploy:basemap`     | Uploads the newest archive in `BASEMAP_WORK_DIR` | `tiles/`               |
+| `pnpm deploy:mapstyle`    | Rebuilds and uploads the map style and glyphs    | `tiles/`               |
+| `pnpm deploy:media`       | Uploads the intro video from `MEDIA_SRC_DIR`     | `tiles/media/`         |
 
 `deploy:site -- --skip-build` uploads the existing `build/` without rebuilding.
 

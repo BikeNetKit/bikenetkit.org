@@ -46,8 +46,8 @@ export function getDeployConfig() {
 	// Optional: target dir for the placeholder build (`pnpm deploy:placeholder`).
 	const placeholderWebPath =
 		process.env.DEPLOY_PLACEHOLDER_WEB_PATH?.trim() || '~/bikenetkit/placeholder-website/';
-	// Optional: target dir for the preview build (`pnpm deploy:preview`), served behind Basic Auth
-	// by the preview vhost. Its own dir, so that it stays separate from what is live.
+	// Optional: target dir for the preview build (`pnpm deploy:preview`), served by the preview
+	// vhost (noindex, optionally password-gated). Its own dir, so that it stays separate from what is live.
 	const previewWebPath =
 		process.env.DEPLOY_PREVIEW_WEB_PATH?.trim() || '~/bikenetkit/preview-website/';
 	// Optional: target dir for the basemap archive (`pnpm deploy:basemap`). Deliberately outside

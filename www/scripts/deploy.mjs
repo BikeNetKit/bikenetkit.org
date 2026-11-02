@@ -7,7 +7,7 @@
 //   pnpm deploy:placeholder           # build with the "coming soon" placeholder on,
 //                                     # rsync to the placeholder website dir (--placeholder)
 //   pnpm deploy:preview               # full build, rsync to the dir the preview vhost
-//                                     # serves behind Basic Auth (--preview)
+//                                     # serves (--preview)
 //
 // adapter-static outputs to build/ (no base path). --delete prunes stale files server-side.
 // The GeoJSON and screenshots are served off-repo from data.bikenetkit.org (see www/DEPLOY_DATA.md),
@@ -70,10 +70,10 @@ if (!placeholder && !preview && !dryRun) {
 //   deploy:placeholder  -> DEPLOY_PLACEHOLDER_WEB_PATH ~/bikenetkit/placeholder-website/
 //
 // A third, deploy:preview -> DEPLOY_PREVIEW_WEB_PATH (~/bikenetkit/preview-website/), is what the
-// password-gated preview vhost serves, before and after launch. After launch the apex serves
-// website/, so the preview is the only place a build can be looked at before it is live. To promote
-// what was checked there, run `deploy:site -- --skip-build` straight after: it ships the same
-// build/ rather than a rebuild of it.
+// preview vhost (noindex, optionally password-gated) serves, before and after launch. After launch
+// the apex serves website/, so the preview is the only place a build can be looked at before it is
+// live. To promote what was checked there, run `deploy:site -- --skip-build` straight after: it
+// ships the same build/ rather than a rebuild of it.
 //
 // The default vhost roots at placeholder-website (DEPLOY_NGINX.md §2), so `deploy:site` stages the
 // full site where nothing serves it. That is useful — it is how you check the real thing on the
