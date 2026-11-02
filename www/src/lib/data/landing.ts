@@ -54,9 +54,15 @@ export interface Stat {
 	href?: string;
 }
 
+export interface NewsLink {
+	text: string;
+	href: string;
+}
+
 export interface NewsItem {
 	date: string;
-	text: string;
+	/** A plain string, or a sequence of strings and links rendered inline, in order. */
+	text: string | (string | NewsLink)[];
 }
 
 export interface Sponsor {
@@ -121,8 +127,16 @@ export const stats: Stat[] = [
 	{ value: formatCompact(siteStats.totalNetworkLengthKm), label: 'km of bike trails' }
 ];
 
+// Newest first.
 export const news: NewsItem[] = [
-	{ date: '2026-10-29', text: 'Project launched — stay tuned for updates.' }
+	{
+		date: '2026-11-09',
+		text: [
+			'After a year of development, we just launched ',
+			{ text: 'bikenetkit.org', href: resolve('/') },
+			'! 🥳 The bike networks of 412 European cities are up for you to grow, fix, and link.'
+		]
+	}
 ];
 
 // Mirrors the "Supported by" section of the BikeNetKit org profile README

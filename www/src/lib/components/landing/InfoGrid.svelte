@@ -88,7 +88,12 @@
 							<time datetime={item.date} class="text-xs text-ink-alt-weaker tabular-nums"
 								>{formatIsoDate(item.date)}</time
 							>
-							<span class="ml-2">{item.text}</span>
+							<span class="ml-2"
+								>{#each typeof item.text === 'string' ? [item.text] : item.text as part, i (i)}{#if typeof part === 'string'}{part}{:else}<a
+											href={part.href}
+											class="link relative">{part.text}</a
+										>{/if}{/each}</span
+							>
 						</li>
 					{/each}
 				</ul>
