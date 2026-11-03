@@ -183,10 +183,15 @@ await run('node', [path.join(WWW_ROOT, 'scripts/check-fonts.mjs'), '--build']);
 // No data/ or screenshots/ exclusions any more: those trees moved out of static/ (to www/data/ and
 // www/screenshots/, see vite.config.js), so the build never contains them in the first place rather
 // than copying ~2.4 GB in only for this rsync to drop it again.
+// --chmod normalises modes on the way up: nginx runs as a different user than the one rsync writes
+// as, so a file that is 0600 locally arrives unreadable and serves as a 403. Git does not record
+// read bits, so a freshly dropped-in asset (the 2026-11-02 press kit) can carry that mode without
+// anything in the repo showing it. -a would otherwise faithfully copy it.
 const rsyncArgs = [
 	'-az',
 	'--delete',
 	'--progress',
+	'--chmod=D755,F644',
 	'--exclude=.DS_Store',
 	'--exclude=.git',
 	'-e',
