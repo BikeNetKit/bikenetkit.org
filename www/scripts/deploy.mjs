@@ -14,8 +14,8 @@
 // not from the site origin, and no longer live under static/ — so the build carries neither. Both
 // flags below are baked in at build time, so --placeholder must rebuild.
 //   - PUBLIC_LANDING_PLACEHOLDER shows the "coming soon" page instead of the full landing.
-//   - PLACEHOLDER_ONLY (see svelte.config.js) additionally narrows prerendering to `/` and
-//     `/design`, since the placeholder links to none of the map routes — without it the build
+//   - PLACEHOLDER_ONLY (see svelte.config.js) additionally narrows prerendering to `/`, `/design`
+//     and the `/DESIGN.md` file it links to, since the placeholder links to none of the map routes — without it the build
 //     would prerender every city's GeoJSON into __data.json (~6 GB) for a page that never serves
 //     it. `/design` is the hidden design-system reference page, shared with collaborators
 //     pre-launch; it is unlisted but carries its own `noindex`.
@@ -128,10 +128,10 @@ if (!existsSync(path.join(buildDir, 'index.html'))) {
 	process.exit(1);
 }
 
-// 3. Placeholder only: PLACEHOLDER_ONLY narrows prerendering to `/` and `/design`, so every other
-// URL — including the deep map links the docs site publishes — falls through to 404.html. Until
-// launch that should land the reader on the placeholder, not on a branded error page offering
-// links that 404 too.
+// 3. Placeholder only: PLACEHOLDER_ONLY narrows prerendering to `/`, `/design` and `/DESIGN.md`,
+// so every other URL — including the deep map links the docs site publishes — falls through to
+// 404.html. Until launch that should land the reader on the placeholder, not on a branded error
+// page offering links that 404 too.
 // A body-level redirect rather than an nginx `error_page … return 302`: this way the artifact
 // carries its own behavior instead of depending on a vhost line. The HTTP status stays 404 on purpose — none of these
 // URLs are public yet, and a crawler should be told so.
@@ -157,7 +157,9 @@ ${placeholderRedirect}
 </html>
 `
 	);
-	console.log('[deploy] placeholder: / and /design prerendered, 404.html redirects to /');
+	console.log(
+		'[deploy] placeholder: /, /design and /DESIGN.md prerendered, 404.html redirects to /'
+	);
 } else if (
 	skipBuild &&
 	existsSync(notFoundPage) &&

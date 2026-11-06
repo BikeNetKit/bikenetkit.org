@@ -19,8 +19,9 @@ Each has its own directory, never one inside the website directory, for the reas
 
 Until launch, the apex vhost roots at `/home/<SSH_USER>/bikenetkit/placeholder-website`, not at
 the `website` directory §2 shows. `pnpm deploy:placeholder` fills it with the "coming soon" page
-and the unlisted `/design` reference, which needs no vhost change: `try_files $uri.html …` resolves
-it, and the placeholder's `404.html` redirects to `/`. `pnpm deploy:site` meanwhile fills
+and the unlisted `/design` reference, which needs no vhost change beyond §2's `location =
+/DESIGN.md` (the spec file it links to): `try_files $uri.html …` resolves it, and the placeholder's
+`404.html` redirects to `/`. `pnpm deploy:site` meanwhile fills
 `website/`, where nothing serves it. Going live is an nginx change, not a deploy:
 
 1. In `/etc/nginx/sites-available/bikenetkit`, set `root /home/<SSH_USER>/bikenetkit/website;`.
@@ -189,6 +190,23 @@ server {
         add_header Cache-Control "no-cache" always;
     }
 
+    # The design spec as a file (src/routes/DESIGN.md). Ubuntu's mime.types has no `md` entry, so
+    # without this it goes out as application/octet-stream and browsers download it instead of
+    # showing it. A `types {}` block would replace the whole MIME map, hence `default_type`, which
+    # only applies to extensions the map does not know. `charset` needs the type listed in
+    # `charset_types`, which by default covers only HTML, XML and plain text. Unlisted like the
+    # `/design` page that links to it, which says noindex in a meta tag; a file can only say it in
+    # a header.
+    location = /DESIGN.md {
+        default_type text/markdown;
+        charset utf-8;
+        charset_types text/markdown;
+        include snippets/bikenetkit-security.conf;
+        include snippets/bikenetkit-no-framing.conf;
+        add_header X-Robots-Tag "noindex" always;
+        add_header Cache-Control "no-cache" always;
+    }
+
     # /embed is client-only: no HTML is emitted per URL. Serve the SPA shell (adapter-static's
     # fallback, 404.html) with a 200 so links to an embed are not reported broken. An embed is the
     # map page's content inside someone else's page, so it is kept out of search indexes; the shell
@@ -231,7 +249,7 @@ server {
     gzip_comp_level 5;
     gzip_min_length 1024;
     gzip_proxied any;
-    gzip_types text/plain text/css application/javascript application/json
+    gzip_types text/plain text/markdown text/css application/javascript application/json
                image/svg+xml application/geo+json application/x-protobuf;
 }
 NGINXCONF
@@ -472,6 +490,16 @@ server {
     location / {
         rewrite ^/(.+)/$ /$1 permanent;
         try_files $uri.html $uri $uri/index.html =404;
+        include snippets/bikenetkit-security.conf;
+        include snippets/bikenetkit-no-framing.conf;
+        add_header X-Robots-Tag "noindex, nofollow" always;
+        add_header Cache-Control "no-cache" always;
+    }
+    # As on the apex (§ 2): without it the spec is served as application/octet-stream.
+    location = /DESIGN.md {
+        default_type text/markdown;
+        charset utf-8;
+        charset_types text/markdown;
         include snippets/bikenetkit-security.conf;
         include snippets/bikenetkit-no-framing.conf;
         add_header X-Robots-Tag "noindex, nofollow" always;

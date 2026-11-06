@@ -1,5 +1,4 @@
 <script>
-	import { downloadMarkdown } from '$lib/design/download.js';
 	import SegmentedControl from '$lib/components/ui/SegmentedControl.svelte';
 	import DownloadButton from './DownloadButton.svelte';
 
@@ -7,11 +6,12 @@
 	 * @typedef {object} Props
 	 * @property {string} html Markdown rendered at prerender time by `$lib/design/markdown.js`.
 	 * @property {{ id: string, text: string }[]} toc Top-level headings, for the jump list.
-	 * @property {string} raw The verbatim source, downloaded and shown by the "Source" view.
+	 * @property {string} raw The verbatim source, shown by the "Source" view.
 	 * @property {string} filename
+	 * @property {string} href Where the build serves `raw` as a file, for the Download button.
 	 */
 	/** @type {Props} */
-	let { html, toc, raw, filename } = $props();
+	let { html, toc, raw, filename, href } = $props();
 
 	let view = $state('rendered');
 
@@ -19,10 +19,6 @@
 		{ value: 'rendered', label: 'Rendered' },
 		{ value: 'source', label: 'Source' }
 	];
-
-	function download() {
-		downloadMarkdown(raw, filename);
-	}
 </script>
 
 <div class="rounded border border-border-weaker bg-paper-white">
@@ -37,7 +33,7 @@
 				onSelect={(v) => (view = v)}
 				ariaLabel="Preview format"
 			/>
-			<DownloadButton label="Download" variant="outline" onclick={download} />
+			<DownloadButton label="Download" variant="outline" {href} download={filename} />
 		</div>
 	</div>
 

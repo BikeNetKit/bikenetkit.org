@@ -27,6 +27,7 @@ flow is in [OPERATIONS.md § Deploying](OPERATIONS.md#deploying).
 
 - `www/` — the SvelteKit application (everything else lives here).
 - [www/DESIGN.md](www/DESIGN.md) — visual system spec for AI agents. Read before generating UI.
+  The build also serves it verbatim at `/DESIGN.md` (`src/routes/DESIGN.md/+server.ts`).
 
 ## Key files
 

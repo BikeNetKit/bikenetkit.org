@@ -33,13 +33,15 @@ const config = {
 		adapter: adapter({ strict: false, fallback: '404.html' }),
 		prerender: {
 			// `/design` ships with the placeholder so the design system can be shared with
-			// collaborators pre-launch. It needs no exemption from the 404.html redirect stub that
-			// scripts/deploy.mjs writes — that only ever fires for URLs the build did not emit.
-			entries: placeholderOnly ? ['/', '/design'] : ['*'],
+			// collaborators pre-launch, together with the spec file it links to (`/DESIGN.md`). It
+			// needs no exemption from the 404.html redirect stub that scripts/deploy.mjs writes — that
+			// only ever fires for URLs the build did not emit.
+			entries: placeholderOnly ? ['/', '/design', '/DESIGN.md'] : ['*'],
 			// In placeholder mode `entries` is the whole contract. `/design` links only to itself,
-			// `#anchors` and external URLs today; leave the crawler on and one future in-site link
-			// there would silently drag the entire map section — and its ~6 GB of __data.json —
-			// back into a "coming soon" deploy. The full build still crawls, and still link-checks.
+			// `#anchors`, `/DESIGN.md` (a leaf, listed above) and external URLs today; leave the
+			// crawler on and one future in-site link there would silently drag the entire map
+			// section — and its ~6 GB of __data.json — back into a "coming soon" deploy. The full
+			// build still crawls, and still link-checks.
 			crawl: !placeholderOnly,
 			// Every route still carries `export const prerender = true` (inherited from the root
 			// layout), so with entries narrowed above, SvelteKit's default `handleUnseenRoutes`

@@ -26,7 +26,6 @@
 	import MapLayersSection from '$lib/components/design/MapLayersSection.svelte';
 	import { parseThemeTokens, resolveTokens, groupColorTokens } from '$lib/design/tokens.js';
 	import { brandAssets, assetGroups } from '$lib/design/assets.js';
-	import { downloadMarkdown } from '$lib/design/download.js';
 	import { cities } from '$lib/data/cities';
 	import { datasets } from '$lib/data/datasets';
 	import { availableSlugs } from '$lib/data/city-tools';
@@ -72,8 +71,6 @@
 		'growbikenet',
 		cities.filter((c) => availableSlugs(c, datasets).includes('growbikenet')).slice(0, 2)
 	);
-
-	const downloadDesignMd = () => downloadMarkdown(designMd, 'DESIGN.md');
 
 	const dummyCities = [
 		{ name: 'Copenhagen', slug: 'copenhagen', country: 'Denmark', countryCode: 'DK' },
@@ -208,11 +205,12 @@
 				<h3 class="mb-3 font-display text-sm font-bold tracking-wide text-ink uppercase">Spec</h3>
 				<div class="flex h-full flex-col rounded border border-border-weaker bg-paper-white p-4">
 					<p class="text-sm text-ink-weaker">
-						The current <code class="font-mono text-xs">DESIGN.md</code> bundled with this build —
-						read it in <a class="link" href="#spec">the preview below</a>.
+						The current <code class="font-mono text-xs">DESIGN.md</code> bundled with this build.
+						Read it in <a class="link" href="#spec">the preview below</a>, or link to it at
+						<a class="link" href="/DESIGN.md">/DESIGN.md</a>.
 					</p>
 					<div class="mt-auto pt-3">
-						<DownloadButton label="Download DESIGN.md" onclick={downloadDesignMd} />
+						<DownloadButton label="Download DESIGN.md" href="/DESIGN.md" download="DESIGN.md" />
 					</div>
 				</div>
 			</div>
@@ -1064,7 +1062,7 @@
 			'Spec — DESIGN.md',
 			'The written companion to this page, rendered from the copy committed in this build. Where the two disagree, this page wins.'
 		)}
-		<SpecPreview {...data.spec} raw={designMd} filename="DESIGN.md" />
+		<SpecPreview {...data.spec} raw={designMd} filename="DESIGN.md" href="/DESIGN.md" />
 	</section>
 
 	<section class="mb-16">

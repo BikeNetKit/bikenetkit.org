@@ -13,10 +13,6 @@ export function downloadBlob(blob, filename) {
 	setTimeout(() => URL.revokeObjectURL(url), 0);
 }
 
-export function downloadMarkdown(text, filename) {
-	downloadBlob(new Blob([text], { type: 'text/markdown;charset=utf-8' }), filename);
-}
-
 function svgIntrinsicSize(svgText) {
 	const widthAttr = svgText.match(/<svg[^>]*\bwidth="([\d.]+)(?:px)?"/i)?.[1];
 	const heightAttr = svgText.match(/<svg[^>]*\bheight="([\d.]+)(?:px)?"/i)?.[1];

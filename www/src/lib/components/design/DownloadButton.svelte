@@ -1,7 +1,26 @@
 <script>
 	import { Download, LoaderCircle } from '@lucide/svelte';
 
-	let { label, onclick, icon = true, variant = 'solid', class: className = '' } = $props();
+	/**
+	 * @typedef {object} Props
+	 * @property {string} label
+	 * @property {() => unknown} [onclick] Builds the file in the browser. Ignored when `href` is set.
+	 * @property {string} [href] A file the build ships: rendered as a real link, so it has a URL.
+	 * @property {string} [download] Saved filename for `href`; defaults to the URL's own name.
+	 * @property {boolean} [icon]
+	 * @property {'solid' | 'outline'} [variant]
+	 * @property {string} [class]
+	 */
+	/** @type {Props} */
+	let {
+		label,
+		onclick,
+		href,
+		download = '',
+		icon = true,
+		variant = 'solid',
+		class: className = ''
+	} = $props();
 
 	let loading = $state(false);
 
@@ -24,18 +43,27 @@
 	};
 </script>
 
-<button
-	type="button"
-	onclick={handleClick}
-	aria-busy={loading || undefined}
-	class="{base} {styles[variant]} {className}"
->
-	{#if icon}
-		{#if loading}
-			<LoaderCircle class="h-4 w-4 animate-spin" aria-hidden="true" />
-		{:else}
+{#if href}
+	<a {href} {download} class="{base} {styles[variant]} {className}">
+		{#if icon}
 			<Download class="h-4 w-4" aria-hidden="true" />
 		{/if}
-	{/if}
-	{label}
-</button>
+		{label}
+	</a>
+{:else}
+	<button
+		type="button"
+		onclick={handleClick}
+		aria-busy={loading || undefined}
+		class="{base} {styles[variant]} {className}"
+	>
+		{#if icon}
+			{#if loading}
+				<LoaderCircle class="h-4 w-4 animate-spin" aria-hidden="true" />
+			{:else}
+				<Download class="h-4 w-4" aria-hidden="true" />
+			{/if}
+		{/if}
+		{label}
+	</button>
+{/if}
