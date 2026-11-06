@@ -524,7 +524,8 @@ keyboard walks) guards what follows.
 - **Reduced motion.** A global rule in `layout.css` collapses CSS animations and transitions. JS
   motion reads `reducedMotion` (`$lib/state/motion.svelte.js`): the map build-ups jump to the
   last frame, and the hero shows one city and stops. Anything that moves for more than five
-  seconds needs a pause control (the hero has one).
+  seconds needs a pause control. The hero has none, by maintainer decision; `/legal` lists that as
+  a known limitation.
 - **The map has a non-visual equivalent.** The canvas cannot be read, so every map page offers
   "View as table": a summary sentence, how the network builds up (sampled at every tenth of the new
   length) and its most important parts, built by the pure functions in `$lib/data/map-table` from

@@ -189,8 +189,8 @@
 			<p>
 				We aim for WCAG 2.1 level AA. Semantic markup, keyboard-operable controls and visible focus
 				indicators are part of the design system the site is built on. The animation at the top of
-				the home page can be paused, and it holds still when your system asks for reduced motion.
-				This is a best-effort statement, not a formal compliance filing.
+				the home page holds still when your system asks for reduced motion. This is a best-effort
+				statement, not a formal compliance filing.
 			</p>
 
 			{@render h3('Known limitations')}
@@ -200,6 +200,10 @@
 					map has a “View as table” button that gives a written summary and its key results as
 					tables: how the network builds up, and its most important parts. The tables summarize
 					rather than list every segment; the full data is in the GeoJSON download.
+				</li>
+				<li>
+					The animation at the top of the home page has no pause button. To stop it, turn on your
+					system’s reduced-motion setting.
 				</li>
 				<li>
 					Panning and zooming a map is designed for pointer input. Keyboard controls exist but are

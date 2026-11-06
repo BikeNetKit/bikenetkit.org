@@ -135,22 +135,6 @@ test.describe('the hero animation', () => {
 		const before = await frame.textContent();
 		await page.waitForTimeout(3_000);
 		expect(await frame.textContent()).toBe(before);
-		await expect(page.getByRole('button', { name: /hero animation/i })).toHaveCount(0);
-	});
-
-	test.describe(() => {
-		test.use({ contextOptions: { reducedMotion: 'no-preference' } });
-		test('can be paused and resumed', async ({ page }) => {
-			await page.goto('/');
-			const play = page.getByRole('button', { name: 'Play hero animation' });
-			// Retried because a click before hydration does nothing.
-			await expect(async () => {
-				await page.getByRole('button', { name: 'Pause hero animation' }).click();
-				await expect(play).toBeVisible({ timeout: 1_000 });
-			}).toPass();
-			await play.click();
-			await expect(page.getByRole('button', { name: 'Pause hero animation' })).toBeFocused();
-		});
 	});
 
 	test('is hidden from assistive technology', async ({ page }) => {
