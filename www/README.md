@@ -180,7 +180,10 @@ The BikeNetKit code is licensed under the **GNU Affero General Public License v3
 **SIL OFL** and committed with their licence notices (Noto Sans's is in
 [scripts/glyph-src/README.md](scripts/glyph-src/README.md)), and `/legal` credits the two served
 faces. Bespoke Sans is **ITF FFL**, self-hosted and not committed ([§ Fonts](#fonts)). Map data is © OpenStreetMap contributors
-(ODbL) with Protomaps basemap tiles, credited in the map and in [DEPLOY_TILES.md](DEPLOY_TILES.md).
+(ODbL) with Protomaps basemap tiles, credited in the map and in [DEPLOY_TILES.md](DEPLOY_TILES.md). The basemap
+style code in `src/lib/map-style/` (`layers.js`, `text-field.js`) is derived from Protomaps'
+[`@protomaps/basemaps`](https://github.com/protomaps/basemaps), which is **BSD-3-Clause**; its
+notice is in [src/lib/map-style/LICENSE-protomaps.md](src/lib/map-style/LICENSE-protomaps.md).
 
 ## Related docs
 

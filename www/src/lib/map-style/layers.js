@@ -3,6 +3,9 @@
  *
  * Every color and font is injected via `colors` and `fonts` parameters,
  * making it easy to customize without touching layer structure.
+ *
+ * Derived from @protomaps/basemaps, Copyright 2019-2023 Protomaps LLC, Kelso Cartography,
+ * BSD-3-Clause; full notice in ./LICENSE-protomaps.md.
  */
 import { multilineName, countryName } from './text-field.js';
 import { ROAD_LABEL_MIN_ZOOM, ROAD_SHIELD_MIN_ZOOM, SUBPLACE_ZOOM } from './render-config.js';

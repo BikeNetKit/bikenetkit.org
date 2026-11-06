@@ -3,6 +3,9 @@
  *
  * These reproduce the output of get_multiline_name('en') and get_country_name('en')
  * from @protomaps/basemaps, but parameterized with custom fonts.
+ *
+ * Derived from @protomaps/basemaps, Copyright 2019-2023 Protomaps LLC, Kelso Cartography,
+ * BSD-3-Clause; full notice in ./LICENSE-protomaps.md.
  */
 
 const LANG = 'en';
