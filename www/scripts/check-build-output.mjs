@@ -34,101 +34,34 @@ if (!existsSync(BUILD)) {
 }
 
 /**
- * Origins the built site may name. Two kinds, and the distinction is the whole point:
- *
- * - **Our own hosts**, which serve assets at runtime. These are the dependency, and they are ours.
- * - **Documented non-dependencies**: strings that appear in the bundle but are never fetched.
- *   `unpkg.com` is dead code — `svelte-maplibre-gl` would inject a `<link>` to MapLibre's CSS from
- *   there unless told not to, and every `<MapLibre>` in this repo passes `autoloadGlobalCss={false}`
- *   (the CSS is imported in layout.css instead). **Any new `<MapLibre>` must pass that prop.**
- *   `protomaps.com` and `openstreetmap.org` are the attribution links in the map control.
+ * Hosts we run. The basemap, the GeoJSON, the docs and the FAQ: the only places the built site
+ * may fetch from.
  */
-const ALLOWED_ASSET_HOSTS = new Set([
+const OWN_HOSTS = new Set([
 	'bikenetkit.org',
 	'www.bikenetkit.org',
 	'tiles.bikenetkit.org',
 	'data.bikenetkit.org',
 	'docs.bikenetkit.org',
-	'faq.bikenetkit.org',
-	'unpkg.com',
-	'protomaps.com',
-	'openstreetmap.org',
-	'www.openstreetmap.org',
-	'maplibre.org'
+	'faq.bikenetkit.org'
 ]);
 
 /**
- * Hosts that may appear as *human-facing links* — a reader clicking through to a paper, a repo or a
- * social profile. They are not fetched, so they cannot break the site when they go away.
- * Enumerated rather than waved through, so a CDN cannot arrive disguised as a link.
+ * Strings that sit in the bundle but that the site neither fetches nor links to, each for a reason
+ * worth keeping. Everything else in a bundle has to be linked from a page to pass (see below).
  */
-const ALLOWED_LINK_HOSTS = new Set([
-	// Code, papers and identifiers
-	'github.com',
-	'doi.org',
-	'dx.doi.org',
-	'arxiv.org',
-	'zenodo.org',
-	'schema.org',
-	// Publishers the tool catalogue's papers resolve to
-	'nature.com',
-	'www.nature.com',
-	'sciencedirect.com',
-	'www.sciencedirect.com',
-	'journals.plos.org',
-	'journals.sagepub.com',
-	'iopscience.iop.org',
-	'link.springer.com',
-	'www.tandfonline.com',
-	'onlinelibrary.wiley.com',
-	'royalsocietypublishing.org',
-	'joss.theoj.org',
-	'findingspress.org',
-	'transfindings.org',
-	// A tool's own site
-	'superblockify.city',
-	// The YouTube channel and the per-tool tutorials: linked, never embedded
-	'www.youtube.com',
-	// Licences and attribution, mostly the credits block on /legal
-	'creativecommons.org',
-	'www.creativecommons.org',
-	'opendefinition.org',
-	'opendatacommons.org',
-	'fontshare.com',
-	'www.fontshare.com',
-	'public-sans.digital.gov',
-	'www.gnu.org',
-	'www.w3.org',
-	'docs.protomaps.com',
-	// Named in the same credits block as the software this site is built on. `tailwindcss.com` is
-	// not even a link — it is the licence banner in Tailwind's own CSS output.
-	'svelte.dev',
-	'bits-ui.com',
-	'lucide.dev',
-	'tailwindcss.com',
-	// String literals inside MapLibre 6, never fetched: the link in its "no WebGL2" error message,
-	// and a reserved `.invalid` base it parses relative URLs against
+const NEVER_FETCHED = new Set([
+	// Dead code: `svelte-maplibre-gl` injects a `<link>` to MapLibre's CSS from unpkg unless told
+	// not to. Every `<MapLibre>` in this repo passes `autoloadGlobalCss={false}` (the CSS is
+	// imported in layout.css instead). **Any new `<MapLibre>` must pass that prop.**
+	'unpkg.com',
+	// Inside MapLibre: the link in its "no WebGL2" error message, and a reserved `.invalid` base it
+	// parses relative URLs against
 	'wiki.openstreetmap.org',
 	'maplibre.invalid',
-	// The Danish data protection authority, named in the GDPR notice as the supervisory authority
-	'www.datatilsynet.dk',
-	// Funders, affiliations and credits
-	'innovationsfonden.dk',
-	'commission.europa.eu',
-	'www.just-streets.eu',
-	'itu.dk',
-	'en.itu.dk',
-	'nerds.itu.dk',
-	'truth-and-beauty.net',
-	'brietzke.com',
-	// The UN Demographic Yearbook, credited on /legal for the population figures
-	'unstats.un.org',
-	// Socials
-	'mastodon.social',
-	'fosstodon.org',
-	'bsky.app',
-	'www.linkedin.com',
-	'linkedin.com'
+	// Identifiers, not addresses: the SVG/XML namespaces, and JSON-LD's `@context` vocabulary
+	'www.w3.org',
+	'schema.org'
 ]);
 
 function walk(dir, filter) {
@@ -147,20 +80,106 @@ const appFiles = existsSync(path.join(BUILD, '_app'))
 	: [];
 
 // ---------------------------------------------------------------- 1. external origins
+//
+// A link and a dependency look the same as a string: `https://example.org` in an `<a href>` is a
+// reader clicking away, the same string in a `<script src>` is the site failing when that host
+// does. So the build is read by context rather than grepped:
+//
+// - **Fetch contexts** in HTML and CSS — `src`, `srcset`, `poster`, `<object data>`, `<link href>`,
+//   SVG `<image>`/`<use>`/`<feImage>` `href`, a meta refresh, CSS `url()` and `@import` — must
+//   name one of our own hosts. No exceptions.
+// - **Links** (`<a href>`, `<area href>`, and JSON-LD, which crawlers read and browsers never
+//   fetch) may name any host. They are not dependencies, so they are not listed anywhere.
+// - **Strings in JavaScript** (the bundles, and inline scripts in the HTML) cannot be told apart
+//   by context. One passes if its host is ours, linked from some page, or in NEVER_FETCHED. A CDN
+//   is fetched and never linked, so it fails here.
+//
+// The hole is a host that is linked somewhere *and* fetched from JavaScript. tests/privacy.e2e.ts
+// covers that: it records what the browser actually requests.
 
 const URL_RE = /\bhttps?:\/\/([a-z0-9.-]+\.[a-z]{2,})(?::\d+)?/gi;
-/** host -> the first few files it was seen in */
-const unknown = new Map();
+const hostsIn = (text) => [...text.matchAll(URL_RE)].map((m) => m[1].toLowerCase());
+const attr = (tag, name) => tag.match(new RegExp(`\\s${name}\\s*=\\s*("([^"]*)"|'([^']*)')`, 'i'));
+const attrValue = (tag, name) => {
+	const m = attr(tag, name);
+	return m ? (m[2] ?? m[3]) : null;
+};
+/** A `data:` URI is inline content, not a request; an SVG inside one names the SVG namespace. */
+const fetchedHostsIn = (value) => (value && !/^\s*data:/i.test(value) ? hostsIn(value) : []);
 
-for (const file of [...htmlFiles, ...appFiles]) {
-	const text = readFileSync(file, 'utf8');
-	for (const match of text.matchAll(URL_RE)) {
-		const host = match[1].toLowerCase();
-		if (ALLOWED_ASSET_HOSTS.has(host) || ALLOWED_LINK_HOSTS.has(host)) continue;
-		const seen = unknown.get(host) ?? [];
-		if (seen.length < 3) seen.push(path.relative(BUILD, file));
-		unknown.set(host, seen);
+/** Fetch contexts in a stylesheet: `url(...)` and `@import "..."`. */
+const cssFetchHosts = (css) =>
+	[...css.matchAll(/url\(\s*(['"]?)([^'")]*)\1\s*\)|@import\s+(['"])([^'"]*)\3/gi)].flatMap((m) =>
+		fetchedHostsIn(m[2] ?? m[4])
+	);
+
+/** host -> the first few files it was seen in, per finding */
+const fetched = new Map();
+const unlinkedStrings = new Map();
+const linked = new Set();
+/** host -> files, for every URL string in JavaScript; resolved against `linked` once all is read */
+const jsStrings = new Map();
+
+const note = (map, host, file) => {
+	const seen = map.get(host) ?? [];
+	if (seen.length < 3 && !seen.includes(file)) seen.push(file);
+	map.set(host, seen);
+};
+const noteFetch = (host, file) => {
+	if (!OWN_HOSTS.has(host)) note(fetched, host, file);
+};
+
+const SCRIPT_RE = /<script\b([^>]*)>([\s\S]*?)<\/script>/gi;
+const STYLE_RE = /<style\b[^>]*>([\s\S]*?)<\/style>/gi;
+const TAG_RE = /<([a-z][a-z0-9:-]*)\b[^>]*>/gi;
+
+for (const file of htmlFiles) {
+	const rel = path.relative(BUILD, file);
+	let html = readFileSync(file, 'utf8');
+
+	// Scripts first, then cut out, so their contents are not read as markup below.
+	html = html.replace(SCRIPT_RE, (_, attrs, body) => {
+		for (const host of fetchedHostsIn(attrValue(`<script${attrs}>`, 'src'))) noteFetch(host, rel);
+		const isJsonLd = /type\s*=\s*["']?application\/ld\+json/i.test(attrs);
+		for (const host of hostsIn(body)) {
+			if (isJsonLd) linked.add(host);
+			else note(jsStrings, host, rel);
+		}
+		return '';
+	});
+	html = html.replace(STYLE_RE, (_, css) => {
+		for (const host of cssFetchHosts(css)) noteFetch(host, rel);
+		return '';
+	});
+
+	for (const [tag, name] of html.matchAll(TAG_RE)) {
+		const el = name.toLowerCase();
+		if (el === 'a' || el === 'area') {
+			for (const host of hostsIn(attrValue(tag, 'href') ?? '')) linked.add(host);
+			continue;
+		}
+		const sources = ['src', 'srcset', 'poster'];
+		if (el === 'object') sources.push('data');
+		if (['link', 'image', 'use', 'feimage'].includes(el)) sources.push('href', 'xlink:href');
+		if (el === 'meta' && /http-equiv\s*=\s*["']?refresh/i.test(tag)) sources.push('content');
+		for (const source of sources) {
+			for (const host of fetchedHostsIn(attrValue(tag, source))) noteFetch(host, rel);
+		}
+		for (const host of cssFetchHosts(attrValue(tag, 'style') ?? '')) noteFetch(host, rel);
 	}
+}
+
+for (const file of appFiles) {
+	const rel = path.relative(BUILD, file);
+	const text = readFileSync(file, 'utf8');
+	// CSS names hosts in comments too (Tailwind's licence banner), and those fetch nothing.
+	if (file.endsWith('.css')) for (const host of cssFetchHosts(text)) noteFetch(host, rel);
+	else for (const host of hostsIn(text)) note(jsStrings, host, rel);
+}
+
+for (const [host, files] of jsStrings) {
+	if (OWN_HOSTS.has(host) || NEVER_FETCHED.has(host) || linked.has(host)) continue;
+	for (const file of files) note(unlinkedStrings, host, file);
 }
 
 // ---------------------------------------------------------------- 2. prerendered content
@@ -284,15 +303,26 @@ console.log(
 
 let failed = false;
 
-if (unknown.size > 0) {
+if (fetched.size > 0) {
 	failed = true;
 	console.error(
-		`\n[build-output] ${unknown.size} unrecognised external origin(s) in the build.\n` +
-			`               The site must not depend on a third-party host at runtime. If one of these\n` +
-			`               is a human-facing link rather than an asset, add it to ALLOWED_LINK_HOSTS\n` +
-			`               in this script — deliberately, and with the reason in the commit.\n`
+		`\n[build-output] ${fetched.size} third-party host(s) the pages would fetch from.\n` +
+			`               The site must not depend on a host it does not run: serve the file\n` +
+			`               from static/ or tiles./data.bikenetkit.org instead.\n`
 	);
-	for (const [host, files] of [...unknown].sort()) {
+	for (const [host, files] of [...fetched].sort()) {
+		console.error(`  ${host.padEnd(34)} ${files.join(', ')}`);
+	}
+}
+
+if (unlinkedStrings.size > 0) {
+	failed = true;
+	console.error(
+		`\n[build-output] ${unlinkedStrings.size} third-party host(s) in JavaScript that no page links to.\n` +
+			`               A string the site neither links nor serves is most likely fetched. If it\n` +
+			`               provably is not, add it to NEVER_FETCHED in this script with the reason.\n`
+	);
+	for (const [host, files] of [...unlinkedStrings].sort()) {
 		console.error(`  ${host.padEnd(34)} ${files.join(', ')}`);
 	}
 }

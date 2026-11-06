@@ -76,30 +76,24 @@ pnpm build
 pnpm check:build-output
 ```
 
-`scripts/check-build-output.mjs` walks the built HTML and bundle for external origins and fails on
-any it does not recognise, holding two explicit lists: hosts that may serve **assets** (ours), and
-hosts that may appear as **human-facing links** (papers, repos, socials — not fetched, so they
-cannot break the site). Adding to either list is a deliberate act; do it in a commit that says why.
-The same run also checks that prerendered pages carry real text, not an empty shell.
+`scripts/check-build-output.mjs` reads the built HTML and bundles by context, because a link and a
+dependency are the same string. A host in a **fetch context** (`src`, `srcset`, `<link href>`,
+CSS `url()` and the like) must be one of ours. A **link** (`<a href>`) may name any host, since a
+reader clicking away cannot break the site, so links are not listed anywhere. A URL **string in
+JavaScript** passes only if its host is ours, linked from some page, or in the script's short,
+commented `NEVER_FETCHED` list. Adding to that list is a deliberate act; do it in a commit that
+says why. The same run also checks that prerendered pages carry real text, not an empty shell.
 
-The definitive check is still what the browser actually requests:
+What the browser actually requests is checked too, by `tests/privacy.e2e.ts` in `pnpm test`: it
+loads one page of each family, including a live map and `/design`, and fails on any request to a
+host other than the site, `tiles.bikenetkit.org` and `data.bikenetkit.org`. That covers the one
+case the build scan cannot see, a host the site links to and also fetches from a script.
 
-```sh
-pnpm preview   # then, against the running preview:
-```
-
-```js
-page.on('request', (r) => console.log(new URL(r.url()).hostname));
-```
-
-Only the site's own origin, `tiles.bikenetkit.org` and `data.bikenetkit.org` should be contacted.
-Two entries the script allows are _not_ runtime dependencies, and the reasons are worth keeping:
-
-- `unpkg.com`, because `svelte-maplibre-gl` will inject a `<link>` to MapLibre's CSS from unpkg
-  unless told not to. Every `<MapLibre>` in this repo passes `autoloadGlobalCss={false}`, and the
-  CSS is imported in [src/routes/layout.css](src/routes/layout.css) instead. The string survives in
-  the bundle as dead code. **Any new `<MapLibre>` must pass that prop.**
-- `protomaps.com` and `openstreetmap.org`, which are attribution links in the map control.
+`unpkg.com` is the entry in `NEVER_FETCHED` worth knowing about: `svelte-maplibre-gl` injects a
+`<link>` to MapLibre's CSS from unpkg unless told not to. Every `<MapLibre>` in this repo passes
+`autoloadGlobalCss={false}`, and the CSS is imported in [src/routes/layout.css](src/routes/layout.css)
+instead. The string survives in the bundle as dead code. **Any new `<MapLibre>` must pass that
+prop.**
 
 ## Structure
 

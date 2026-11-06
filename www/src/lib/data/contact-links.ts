@@ -12,6 +12,13 @@ const data = contactLinks as {
 };
 const excluded = new Set(data.excluded);
 
+/**
+ * Cities whose country-level links are filed under another country than the one their cityid
+ * carries. The export names Pristina `pristina_rs`, so `cities.json` gives it `RS`, but the site
+ * lists it under Kosovo and the reviewed contact research files its ministry under `XK`.
+ */
+const COUNTRY_OVERRIDES: Record<string, string> = { pristina_rs: 'XK' };
+
 export type ActionLinkKind = 'mobility' | 'contact' | 'ministry' | 'org';
 
 export type ActionLink = {
@@ -30,7 +37,8 @@ export type ActionLink = {
 export function actionLinksFor(slug: string): ActionLink[] {
 	if (excluded.has(slug)) return [];
 	const own = data.cities[slug] ?? {};
-	const nation = data.countries[cityBySlug[slug]?.countryCode ?? ''] ?? {};
+	const nation =
+		data.countries[COUNTRY_OVERRIDES[slug] ?? cityBySlug[slug]?.countryCode ?? ''] ?? {};
 	const links: ActionLink[] = [];
 	if (own.mobility)
 		links.push({ kind: 'mobility', label: "Your city's cycling initiatives", ...own.mobility });
