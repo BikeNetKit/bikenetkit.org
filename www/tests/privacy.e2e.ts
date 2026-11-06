@@ -7,9 +7,9 @@ import { SAMPLE } from './helpers';
  * claims that let the site ship without a consent banner, and the argument collapses the moment any
  * analytics script, embed or CDN font is added.
  *
- * `pnpm check:build-output` proves no third-party origin is *referenced* in the build. This proves
- * none is *contacted* at runtime, which is the check www/README.md describes as definitive and used
- * to leave as a manual devtools procedure.
+ * `pnpm check:build-output` reads the build for third-party hosts in fetch contexts, and for
+ * strings in JavaScript that no page links to. This proves none is *contacted* at runtime, which
+ * also covers what that scan cannot see: a host the site links to *and* fetches from a script.
  *
  * The server-side half of the notice — truncated IPs in the access log, 14-day retention — cannot
  * be checked from here. See `pnpm check:privacy`.
@@ -36,7 +36,19 @@ const ALLOWED_STORAGE_KEYS = ['bnk:home-city'];
  */
 const ALLOWED_SESSION_KEYS = ['sveltekit:snapshot', 'sveltekit:scroll'];
 
-const ROUTES = ['/', '/cities', `/cities/${SAMPLE.typical}`, '/legal', '/more-tools'];
+/**
+ * One of each route family that loads something of its own: a tool page (screenshots, tutorial
+ * still), and /design, which embeds live maps and offers the brand assets.
+ */
+const ROUTES = [
+	'/',
+	'/cities',
+	`/cities/${SAMPLE.typical}`,
+	'/growbikenet',
+	'/legal',
+	'/more-tools',
+	'/design'
+];
 
 test('no request leaves our own origins', async ({ page }) => {
 	const foreign = new Set<string>();
