@@ -15,9 +15,12 @@
 		// just doesn't pull /legal into a build that isn't meant to publish it yet.
 		linkCredit = true,
 		// Fades out the logo + headline lockup, and the white gradient that only exists to give it
-		// contrast, leaving the bare map. Used by the full-viewport /hero page; the map, HUD, pause
-		// button and the ODbL credit stay regardless.
-		hideBrand = false
+		// contrast, leaving the bare map. Used by the full-viewport /hero page; the map, HUD and the
+		// ODbL credit stay regardless.
+		hideBrand = false,
+		// The pause control (WCAG 2.2.2). Off only on /hero, a recording frame rather than a page
+		// visitors browse, where the button would end up in the footage.
+		pauseControl = true
 	} = $props();
 
 	const brandFade = $derived(
@@ -80,25 +83,27 @@
 	<!-- Pause for the rotation (WCAG 2.2.2). Above the HUD's "// bikenetkit" mark, clear of the
 	     credit. Hidden under reduced motion, where the hero holds still on its own — CSS rather than
 	     the rune, so it is right before hydration too. -->
-	<div class="pointer-events-auto absolute right-3 bottom-8 z-10 motion-reduce:hidden">
-		<IconButton
-			variant="ghost"
-			size="sm"
-			ariaLabel={paused ? 'Play hero animation' : 'Pause hero animation'}
-			onclick={() => (paused = !paused)}
-		>
-			{#if paused}
-				<svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
-					<polygon points="3,2 10,6 3,10" />
-				</svg>
-			{:else}
-				<svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
-					<rect x="2" y="2" width="3" height="8" rx="0.5" />
-					<rect x="7" y="2" width="3" height="8" rx="0.5" />
-				</svg>
-			{/if}
-		</IconButton>
-	</div>
+	{#if pauseControl}
+		<div class="pointer-events-auto absolute right-3 bottom-8 z-10 motion-reduce:hidden">
+			<IconButton
+				variant="ghost"
+				size="sm"
+				ariaLabel={paused ? 'Play hero animation' : 'Pause hero animation'}
+				onclick={() => (paused = !paused)}
+			>
+				{#if paused}
+					<svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+						<polygon points="3,2 10,6 3,10" />
+					</svg>
+				{:else}
+					<svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+						<rect x="2" y="2" width="3" height="8" rx="0.5" />
+						<rect x="7" y="2" width="3" height="8" rx="0.5" />
+					</svg>
+				{/if}
+			</IconButton>
+		</div>
+	{/if}
 
 	<!-- Basemap credit. Required wherever OSM-derived rendering appears, including here. Clears the
 	     HUD's "// bikenetkit" mark (bottom-3, md and up) rather than sitting on top of it; below md

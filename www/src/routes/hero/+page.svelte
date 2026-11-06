@@ -6,7 +6,8 @@
 	// The landing page's hero teaser alone, filling the viewport — for presenting and recording.
 	// The frame is a 16:9 box, at most 1440px wide, centered on the landing page's green: a
 	// larger display shows it with margins, a smaller one scales it down to fit whichever side is
-	// tighter. `x` toggles the logo + headline lockup, leaving the bare map.
+	// tighter. `x` toggles the logo + headline lockup, leaving the bare map. The pause button is
+	// left out, so it never shows up in a recording.
 	const heroDatasets = $derived(heroCombos(datasets));
 
 	let showBrand = $state(true);
@@ -29,7 +30,12 @@
 	class="flex h-dvh w-full items-center justify-center overflow-hidden bg-brand-subtle focus:outline-none"
 >
 	<div class="hero-frame">
-		<HeroSection datasets={heroDatasets} sectionClass="h-full" hideBrand={!showBrand} />
+		<HeroSection
+			datasets={heroDatasets}
+			sectionClass="h-full"
+			hideBrand={!showBrand}
+			pauseControl={false}
+		/>
 	</div>
 </main>
 
