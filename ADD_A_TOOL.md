@@ -18,10 +18,9 @@ decision from the maintainers before any work starts. Open an issue first.
 ## The catalogue entry
 
 Everything starts in [www/src/lib/data/tools.json](www/src/lib/data/tools.json), typed by
-[types.ts](www/src/lib/data/types.ts). Start a new entry from the organisation's catalogue at
-[BikeNetKit/.github `meta/tools.json`](https://github.com/BikeNetKit/.github/blob/main/meta/tools.json),
-which carries the identity, links, `config`, `renderConfig` and `external`. Nothing syncs the two
-files, and the site's descriptions have been edited for the site, so expect their wording to differ.
+[types.ts](www/src/lib/data/types.ts). It is the only catalogue of the tools, so start a new entry
+by copying an existing one of the same `category` and changing its identity, links, `config`,
+`renderConfig` and `external`.
 
 ```jsonc
 {
