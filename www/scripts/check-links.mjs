@@ -70,6 +70,9 @@ function collectTargets() {
 		add(tool.tutorial, `tools.json ${tool.slug} tutorial`);
 	}
 	for (const [key, value] of Object.entries(site)) {
+		// An `_ORIGIN` is a fetch prefix (OG cards on the data host), not a page anyone opens; the
+		// data host answers 404 at `/` by design, so probing it would only ever report that.
+		if (key.endsWith('_ORIGIN')) continue;
 		if (typeof value === 'string') add(value, `site.js ${key}`);
 	}
 

@@ -631,9 +631,12 @@ test.describe('"View as table" gives the map as text', () => {
 		// The export no longer ships a zero-feature result (the 2026-10-26 import emptied the
 		// `check-datasets` list), so the empty state is staged: only the result file is answered
 		// empty, and the seeds, existing network and boundary still load for real.
-		const result = `/data/growbikenet/${SAMPLE.typical}-betweenness-grid-from_bikenw.geojson`;
+		// Matched by filename: served same-origin under `/data/` by dev and preview servers, but from
+		// the data host's root in a deployed build, so an exact `/data/...` pathname would never fire
+		// against production and the test would quietly see the real result.
+		const result = `/growbikenet/${SAMPLE.typical}-betweenness-grid-from_bikenw.geojson`;
 		await page.route(
-			(url) => url.pathname === result,
+			(url) => url.pathname.endsWith(result),
 			(route) => route.fulfill({ json: { type: 'FeatureCollection', features: [] } })
 		);
 		await page.goto(`/growbikenet/${SAMPLE.typical}/betweenness/grid/from_bikenw`);

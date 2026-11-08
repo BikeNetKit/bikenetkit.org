@@ -32,6 +32,10 @@ for (const route of ROUTES) {
 	test(`axe ${route}`, async ({ page }) => {
 		test.setTimeout(route === '/cities/table' ? 240_000 : 60_000);
 		await page.goto(route);
+		// Every page sets its title from the client router. The 404 is adapter-static's SPA fallback,
+		// an empty shell until it hydrates, so against a remote host axe can run before the title
+		// exists and report `document-title` on a page that has one a moment later.
+		await expect(page).toHaveTitle(/.+/);
 		if (isMap(route) && route !== `/${SAMPLE.uncoveredBy.tool}/${SAMPLE.uncoveredBy.city}`) {
 			await expectMapDrawn(page);
 		}

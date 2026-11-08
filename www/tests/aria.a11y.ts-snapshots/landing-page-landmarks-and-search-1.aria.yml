@@ -81,10 +81,13 @@
   - link "AGPL License (opens in new tab)":
     - /url: https://choosealicense.com/licenses/agpl-3.0/
   - heading "News" [level=3]
-  - list:
+  - list "News":
     - listitem:
       - time: /[A-Z][a-z]{2} \d{1,2}, \d{4}/
-      - text: Project launched — stay tuned for updates.
+      - text: After a year of development, we just launched
+      - link "bikenetkit.org":
+        - /url: /
+      - text: /! 🥳 The bike networks of \d+ European cities are up for you to grow, fix, and link\./
   - heading "Team" [level=3]
   - paragraph:
     - text: Built at
@@ -135,6 +138,17 @@
     - text: ", read the research papers, or explore the source code on"
     - link "GitHub (opens in new tab)":
       - /url: https://github.com/BikeNetKit
+    - text: .
+  - paragraph:
+    - text: Watch our film
+    - link "The missing bike lanes of Copenhagen (opens in new tab)":
+      - /url: https://www.youtube.com/watch?v=TJJGxs8fGLc
+    - text: ", the short explainer"
+    - link "What is BikeNetKit? (opens in new tab)":
+      - /url: https://www.youtube.com/watch?v=sI1AtFLUdks
+    - text: ", and a tutorial for each tool on our"
+    - link "YouTube channel (opens in new tab)":
+      - /url: https://www.youtube.com/@BikeNetKit
     - text: .
   - heading "Sponsors" [level=3]
   - paragraph: BikeNetKit is supported by public research funding and open-source contributors.
