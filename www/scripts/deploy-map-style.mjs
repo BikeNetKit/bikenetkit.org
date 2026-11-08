@@ -8,7 +8,7 @@
 //
 // Target is DEPLOY_TILES_PATH (`~/bikenetkit/tiles/`) — the same dir as the PMTiles archive, which
 // is already a hard runtime dependency for every consumer. Deliberately NOT the website dir:
-// `deploy:site` syncs that with --delete, and the website only serves the full site at launch.
+// `deploy:site` syncs that with --delete.
 //
 // NO --delete: the target dir holds the ~46 GB basemap-*.pmtiles archive. We rsync the style file and
 // the fonts/ subtree into place without pruning anything alongside them.

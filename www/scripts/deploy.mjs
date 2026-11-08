@@ -17,8 +17,8 @@
 //   - PLACEHOLDER_ONLY (see svelte.config.js) additionally narrows prerendering to `/`, `/design`
 //     and the `/DESIGN.md` file it links to, since the placeholder links to none of the map routes — without it the build
 //     would prerender every city's GeoJSON into __data.json (~6 GB) for a page that never serves
-//     it. `/design` is the hidden design-system reference page, shared with collaborators
-//     pre-launch; it is unlisted but carries its own `noindex`.
+//     it. `/design` is the hidden design-system reference page; it is unlisted but carries its
+//     own `noindex`.
 //   - PUBLIC_DATA_URL is always forced to the data subdomain (www/.env leaves it empty for local
 //     dev, which would 404 once data/ is excluded from the rsync below).
 //   - A placeholder deploy also rewrites 404.html into a redirect to `/` (step 3 below), so the
@@ -64,24 +64,20 @@ if (!placeholder && !preview && !dryRun) {
 	}
 }
 
-// Pre-launch, the two targets are different directories and only one of them is served:
+// The three targets are different directories, and the apex vhost serves exactly one of them:
 //
-//   deploy:site         -> DEPLOY_WEB_PATH             ~/bikenetkit/website/
+//   deploy:site         -> DEPLOY_WEB_PATH             ~/bikenetkit/website/          bikenetkit.org
+//   deploy:preview      -> DEPLOY_PREVIEW_WEB_PATH     ~/bikenetkit/preview-website/  the preview vhost (noindex)
 //   deploy:placeholder  -> DEPLOY_PLACEHOLDER_WEB_PATH ~/bikenetkit/placeholder-website/
 //
-// A third, deploy:preview -> DEPLOY_PREVIEW_WEB_PATH (~/bikenetkit/preview-website/), is what the
-// preview vhost (noindex, optionally password-gated) serves, before and after launch. After launch
-// the apex serves website/, so the preview is the only place a build can be looked at before it is
-// live. To promote what was checked there, run `deploy:site -- --skip-build` straight after: it
-// ships the same build/ rather than a rebuild of it.
+// The preview is where a build is looked at before it is live. To promote what was checked there,
+// run `deploy:site -- --skip-build` straight after: it ships the same build/ rather than a rebuild
+// of it. placeholder-website/ is the "coming soon" root the apex served before launch; nothing
+// serves it now, and it is kept as a rollback target.
 //
-// The default vhost roots at placeholder-website (DEPLOY_NGINX.md §2), so `deploy:site` stages the
-// full site where nothing serves it. That is useful — it is how you check the real thing on the
-// real server — and it cannot publish anything by accident.
-//
-// Going live is therefore not a command here at all: it is repointing the nginx root at website/
-// and reloading. Keep it that way. A flag in this script would imply the switch lives in the repo,
-// and someone would eventually believe it.
+// Which directory the apex serves is an nginx `root` line (DEPLOY_NGINX.md §2), not a flag here.
+// Keep it that way: a flag in this script would imply the switch lives in the repo, and someone
+// would eventually believe it.
 
 // The full site publishes /legal — a privacy notice, a controller address and an accessibility
 // contact — plus a "report a problem" link on every page. Shipping any of those addresses while
@@ -130,11 +126,11 @@ if (!existsSync(path.join(buildDir, 'index.html'))) {
 
 // 3. Placeholder only: PLACEHOLDER_ONLY narrows prerendering to `/`, `/design` and `/DESIGN.md`,
 // so every other URL — including the deep map links the docs site publishes — falls through to
-// 404.html. Until launch that should land the reader on the placeholder, not on a branded error
-// page offering links that 404 too.
+// 404.html. On a placeholder deploy that should land the reader on the placeholder, not on a
+// branded error page offering links that 404 too.
 // A body-level redirect rather than an nginx `error_page … return 302`: this way the artifact
-// carries its own behavior instead of depending on a vhost line. The HTTP status stays 404 on purpose — none of these
-// URLs are public yet, and a crawler should be told so.
+// carries its own behavior instead of depending on a vhost line. The HTTP status stays 404 on
+// purpose — a placeholder publishes none of these URLs, and a crawler should be told so.
 //
 // Until 2026-09-30 the apex resolved to OVH shared hosting, which served a hand-uploaded copy of
 // this build through Apache, so this step also wrote a `.htaccess` for it. The apex now points at

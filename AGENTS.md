@@ -112,7 +112,7 @@ pnpm check:og-cards           # does every per-city OG card the manifest lists e
 pnpm check:privacy            # does the server match what /legal#privacy claims? (read-only SSH)
 pnpm generate:screenshots     # per-variant map images -> www/screenshots (against a preview build, never dev)
 pnpm generate:og-cards        # per-city OG cards -> www/screenshots/og + og-cards.json (needs a running pnpm dev)
-pnpm deploy:preview           # build, then rsync build/ to the dir the password-gated preview host serves
+pnpm deploy:preview           # build, then rsync build/ to the dir the preview host serves
 pnpm deploy:site              # build, then rsync build/ to the production dir (NOT `pnpm deploy` — pnpm builtin)
 pnpm deploy:placeholder       # same, building the "coming soon" page into the placeholder dir
 pnpm deploy:data              # rsync www/data/ (off-repo GeoJSON) to the server's data dir

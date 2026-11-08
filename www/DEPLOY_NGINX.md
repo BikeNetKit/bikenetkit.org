@@ -15,21 +15,6 @@ host (§ The preview vhost), the data host ([DEPLOY_DATA.md](DEPLOY_DATA.md)), t
 Each has its own directory, never one inside the website directory, for the reason in
 [OPERATIONS.md](../OPERATIONS.md) § Server layout.
 
-## Launch state
-
-Until launch, the apex vhost roots at `/home/<SSH_USER>/bikenetkit/placeholder-website`, not at
-the `website` directory §2 shows. `pnpm deploy:placeholder` fills it with the "coming soon" page
-and the unlisted `/design` reference, which needs no vhost change beyond §2's `location =
-/DESIGN.md` (the spec file it links to): `try_files $uri.html …` resolves it, and the placeholder's
-`404.html` redirects to `/`. `pnpm deploy:site` meanwhile fills
-`website/`, where nothing serves it. Going live is an nginx change, not a deploy:
-
-1. In `/etc/nginx/sites-available/bikenetkit`, set `root /home/<SSH_USER>/bikenetkit/website;`.
-2. `sudo nginx -t && sudo systemctl reload nginx`.
-
-Until then, the §6 checks marked "full site" answer from the placeholder. After going live, this
-section can go, and `placeholder-website/` can be deleted from the server.
-
 ## Facts this config respects
 
 - `adapter-static` emits clean-URL pages as `foo.html` (e.g. `growbikenet.html`) and nested
@@ -304,7 +289,6 @@ sudo tail -1 /var/log/nginx/access.log               # starts with x.y.z.0, ends
 # From your laptop (also exercises the provider's firewall):
 curl -sI http://bikenetkit.org/ | head -1                           # 301 to https://
 curl -sI https://bikenetkit.org/ | head -1                          # 200
-# Full site: the next three need `root` at website/ (§ Launch state).
 curl -sI https://bikenetkit.org/growbikenet | head -1               # 200, resolves growbikenet.html
 curl -sI https://bikenetkit.org/growbikenet/amsterdam_nl | head -1  # 200, redirect stub to the default view
 curl -sI https://bikenetkit.org/embed/growbikenet/amsterdam_nl | grep -iE '^HTTP|x-robots'  # 200 + noindex
@@ -343,6 +327,9 @@ map tiles draw.
   wrong, the archive is missing from `~/bikenetkit/tiles/`, or that vhost is dropping byte ranges.
 - **`.DS_Store` may get rsynced** into the webroot from macOS; harmless. Remove with
   `sudo rm ~/bikenetkit/website/.DS_Store` if desired.
+- **`placeholder-website/`** is the "coming soon" root the apex served before launch; nothing
+  serves it now. `pnpm deploy:placeholder` still fills it, so it can stay as a rollback target
+  (repoint `root` at it and reload) or be deleted.
 - **`error_log` still records full IPs.** nginx has no `log_format` for the error log, so a failing
   request writes `client: <full address>` there regardless of the `anonymized` format. This is
   disclosed in the privacy notice; keep the error log under the same 14-day rotation, and don't

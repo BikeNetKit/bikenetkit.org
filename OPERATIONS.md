@@ -11,13 +11,6 @@ Placeholders `<PREVIEW_HOST>`, `<STATS_PATH>` and `<STATS_USER>` stand for value
 repository. The maintainers (listed in [.github/CODEOWNERS](.github/CODEOWNERS)) hold the real
 values.
 
-> **Launch state.** Until launch, `bikenetkit.org` serves the "coming soon" placeholder. Its vhost
-> roots at `~/bikenetkit/placeholder-website/`, which `pnpm deploy:placeholder` fills.
-> `pnpm deploy:site` fills `~/bikenetkit/website/`, which nothing serves yet, so running it
-> publishes nothing, and `main` records the placeholder, because that is what is live. Going live
-> is an nginx change, not a deploy: repoint the vhost's `root` at `website/` and reload
-> ([www/DEPLOY_NGINX.md](www/DEPLOY_NGINX.md) § Launch state).
-
 ## Server layout
 
 One server runs nginx over static files. There is **no application process**: nothing to
@@ -57,9 +50,9 @@ git push origin main dev
 
 Nothing in the tooling enforces the order, because a deploy uploads whatever is checked out.
 Deploying from any other branch leaves `main` describing a site that is not live, and
-`deploy:site` warns when you do. Branch rulesets for `main` and `dev` (no force-push or deletion;
-`main` only through a reviewed pull request, with repository admins allowed to push the release
-fast-forward) are prepared, and GitHub only allows them once the repository is public.
+`deploy:site` warns when you do. Branch rulesets on GitHub back this up: neither `main` nor `dev`
+accepts a force-push or deletion, and `main` changes only through a reviewed pull request, with
+repository admins allowed to push the release fast-forward.
 
 The deploy targets, all run from `www/`, all reading `www/.env` (copied from `.env.example`). Each
 takes `-- --dry-run`.

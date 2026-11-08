@@ -49,8 +49,8 @@ if (!basemapUrl) {
 
 // Glyphs default to the basemap's own origin (the CORS tiles host), so the published style is
 // self-contained cross-origin. `--relative-glyphs` forces a root-relative path for vendoring.
-// tiles.bikenetkit.org is live independently of the website deploy, which only serves the full site
-// at launch — so a docs consumer must not lean on bikenetkit.org for glyphs before then.
+// tiles.bikenetkit.org is independent of the website deploy, so a docs consumer never has to lean
+// on bikenetkit.org for glyphs.
 const relativeGlyphs = process.argv.includes('--relative-glyphs');
 const glyphBase = relativeGlyphs
 	? ''

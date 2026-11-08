@@ -11,10 +11,8 @@ Sphinx. Everything _underneath_ those components can be reused: it is self-hoste
 key and is CORS-open, so a notebook, Folium or an `<iframe>` can render the same basemap and
 colour scheme. There are three tiers below, from highest fidelity to least effort.
 
-> **Launch state.** `tiles.bikenetkit.org` and `data.bikenetkit.org` are live now, independently
-> of the main website. `bikenetkit.org` itself serves a placeholder until the full site launches,
-> so Tier 3 (`/embed`) works only after launch. Point at the tiles host for the style, tiles and
-> glyphs, and never at `bikenetkit.org`.
+> `tiles.bikenetkit.org` and `data.bikenetkit.org` are independent of the main website. Point at
+> the tiles host for the style, tiles and glyphs, and never at `bikenetkit.org`.
 
 ## 1. What you can reuse
 
@@ -279,7 +277,7 @@ as closely as that port is maintained. Choose this tier only if staying in Foliu
 a pixel-perfect basemap. For the network itself, still use the [§5](#5-the-colour-ramp-reference)
 ramp as the `explore()` colour map, so the _data_ matches the site.
 
-## 4. Tier 3 — iframe a canonical map _(showcase only, after launch)_
+## 4. Tier 3 — iframe a canonical map _(showcase only)_
 
 For prose and landing pages of the docs that want a real, interactive BikeNetKit map (not the
 reader's own data), embed the site's chrome-free `/embed` route:
@@ -304,8 +302,6 @@ the browser.
 - It is pixel-identical to the site, needs no JavaScript in the notebook, and stays current.
 - **Showcase only:** it renders a canonical tool and city, **not** the MWE's GeoDataFrame. Use it
   on overview pages, not in the MWE result cell.
-- It ships with the full website, so it works only after launch (see the launch note at the top).
-  Until then, use Tier 1 for live maps.
 
 `metric`, `type` and `variant` are the same axes as on the map pages, as path segments. A `cityid`
 is `<base>_<cc>` (e.g. `lyon_fr`). The five interactive tools are `growbikenet`, `linkbikenet`,
@@ -354,11 +350,11 @@ The Python port in [§2](#2-tier-1--maplibre-drop-in-for-notebook-maps-recommend
 
 ## 6. Choosing a tier
 
-| Tier                        | Fidelity                        | Effort                    | Draws MWE data?    | Runtime dependencies        |
-| --------------------------- | ------------------------------- | ------------------------- | ------------------ | --------------------------- |
-| **Tier 1** MapLibre helper  | Full                            | Medium (one helper)       | Yes                | style, tiles, glyphs        |
-| **Tier 2** Folium + basemap | Basemap approximate, data exact | Medium-high (flavor port) | Yes                | tiles                       |
-| **Tier 3** iframe `/embed`  | Pixel-identical                 | Low                       | No, canonical only | full website (after launch) |
+| Tier                        | Fidelity                        | Effort                    | Draws MWE data?    | Runtime dependencies |
+| --------------------------- | ------------------------------- | ------------------------- | ------------------ | -------------------- |
+| **Tier 1** MapLibre helper  | Full                            | Medium (one helper)       | Yes                | style, tiles, glyphs |
+| **Tier 2** Folium + basemap | Basemap approximate, data exact | Medium-high (flavor port) | Yes                | tiles                |
+| **Tier 3** iframe `/embed`  | Pixel-identical                 | Low                       | No, canonical only | full website         |
 
 **Recommendation:** Tier 1 for the MWE and any cell that visualises computed results; Tier 3 for
 showcase maps on overview pages once the site has launched. Tier 2 only if the Folium workflow must
