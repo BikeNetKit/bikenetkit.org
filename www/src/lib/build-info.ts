@@ -11,3 +11,5 @@ declare const __BUILD_TIME__: string;
  * formats in UTC unless given the viewer's zone.
  */
 export const BUILD_TIME: string = __BUILD_TIME__;
+
+export { version as SITE_VERSION } from '../../package.json';

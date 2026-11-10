@@ -4,7 +4,7 @@
 	import SocialIcon from '$lib/components/SocialIcon.svelte';
 	import { socialLinks } from '$lib/data/landing';
 	import { FAQ_URL, GITHUB_ORG_URL, PRESS_KIT_URL, REPORT_EMAIL } from '$lib/site.js';
-	import { BUILD_TIME } from '$lib/build-info';
+	import { BUILD_TIME, SITE_VERSION } from '$lib/build-info';
 	import { formatIsoDateTime } from '$lib/utils/formatters';
 
 	let deployedLabel = $state(formatIsoDateTime(BUILD_TIME));
@@ -54,10 +54,9 @@
 			     the title. Colour is inherited from <footer>; a step weaker would
 			     push already-marginal contrast against `bg-brand-subtle` further down. -->
 			<div class="grow text-center text-xs">
-				Last deployed on <time
-					datetime={BUILD_TIME}
-					title={formatIsoDateTime(BUILD_TIME)}
-					class="tabular-nums">{deployedLabel}</time
+				Version {SITE_VERSION}, last deployed on
+				<time datetime={BUILD_TIME} title={formatIsoDateTime(BUILD_TIME)} class="tabular-nums"
+					>{deployedLabel}</time
 				>.
 			</div>
 		</div>
