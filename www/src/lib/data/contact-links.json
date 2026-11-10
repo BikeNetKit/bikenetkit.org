@@ -197,7 +197,16 @@
 				{ "name": "Romanian Cyclists' Federation", "url": "https://biciclisti.ro", "lang": "ro" }
 			]
 		},
-		"RS": { "ministry": { "url": "https://www.mgsi.gov.rs/cir/contacts", "lang": "sr" } },
+		"RS": {
+			"ministry": { "url": "https://www.mgsi.gov.rs/cir/contacts", "lang": "sr" },
+			"orgs": [
+				{
+					"name": "Novosadska biciklistička inicijativa (NSBI)",
+					"url": "https://nsbi.org.rs/",
+					"lang": "sr"
+				}
+			]
+		},
 		"SE": {
 			"ministry": { "url": "https://www.trafikverket.se/om-oss/kontakta-oss/", "lang": "sv" },
 			"orgs": [{ "name": "Cykelfrämjandet", "url": "https://cykelframjandet.se", "lang": "sv" }]
