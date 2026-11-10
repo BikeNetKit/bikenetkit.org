@@ -33,7 +33,8 @@ export function parseArgs(argv, flags, label = 'args') {
 
 	for (let i = 0; i < argv.length; i++) {
 		const arg = argv[i];
-		if (!arg.startsWith('--')) continue;
+		// `pnpm <script> -- --flag` passes the bare `--` separator through to the script.
+		if (arg === '--' || !arg.startsWith('--')) continue;
 
 		const raw = arg.slice(2).replace(/=.*$/, '');
 		const negated = raw.startsWith('no-') && flags[toCamel(raw.slice(3))] === Boolean;
