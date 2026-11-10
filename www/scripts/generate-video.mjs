@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-// Render a 4K video of an ordered build-up (growbikenet / linkbikenet) — basemap and data layer
-// only: no labels, no legend, no HUD, no playback bar, no nav control.
+// Render a 4K video of an ordered build-up (growbikenet / linkbikenet / fixbikenet) — basemap,
+// the existing bike network where the tool draws one, and the data layer: no labels, no legend,
+// no HUD, no playback bar, no nav control.
 //
 //   pnpm generate:video                                       # copenhagen, 3840×2160
 //   pnpm generate:video --city podgorica
@@ -68,7 +69,7 @@ const opts = {
 	padding: 60,
 	weight: 1,
 	labels: false,
-	// Off so the frame is nothing but basemap and data. The basemap is OSM/ODbL via Protomaps, so
+	// Off so the frame is nothing but basemap and network. The basemap is OSM/ODbL via Protomaps, so
 	// wherever the video is published the credit still has to appear — in the edit, an end card or
 	// the description. `--attribution` puts it back in-frame.
 	attribution: false,

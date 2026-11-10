@@ -110,6 +110,7 @@
 		bounds={fitBounds}
 		cityBoundary={data.cityBoundary}
 		metricProperty={data.metricProperty}
+		existingNetwork={data.existingNetwork}
 		frameOverride={frame}
 		constrainCamera={false}
 		showControls={false}

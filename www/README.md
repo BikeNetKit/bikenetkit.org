@@ -134,7 +134,8 @@ tests/                        # Playwright smoke, accessibility and capture spec
 ## Animated exports
 
 `/animation/[tool]/[city]` renders an ordered build-up with no legend, HUD, playback bar or
-navigation control. Two Playwright drivers step it frame by frame, wait for MapLibre's `idle` event
+navigation control. It draws the basemap, the existing bike network beneath the build-up (FixBikeNet,
+LinkBikeNet and GrowBikeNet `from_bikenw`), then the tool's layer. Two Playwright drivers step it frame by frame, wait for MapLibre's `idle` event
 on each frame, and hand the frames to ffmpeg; their shared code is in
 [scripts/capture-common.mjs](scripts/capture-common.mjs).
 
