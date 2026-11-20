@@ -280,7 +280,7 @@ sudo logrotate -d /etc/logrotate.d/nginx             # dry run, no changes
 # On the server. Once TLS is installed, address the site by name: the port-80 default_server is
 # certbot's redirect block, which answers the bare IP and `localhost` with a 404.
 SITE='--resolve bikenetkit.org:443:127.0.0.1 https://bikenetkit.org'
-curl -sI $SITE/ | head -1                             # HTTP/1.1 200 OK
+curl -sI $SITE/ | head -1                             # HTTP/2 200 (HTTP/1.1 200 OK before § HTTP/2)
 
 # The logged client address must be truncated, and the referrer must be present:
 curl -s -H 'Referer: https://example.org/article' $SITE/ > /dev/null
@@ -428,6 +428,7 @@ server {
     listen 443 ssl;
     listen [::]:443 ssl;
     server_name www.bikenetkit.org;
+    http2 on;                       # § HTTP/2
     ssl_certificate /etc/letsencrypt/live/bikenetkit.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/bikenetkit.org/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
@@ -440,6 +441,41 @@ server {
 
 certbot's port-80 block keeps sending `http://www.` to `https://www.`, which then lands here, so
 that block needs no change. Renewal is unaffected: the certificate still names both hosts.
+
+### HTTP/2
+
+certbot's `listen 443 ssl` lines leave every host on HTTP/1.1, where a browser opens at most six
+connections per host. The home page preloads some sixty script modules and a map sends a burst of
+small range requests to the tiles host, so both queue behind that limit. HTTP/2 carries them over
+one connection. Add one line to every TLS server block, below its `server_name`: the apex, the
+`www` redirect, the preview, and the tiles and data vhosts.
+
+```nginx
+    http2 on;
+```
+
+- **It needs nginx 1.25.1 or later.** The older `listen 443 ssl http2;` spelling is deprecated.
+- **Leave it out of the port-80 blocks and the catch-all.** On port 80 it would accept cleartext
+  HTTP/2, which no browser speaks, and the catch-all completes no handshake at all.
+- **The directive is per server block**, chosen by the name the client asks for, so one host can go
+  first. Switch the preview on its own, check it, then add the line to the others.
+- **HTTP/3 stays off.** It needs UDP 443 through the provider's firewall and a second protocol
+  stack to keep patched, for little gain on a static site.
+- **Keep automatic security updates on.** nginx's HTTP/2 code is where its serious bugs have
+  landed (CVE-2026-123007 in November 2026), and Ubuntu's `unattended-upgrades` installs the
+  fixes without anyone logging in.
+
+```bash
+sudo nginx -t && sudo systemctl reload nginx
+for h in bikenetkit.org www.bikenetkit.org <PREVIEW_HOST> tiles.bikenetkit.org data.bikenetkit.org; do
+  curl -sI --http2 -o /dev/null -w "$h %{http_version}\n" "https://$h/"     # 2 for each
+done
+```
+
+The access logs then record `HTTP/2.0` in the request line, which GoAccess reads unchanged
+([DEPLOY_STATS.md](DEPLOY_STATS.md)). Tile range requests and the pre-compressed data files behave
+as before; `pnpm check:headers` and the checks in [DEPLOY_TILES.md](DEPLOY_TILES.md) and
+[DEPLOY_DATA.md](DEPLOY_DATA.md) confirm it.
 
 ### The preview vhost
 

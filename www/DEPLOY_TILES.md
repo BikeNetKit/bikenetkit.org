@@ -238,7 +238,9 @@ sudo certbot renew --dry-run
 
 `tiles.bikenetkit.org` resolves through the zone's wildcard record
 ([DEPLOY_NGINX.md](DEPLOY_NGINX.md) § DNS), so certbot can issue the certificate as soon as this
-vhost answers on port 80.
+vhost answers on port 80. Once it has, add `http2 on;` to the TLS block
+([DEPLOY_NGINX.md § HTTP/2](DEPLOY_NGINX.md#http2)): a map sends its tile range requests in
+bursts, and HTTP/1.1 lets only six through at a time.
 
 ## Map style + glyphs for external consumers
 
