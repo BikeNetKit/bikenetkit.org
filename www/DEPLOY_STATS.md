@@ -101,6 +101,15 @@ chmod +x ~/bikenetkit/gen-stats.sh
   link-preview fetchers, and the few fixed "browser" strings scanners pose as (Chrome 108 on
   macOS 13.1, Safari on iOS 13.2.3, MSIE). One `<substring><TAB>Crawlers` per line; see the list
   below.
+  - A crawler that drives a real browser sends the navigation header too, and one that names
+    itself in a Chrome user agent (`Reflectionbot`, `meta-externalagent`) is counted as Chrome
+    unless it is listed here. The OS panel gives it away: its "Crawlers" row is hits from a
+    recognised browser with no recognisable operating system.
+  - The pinned `Chrome/14x.0.0.0` entries are a distributed crawler that fetches each page once
+    from thousands of addresses, with no referrer, under a few fixed Chrome versions well behind
+    the current one. A reader still on exactly that version is dropped with it, which is the
+    accepted cost. Its signature in the raw log is deep pages requested once per address with a
+    `-` referrer; when it moves to other versions, the list needs them.
 - `--unknowns-as-crawlers` counts anything GoAccess cannot identify as a browser, including
   requests with no user agent, as a crawler.
 - `--ignore-status=400/404/405` drops the vulnerability probes (`/.env`, `/wp-admin/…`,
@@ -123,8 +132,16 @@ printf "%s\tCrawlers\n" \
   "iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3" \
   "Mastodon/" "Pleroma" "Akkoma" "Misskey" "curl/" "MSIE " \
   "Firefox/71.0" "Chrome/81.0.4044.129" "Edg/90.0.818.46" \
+  "Reflectionbot" "meta-externalagent" '\x22Mozilla' \
+  "Chrome/142.0.0.0 Safari/537.36" "Chrome/148.0.0.0 Safari/537.36" \
+  "Chrome/149.0.0.0 Safari/537.36" "Chrome/150.0.0.0 Safari/537.36" \
+  "X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0" \
   > ~/bikenetkit/goaccess-bots.list
 ```
+
+`\x22Mozilla` is how nginx logs a user agent that was sent wrapped in double quotes, which no
+browser does. Editing the list changes only what is counted from then on; for the days already in
+the DB, see [Re-filtering recent days](#re-filtering-recent-days).
 
 ## 3. Schedule it (systemd timer)
 
@@ -234,6 +251,77 @@ zcat -f /var/log/nginx/pageviews.log.* | goaccess - \
 ~/bikenetkit/gen-stats.sh                                   # 4. add the live log
 sudo systemctl start bikenetkit-stats.timer                 # 5. resume the schedule
 ```
+
+## Re-filtering recent days
+
+A crawler the filter missed stays in the totals, because the DB holds aggregates, not log lines.
+The days whose lines are still on disk can be parsed again through a stricter
+`goaccess-bots.list`. Older days cannot, and keep the figures they have.
+
+This works without emptying the DB because GoAccess stores every table per date. On `--restore`
+with `--keep-last=N` it loads only the dates listed in `I32_DATES.db`, as long as that file lists
+exactly `N` of them. Trimming that one file therefore cuts the recent days out of a copy of the
+DB, and the rotated logs put them back, filtered. Checked against GoAccess 1.9.4.
+
+Do it in one sitting, on a copy, and not across midnight UTC, when logrotate drops the oldest log.
+
+```bash
+cd ~/bikenetkit
+sudo systemctl stop bikenetkit-stats.timer && ./gen-stats.sh
+cp -p stats/index.html "stats/unfiltered-$(date -u +%F).html"  # the report as it was
+cp -a stats-db stats-db.splice                                  # everything below works on a copy
+# ...now extend goaccess-bots.list...
+
+FLAGS=(--log-format=COMBINED --anonymize-ip --ignore-crawlers --ignore-panel=HOSTS
+  --browsers-file="$HOME/bikenetkit/goaccess-bots.list" --unknowns-as-crawlers
+  --ignore-status=400 --ignore-status=404 --ignore-status=405 --exclude-ip=127.0.0.1
+  --db-path "$HOME/bikenetkit/stats-db.splice")
+goaccess /dev/null "${FLAGS[@]}" --restore -o /tmp/base.json    # baseline to compare against
+
+# CUT is the day after the first line of the oldest rotated log: that first day is only partly
+# on disk, so it stays as it is.
+zcat -f "$(ls -tr /var/log/nginx/pageviews.log.* | head -1)" | head -1
+CUT=20261112
+
+# 1. Keep only the dates before CUT. The file is a 17-byte tpl header, then one uint32 per date.
+N=$(python3 - "$CUT" <<'PY'
+import os, struct, sys
+path = os.path.expanduser("~/bikenetkit/stats-db.splice/I32_DATES.db")
+raw = open(path, "rb").read()
+assert raw[:4] == b"tpl\0" and raw[8:13] == b"A(u)\0"
+keep = [d for d in struct.unpack("<%dI" % ((len(raw) - 17) // 4), raw[17:]) if d < int(sys.argv[1])]
+head = b"tpl\0" + struct.pack("<I", 17 + 4 * len(keep)) + b"A(u)\0"
+open(path, "wb").write(head + struct.pack("<I%dI" % len(keep), len(keep), *keep))
+print(len(keep))
+PY
+)
+goaccess /dev/null "${FLAGS[@]}" --restore --persist --keep-last="$N" -o /tmp/pruned.json
+rm stats-db.splice/IGLP_LAST_PARSE.db   # else replayed lines are skipped as already parsed
+
+# 2. Replay the rotated logs from CUT on, oldest first. No --keep-last here: it would evict the
+#    oldest date for every new one.
+zcat -f $(ls -tr /var/log/nginx/pageviews.log.*) |
+  awk -v cut="$CUT" 'BEGIN { split("Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec", m, " ")
+      for (i in m) mon[m[i]] = sprintf("%02d", i) }
+    (substr($4, 9, 4) mon[substr($4, 5, 3)] substr($4, 2, 2)) + 0 >= cut' |
+  goaccess - "${FLAGS[@]}" --restore --persist -o /tmp/spliced.json
+
+# 3. Swap, add the live log, resume.
+mv stats-db "stats-db.bak-$(date -u +%F)" && mv stats-db.splice stats-db
+./gen-stats.sh && sudo systemctl start bikenetkit-stats.timer
+```
+
+Check before step 3, in the `visitors` panel of the three JSON files: `pruned.json` has exactly
+the dates before `CUT`, with the hits and visitors `base.json` has for them; `spliced.json` has
+those unchanged and the later days lower. After the swap, a second `gen-stats.sh` must not change
+the totals.
+
+- **"Total Requests" in the header overcounts afterwards.** It is a run counter for the whole DB,
+  not a per-date figure, so the replayed lines are in it twice. Valid requests, visitors and every
+  panel are per date and come out right.
+- **The old DB directory and the saved report are the undo.** Both hold the same anonymised
+  aggregates as the live ones, so keeping them does not extend any retention. No raw log is
+  copied anywhere.
 
 ## Retention & privacy
 
