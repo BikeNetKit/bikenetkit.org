@@ -74,6 +74,10 @@ takes `-- --dry-run`.
 [AGENTS.md § Common commands](AGENTS.md#common-commands-run-from-www). Refreshing the data has its own runbook:
 [README.md](README.md#for-maintainers-updating-the-data) § For maintainers: updating the data.
 
+On macOS the three site deploys need GNU rsync (`brew install rsync`, then a new terminal). The
+rsync macOS ships cannot set file modes on upload, so they stop before building when it is the one
+on `PATH`.
+
 Every site deploy refuses to upload a build without the display font (Bespoke Sans, which is not
 in the repository; see [www/README.md](www/README.md#fonts) § Fonts). A build without it still
 looks plausible, which is why the gate exists.

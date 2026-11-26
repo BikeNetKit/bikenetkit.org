@@ -121,6 +121,24 @@ export function warnIfOpenrsync(tag) {
 	);
 }
 
+// The site deploy normalises modes with `--chmod=D755,F644`, and the rsync macOS ships cannot do
+// that: it rejects the octal spelling after the build has already run, and it accepts the symbolic
+// one (`--chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r`) but ignores it, so a 0600 file still arrives 0600 and
+// serves as a 403 (measured 2026-11-26). No spelling works on both, so stop before the build.
+// A missing rsync is left to fail on its own, with rsync's own message.
+export function requireGnuRsync(tag) {
+	const version = spawnSync('rsync', ['--version'], { encoding: 'utf8' }).stdout ?? '';
+	if (!version.includes('openrsync') && !/\bversion 2\./.test(version)) return;
+	const indent = ' '.repeat(tag.length + 3);
+	console.error(
+		`[${tag}] \`rsync\` is the one macOS ships, which cannot set file modes on upload.\n` +
+			`${indent}Install GNU rsync (\`brew install rsync\`), open a new terminal so it comes\n` +
+			`${indent}first on PATH (\`rsync --version\` should say 3.x), and run this again.\n` +
+			`${indent}Nothing was built or uploaded.`
+	);
+	process.exit(1);
+}
+
 // Spawn a command, inheriting stdio. Resolves on exit 0, rejects otherwise.
 // `display` shortens any argument that spans lines — `compress-data.mjs` passes a ~90-line shell
 // script as a single ssh argument, and echoing it verbatim buries the command and its output.

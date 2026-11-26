@@ -28,7 +28,13 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
-import { WWW_ROOT, getDeployConfig, run, withTrailingSlash } from './server-config.mjs';
+import {
+	WWW_ROOT,
+	getDeployConfig,
+	requireGnuRsync,
+	run,
+	withTrailingSlash
+} from './server-config.mjs';
 import { CONTACT_EMAIL, REPORT_EMAIL } from '../src/lib/site.js';
 
 const args = process.argv.slice(2);
@@ -40,6 +46,9 @@ if (placeholder && preview) {
 	console.error('[deploy] --placeholder and --preview name different targets; pick one.');
 	process.exit(1);
 }
+
+// Before anything slow: the upload at the end needs an rsync that honours --chmod.
+requireGnuRsync('deploy');
 
 // `main` is meant to record what is live. Nothing here enforces that — this rsyncs whatever is
 // checked out — so deploying from another branch is allowed but leaves `main` describing a site
@@ -184,7 +193,8 @@ await run('node', [path.join(WWW_ROOT, 'scripts/check-fonts.mjs'), '--build']);
 // --chmod normalises modes on the way up: nginx runs as a different user than the one rsync writes
 // as, so a file that is 0600 locally arrives unreadable and serves as a 403. Git does not record
 // read bits, so a freshly dropped-in asset (the 2026-11-02 press kit) can carry that mode without
-// anything in the repo showing it. -a would otherwise faithfully copy it.
+// anything in the repo showing it. -a would otherwise faithfully copy it. macOS's own rsync cannot
+// do this, which is what `requireGnuRsync` at the top is for.
 const rsyncArgs = [
 	'-az',
 	'--delete',
