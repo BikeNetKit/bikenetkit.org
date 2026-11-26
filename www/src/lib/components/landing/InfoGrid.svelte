@@ -89,9 +89,13 @@
 								>{formatIsoDate(item.date)}</time
 							>
 							<span class="ml-2"
-								>{#each typeof item.text === 'string' ? [item.text] : item.text as part, i (i)}{#if typeof part === 'string'}{part}{:else}<a
+								>{#each typeof item.text === 'string' ? [item.text] : item.text as part, i (i)}{#if typeof part === 'string'}{part}{:else if part.href.startsWith('http')}<a
 											href={part.href}
-											class="link relative">{part.text}</a
+											target="_blank"
+											rel="noopener noreferrer"
+											class="link relative"
+											>{part.text}<span class="sr-only"> (opens in new tab)</span></a
+										>{:else}<a href={part.href} class="link relative">{part.text}</a
 										>{/if}{/each}</span
 							>
 						</li>
