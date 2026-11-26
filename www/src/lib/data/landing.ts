@@ -130,6 +130,32 @@ export const stats: Stat[] = [
 // Newest first.
 export const news: NewsItem[] = [
 	{
+		date: '2026-11-26',
+		text: [
+			'After our launch, we received a wave of positive feedback and were covered by ',
+			{
+				text: 'Fast Company',
+				href: 'https://www.fastcompany.com/91636534/this-new-software-maps-out-a-better-bike-network-for-your-city'
+			},
+			', ',
+			{
+				text: 'FlowingData',
+				href: 'https://flowingdata.com/2026/11/12/bikenetkit-is-a-toolkit-to-improve-the-bicycle-network-in-your-city/'
+			},
+			', in German by ',
+			{
+				text: 'Der Standard',
+				href: 'https://www.derstandard.at/story/3000000348422/interaktive-karten-zeigen-wie-wien-und-andere-staedte-radwege-intelligenter-planen-koennen'
+			},
+			', and more - thank you! We are collecting all your feedback to improve BikeNetKit - please keep sending us more. We just fixed a critical bug and finished ',
+			{
+				text: 'PDF tutorials',
+				href: 'https://github.com/BikeNetKit/tutorials#bikenetkit-tutorials'
+			},
+			' for all tools.'
+		]
+	},
+	{
 		date: '2026-11-09',
 		text: [
 			'After a year of development, we just launched ',
